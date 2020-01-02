@@ -12,4 +12,20 @@ public interface RoleDao {
 
 	List<Role> selectRoleByUserId(@Param("userId") Integer userId);
 
+	int deleteByPrimaryKey(@Param("roleId")Integer roleId);
+
+	Role selectRoleByRoleName(@Param("name")String name);
+
+	int insertSelective(Role role);
+
+	Role selectByPrimaryKey(@Param("roleId")Integer roleId);
+
+	int updateByPrimaryKeySelective(Role role);
+
+	List<Role> allRolesList();
+
+	long pageRoleListCount();
+
+	List<Role> pageRoleList(@Param("start")int start, @Param("offset")int offset);
+
 }

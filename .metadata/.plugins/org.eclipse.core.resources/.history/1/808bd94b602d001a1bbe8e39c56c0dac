@@ -1,0 +1,30 @@
+package com.github.admin.common.service;
+
+import java.util.List;
+
+import com.github.admin.common.domain.Role;
+import com.github.admin.common.vo.PageVo;
+import com.github.appmodel.domain.result.ModelResult;
+import com.github.appmodel.page.DataPage;
+
+public interface RoleService {
+
+	/***
+	 * 根据userId查询角色
+	 * @param userId
+	 * @return
+	 */
+	public ModelResult<List<Role>> selectRoleByUserId(Integer userId);
+
+	public ModelResult<PageVo> pageRoleList(DataPage<Role> dataPage);
+
+	public ModelResult<List<Role>> allRolesList();
+
+	public ModelResult<Integer> insertSelective(Role role);
+
+	public ModelResult<Role> selectByPrimaryKey(Integer roleId);
+
+	public ModelResult<Integer> updateByPrimaryKeySelective(Role role);
+
+	public ModelResult<Integer> deleteByPrimaryKeys(String roleIds);
+}
