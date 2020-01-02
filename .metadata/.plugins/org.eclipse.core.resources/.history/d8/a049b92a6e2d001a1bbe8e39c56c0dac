@@ -1,0 +1,10 @@
+package com.github.admin.server.service;
+
+import org.springframework.stereotype.Service;
+
+import com.github.admin.common.service.UserOrganizationService;
+
+@Service
+public class UserOrganizationServiceImpl implements UserOrganizationService{
+
+}

@@ -1,0 +1,21 @@
+package com.github.admin.server.service;
+
+import java.util.List;
+
+import org.springframework.stereotype.Service;
+
+import com.github.admin.common.domain.UserRole;
+import com.github.admin.common.service.UserRoleService;
+import com.github.appmodel.domain.result.ModelResult;
+
+@Service
+public class UserRoleServiceImpl implements UserRoleService {
+
+	
+	@Override
+	public ModelResult<List<UserRole>> selectByUserId(Integer userId) {
+		// TODO Auto-generated method stub
+		return null;
+	}
+
+}

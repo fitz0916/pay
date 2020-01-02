@@ -1,0 +1,37 @@
+package com.github.admin.server.service;
+
+import java.util.List;
+
+import org.apache.commons.lang3.StringUtils;
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.stereotype.Service;
+
+import com.github.admin.common.constants.Constants;
+import com.github.admin.common.domain.UserOrganization;
+import com.github.admin.common.service.UserOrganizationService;
+import com.github.admin.server.dao.UserOrganizationDao;
+import com.github.appmodel.domain.result.ModelResult;
+
+@Service
+public class UserOrganizationServiceImpl implements UserOrganizationService{
+
+	@Autowired
+	private UserOrganizationDao userOrganizationDao;
+	
+	@Override
+	public ModelResult<Integer> insertSelective(String[] organizationIds, Integer userId) {
+		ModelResult<Integer> modelResult = new ModelResult<Integer>();
+		if(organizationIds == null || userId == null | userId == 0) {
+			modelResult.withError(Constants.FAIL_MSG_CODE, "组织或用户id为空");
+			return modelResult;
+		}
+		return null;
+	}
+
+	@Override
+	public ModelResult<List<UserOrganization>> selectByUserId(Integer userId) {
+		// TODO Auto-generated method stub
+		return null;
+	}
+
+}

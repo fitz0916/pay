@@ -1,0 +1,10 @@
+package com.github.admin.server.dao;
+
+import org.springframework.stereotype.Repository;
+
+@Repository
+public interface UserPermissionDao {
+
+	int deleteByUserId(Integer userId);
+
+}
