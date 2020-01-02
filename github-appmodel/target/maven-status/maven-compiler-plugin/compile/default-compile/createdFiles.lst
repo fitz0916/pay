@@ -1,0 +1,7 @@
+com/github/appmodel/page/DataPage.class
+com/github/appmodel/domain/result/ModelResult.class
+com/github/appmodel/domain/result/ResultUtil.class
+com/github/appmodel/constant/UnknownErrorCodeConstant.class
+com/github/appmodel/localmsg/LocalMsgManager.class
+com/github/appmodel/domain/result/Result.class
+com/github/appmodel/domain/result/BaseResult.class

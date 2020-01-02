@@ -1,0 +1,27 @@
+package com.eruige.admin.common.domain;
+
+/**
+ * Created by admin on 2018/5/4
+ */
+public class PermissionInfo extends Permission {
+
+    private String parentName;
+
+    private String systemTitle;
+
+    public String getParentName() {
+        return parentName;
+    }
+
+    public void setParentName(String parentName) {
+        this.parentName = parentName;
+    }
+
+    public String getSystemTitle() {
+        return systemTitle;
+    }
+
+    public void setSystemTitle(String systemTitle) {
+        this.systemTitle = systemTitle;
+    }
+}

@@ -1,0 +1,37 @@
+package com.github.admin.common.utils;
+
+import org.apache.commons.lang3.StringUtils;
+
+import com.github.admin.common.domain.BaseObject;
+import com.github.appmodel.domain.result.ModelResult;
+
+public class ResultUtils {
+	
+	
+	public static <T> ResultVo  buildResult(ModelResult<T> modelResult){
+		ResultVo resultVo = new ResultVo();
+		if(modelResult.isSuccess()) {
+			resultVo.setData(modelResult.getModel());
+			resultVo.setCode("1");
+			resultVo.setSuccess(true);
+			resultVo.setMsg("成功");
+		}else {
+			String msg = modelResult.getErrorMsg();
+			String code = modelResult.getErrorCode();
+			resultVo.setData("");
+			resultVo.setSuccess(false);
+			if(StringUtils.isNotBlank(code)) {
+				resultVo.setMsg(code);
+			}else {
+				resultVo.setCode("0");
+			}
+			if(StringUtils.isNotBlank(msg)) {
+				resultVo.setMsg(msg);
+			}else {
+				resultVo.setMsg("失败");
+			}
+		}
+		return resultVo;
+	}
+
+}

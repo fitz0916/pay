@@ -1,0 +1,8 @@
+package com.github.admin.utils;
+
+import org.springframework.web.util.WebUtils;
+
+public class SpringWebUtils extends WebUtils{
+
+	
+}

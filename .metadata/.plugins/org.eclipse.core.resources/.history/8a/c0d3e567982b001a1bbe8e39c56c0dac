@@ -1,0 +1,28 @@
+package com.github.admin.server.service;
+
+import org.apache.commons.lang3.StringUtils;
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.stereotype.Service;
+
+import com.github.admin.common.domain.User;
+import com.github.admin.common.service.UserService;
+import com.github.appmodel.domain.result.ModelResult;
+
+@Service
+public class UserServiceImpl implements UserService{
+
+	@Autowired
+	private UserDao userDao;
+	
+	@Override
+	public ModelResult<User> selectUserByUserName(String userName) {
+		ModelResult<User> modelResult = new ModelResult<User>();
+		if(StringUtils.isBlank(userName)) {
+			modelResult.withError("0", "账号名称不能为空！");
+			return modelResult;
+		}
+		User user = userDao.selectUserByUserName(userName);
+		return null;
+	}
+
+}

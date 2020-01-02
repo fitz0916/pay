@@ -1,0 +1,34 @@
+package com.github.admin.config;
+
+import java.awt.Color;
+
+import org.springframework.context.annotation.Bean;
+import org.springframework.context.annotation.Configuration;
+
+import com.octo.captcha.component.image.color.SingleColorGenerator;
+
+@Configuration
+public class CaptchaConfig {
+
+	
+	
+	
+	@Bean(name = "colorGen")
+	public SingleColorGenerator colorGen(Color colorDimGrey) {
+		SingleColorGenerator colorGenerator = new SingleColorGenerator(colorDimGrey);
+		return colorGenerator;
+	}
+	
+	@Bean(name = "colorWrite")
+	public Color colorWrite() {
+		Color color = new Color(105,105,105);
+		return color;
+	}
+	
+	@Bean(name = "colorDimGrey")
+	public Color colorDimGrey() {
+		Color color = new Color(105,105,105);
+		return color;
+		
+	}
+}

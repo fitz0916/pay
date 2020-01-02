@@ -1,0 +1,95 @@
+package com.github.admin.config;
+
+import java.awt.Color;
+import java.awt.Font;
+import org.springframework.context.annotation.Bean;
+import org.springframework.context.annotation.Configuration;
+import com.octo.captcha.component.image.backgroundgenerator.UniColorBackgroundGenerator;
+import com.octo.captcha.component.image.color.RandomListColorGenerator;
+import com.octo.captcha.component.image.color.SingleColorGenerator;
+import com.octo.captcha.component.image.fontgenerator.RandomFontGenerator;
+import com.octo.captcha.component.image.textpaster.DecoratedRandomTextPaster;
+import com.octo.captcha.component.image.textpaster.textdecorator.BaffleTextDecorator;
+import com.octo.captcha.component.image.textpaster.textdecorator.TextDecorator;
+import com.octo.captcha.component.image.wordtoimage.ComposedWordToImage;
+import com.octo.captcha.component.word.wordgenerator.RandomWordGenerator;
+import com.octo.captcha.image.gimpy.GimpyFactory;
+import com.octo.captcha.engine.GenericCaptchaEngine;
+
+@Configuration
+public class CaptchaConfig {
+
+	@Bean(name = "imageEngine")
+	public GenericCaptchaEngine imageEngine(GimpyFactory captchaFactory) {
+		GenericCaptchaEngine imageEngine = new GenericCaptchaEngine(new GimpyFactory[] { captchaFactory });
+		return imageEngine;
+	}
+
+	@Bean(name = "captchaFactory")
+	public GimpyFactory captchaFactory(RandomWordGenerator wordgen, ComposedWordToImage wordtoimage) {
+		GimpyFactory captchaFactory = new GimpyFactory(wordgen, wordtoimage);
+		return captchaFactory;
+	}
+
+	@Bean(name = "wordgen")
+	public RandomWordGenerator wordgen() {
+		String randomstr = "0123456789abcdefghijklmnopqrstuvwxyz";
+		RandomWordGenerator wordgen = new RandomWordGenerator(randomstr);
+		return wordgen;
+	}
+
+	@Bean(name = "wordtoimage")
+	public ComposedWordToImage wordtoimage(RandomFontGenerator fontGenRandom, UniColorBackgroundGenerator backGenUni,
+			DecoratedRandomTextPaster decoratedPaster) {
+		ComposedWordToImage wordtoimage = new ComposedWordToImage(fontGenRandom, backGenUni, decoratedPaster);
+		return wordtoimage;
+
+	}
+
+	@Bean(name = "fontGenRandom")
+	public RandomFontGenerator fontGenRandom() {
+		Font font = new Font("Arial", 0, 20);
+		RandomFontGenerator fontGenRandom = new RandomFontGenerator(20, 20, new Font[] { font });
+		return fontGenRandom;
+	}
+
+	@Bean(name = "backGenUni")
+	public UniColorBackgroundGenerator backGenUni() {
+		UniColorBackgroundGenerator backGenUni = new UniColorBackgroundGenerator(80, 32);
+		return backGenUni;
+	}
+
+	@Bean(name = "decoratedPaster")
+	public DecoratedRandomTextPaster decoratedPaster(Color colorGen) {
+		int maxWordLength = 4; // 最打字符长度
+		int minWorldLength = 4; // 最小字符长度
+		DecoratedRandomTextPaster decoratedPaster = new DecoratedRandomTextPaster(maxWordLength, minWorldLength,
+				new RandomListColorGenerator(new Color[] { colorGen }), new TextDecorator[] {});
+		return decoratedPaster;
+	}
+
+	@Bean(name = "baffleDecorator")
+	public BaffleTextDecorator baffleDecorator(Color colorWrite) {
+		BaffleTextDecorator baffleTextDecorator = new BaffleTextDecorator(1, colorWrite);
+		return baffleTextDecorator;
+	}
+
+	@Bean(name = "colorGen")
+	public SingleColorGenerator colorGen(Color colorDimGrey) {
+		SingleColorGenerator colorGenerator = new SingleColorGenerator(colorDimGrey);
+		return colorGenerator;
+	}
+
+	@Bean(name = "colorWrite")
+	public Color colorWrite() {
+		Color color = new Color(105, 105, 105);
+		return color;
+	}
+
+	@Bean(name = "colorDimGrey")
+	public Color colorDimGrey() {
+		Color color = new Color(105, 105, 105);
+		return color;
+
+	}
+}

@@ -1,0 +1,20 @@
+package com.github.admin.client.service;
+
+import java.util.List;
+
+import javax.websocket.server.PathParam;
+
+import org.springframework.cloud.openfeign.FeignClient;
+import org.springframework.web.bind.annotation.GetMapping;
+import org.springframework.web.bind.annotation.RequestMapping;
+
+import com.github.admin.common.domain.Permission;
+
+@FeignClient(name="admin-server")
+@RequestMapping("/admin/server/permission")
+public interface PermissionServiceClient {
+
+	@GetMapping("/selectPermissionByUserId/{systemId}/{userId}")
+	List<Permission> selectPermissionByUserId(@PathParam("systemId")Integer systemId, @PathParam("userId")Integer userId);
+
+}

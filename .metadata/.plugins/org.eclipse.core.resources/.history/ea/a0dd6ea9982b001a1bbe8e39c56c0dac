@@ -1,0 +1,418 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd" >
+<mapper namespace="com.example.demo.server.manager.UserDao" >
+  <resultMap id="BaseResultMap" type="User" >
+    <id column="user_id" property="userId" jdbcType="INTEGER" />
+    <result column="user_name" property="userName" jdbcType="VARCHAR" />
+    <result column="password" property="password" jdbcType="VARCHAR" />
+    <result column="salt" property="salt" jdbcType="VARCHAR" />
+    <result column="real_name" property="realName" jdbcType="VARCHAR" />
+    <result column="avatar" property="avatar" jdbcType="VARCHAR" />
+    <result column="phone" property="phone" jdbcType="VARCHAR" />
+    <result column="email" property="email" jdbcType="VARCHAR" />
+    <result column="sex" property="sex" jdbcType="TINYINT" />
+    <result column="locked" property="locked" jdbcType="TINYINT" />
+    <result column="create_time" property="createTime" jdbcType="TIMESTAMP" />
+    <result column="update_time" property="updateTime" jdbcType="TIMESTAMP" />
+    <result column="user_type" property="userType" jdbcType="TINYINT"/>
+    <result column="agent_id" property="agentId" jdbcType="INTEGER" />
+    <result column="level" property="level" jdbcType="TINYINT"/>
+  </resultMap>
+
+  <resultMap id="UserInfoResultMap" type="UserInfo">
+    <id column="user_id" property="userId" jdbcType="INTEGER" />
+    <result column="user_name" property="userName" jdbcType="VARCHAR" />
+    <result column="password" property="password" jdbcType="VARCHAR" />
+    <result column="salt" property="salt" jdbcType="VARCHAR" />
+    <result column="real_name" property="realName" jdbcType="VARCHAR" />
+    <result column="avatar" property="avatar" jdbcType="VARCHAR" />
+    <result column="phone" property="phone" jdbcType="VARCHAR" />
+    <result column="email" property="email" jdbcType="VARCHAR" />
+    <result column="sex" property="sex" jdbcType="TINYINT" />
+    <result column="locked" property="locked" jdbcType="TINYINT" />
+    <result column="create_time" property="createTime" jdbcType="TIMESTAMP" />
+    <result column="update_time" property="updateTime" jdbcType="TIMESTAMP" />
+    <result column="user_type" property="userType" jdbcType="TINYINT"/>
+    <result column="organization_id" property="organizationId" jdbcType="INTEGER"/>
+    <result column="organization_name" property="organizationName" jdbcType="VARCHAR"/>
+    <result column="role_id" property="roleId" jdbcType="INTEGER"/>
+    <result column="role_name" property="roleName" jdbcType="VARCHAR"/>
+    <result column="agent_id" property="agentId" jdbcType="INTEGER" />
+    <result column="level" property="level" jdbcType="TINYINT"/>
+  </resultMap>
+  <sql id="Base_Column_List" >
+    user_id, user_name, password, salt, real_name, avatar, phone, email, sex, locked, 
+    create_time, update_time ,user_type,agent_id,level
+  </sql>
+  <sql id="UserInfo" >
+    au.user_id, au.user_name, au.password, au.salt, au.real_name, au.avatar, au.phone, au.email, au.sex, au.locked,ar.name as role_name,
+    ar.role_id as role_id,au.create_time, au.update_time,au.user_type,au.agent_id,ao.organization_id,ao.`name` as organization_name
+  </sql>
+  <select id="selectByPrimaryKey" resultMap="BaseResultMap" parameterType="map" >
+    select
+    <include refid="Base_Column_List" />
+    from admin_user
+    where user_id = #{userId,jdbcType=INTEGER}
+  </select>
+  <select id="selectUserByUserName" resultMap="BaseResultMap" parameterType="map" >
+    select
+    <include refid="Base_Column_List" />
+    from admin_user
+    where user_name = #{userName,jdbcType=VARCHAR}
+  </select>
+
+  <select id="pageUserListCount" parameterType="map" resultType="int">
+    select count(*) from admin_user
+    <where>
+      <if test="userName != null and userName !=''">
+        and user_name like CONCAT(CONCAT('%', #{userName}))
+      </if>
+    </where>
+  </select>
+
+  <select id="pageUserList" parameterType="map" resultMap="BaseResultMap">
+    select
+    <include refid="Base_Column_List"/>
+    from admin_user
+    <if test="start!=null and offset!=null">
+      limit #{start}, #{offset}
+    </if>
+  </select>
+
+  <select id="pageUserInfoListCount" parameterType="map" resultType="long">
+    select COUNT(DISTINCT au.user_id) from admin_user au
+    LEFT JOIN  admin_user_organization auo on au.user_id = auo.user_id
+    LEFT JOIN  admin_organization ao on auo.organization_id = ao.organization_id
+    LEFT JOIN  admin_user_role aur on au.user_id = aur.user_id
+    LEFT JOIN  admin_role ar on ar.role_id = aur.role_id
+    <where>
+      <if test="organizationName != null and organizationName != ''">
+        and ao.name like CONCAT(CONCAT('%', #{organizationName}))
+      </if>
+      <if test="userName != null and userName !=''">
+        and user_name like CONCAT(CONCAT('%', #{userName}))
+      </if>
+      <if test="roleId != null">
+        and aur.role_id = #{roleId,jdbcType=INTEGER}
+      </if>
+    </where>
+  </select>
+
+  <select id="pageUserInfoList" parameterType="map" resultMap="UserInfoResultMap">
+    select
+    <include refid="UserInfo"/>
+    FROM admin_user au
+    LEFT JOIN  admin_user_organization auo on au.user_id = auo.user_id
+    LEFT JOIN  admin_organization ao on auo.organization_id = ao.organization_id
+    LEFT JOIN  admin_user_role aur on au.user_id = aur.user_id
+    LEFT JOIN  admin_role ar on ar.role_id = aur.role_id
+    <where>
+      <if test="organizationName != null and organizationName != ''">
+        and ao.name like CONCAT(CONCAT('%', #{organizationName},'%'))
+      </if>
+      <if test="userName != null and userName !=''">
+        and au.user_name like CONCAT(CONCAT('%', #{userName},'%'))
+      </if>
+      <if test="roleId != null">
+        and aur.role_id = #{roleId,jdbcType=INTEGER}
+      </if>
+    </where>
+    order by au.user_id
+    <if test="start!=null and offset!=null">
+      limit #{start}, #{offset}
+    </if>
+  </select>
+
+  <delete id="deleteByPrimaryKey" parameterType="java.lang.Integer" >
+    delete from admin_user
+    where user_id = #{userId,jdbcType=INTEGER}
+  </delete>
+  <insert id="insertSelective" parameterType="User" >
+    insert into admin_user
+    <trim prefix="(" suffix=")" suffixOverrides="," >
+      <if test="userId != null" >
+        user_id,
+      </if>
+      <if test="userName != null" >
+        user_name,
+      </if>
+      <if test="password != null" >
+        password,
+      </if>
+      <if test="salt != null" >
+        salt,
+      </if>
+      <if test="realName != null" >
+        real_name,
+      </if>
+      <if test="avatar != null" >
+        avatar,
+      </if>
+      <if test="phone != null" >
+        phone,
+      </if>
+      <if test="email != null" >
+        email,
+      </if>
+      <if test="sex != null" >
+        sex,
+      </if>
+      <if test="locked != null" >
+        locked,
+      </if>
+      <if test="createTime != null" >
+        create_time,
+      </if>
+      <if test="updateTime != null" >
+        update_time,
+      </if>
+      <if test="userType != null" >
+        user_type,
+      </if>
+      <if test="agentId != null" >
+        agent_id,
+      </if>
+      <if test="level != null">
+        level,
+      </if>
+    </trim>
+    <trim prefix="values (" suffix=")" suffixOverrides="," >
+      <if test="userId != null" >
+        #{userId,jdbcType=INTEGER},
+      </if>
+      <if test="userName != null" >
+        #{userName,jdbcType=VARCHAR},
+      </if>
+      <if test="password != null" >
+        #{password,jdbcType=VARCHAR},
+      </if>
+      <if test="salt != null" >
+        #{salt,jdbcType=VARCHAR},
+      </if>
+      <if test="realName != null" >
+        #{realName,jdbcType=VARCHAR},
+      </if>
+      <if test="avatar != null" >
+        #{avatar,jdbcType=VARCHAR},
+      </if>
+      <if test="phone != null" >
+        #{phone,jdbcType=VARCHAR},
+      </if>
+      <if test="email != null" >
+        #{email,jdbcType=VARCHAR},
+      </if>
+      <if test="sex != null" >
+        #{sex,jdbcType=TINYINT},
+      </if>
+      <if test="locked != null" >
+        #{locked,jdbcType=TINYINT},
+      </if>
+      <if test="createTime != null" >
+        #{createTime,jdbcType=TIMESTAMP},
+      </if>
+      <if test="updateTime != null" >
+        #{updateTime,jdbcType=TIMESTAMP},
+      </if>
+      <if test="proxyId != null" >
+        #{proxyId,jdbcType=INTEGER},
+      </if>
+      <if test="userType != null" >
+        #{userType,jdbcType=TINYINT},
+      </if>
+      <if test="agentId != null" >
+        #{agentId,jdbcType=INTEGER},
+      </if>
+      <if test="level != null">
+        #{level,jdbcType=TINYINT},
+      </if>
+    </trim>
+  </insert>
+  <update id="updateByPrimaryKeySelective" parameterType="User" >
+    update admin_user
+    <set >
+      <if test="userName != null" >
+        user_name = #{userName,jdbcType=VARCHAR},
+      </if>
+      <if test="password != null" >
+        password = #{password,jdbcType=VARCHAR},
+      </if>
+      <if test="salt != null" >
+        salt = #{salt,jdbcType=VARCHAR},
+      </if>
+      <if test="realName != null" >
+        real_name = #{realName,jdbcType=VARCHAR},
+      </if>
+      <if test="avatar != null" >
+        avatar = #{avatar,jdbcType=VARCHAR},
+      </if>
+      <if test="phone != null" >
+        phone = #{phone,jdbcType=VARCHAR},
+      </if>
+      <if test="email != null" >
+        email = #{email,jdbcType=VARCHAR},
+      </if>
+      <if test="sex != null" >
+        sex = #{sex,jdbcType=TINYINT},
+      </if>
+      <if test="locked != null" >
+        locked = #{locked,jdbcType=TINYINT},
+      </if>
+      <if test="createTime != null" >
+        create_time = #{createTime,jdbcType=TIMESTAMP},
+      </if>
+      update_time = NOW(),
+      <if test="userType != null" >
+        user_type = #{userType,jdbcType=TINYINT},
+      </if>
+      <if test="agentId != null" >
+        agent_Id = #{agentId,jdbcType=INTEGER},
+      </if>
+      <if test="level != null">
+        level = #{level,jdbcType=TINYINT},
+      </if>
+    </set>
+    where user_id = #{userId,jdbcType=INTEGER}
+  </update>
+
+  <update id="updateOpenIdAndEnterprise" parameterType="map">
+    update admin_user
+    <set >
+      <if test="agentId != null" >
+        agent_Id = #{agentId,jdbcType=INTEGER},
+      </if>
+      <if test="level != null">
+        #{level,jdbcType=TINYINT},
+      </if>
+    </set>
+    where user_id = #{userId,jdbcType=INTEGER}
+  </update>
+
+  <select id="selectByOpenIdAndEnterprise" parameterType="map" resultMap="BaseResultMap">
+    select <include refid="Base_Column_List"/>
+    FROM admin_user
+    where agent_id=#{agentId,jdbcType=INTEGER}
+  </select>
+
+  <update id="updatePassword" parameterType="map">
+    update admin_user
+    <set >
+      <if test="salt != null and salt!=''" >
+        salt = #{salt,jdbcType=VARCHAR},
+      </if>
+      <if test="password != null and password!=''" >
+        password = #{password,jdbcType=VARCHAR},
+      </if>
+      update_time = NOW()
+    </set>
+    where user_id = #{userId,jdbcType=INTEGER}
+  </update>
+
+
+  <select id="merchantUserListCount" parameterType="map" resultType="int">
+	select count(*) from admin_user 
+	 <where>
+        and agent_id in
+        <foreach collection="list" index="index" item="item" open="(" separator="," close=")" >
+          #{item}
+        </foreach>
+        and level in 
+        <foreach collection="roleList" index="index" item="item" open="(" separator="," close=")" >
+        	 #{item}
+        </foreach>
+        <if test="userName != null and userName !=''">
+          and user_name like CONCAT(CONCAT('%', #{userName},'%'))
+        </if>
+      </where>
+  </select>
+  
+  <select id="merchantUserList" parameterType="map" resultMap="BaseResultMap">
+  	select <include refid="Base_Column_List"/>
+  	from admin_user 
+	 <where>
+        and agent_id in
+        <foreach collection="list" index="index" item="item" open="(" separator="," close=")" >
+          #{item}
+        </foreach>
+        and level in 
+        <foreach collection="roleList" index="index" item="item" open="(" separator="," close=")" >
+          #{item}
+        </foreach>
+        <if test="userName != null and userName !=''">
+          and user_name like CONCAT(CONCAT('%', #{userName},'%'))
+        </if>
+      </where>
+  </select>
+  
+  
+  
+  <select id="merchantAndShopUserListCount" parameterType="map" resultType="int">
+	  select sum(a.a) as num from (
+		select count(*) as a from admin_user 
+		<where>
+		        and agent_id in
+		        <foreach collection="agentList" index="index" item="item" open="(" separator="," close=")" >
+		          #{item}
+		        </foreach>
+		        and level in 
+		        <foreach collection="merchantRoleList" index="index" item="item" open="(" separator="," close=")" >
+		          #{item}
+		        </foreach>
+		        <if test="userName != null and userName !=''">
+		          and user_name like CONCAT(CONCAT('%', #{userName},'%'))
+		        </if>
+		      </where>
+		union all 
+			select count(*) as a from admin_user
+				<where>
+		        and agent_id in
+		        <foreach collection="shopList" index="index" item="item" open="(" separator="," close=")" >
+		          #{item}
+		        </foreach>
+		        and level in 
+		        <foreach collection="shopRoleList" index="index" item="item" open="(" separator="," close=")" >
+		          #{item}
+		        </foreach>
+		        <if test="userName != null and userName !=''">
+		          and user_name like CONCAT(CONCAT('%', #{userName},'%'))
+		        </if>
+		      </where>
+		) as a
+  </select>
+  
+  <select id="merchantAndShopUserList" parameterType="map" resultMap="BaseResultMap">
+  	select <include refid="Base_Column_List"/>
+  		from admin_user 
+		 <where>
+	        and agent_id in
+	        <foreach collection="agentList" index="index" item="item" open="(" separator="," close=")" >
+	          #{item}
+	        </foreach>
+	        and level in 
+	        <foreach collection="merchantRoleList" index="index" item="item" open="(" separator="," close=")" >
+	          #{item}
+	        </foreach>
+	        <if test="userName != null and userName !=''">
+	          and user_name like CONCAT(CONCAT('%', #{userName},'%'))
+	        </if>
+	      </where>
+      union all
+      select <include refid="Base_Column_List"/>
+  		from admin_user 
+		 <where>
+	        and agent_id in
+	        <foreach collection="shopList" index="index" item="item" open="(" separator="," close=")" >
+	          #{item}
+	        </foreach>
+	        and level in 
+	        <foreach collection="shopRoleList" index="index" item="item" open="(" separator="," close=")" >
+	          #{item}
+	        </foreach>
+	        <if test="userName != null and userName !=''">
+	          and user_name like CONCAT(CONCAT('%', #{userName},'%'))
+	        </if>
+	      </where>
+          <if test="start!=null and offset!=null">
+            limit #{start}, #{offset}
+          </if>
+  </select>
+</mapper>

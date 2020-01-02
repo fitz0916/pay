@@ -1,0 +1,13 @@
+package com.github.admin.web.controller;
+
+import org.springframework.boot.web.servlet.error.ErrorController;
+
+public class SpringErrorControler implements ErrorController{
+
+	@Override
+	public String getErrorPath() {
+		// TODO Auto-generated method stub
+		return "/error";
+	}
+
+}

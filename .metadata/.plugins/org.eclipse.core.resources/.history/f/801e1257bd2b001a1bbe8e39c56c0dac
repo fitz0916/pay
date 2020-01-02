@@ -1,0 +1,10 @@
+package com.github.admin.interceptor;
+
+import org.springframework.web.servlet.handler.HandlerInterceptorAdapter;
+
+
+
+@Component
+public class SessionTimeOutInterceptor extends HandlerInterceptorAdapter{
+
+}

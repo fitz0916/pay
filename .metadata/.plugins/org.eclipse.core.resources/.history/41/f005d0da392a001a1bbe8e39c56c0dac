@@ -1,0 +1,27 @@
+package com.eruige.admin.common.domain;
+
+/**
+ * Created by admin on 2018/5/4
+ */
+public class ParentPermission extends BaseObject {
+
+    private Integer parentId;
+
+    private String parentPermission;
+
+    public Integer getParentId() {
+        return parentId;
+    }
+
+    public void setParentId(Integer parentId) {
+        this.parentId = parentId;
+    }
+
+    public String getParentPermission() {
+        return parentPermission;
+    }
+
+    public void setParentPermission(String parentPermission) {
+        this.parentPermission = parentPermission;
+    }
+}

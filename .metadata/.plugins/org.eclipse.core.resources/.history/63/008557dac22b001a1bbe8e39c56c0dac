@@ -1,0 +1,65 @@
+package com.github.admin.interceptor;
+
+import javax.servlet.http.HttpServletRequest;
+import javax.servlet.http.HttpServletResponse;
+import javax.servlet.http.HttpSession;
+
+import org.apache.shiro.SecurityUtils;
+import org.apache.shiro.session.Session;
+import org.apache.shiro.subject.Subject;
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.stereotype.Component;
+import org.springframework.web.servlet.handler.HandlerInterceptorAdapter;
+
+import com.github.admin.common.constants.Constants;
+import com.github.admin.utils.RedisUtils;
+
+
+@Component
+public class SessionTimeOutInterceptor extends HandlerInterceptorAdapter{
+
+	@Autowired
+	private RedisUtils redisUtils;
+	
+	
+	public boolean preHandle(HttpServletRequest httpServletRequest, HttpServletResponse httpServletResponse, Object o) throws Exception {
+//        SysUser loginUser = (SysUser)httpServletRequest.getSession().getAttribute("loginUser");
+        
+		if(httpServletRequest.getSession() == null) {
+			httpServletResponse.sendRedirect("/login");
+            return false;
+		}
+		
+		HttpSession session = httpServletRequest.getSession();
+        String sessionId = session.getId();
+        
+        if(SecurityUtils.getSubject() == null) {
+        	httpServletResponse.sendRedirect("/login");
+            return false;
+        }
+        Subject subject = SecurityUtils.getSubject();
+        if(subject.getSession() == null) {
+        	httpServletResponse.sendRedirect("/login");
+            return false;
+        }
+        Session shiroSession = subject.getSession();
+        String attributeMsg = Constants.ADMIN_CURRENT_USER + sessionId;
+        Object sessionObj = shiroSession.getAttribute(attributeMsg);
+        if(sessionObj == null) {
+        	httpServletResponse.sendRedirect("/login");
+            return false;
+        }
+        String currentUserName = (String)sessionObj;
+        
+        
+        String userJson = redisUtils.get(Constants.ADMIN_CURRENT_USER + user.getUserName());
+       // String requestURI = httpServletRequest.getRequestURI();
+      //  System.err.println(requestURI);
+        if(loginUser==null){
+            httpServletResponse.sendRedirect("/login");
+            return false;
+        }
+        return true;
+    }
+
+}

@@ -1,0 +1,11 @@
+package com.github.admin.client.service;
+
+import java.util.List;
+
+import com.github.admin.common.domain.Permission;
+
+public interface PermissionServiceClient {
+
+	List<Permission> selectPermissionByUserId(Integer systemId, Integer userId);
+
+}

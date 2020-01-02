@@ -1,0 +1,25 @@
+package com.github.admin.config;
+
+import java.awt.Color;
+
+import org.springframework.context.annotation.Bean;
+import org.springframework.context.annotation.Configuration;
+
+@Configuration
+public class CaptchaConfig {
+
+	
+	
+	@Bean(name = "colorWrite")
+	public Color colorWrite() {
+		Color color = new Color(105,105,105);
+		return color;
+	}
+	
+	@Bean(name = "colorDimGrey")
+	public Color colorDimGrey() {
+		Color color = new Color(105,105,105);
+		return color;
+		
+	}
+}

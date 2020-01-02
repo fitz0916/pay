@@ -1,0 +1,26 @@
+package com.github.admin.common.vo;
+
+import com.github.admin.common.domain.BaseObject;
+
+public class PageVo extends BaseObject{
+
+	public  Object  data;
+	private long total;
+	
+	public Object getData() {
+		return data;
+	}
+	public void setData(Object data) {
+		this.data = data;
+	}
+	public long getTotal() {
+		return total;
+	}
+	public void setTotal(long total) {
+		this.total = total;
+	}
+	
+	
+	
+	
+}
