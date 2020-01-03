@@ -12,15 +12,24 @@
 	<meta charset="utf-8">
 	<meta http-equiv="X-UA-Compatible" content="IE=edge">
 	<meta name="viewport" content="width=device-width, initial-scale=1">
-	<title>系统管理</title>
+	<title>角色管理</title>
 	<jsp:include page="../../common/inc/head.jsp" flush="true"/>
 </head>
 <body>
 <div id="main">
 	<div id="toolbar">
-		<shiro:hasPermission name="admin:system:create"><a class="waves-effect waves-button" href="javascript:;" onclick="createAction()"><i class="zmdi zmdi-plus"></i> 新增系统</a></shiro:hasPermission>
-		<shiro:hasPermission name="admin:system:update"><a class="waves-effect waves-button" href="javascript:;" onclick="updateAction()"><i class="zmdi zmdi-edit"></i> 编辑系统</a></shiro:hasPermission>
-		<shiro:hasPermission name="admin:system:delete"><a class="waves-effect waves-button" href="javascript:;" onclick="deleteAction()"><i class="zmdi zmdi-close"></i> 删除系统</a></shiro:hasPermission>
+		<shiro:hasPermission name="admin:role:create">
+			<a class="waves-effect waves-button" href="javascript:;" onclick="createAction()"><i class="zmdi zmdi-plus"></i> 新增角色</a>
+		</shiro:hasPermission>
+		<shiro:hasPermission name="admin:role:update">
+			<a class="waves-effect waves-button" href="javascript:;" onclick="updateAction()"><i class="zmdi zmdi-edit"></i> 编辑角色</a>
+		</shiro:hasPermission>
+		<shiro:hasPermission name="admin:role:delete">
+			<a class="waves-effect waves-button" href="javascript:;" onclick="deleteAction()"><i class="zmdi zmdi-close"></i> 删除角色</a>
+		</shiro:hasPermission>
+		<shiro:hasPermission name="admin:role:permission">
+			<a class="waves-effect waves-button" href="javascript:;" onclick="permissionAction()"><i class="zmdi zmdi-key"></i> 角色权限</a>
+		</shiro:hasPermission>
 	</div>
 	<table id="table"></table>
 </div>
@@ -30,7 +39,7 @@ var $table = $('#table');
 $(function() {
 	// bootstrap table初始化
 	$table.bootstrapTable({
-		url: '${basePath}/manage/system/list',
+		url: '${basePath}/manage/role/list',
 		height: getHeight(),
 		striped: true,
 		search: true,
@@ -47,74 +56,59 @@ $(function() {
 		smartDisplay: false,
 		escape: true,
 		searchOnEnterKey: true,
-		idField: 'systemId',
+		idField: 'roleId',
 		maintainSelected: true,
 		toolbar: '#toolbar',
-		//queryParams:queryParams,
 		columns: [
 			{field: 'ck', checkbox: true, align: 'center'},
-			{field: 'systemId', title: '编号', sortable: true, align: 'center'},
-			{field: 'icon', title: '图标', sortable: true, align: 'center', formatter: 'iconFormatter'},
-            {field: 'title', title: '系统标题', align: 'center'},
-			{field: 'name', title: '系统名称', align: 'center'},
-			{field: 'basepath', title: '根目录', align: 'center'},
-			{field: 'status', title: '状态', sortable: true, align: 'center', formatter: 'statusFormatter'},
+			{field: 'roleId', title: '编号', sortable: true, align: 'center'},
+			{field: 'name', title: '角色名称', align: 'center'},
+			{field: 'title', title: '角色标题', align: 'center'},
+            {field: 'description', title: '角色描述', align: 'center'},
 			{field: 'action', title: '操作', align: 'center', formatter: 'actionFormatter', events: 'actionEvents', clickToSelect: false}
 		]
 	});
 });
-
-function queryParams(params){
-	var name = $('.form-control').val();
-	return {
-        "name": name
-    }
-    return params;
-	
-}
-
 // 格式化操作按钮
 function actionFormatter(value, row, index) {
     return [
-        '<shiro:hasPermission name="admin:system:update"><a class="update" href="javascript:;" onclick="updateRow('+row.systemId+')" data-toggle="tooltip" title="Edit"><i class="glyphicon glyphicon-edit"></i></a></shiro:hasPermission>　',
-        '<shiro:hasPermission name="admin:system:delete"><a class="delete" href="javascript:;" onclick="deleteRow('+row.systemId+')" data-toggle="tooltip" title="Remove"><i class="glyphicon glyphicon-remove"></i></a></shiro:hasPermission>'
+		'<shiro:hasPermission name="admin:role:update"><a class="update" href="javascript:;" onclick="updateRow('+row.roleId+')" data-toggle="tooltip" title="Edit"><i class="glyphicon glyphicon-edit"></i></a></shiro:hasPermission>　',
+		'<shiro:hasPermission name="admin:role:delete"><a class="delete" href="javascript:;" onclick="deleteRow('+row.roleId+')" data-toggle="tooltip" title="Remove"><i class="glyphicon glyphicon-remove"></i></a></shiro:hasPermission>'
     ].join('');
 }
 //编辑行
-function updateRow(systemId) {
+function updateRow(roleId){
     updateDialog = $.dialog({
         animationSpeed: 300,
-        title: '编辑系统',
-        content: 'url:${basePath}/manage/system/update/' + systemId,
+        title: '编辑角色',
+        content: 'url:${basePath}/manage/role/update/' + roleId,
         onContentReady: function () {
             initMaterialInput();
-            initUploader();
         },
-		contentLoaded: function(data, status, xhr){
+        contentLoaded: function(data, status, xhr){
             if(data.code == '10110'){
-            	layer.msg(data.msg);
-                location:top.location.href = '${basePath}/login';
+                location:top.location.href = location.href
             }
-        }
+        },
     });
 }
 //删除行
-function deleteRow(systemId) {
+function deleteRow(roleId) {
     deleteDialog = $.confirm({
         type: 'red',
         animationSpeed: 300,
         title: false,
-        content: '确认删除该系统吗？',
+        content: '确认删除该角色吗？',
         buttons: {
             confirm: {
                 text: '确认',
                 btnClass: 'waves-effect waves-button',
                 action: function () {
                     var ids = new Array();
-                        ids.push(systemId);
+                        ids.push(roleId);
                     $.ajax({
                         type: 'get',
-                        url: '${basePath}/manage/system/delete/' + ids.join("-"),
+                        url: '${basePath}/manage/role/delete/' + ids.join("-"),
                         success: function(result) {
                             if (result.code != 1) {
                                 if (result.data instanceof Array) {
@@ -136,13 +130,13 @@ function deleteRow(systemId) {
                                 }else if(result.code == '10110'){
                                 	layer.msg(result.msg);
                                     location:top.location.href = '${basePath}/login';
-                                } else {
+                                }else {
                                     $.confirm({
                                         theme: 'dark',
                                         animation: 'rotateX',
                                         closeAnimation: 'rotateX',
                                         title: false,
-                                        content: result.msg,
+                                        content: result.data.errorMsg,
                                         buttons: {
                                             confirm: {
                                                 text: '确认',
@@ -182,35 +176,22 @@ function deleteRow(systemId) {
         }
     });
 }
-// 格式化图标
-function iconFormatter(value, row, index) {
-    return '<i class="' + value + '"></i>';
-}
-// 格式化状态
-function statusFormatter(value, row, index) {
-	if (value == 1) {
-		return '<span class="label label-success">正常</span>';
-	} else {
-		return '<span class="label label-default">锁定</span>';
-	}
-}
 // 新增
 var createDialog;
 function createAction() {
 	createDialog = $.dialog({
 		animationSpeed: 300,
-		title: '新增系统',
-		content: 'url:${basePath}/manage/system/create',
-		onContentReady: function (e) {
+		title: '新增角色',
+		content: 'url:${basePath}/manage/role/create',
+		onContentReady: function () {
 			initMaterialInput();
-			initUploader();
 		},
-		contentLoaded: function(data, status, xhr){
+        contentLoaded: function(data, status, xhr){
             if(data.code == '10110'){
-            	layer.msg(data.msg);
-                location:top.location.href = '${basePath}/login';
+	            layer.msg(msg);
+	            location:top.location.href = '${basePath}/login';
             }
-        }
+        },
 	});
 }
 // 编辑
@@ -233,16 +214,16 @@ function updateAction() {
 	} else {
 		updateDialog = $.dialog({
 			animationSpeed: 300,
-			title: '编辑系统',
-			content: 'url:${basePath}/manage/system/update/' + rows[0].systemId,
-			onContentReady: function (e) {
+			title: '编辑角色',
+			content: 'url:${basePath}/manage/role/update/' + rows[0].roleId,
+			onContentReady: function () {
 				initMaterialInput();
-				initUploader();
 			},
             contentLoaded: function(data, status, xhr){
-                layer.msg(data.msg);
-                location:top.location.href = '${basePath}/login';
-            }
+                if(data.code == '10110'){
+                    location:top.location.href = location.href
+                }
+            },
 		});
 	}
 }
@@ -268,7 +249,7 @@ function deleteAction() {
 			type: 'red',
 			animationSpeed: 300,
 			title: false,
-			content: '确认删除该系统吗？',
+			content: '确认删除该角色吗？',
 			buttons: {
 				confirm: {
 					text: '确认',
@@ -276,11 +257,11 @@ function deleteAction() {
 					action: function () {
 						var ids = new Array();
 						for (var i in rows) {
-							ids.push(rows[i].systemId);
+							ids.push(rows[i].roleId);
 						}
 						$.ajax({
 							type: 'get',
-							url: '${basePath}/manage/system/delete/' + ids.join("-"),
+							url: '${basePath}/manage/role/delete/' + ids.join("-"),
 							success: function(result) {
 								if (result.code != 1) {
 									if (result.data instanceof Array) {
@@ -299,16 +280,13 @@ function deleteAction() {
 												}
 											});
 										});
-									}else if(result.code == '10110'){
-	                                	layer.msg(result.msg);
-	                                    location:top.location.href = '${basePath}/login';
-	                                } else {
+									} else {
 										$.confirm({
 											theme: 'dark',
 											animation: 'rotateX',
 											closeAnimation: 'rotateX',
 											title: false,
-											content: result.msg,
+											content: result.data.errorMsg,
 											buttons: {
 												confirm: {
 													text: '确认',
@@ -349,6 +327,43 @@ function deleteAction() {
 		});
 	}
 }
+// 角色权限
+var permissionDialog;
+var roleId;
+function permissionAction() {
+	var rows = $table.bootstrapTable('getSelections');
+	if (rows.length != 1) {
+		$.confirm({
+			title: false,
+			content: '请选择一条记录！',
+			autoClose: 'cancel|3000',
+			backgroundDismiss: true,
+			buttons: {
+				cancel: {
+					text: '取消',
+					btnClass: 'waves-effect waves-button'
+				}
+			}
+		});
+	} else {
+		roleId = rows[0].roleId;
+		permissionDialog = $.dialog({
+			animationSpeed: 300,
+			title: '角色权限',
+			content: 'url:${basePath}/manage/role/permission/' + roleId,
+			onContentReady: function () {
+				initMaterialInput();
+				initTree();
+			},
+            contentLoaded: function(data, status, xhr){
+                if(data.code == '10110'){
+                    location:top.location.href = location.href
+                }
+            }
+		});
+	}
+}
+
 </script>
 </body>
 </html>

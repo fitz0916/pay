@@ -191,7 +191,8 @@
             },
             contentLoaded: function(data, status, xhr){
                 if(data.code == '10110'){
-                    location:top.location.href = location.href
+                	layer.msg(data.msg);
+                    location:top.location.href = '${basePath}/login';
                 }
             }
         });
@@ -360,7 +361,8 @@
                 },
                 contentLoaded: function(data, status, xhr){
                     if(data.code == '10110'){
-                        location:top.location.href = location.href
+                    	layer.msg(data.msg);
+                        location:top.location.href = '${basePath}/login';
                     }
                 },
             });
@@ -394,9 +396,10 @@
                 },
                 contentLoaded: function(data, status, xhr){
                     if(data.code == '10110'){
-                        location:top.location.href = location.href
+                    	layer.msg(data.msg);
+                        location:top.location.href = '${basePath}/login';
                     }
-                },
+                }
             });
         }
     }
@@ -534,7 +537,8 @@
                 },
                 contentLoaded: function(data, status, xhr){
                     if(data.code == '10110'){
-                        location:top.location.href = location.href
+                    	layer.msg(data.msg);
+                        location:top.location.href = '${basePath}/login';
                     }
                 }
             });
@@ -573,7 +577,8 @@
                 },
                 contentLoaded: function(data, status, xhr){
                     if(data.code == '10110'){
-                        location:top.location.href = location.href
+                    	layer.msg(data.msg);
+                        location:top.location.href = '${basePath}/login';
                     }
                 }
             });
@@ -610,7 +615,8 @@
                 },
                 contentLoaded: function(data, status, xhr){
                     if(data.code == '10110'){
-                        location:top.location.href = location.href
+                    	layer.msg(data.msg);
+                        location:top.location.href = '${basePath}/login';
                     }
                 }
             });

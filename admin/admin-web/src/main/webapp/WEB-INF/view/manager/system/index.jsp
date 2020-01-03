@@ -235,15 +235,14 @@ function updateAction() {
 			animationSpeed: 300,
 			title: '编辑系统',
 			content: 'url:${basePath}/manage/system/update/' + rows[0].systemId,
-            contentLoaded: function(data, status, xhr){
-                if(data.code == '10110'){
-                	layer.msg(data.msg);
-                    location:top.location.href = '${basePath}/login';
-                    return;
-                }
-                initMaterialInput();
+			onContentReady: function (e) {
+				initMaterialInput();
 				initUploader();
-            },
+			},
+            contentLoaded: function(data, status, xhr){
+                layer.msg(data.msg);
+                location:top.location.href = '${basePath}/login';
+            }
 		});
 	}
 }
