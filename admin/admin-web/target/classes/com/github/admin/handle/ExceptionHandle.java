@@ -31,7 +31,7 @@ public class ExceptionHandle{
 		LOGGER.error("当前全局异常拦截ShiroException权限异常，用户没有权限访问！");
 		if(SpringWebUtils.isAjax(handlerMethod)) {
 			ModelResult<ResultVo> modelResult = new ModelResult<ResultVo>();
-			modelResult.withError("403", "您没有权限操作！");
+			modelResult.withError("10110", "您没有权限操作！");
 			return ResultUtils.buildResult(modelResult);
 		}else {
 			ModelAndView modelAndView = new ModelAndView();

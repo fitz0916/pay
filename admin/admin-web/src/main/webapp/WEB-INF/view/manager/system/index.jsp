@@ -50,6 +50,7 @@ $(function() {
 		idField: 'systemId',
 		maintainSelected: true,
 		toolbar: '#toolbar',
+		//queryParams:queryParams,
 		columns: [
 			{field: 'ck', checkbox: true, align: 'center'},
 			{field: 'systemId', title: '编号', sortable: true, align: 'center'},
@@ -62,6 +63,16 @@ $(function() {
 		]
 	});
 });
+
+function queryParams(params){
+	var name = $('.form-control').val();
+	return {
+        "name": name
+    }
+    return params;
+	
+}
+
 // 格式化操作按钮
 function actionFormatter(value, row, index) {
     return [
@@ -79,12 +90,12 @@ function updateRow(systemId) {
             initMaterialInput();
             initUploader();
         },
-        contentLoaded: function(data, status, xhr){
+		contentLoaded: function(data, status, xhr){
             if(data.code == '10110'){
-	            layer.msg(msg);
-	            location:top.location.href = '${basePath}/login';
+            	layer.msg(data.msg);
+                location:top.location.href = '${basePath}/login';
             }
-        },
+        }
     });
 }
 //删除行
@@ -195,10 +206,6 @@ function createAction() {
 			initUploader();
 		},
 		contentLoaded: function(data, status, xhr){
-			//alert(JSON.stringify(data));
-			//alert(data.responseText + "----" + status + "---" + JSON.stringify(xhr));
-			//alert(data.code);
-			//alert(data.msg);
             if(data.code == '10110'){
             	layer.msg(data.msg);
                 location:top.location.href = '${basePath}/login';

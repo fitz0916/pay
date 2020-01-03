@@ -2989,3 +2989,972 @@ Caused by: java.lang.Exception: Resource '/admin/admin-web/.settings' does not e
 
 !ENTRY org.eclipse.m2e.logback.appender 2 0 2020-01-02 11:20:38.858
 !MESSAGE Using platform encoding (UTF-8 actually) to copy filtered resources, i.e. build is platform dependent!
+
+!ENTRY org.eclipse.core.jobs 2 2 2020-01-04 00:35:51.579
+!MESSAGE Job found still running after platform shutdown.  Jobs should be canceled by the plugin that scheduled them during shutdown: org.eclipse.debug.internal.ui.sourcelookup.SourceLookupFacility$SourceLookupJob
+
+!ENTRY org.eclipse.core.jobs 2 2 2020-01-04 00:35:51.582
+!MESSAGE Job found still running after platform shutdown.  Jobs should be canceled by the plugin that scheduled them during shutdown: org.eclipse.debug.internal.ui.sourcelookup.SourceLookupFacility$SourceLookupJob
+
+!ENTRY org.eclipse.core.jobs 2 2 2020-01-04 00:35:51.582
+!MESSAGE Job found still running after platform shutdown.  Jobs should be canceled by the plugin that scheduled them during shutdown: org.eclipse.debug.internal.ui.sourcelookup.SourceLookupFacility$SourceLookupJob
+
+!ENTRY org.eclipse.core.jobs 2 2 2020-01-04 00:35:51.582
+!MESSAGE Job found still running after platform shutdown.  Jobs should be canceled by the plugin that scheduled them during shutdown: org.eclipse.debug.internal.ui.sourcelookup.SourceLookupFacility$SourceLookupJob
+
+!ENTRY org.eclipse.core.jobs 2 2 2020-01-04 00:35:51.582
+!MESSAGE Job found still running after platform shutdown.  Jobs should be canceled by the plugin that scheduled them during shutdown: org.eclipse.debug.internal.ui.sourcelookup.SourceLookupFacility$SourceLookupJob
+
+!ENTRY org.eclipse.core.jobs 2 2 2020-01-04 00:35:51.583
+!MESSAGE Job found still running after platform shutdown.  Jobs should be canceled by the plugin that scheduled them during shutdown: org.eclipse.debug.internal.ui.sourcelookup.SourceLookupFacility$SourceLookupJob
+
+!ENTRY org.eclipse.core.jobs 2 2 2020-01-04 00:35:51.583
+!MESSAGE Job found still running after platform shutdown.  Jobs should be canceled by the plugin that scheduled them during shutdown: org.eclipse.debug.internal.ui.sourcelookup.SourceLookupFacility$SourceLookupJob
+
+!ENTRY org.eclipse.core.jobs 2 2 2020-01-04 00:35:51.583
+!MESSAGE Job found still running after platform shutdown.  Jobs should be canceled by the plugin that scheduled them during shutdown: org.eclipse.debug.internal.ui.sourcelookup.SourceLookupFacility$SourceLookupJob
+
+!ENTRY org.eclipse.core.jobs 2 2 2020-01-04 00:35:51.583
+!MESSAGE Job found still running after platform shutdown.  Jobs should be canceled by the plugin that scheduled them during shutdown: org.eclipse.debug.internal.ui.sourcelookup.SourceLookupFacility$SourceLookupJob
+
+!ENTRY org.eclipse.core.jobs 2 2 2020-01-04 00:35:51.583
+!MESSAGE Job found still running after platform shutdown.  Jobs should be canceled by the plugin that scheduled them during shutdown: org.eclipse.debug.internal.ui.sourcelookup.SourceLookupFacility$SourceLookupJob
+
+!ENTRY org.eclipse.core.jobs 2 2 2020-01-04 00:35:51.584
+!MESSAGE Job found still running after platform shutdown.  Jobs should be canceled by the plugin that scheduled them during shutdown: org.eclipse.debug.internal.ui.sourcelookup.SourceLookupFacility$SourceLookupJob
+
+!ENTRY org.eclipse.core.jobs 2 2 2020-01-04 00:35:51.584
+!MESSAGE Job found still running after platform shutdown.  Jobs should be canceled by the plugin that scheduled them during shutdown: org.eclipse.debug.internal.ui.sourcelookup.SourceLookupFacility$SourceLookupJob
+
+!ENTRY org.eclipse.core.jobs 2 2 2020-01-04 00:35:51.584
+!MESSAGE Job found still running after platform shutdown.  Jobs should be canceled by the plugin that scheduled them during shutdown: org.eclipse.debug.internal.ui.sourcelookup.SourceLookupFacility$SourceLookupJob
+
+!ENTRY org.eclipse.core.jobs 2 2 2020-01-04 00:35:51.584
+!MESSAGE Job found still running after platform shutdown.  Jobs should be canceled by the plugin that scheduled them during shutdown: org.eclipse.debug.internal.ui.sourcelookup.SourceLookupFacility$SourceLookupJob
+
+!ENTRY org.eclipse.core.jobs 2 2 2020-01-04 00:35:51.585
+!MESSAGE Job found still running after platform shutdown.  Jobs should be canceled by the plugin that scheduled them during shutdown: org.eclipse.debug.internal.ui.sourcelookup.SourceLookupFacility$SourceLookupJob
+
+!ENTRY org.eclipse.core.jobs 2 2 2020-01-04 00:35:51.585
+!MESSAGE Job found still running after platform shutdown.  Jobs should be canceled by the plugin that scheduled them during shutdown: org.eclipse.debug.internal.ui.sourcelookup.SourceLookupFacility$SourceLookupJob
+
+!ENTRY org.eclipse.core.jobs 2 2 2020-01-04 00:35:51.585
+!MESSAGE Job found still running after platform shutdown.  Jobs should be canceled by the plugin that scheduled them during shutdown: org.eclipse.debug.internal.ui.sourcelookup.SourceLookupFacility$SourceLookupJob
+
+!ENTRY org.eclipse.core.jobs 2 2 2020-01-04 00:35:51.585
+!MESSAGE Job found still running after platform shutdown.  Jobs should be canceled by the plugin that scheduled them during shutdown: org.eclipse.debug.internal.ui.sourcelookup.SourceLookupFacility$SourceLookupJob
+
+!ENTRY org.eclipse.core.jobs 2 2 2020-01-04 00:35:51.585
+!MESSAGE Job found still running after platform shutdown.  Jobs should be canceled by the plugin that scheduled them during shutdown: org.eclipse.debug.internal.ui.sourcelookup.SourceLookupFacility$SourceLookupJob
+
+!ENTRY org.eclipse.core.jobs 2 2 2020-01-04 00:35:51.586
+!MESSAGE Job found still running after platform shutdown.  Jobs should be canceled by the plugin that scheduled them during shutdown: org.eclipse.debug.internal.ui.sourcelookup.SourceLookupFacility$SourceLookupJob
+
+!ENTRY org.eclipse.core.jobs 2 2 2020-01-04 00:35:51.586
+!MESSAGE Job found still running after platform shutdown.  Jobs should be canceled by the plugin that scheduled them during shutdown: org.eclipse.debug.internal.ui.sourcelookup.SourceLookupFacility$SourceLookupJob
+
+!ENTRY org.eclipse.core.jobs 2 2 2020-01-04 00:35:51.586
+!MESSAGE Job found still running after platform shutdown.  Jobs should be canceled by the plugin that scheduled them during shutdown: org.eclipse.debug.internal.ui.sourcelookup.SourceLookupFacility$SourceLookupJob
+
+!ENTRY org.eclipse.core.jobs 2 2 2020-01-04 00:35:51.586
+!MESSAGE Job found still running after platform shutdown.  Jobs should be canceled by the plugin that scheduled them during shutdown: org.eclipse.debug.internal.ui.sourcelookup.SourceLookupFacility$SourceLookupJob
+
+!ENTRY org.eclipse.core.jobs 2 2 2020-01-04 00:35:51.586
+!MESSAGE Job found still running after platform shutdown.  Jobs should be canceled by the plugin that scheduled them during shutdown: org.eclipse.debug.internal.ui.sourcelookup.SourceLookupFacility$SourceLookupJob
+
+!ENTRY org.eclipse.core.jobs 2 2 2020-01-04 00:35:51.587
+!MESSAGE Job found still running after platform shutdown.  Jobs should be canceled by the plugin that scheduled them during shutdown: org.eclipse.debug.internal.ui.sourcelookup.SourceLookupFacility$SourceLookupJob
+
+!ENTRY org.eclipse.core.jobs 2 2 2020-01-04 00:35:51.587
+!MESSAGE Job found still running after platform shutdown.  Jobs should be canceled by the plugin that scheduled them during shutdown: org.eclipse.debug.internal.ui.sourcelookup.SourceLookupFacility$SourceLookupJob
+
+!ENTRY org.eclipse.core.jobs 2 2 2020-01-04 00:35:51.587
+!MESSAGE Job found still running after platform shutdown.  Jobs should be canceled by the plugin that scheduled them during shutdown: org.eclipse.debug.internal.ui.sourcelookup.SourceLookupFacility$SourceLookupJob
+
+!ENTRY org.eclipse.core.jobs 2 2 2020-01-04 00:35:51.587
+!MESSAGE Job found still running after platform shutdown.  Jobs should be canceled by the plugin that scheduled them during shutdown: org.eclipse.debug.internal.ui.sourcelookup.SourceLookupFacility$SourceLookupJob
+
+!ENTRY org.eclipse.core.jobs 2 2 2020-01-04 00:35:51.588
+!MESSAGE Job found still running after platform shutdown.  Jobs should be canceled by the plugin that scheduled them during shutdown: org.eclipse.debug.internal.ui.sourcelookup.SourceLookupFacility$SourceLookupJob
+
+!ENTRY org.eclipse.core.jobs 2 2 2020-01-04 00:35:51.588
+!MESSAGE Job found still running after platform shutdown.  Jobs should be canceled by the plugin that scheduled them during shutdown: org.eclipse.debug.internal.ui.sourcelookup.SourceLookupFacility$SourceLookupJob
+
+!ENTRY org.eclipse.core.jobs 2 2 2020-01-04 00:35:51.588
+!MESSAGE Job found still running after platform shutdown.  Jobs should be canceled by the plugin that scheduled them during shutdown: org.eclipse.debug.internal.ui.sourcelookup.SourceLookupFacility$SourceLookupJob
+
+!ENTRY org.eclipse.core.jobs 2 2 2020-01-04 00:35:51.588
+!MESSAGE Job found still running after platform shutdown.  Jobs should be canceled by the plugin that scheduled them during shutdown: org.eclipse.debug.internal.ui.sourcelookup.SourceLookupFacility$SourceLookupJob
+
+!ENTRY org.eclipse.core.jobs 2 2 2020-01-04 00:35:51.588
+!MESSAGE Job found still running after platform shutdown.  Jobs should be canceled by the plugin that scheduled them during shutdown: org.eclipse.debug.internal.ui.sourcelookup.SourceLookupFacility$SourceLookupJob
+
+!ENTRY org.eclipse.core.jobs 2 2 2020-01-04 00:35:51.589
+!MESSAGE Job found still running after platform shutdown.  Jobs should be canceled by the plugin that scheduled them during shutdown: org.eclipse.debug.internal.ui.sourcelookup.SourceLookupFacility$SourceLookupJob
+
+!ENTRY org.eclipse.core.jobs 2 2 2020-01-04 00:35:51.589
+!MESSAGE Job found still running after platform shutdown.  Jobs should be canceled by the plugin that scheduled them during shutdown: org.eclipse.debug.internal.ui.sourcelookup.SourceLookupFacility$SourceLookupJob
+
+!ENTRY org.eclipse.core.jobs 2 2 2020-01-04 00:35:51.590
+!MESSAGE Job found still running after platform shutdown.  Jobs should be canceled by the plugin that scheduled them during shutdown: org.eclipse.debug.internal.ui.sourcelookup.SourceLookupFacility$SourceLookupJob
+
+!ENTRY org.eclipse.core.jobs 2 2 2020-01-04 00:35:51.590
+!MESSAGE Job found still running after platform shutdown.  Jobs should be canceled by the plugin that scheduled them during shutdown: org.eclipse.debug.internal.ui.sourcelookup.SourceLookupFacility$SourceLookupJob
+
+!ENTRY org.eclipse.core.jobs 2 2 2020-01-04 00:35:51.590
+!MESSAGE Job found still running after platform shutdown.  Jobs should be canceled by the plugin that scheduled them during shutdown: org.eclipse.debug.internal.ui.sourcelookup.SourceLookupFacility$SourceLookupJob
+
+!ENTRY org.eclipse.core.jobs 2 2 2020-01-04 00:35:51.590
+!MESSAGE Job found still running after platform shutdown.  Jobs should be canceled by the plugin that scheduled them during shutdown: org.eclipse.debug.internal.ui.sourcelookup.SourceLookupFacility$SourceLookupJob
+
+!ENTRY org.eclipse.core.jobs 2 2 2020-01-04 00:35:51.590
+!MESSAGE Job found still running after platform shutdown.  Jobs should be canceled by the plugin that scheduled them during shutdown: org.eclipse.debug.internal.ui.sourcelookup.SourceLookupFacility$SourceLookupJob
+
+!ENTRY org.eclipse.core.jobs 2 2 2020-01-04 00:35:51.591
+!MESSAGE Job found still running after platform shutdown.  Jobs should be canceled by the plugin that scheduled them during shutdown: org.eclipse.debug.internal.ui.sourcelookup.SourceLookupFacility$SourceLookupJob
+
+!ENTRY org.eclipse.core.jobs 2 2 2020-01-04 00:35:51.591
+!MESSAGE Job found still running after platform shutdown.  Jobs should be canceled by the plugin that scheduled them during shutdown: org.eclipse.debug.internal.ui.sourcelookup.SourceLookupFacility$SourceLookupJob
+
+!ENTRY org.eclipse.core.jobs 2 2 2020-01-04 00:35:51.591
+!MESSAGE Job found still running after platform shutdown.  Jobs should be canceled by the plugin that scheduled them during shutdown: org.eclipse.debug.internal.ui.sourcelookup.SourceLookupFacility$SourceLookupJob
+
+!ENTRY org.eclipse.core.jobs 2 2 2020-01-04 00:35:51.591
+!MESSAGE Job found still running after platform shutdown.  Jobs should be canceled by the plugin that scheduled them during shutdown: org.eclipse.debug.internal.ui.sourcelookup.SourceLookupFacility$SourceLookupJob
+
+!ENTRY org.eclipse.core.jobs 2 2 2020-01-04 00:35:51.591
+!MESSAGE Job found still running after platform shutdown.  Jobs should be canceled by the plugin that scheduled them during shutdown: org.eclipse.debug.internal.ui.sourcelookup.SourceLookupFacility$SourceLookupJob
+
+!ENTRY org.eclipse.core.jobs 2 2 2020-01-04 00:35:51.592
+!MESSAGE Job found still running after platform shutdown.  Jobs should be canceled by the plugin that scheduled them during shutdown: org.eclipse.debug.internal.ui.sourcelookup.SourceLookupFacility$SourceLookupJob
+
+!ENTRY org.eclipse.core.jobs 2 2 2020-01-04 00:35:51.592
+!MESSAGE Job found still running after platform shutdown.  Jobs should be canceled by the plugin that scheduled them during shutdown: org.eclipse.debug.internal.ui.sourcelookup.SourceLookupFacility$SourceLookupJob
+
+!ENTRY org.eclipse.core.jobs 2 2 2020-01-04 00:35:51.592
+!MESSAGE Job found still running after platform shutdown.  Jobs should be canceled by the plugin that scheduled them during shutdown: org.eclipse.debug.internal.ui.sourcelookup.SourceLookupFacility$SourceLookupJob
+
+!ENTRY org.eclipse.core.jobs 2 2 2020-01-04 00:35:51.592
+!MESSAGE Job found still running after platform shutdown.  Jobs should be canceled by the plugin that scheduled them during shutdown: org.eclipse.debug.internal.ui.sourcelookup.SourceLookupFacility$SourceLookupJob
+
+!ENTRY org.eclipse.core.jobs 2 2 2020-01-04 00:35:51.592
+!MESSAGE Job found still running after platform shutdown.  Jobs should be canceled by the plugin that scheduled them during shutdown: org.eclipse.debug.internal.ui.sourcelookup.SourceLookupFacility$SourceLookupJob
+
+!ENTRY org.eclipse.core.jobs 2 2 2020-01-04 00:35:51.593
+!MESSAGE Job found still running after platform shutdown.  Jobs should be canceled by the plugin that scheduled them during shutdown: org.eclipse.debug.internal.ui.sourcelookup.SourceLookupFacility$SourceLookupJob
+
+!ENTRY org.eclipse.core.jobs 2 2 2020-01-04 00:35:51.593
+!MESSAGE Job found still running after platform shutdown.  Jobs should be canceled by the plugin that scheduled them during shutdown: org.eclipse.debug.internal.ui.sourcelookup.SourceLookupFacility$SourceLookupJob
+
+!ENTRY org.eclipse.core.jobs 2 2 2020-01-04 00:35:51.593
+!MESSAGE Job found still running after platform shutdown.  Jobs should be canceled by the plugin that scheduled them during shutdown: org.eclipse.debug.internal.ui.sourcelookup.SourceLookupFacility$SourceLookupJob
+
+!ENTRY org.eclipse.core.jobs 2 2 2020-01-04 00:35:51.593
+!MESSAGE Job found still running after platform shutdown.  Jobs should be canceled by the plugin that scheduled them during shutdown: org.eclipse.debug.internal.ui.sourcelookup.SourceLookupFacility$SourceLookupJob
+
+!ENTRY org.eclipse.core.jobs 2 2 2020-01-04 00:35:51.593
+!MESSAGE Job found still running after platform shutdown.  Jobs should be canceled by the plugin that scheduled them during shutdown: org.eclipse.debug.internal.ui.sourcelookup.SourceLookupFacility$SourceLookupJob
+
+!ENTRY org.eclipse.core.jobs 2 2 2020-01-04 00:35:51.594
+!MESSAGE Job found still running after platform shutdown.  Jobs should be canceled by the plugin that scheduled them during shutdown: org.eclipse.debug.internal.ui.sourcelookup.SourceLookupFacility$SourceLookupJob
+
+!ENTRY org.eclipse.core.jobs 2 2 2020-01-04 00:35:51.594
+!MESSAGE Job found still running after platform shutdown.  Jobs should be canceled by the plugin that scheduled them during shutdown: org.eclipse.debug.internal.ui.sourcelookup.SourceLookupFacility$SourceLookupJob
+
+!ENTRY org.eclipse.core.jobs 2 2 2020-01-04 00:35:51.594
+!MESSAGE Job found still running after platform shutdown.  Jobs should be canceled by the plugin that scheduled them during shutdown: org.eclipse.debug.internal.ui.sourcelookup.SourceLookupFacility$SourceLookupJob
+
+!ENTRY org.eclipse.core.jobs 2 2 2020-01-04 00:35:51.594
+!MESSAGE Job found still running after platform shutdown.  Jobs should be canceled by the plugin that scheduled them during shutdown: org.eclipse.debug.internal.ui.sourcelookup.SourceLookupFacility$SourceLookupJob
+
+!ENTRY org.eclipse.core.jobs 2 2 2020-01-04 00:35:51.595
+!MESSAGE Job found still running after platform shutdown.  Jobs should be canceled by the plugin that scheduled them during shutdown: org.eclipse.debug.internal.ui.sourcelookup.SourceLookupFacility$SourceLookupJob
+
+!ENTRY org.eclipse.core.jobs 2 2 2020-01-04 00:35:51.595
+!MESSAGE Job found still running after platform shutdown.  Jobs should be canceled by the plugin that scheduled them during shutdown: org.eclipse.debug.internal.ui.sourcelookup.SourceLookupFacility$SourceLookupJob
+
+!ENTRY org.eclipse.core.jobs 2 2 2020-01-04 00:35:51.595
+!MESSAGE Job found still running after platform shutdown.  Jobs should be canceled by the plugin that scheduled them during shutdown: org.eclipse.debug.internal.ui.sourcelookup.SourceLookupFacility$SourceLookupJob
+
+!ENTRY org.eclipse.core.jobs 2 2 2020-01-04 00:35:51.596
+!MESSAGE Job found still running after platform shutdown.  Jobs should be canceled by the plugin that scheduled them during shutdown: org.eclipse.debug.internal.ui.sourcelookup.SourceLookupFacility$SourceLookupJob
+
+!ENTRY org.eclipse.core.jobs 2 2 2020-01-04 00:35:51.596
+!MESSAGE Job found still running after platform shutdown.  Jobs should be canceled by the plugin that scheduled them during shutdown: org.eclipse.debug.internal.ui.sourcelookup.SourceLookupFacility$SourceLookupJob
+
+!ENTRY org.eclipse.core.jobs 2 2 2020-01-04 00:35:51.596
+!MESSAGE Job found still running after platform shutdown.  Jobs should be canceled by the plugin that scheduled them during shutdown: org.eclipse.debug.internal.ui.sourcelookup.SourceLookupFacility$SourceLookupJob
+
+!ENTRY org.eclipse.core.jobs 2 2 2020-01-04 00:35:51.596
+!MESSAGE Job found still running after platform shutdown.  Jobs should be canceled by the plugin that scheduled them during shutdown: org.eclipse.debug.internal.ui.sourcelookup.SourceLookupFacility$SourceLookupJob
+
+!ENTRY org.eclipse.core.jobs 2 2 2020-01-04 00:35:51.597
+!MESSAGE Job found still running after platform shutdown.  Jobs should be canceled by the plugin that scheduled them during shutdown: org.eclipse.debug.internal.ui.sourcelookup.SourceLookupFacility$SourceLookupJob
+
+!ENTRY org.eclipse.core.jobs 2 2 2020-01-04 00:35:51.597
+!MESSAGE Job found still running after platform shutdown.  Jobs should be canceled by the plugin that scheduled them during shutdown: org.eclipse.debug.internal.ui.sourcelookup.SourceLookupFacility$SourceLookupJob
+
+!ENTRY org.eclipse.core.jobs 2 2 2020-01-04 00:35:51.597
+!MESSAGE Job found still running after platform shutdown.  Jobs should be canceled by the plugin that scheduled them during shutdown: org.eclipse.debug.internal.ui.sourcelookup.SourceLookupFacility$SourceLookupJob
+
+!ENTRY org.eclipse.core.jobs 2 2 2020-01-04 00:35:51.597
+!MESSAGE Job found still running after platform shutdown.  Jobs should be canceled by the plugin that scheduled them during shutdown: org.eclipse.debug.internal.ui.sourcelookup.SourceLookupFacility$SourceLookupJob
+
+!ENTRY org.eclipse.core.jobs 2 2 2020-01-04 00:35:51.598
+!MESSAGE Job found still running after platform shutdown.  Jobs should be canceled by the plugin that scheduled them during shutdown: org.eclipse.debug.internal.ui.sourcelookup.SourceLookupFacility$SourceLookupJob
+
+!ENTRY org.eclipse.core.jobs 2 2 2020-01-04 00:35:51.598
+!MESSAGE Job found still running after platform shutdown.  Jobs should be canceled by the plugin that scheduled them during shutdown: org.eclipse.debug.internal.ui.sourcelookup.SourceLookupFacility$SourceLookupJob
+
+!ENTRY org.eclipse.core.jobs 2 2 2020-01-04 00:35:51.598
+!MESSAGE Job found still running after platform shutdown.  Jobs should be canceled by the plugin that scheduled them during shutdown: org.eclipse.debug.internal.ui.sourcelookup.SourceLookupFacility$SourceLookupJob
+
+!ENTRY org.eclipse.core.jobs 2 2 2020-01-04 00:35:51.599
+!MESSAGE Job found still running after platform shutdown.  Jobs should be canceled by the plugin that scheduled them during shutdown: org.eclipse.debug.internal.ui.sourcelookup.SourceLookupFacility$SourceLookupJob
+
+!ENTRY org.eclipse.core.jobs 2 2 2020-01-04 00:35:51.599
+!MESSAGE Job found still running after platform shutdown.  Jobs should be canceled by the plugin that scheduled them during shutdown: org.eclipse.debug.internal.ui.sourcelookup.SourceLookupFacility$SourceLookupJob
+
+!ENTRY org.eclipse.core.jobs 2 2 2020-01-04 00:35:51.599
+!MESSAGE Job found still running after platform shutdown.  Jobs should be canceled by the plugin that scheduled them during shutdown: org.eclipse.debug.internal.ui.sourcelookup.SourceLookupFacility$SourceLookupJob
+
+!ENTRY org.eclipse.core.jobs 2 2 2020-01-04 00:35:51.599
+!MESSAGE Job found still running after platform shutdown.  Jobs should be canceled by the plugin that scheduled them during shutdown: org.eclipse.debug.internal.ui.sourcelookup.SourceLookupFacility$SourceLookupJob
+
+!ENTRY org.eclipse.core.jobs 2 2 2020-01-04 00:35:51.599
+!MESSAGE Job found still running after platform shutdown.  Jobs should be canceled by the plugin that scheduled them during shutdown: org.eclipse.debug.internal.ui.sourcelookup.SourceLookupFacility$SourceLookupJob
+
+!ENTRY org.eclipse.core.jobs 2 2 2020-01-04 00:35:51.600
+!MESSAGE Job found still running after platform shutdown.  Jobs should be canceled by the plugin that scheduled them during shutdown: org.eclipse.debug.internal.ui.sourcelookup.SourceLookupFacility$SourceLookupJob
+
+!ENTRY org.eclipse.core.jobs 2 2 2020-01-04 00:35:51.600
+!MESSAGE Job found still running after platform shutdown.  Jobs should be canceled by the plugin that scheduled them during shutdown: org.eclipse.debug.internal.ui.sourcelookup.SourceLookupFacility$SourceLookupJob
+
+!ENTRY org.eclipse.core.jobs 2 2 2020-01-04 00:35:51.600
+!MESSAGE Job found still running after platform shutdown.  Jobs should be canceled by the plugin that scheduled them during shutdown: org.eclipse.debug.internal.ui.sourcelookup.SourceLookupFacility$SourceLookupJob
+
+!ENTRY org.eclipse.core.jobs 2 2 2020-01-04 00:35:51.600
+!MESSAGE Job found still running after platform shutdown.  Jobs should be canceled by the plugin that scheduled them during shutdown: org.eclipse.debug.internal.ui.sourcelookup.SourceLookupFacility$SourceLookupJob
+
+!ENTRY org.eclipse.core.jobs 2 2 2020-01-04 00:35:51.601
+!MESSAGE Job found still running after platform shutdown.  Jobs should be canceled by the plugin that scheduled them during shutdown: org.eclipse.debug.internal.ui.sourcelookup.SourceLookupFacility$SourceLookupJob
+
+!ENTRY org.eclipse.core.jobs 2 2 2020-01-04 00:35:51.601
+!MESSAGE Job found still running after platform shutdown.  Jobs should be canceled by the plugin that scheduled them during shutdown: org.eclipse.debug.internal.ui.sourcelookup.SourceLookupFacility$SourceLookupJob
+
+!ENTRY org.eclipse.core.jobs 2 2 2020-01-04 00:35:51.601
+!MESSAGE Job found still running after platform shutdown.  Jobs should be canceled by the plugin that scheduled them during shutdown: org.eclipse.debug.internal.ui.sourcelookup.SourceLookupFacility$SourceLookupJob
+
+!ENTRY org.eclipse.core.jobs 2 2 2020-01-04 00:35:51.602
+!MESSAGE Job found still running after platform shutdown.  Jobs should be canceled by the plugin that scheduled them during shutdown: org.eclipse.debug.internal.ui.sourcelookup.SourceLookupFacility$SourceLookupJob
+
+!ENTRY org.eclipse.core.jobs 2 2 2020-01-04 00:35:51.602
+!MESSAGE Job found still running after platform shutdown.  Jobs should be canceled by the plugin that scheduled them during shutdown: org.eclipse.debug.internal.ui.sourcelookup.SourceLookupFacility$SourceLookupJob
+
+!ENTRY org.eclipse.core.jobs 2 2 2020-01-04 00:35:51.602
+!MESSAGE Job found still running after platform shutdown.  Jobs should be canceled by the plugin that scheduled them during shutdown: org.eclipse.debug.internal.ui.sourcelookup.SourceLookupFacility$SourceLookupJob
+
+!ENTRY org.eclipse.core.jobs 2 2 2020-01-04 00:35:51.602
+!MESSAGE Job found still running after platform shutdown.  Jobs should be canceled by the plugin that scheduled them during shutdown: org.eclipse.debug.internal.ui.sourcelookup.SourceLookupFacility$SourceLookupJob
+
+!ENTRY org.eclipse.core.jobs 2 2 2020-01-04 00:35:51.603
+!MESSAGE Job found still running after platform shutdown.  Jobs should be canceled by the plugin that scheduled them during shutdown: org.eclipse.debug.internal.ui.sourcelookup.SourceLookupFacility$SourceLookupJob
+
+!ENTRY org.eclipse.core.jobs 2 2 2020-01-04 00:35:51.603
+!MESSAGE Job found still running after platform shutdown.  Jobs should be canceled by the plugin that scheduled them during shutdown: org.eclipse.debug.internal.ui.sourcelookup.SourceLookupFacility$SourceLookupJob
+
+!ENTRY org.eclipse.core.jobs 2 2 2020-01-04 00:35:51.603
+!MESSAGE Job found still running after platform shutdown.  Jobs should be canceled by the plugin that scheduled them during shutdown: org.eclipse.debug.internal.ui.sourcelookup.SourceLookupFacility$SourceLookupJob
+
+!ENTRY org.eclipse.core.jobs 2 2 2020-01-04 00:35:51.604
+!MESSAGE Job found still running after platform shutdown.  Jobs should be canceled by the plugin that scheduled them during shutdown: org.eclipse.debug.internal.ui.sourcelookup.SourceLookupFacility$SourceLookupJob
+
+!ENTRY org.eclipse.core.jobs 2 2 2020-01-04 00:35:51.604
+!MESSAGE Job found still running after platform shutdown.  Jobs should be canceled by the plugin that scheduled them during shutdown: org.eclipse.debug.internal.ui.sourcelookup.SourceLookupFacility$SourceLookupJob
+
+!ENTRY org.eclipse.core.jobs 2 2 2020-01-04 00:35:51.604
+!MESSAGE Job found still running after platform shutdown.  Jobs should be canceled by the plugin that scheduled them during shutdown: org.eclipse.debug.internal.ui.sourcelookup.SourceLookupFacility$SourceLookupJob
+
+!ENTRY org.eclipse.core.jobs 2 2 2020-01-04 00:35:51.604
+!MESSAGE Job found still running after platform shutdown.  Jobs should be canceled by the plugin that scheduled them during shutdown: org.eclipse.debug.internal.ui.sourcelookup.SourceLookupFacility$SourceLookupJob
+
+!ENTRY org.eclipse.core.jobs 2 2 2020-01-04 00:35:51.604
+!MESSAGE Job found still running after platform shutdown.  Jobs should be canceled by the plugin that scheduled them during shutdown: org.eclipse.debug.internal.ui.sourcelookup.SourceLookupFacility$SourceLookupJob
+
+!ENTRY org.eclipse.core.jobs 2 2 2020-01-04 00:35:51.605
+!MESSAGE Job found still running after platform shutdown.  Jobs should be canceled by the plugin that scheduled them during shutdown: org.eclipse.debug.internal.ui.sourcelookup.SourceLookupFacility$SourceLookupJob
+
+!ENTRY org.eclipse.core.jobs 2 2 2020-01-04 00:35:51.605
+!MESSAGE Job found still running after platform shutdown.  Jobs should be canceled by the plugin that scheduled them during shutdown: org.eclipse.debug.internal.ui.sourcelookup.SourceLookupFacility$SourceLookupJob
+
+!ENTRY org.eclipse.core.jobs 2 2 2020-01-04 00:35:51.605
+!MESSAGE Job found still running after platform shutdown.  Jobs should be canceled by the plugin that scheduled them during shutdown: org.eclipse.debug.internal.ui.sourcelookup.SourceLookupFacility$SourceLookupJob
+
+!ENTRY org.eclipse.core.jobs 2 2 2020-01-04 00:35:51.605
+!MESSAGE Job found still running after platform shutdown.  Jobs should be canceled by the plugin that scheduled them during shutdown: org.eclipse.debug.internal.ui.sourcelookup.SourceLookupFacility$SourceLookupJob
+
+!ENTRY org.eclipse.core.jobs 2 2 2020-01-04 00:35:51.605
+!MESSAGE Job found still running after platform shutdown.  Jobs should be canceled by the plugin that scheduled them during shutdown: org.eclipse.debug.internal.ui.sourcelookup.SourceLookupFacility$SourceLookupJob
+
+!ENTRY org.eclipse.core.jobs 2 2 2020-01-04 00:35:51.605
+!MESSAGE Job found still running after platform shutdown.  Jobs should be canceled by the plugin that scheduled them during shutdown: org.eclipse.debug.internal.ui.sourcelookup.SourceLookupFacility$SourceLookupJob
+
+!ENTRY org.eclipse.core.jobs 2 2 2020-01-04 00:35:51.606
+!MESSAGE Job found still running after platform shutdown.  Jobs should be canceled by the plugin that scheduled them during shutdown: org.eclipse.debug.internal.ui.sourcelookup.SourceLookupFacility$SourceLookupJob
+
+!ENTRY org.eclipse.core.jobs 2 2 2020-01-04 00:35:51.606
+!MESSAGE Job found still running after platform shutdown.  Jobs should be canceled by the plugin that scheduled them during shutdown: org.eclipse.debug.internal.ui.sourcelookup.SourceLookupFacility$SourceLookupJob
+
+!ENTRY org.eclipse.core.jobs 2 2 2020-01-04 00:35:51.606
+!MESSAGE Job found still running after platform shutdown.  Jobs should be canceled by the plugin that scheduled them during shutdown: org.eclipse.debug.internal.ui.sourcelookup.SourceLookupFacility$SourceLookupJob
+
+!ENTRY org.eclipse.core.jobs 2 2 2020-01-04 00:35:51.606
+!MESSAGE Job found still running after platform shutdown.  Jobs should be canceled by the plugin that scheduled them during shutdown: org.eclipse.debug.internal.ui.sourcelookup.SourceLookupFacility$SourceLookupJob
+
+!ENTRY org.eclipse.core.jobs 2 2 2020-01-04 00:35:51.606
+!MESSAGE Job found still running after platform shutdown.  Jobs should be canceled by the plugin that scheduled them during shutdown: org.eclipse.debug.internal.ui.sourcelookup.SourceLookupFacility$SourceLookupJob
+
+!ENTRY org.eclipse.core.jobs 2 2 2020-01-04 00:35:51.607
+!MESSAGE Job found still running after platform shutdown.  Jobs should be canceled by the plugin that scheduled them during shutdown: org.eclipse.debug.internal.ui.sourcelookup.SourceLookupFacility$SourceLookupJob
+
+!ENTRY org.eclipse.core.jobs 2 2 2020-01-04 00:35:51.607
+!MESSAGE Job found still running after platform shutdown.  Jobs should be canceled by the plugin that scheduled them during shutdown: org.eclipse.debug.internal.ui.sourcelookup.SourceLookupFacility$SourceLookupJob
+
+!ENTRY org.eclipse.core.jobs 2 2 2020-01-04 00:35:51.607
+!MESSAGE Job found still running after platform shutdown.  Jobs should be canceled by the plugin that scheduled them during shutdown: org.eclipse.debug.internal.ui.sourcelookup.SourceLookupFacility$SourceLookupJob
+
+!ENTRY org.eclipse.core.jobs 2 2 2020-01-04 00:35:51.607
+!MESSAGE Job found still running after platform shutdown.  Jobs should be canceled by the plugin that scheduled them during shutdown: org.eclipse.debug.internal.ui.sourcelookup.SourceLookupFacility$SourceLookupJob
+
+!ENTRY org.eclipse.core.jobs 2 2 2020-01-04 00:35:51.607
+!MESSAGE Job found still running after platform shutdown.  Jobs should be canceled by the plugin that scheduled them during shutdown: org.eclipse.debug.internal.ui.sourcelookup.SourceLookupFacility$SourceLookupJob
+
+!ENTRY org.eclipse.core.jobs 2 2 2020-01-04 00:35:51.608
+!MESSAGE Job found still running after platform shutdown.  Jobs should be canceled by the plugin that scheduled them during shutdown: org.eclipse.debug.internal.ui.sourcelookup.SourceLookupFacility$SourceLookupJob
+
+!ENTRY org.eclipse.core.jobs 2 2 2020-01-04 00:35:51.608
+!MESSAGE Job found still running after platform shutdown.  Jobs should be canceled by the plugin that scheduled them during shutdown: org.eclipse.debug.internal.ui.sourcelookup.SourceLookupFacility$SourceLookupJob
+
+!ENTRY org.eclipse.core.jobs 2 2 2020-01-04 00:35:51.608
+!MESSAGE Job found still running after platform shutdown.  Jobs should be canceled by the plugin that scheduled them during shutdown: org.eclipse.debug.internal.ui.sourcelookup.SourceLookupFacility$SourceLookupJob
+
+!ENTRY org.eclipse.core.jobs 2 2 2020-01-04 00:35:51.608
+!MESSAGE Job found still running after platform shutdown.  Jobs should be canceled by the plugin that scheduled them during shutdown: org.eclipse.debug.internal.ui.sourcelookup.SourceLookupFacility$SourceLookupJob
+
+!ENTRY org.eclipse.core.jobs 2 2 2020-01-04 00:35:51.608
+!MESSAGE Job found still running after platform shutdown.  Jobs should be canceled by the plugin that scheduled them during shutdown: org.eclipse.debug.internal.ui.sourcelookup.SourceLookupFacility$SourceLookupJob
+
+!ENTRY org.eclipse.core.jobs 2 2 2020-01-04 00:35:51.608
+!MESSAGE Job found still running after platform shutdown.  Jobs should be canceled by the plugin that scheduled them during shutdown: org.eclipse.debug.internal.ui.sourcelookup.SourceLookupFacility$SourceLookupJob
+
+!ENTRY org.eclipse.core.jobs 2 2 2020-01-04 00:35:51.609
+!MESSAGE Job found still running after platform shutdown.  Jobs should be canceled by the plugin that scheduled them during shutdown: org.eclipse.debug.internal.ui.sourcelookup.SourceLookupFacility$SourceLookupJob
+
+!ENTRY org.eclipse.core.jobs 2 2 2020-01-04 00:35:51.609
+!MESSAGE Job found still running after platform shutdown.  Jobs should be canceled by the plugin that scheduled them during shutdown: org.eclipse.debug.internal.ui.sourcelookup.SourceLookupFacility$SourceLookupJob
+
+!ENTRY org.eclipse.core.jobs 2 2 2020-01-04 00:35:51.609
+!MESSAGE Job found still running after platform shutdown.  Jobs should be canceled by the plugin that scheduled them during shutdown: org.eclipse.debug.internal.ui.sourcelookup.SourceLookupFacility$SourceLookupJob
+
+!ENTRY org.eclipse.core.jobs 2 2 2020-01-04 00:35:51.609
+!MESSAGE Job found still running after platform shutdown.  Jobs should be canceled by the plugin that scheduled them during shutdown: org.eclipse.debug.internal.ui.sourcelookup.SourceLookupFacility$SourceLookupJob
+
+!ENTRY org.eclipse.core.jobs 2 2 2020-01-04 00:35:51.609
+!MESSAGE Job found still running after platform shutdown.  Jobs should be canceled by the plugin that scheduled them during shutdown: org.eclipse.debug.internal.ui.sourcelookup.SourceLookupFacility$SourceLookupJob
+
+!ENTRY org.eclipse.core.jobs 2 2 2020-01-04 00:35:51.610
+!MESSAGE Job found still running after platform shutdown.  Jobs should be canceled by the plugin that scheduled them during shutdown: org.eclipse.debug.internal.ui.sourcelookup.SourceLookupFacility$SourceLookupJob
+
+!ENTRY org.eclipse.core.jobs 2 2 2020-01-04 00:35:51.610
+!MESSAGE Job found still running after platform shutdown.  Jobs should be canceled by the plugin that scheduled them during shutdown: org.eclipse.debug.internal.ui.sourcelookup.SourceLookupFacility$SourceLookupJob
+
+!ENTRY org.eclipse.core.jobs 2 2 2020-01-04 00:35:51.610
+!MESSAGE Job found still running after platform shutdown.  Jobs should be canceled by the plugin that scheduled them during shutdown: org.eclipse.debug.internal.ui.sourcelookup.SourceLookupFacility$SourceLookupJob
+
+!ENTRY org.eclipse.core.jobs 2 2 2020-01-04 00:35:51.610
+!MESSAGE Job found still running after platform shutdown.  Jobs should be canceled by the plugin that scheduled them during shutdown: org.eclipse.debug.internal.ui.sourcelookup.SourceLookupFacility$SourceLookupJob
+
+!ENTRY org.eclipse.core.jobs 2 2 2020-01-04 00:35:51.611
+!MESSAGE Job found still running after platform shutdown.  Jobs should be canceled by the plugin that scheduled them during shutdown: org.eclipse.debug.internal.ui.sourcelookup.SourceLookupFacility$SourceLookupJob
+
+!ENTRY org.eclipse.core.jobs 2 2 2020-01-04 00:35:51.611
+!MESSAGE Job found still running after platform shutdown.  Jobs should be canceled by the plugin that scheduled them during shutdown: org.eclipse.debug.internal.ui.sourcelookup.SourceLookupFacility$SourceLookupJob
+
+!ENTRY org.eclipse.core.jobs 2 2 2020-01-04 00:35:51.611
+!MESSAGE Job found still running after platform shutdown.  Jobs should be canceled by the plugin that scheduled them during shutdown: org.eclipse.debug.internal.ui.sourcelookup.SourceLookupFacility$SourceLookupJob
+
+!ENTRY org.eclipse.core.jobs 2 2 2020-01-04 00:35:51.611
+!MESSAGE Job found still running after platform shutdown.  Jobs should be canceled by the plugin that scheduled them during shutdown: org.eclipse.debug.internal.ui.sourcelookup.SourceLookupFacility$SourceLookupJob
+
+!ENTRY org.eclipse.core.jobs 2 2 2020-01-04 00:35:51.612
+!MESSAGE Job found still running after platform shutdown.  Jobs should be canceled by the plugin that scheduled them during shutdown: org.eclipse.debug.internal.ui.sourcelookup.SourceLookupFacility$SourceLookupJob
+
+!ENTRY org.eclipse.core.jobs 2 2 2020-01-04 00:35:51.612
+!MESSAGE Job found still running after platform shutdown.  Jobs should be canceled by the plugin that scheduled them during shutdown: org.eclipse.debug.internal.ui.sourcelookup.SourceLookupFacility$SourceLookupJob
+
+!ENTRY org.eclipse.core.jobs 2 2 2020-01-04 00:35:51.612
+!MESSAGE Job found still running after platform shutdown.  Jobs should be canceled by the plugin that scheduled them during shutdown: org.eclipse.debug.internal.ui.sourcelookup.SourceLookupFacility$SourceLookupJob
+
+!ENTRY org.eclipse.core.jobs 2 2 2020-01-04 00:35:51.612
+!MESSAGE Job found still running after platform shutdown.  Jobs should be canceled by the plugin that scheduled them during shutdown: org.eclipse.debug.internal.ui.sourcelookup.SourceLookupFacility$SourceLookupJob
+
+!ENTRY org.eclipse.core.jobs 2 2 2020-01-04 00:35:51.613
+!MESSAGE Job found still running after platform shutdown.  Jobs should be canceled by the plugin that scheduled them during shutdown: org.eclipse.debug.internal.ui.sourcelookup.SourceLookupFacility$SourceLookupJob
+
+!ENTRY org.eclipse.core.jobs 2 2 2020-01-04 00:35:51.613
+!MESSAGE Job found still running after platform shutdown.  Jobs should be canceled by the plugin that scheduled them during shutdown: org.eclipse.debug.internal.ui.sourcelookup.SourceLookupFacility$SourceLookupJob
+
+!ENTRY org.eclipse.core.jobs 2 2 2020-01-04 00:35:51.613
+!MESSAGE Job found still running after platform shutdown.  Jobs should be canceled by the plugin that scheduled them during shutdown: org.eclipse.debug.internal.ui.sourcelookup.SourceLookupFacility$SourceLookupJob
+
+!ENTRY org.eclipse.core.jobs 2 2 2020-01-04 00:35:51.613
+!MESSAGE Job found still running after platform shutdown.  Jobs should be canceled by the plugin that scheduled them during shutdown: org.eclipse.debug.internal.ui.sourcelookup.SourceLookupFacility$SourceLookupJob
+
+!ENTRY org.eclipse.core.jobs 2 2 2020-01-04 00:35:51.614
+!MESSAGE Job found still running after platform shutdown.  Jobs should be canceled by the plugin that scheduled them during shutdown: org.eclipse.debug.internal.ui.sourcelookup.SourceLookupFacility$SourceLookupJob
+
+!ENTRY org.eclipse.core.jobs 2 2 2020-01-04 00:35:51.614
+!MESSAGE Job found still running after platform shutdown.  Jobs should be canceled by the plugin that scheduled them during shutdown: org.eclipse.debug.internal.ui.sourcelookup.SourceLookupFacility$SourceLookupJob
+
+!ENTRY org.eclipse.core.jobs 2 2 2020-01-04 00:35:51.614
+!MESSAGE Job found still running after platform shutdown.  Jobs should be canceled by the plugin that scheduled them during shutdown: org.eclipse.debug.internal.ui.sourcelookup.SourceLookupFacility$SourceLookupJob
+
+!ENTRY org.eclipse.core.jobs 2 2 2020-01-04 00:35:51.614
+!MESSAGE Job found still running after platform shutdown.  Jobs should be canceled by the plugin that scheduled them during shutdown: org.eclipse.debug.internal.ui.sourcelookup.SourceLookupFacility$SourceLookupJob
+
+!ENTRY org.eclipse.core.jobs 2 2 2020-01-04 00:35:51.615
+!MESSAGE Job found still running after platform shutdown.  Jobs should be canceled by the plugin that scheduled them during shutdown: org.eclipse.debug.internal.ui.sourcelookup.SourceLookupFacility$SourceLookupJob
+
+!ENTRY org.eclipse.core.jobs 2 2 2020-01-04 00:35:51.615
+!MESSAGE Job found still running after platform shutdown.  Jobs should be canceled by the plugin that scheduled them during shutdown: org.eclipse.debug.internal.ui.sourcelookup.SourceLookupFacility$SourceLookupJob
+
+!ENTRY org.eclipse.core.jobs 2 2 2020-01-04 00:35:51.615
+!MESSAGE Job found still running after platform shutdown.  Jobs should be canceled by the plugin that scheduled them during shutdown: org.eclipse.debug.internal.ui.sourcelookup.SourceLookupFacility$SourceLookupJob
+
+!ENTRY org.eclipse.core.jobs 2 2 2020-01-04 00:35:51.615
+!MESSAGE Job found still running after platform shutdown.  Jobs should be canceled by the plugin that scheduled them during shutdown: org.eclipse.debug.internal.ui.sourcelookup.SourceLookupFacility$SourceLookupJob
+
+!ENTRY org.eclipse.core.jobs 2 2 2020-01-04 00:35:51.615
+!MESSAGE Job found still running after platform shutdown.  Jobs should be canceled by the plugin that scheduled them during shutdown: org.eclipse.debug.internal.ui.sourcelookup.SourceLookupFacility$SourceLookupJob
+
+!ENTRY org.eclipse.core.jobs 2 2 2020-01-04 00:35:51.616
+!MESSAGE Job found still running after platform shutdown.  Jobs should be canceled by the plugin that scheduled them during shutdown: org.eclipse.debug.internal.ui.sourcelookup.SourceLookupFacility$SourceLookupJob
+
+!ENTRY org.eclipse.core.jobs 2 2 2020-01-04 00:35:51.616
+!MESSAGE Job found still running after platform shutdown.  Jobs should be canceled by the plugin that scheduled them during shutdown: org.eclipse.debug.internal.ui.sourcelookup.SourceLookupFacility$SourceLookupJob
+
+!ENTRY org.eclipse.core.jobs 2 2 2020-01-04 00:35:51.616
+!MESSAGE Job found still running after platform shutdown.  Jobs should be canceled by the plugin that scheduled them during shutdown: org.eclipse.debug.internal.ui.sourcelookup.SourceLookupFacility$SourceLookupJob
+
+!ENTRY org.eclipse.core.jobs 2 2 2020-01-04 00:35:51.616
+!MESSAGE Job found still running after platform shutdown.  Jobs should be canceled by the plugin that scheduled them during shutdown: org.eclipse.debug.internal.ui.sourcelookup.SourceLookupFacility$SourceLookupJob
+
+!ENTRY org.eclipse.core.jobs 2 2 2020-01-04 00:35:51.616
+!MESSAGE Job found still running after platform shutdown.  Jobs should be canceled by the plugin that scheduled them during shutdown: org.eclipse.debug.internal.ui.sourcelookup.SourceLookupFacility$SourceLookupJob
+
+!ENTRY org.eclipse.core.jobs 2 2 2020-01-04 00:35:51.617
+!MESSAGE Job found still running after platform shutdown.  Jobs should be canceled by the plugin that scheduled them during shutdown: org.eclipse.debug.internal.ui.sourcelookup.SourceLookupFacility$SourceLookupJob
+
+!ENTRY org.eclipse.core.jobs 2 2 2020-01-04 00:35:51.617
+!MESSAGE Job found still running after platform shutdown.  Jobs should be canceled by the plugin that scheduled them during shutdown: org.eclipse.debug.internal.ui.sourcelookup.SourceLookupFacility$SourceLookupJob
+
+!ENTRY org.eclipse.core.jobs 2 2 2020-01-04 00:35:51.617
+!MESSAGE Job found still running after platform shutdown.  Jobs should be canceled by the plugin that scheduled them during shutdown: org.eclipse.debug.internal.ui.sourcelookup.SourceLookupFacility$SourceLookupJob
+
+!ENTRY org.eclipse.core.jobs 2 2 2020-01-04 00:35:51.617
+!MESSAGE Job found still running after platform shutdown.  Jobs should be canceled by the plugin that scheduled them during shutdown: org.eclipse.debug.internal.ui.sourcelookup.SourceLookupFacility$SourceLookupJob
+
+!ENTRY org.eclipse.core.jobs 2 2 2020-01-04 00:35:51.617
+!MESSAGE Job found still running after platform shutdown.  Jobs should be canceled by the plugin that scheduled them during shutdown: org.eclipse.debug.internal.ui.sourcelookup.SourceLookupFacility$SourceLookupJob
+
+!ENTRY org.eclipse.core.jobs 2 2 2020-01-04 00:35:51.618
+!MESSAGE Job found still running after platform shutdown.  Jobs should be canceled by the plugin that scheduled them during shutdown: org.eclipse.debug.internal.ui.sourcelookup.SourceLookupFacility$SourceLookupJob
+
+!ENTRY org.eclipse.core.jobs 2 2 2020-01-04 00:35:51.618
+!MESSAGE Job found still running after platform shutdown.  Jobs should be canceled by the plugin that scheduled them during shutdown: org.eclipse.debug.internal.ui.sourcelookup.SourceLookupFacility$SourceLookupJob
+
+!ENTRY org.eclipse.core.jobs 2 2 2020-01-04 00:35:51.618
+!MESSAGE Job found still running after platform shutdown.  Jobs should be canceled by the plugin that scheduled them during shutdown: org.eclipse.debug.internal.ui.sourcelookup.SourceLookupFacility$SourceLookupJob
+
+!ENTRY org.eclipse.core.jobs 2 2 2020-01-04 00:35:51.618
+!MESSAGE Job found still running after platform shutdown.  Jobs should be canceled by the plugin that scheduled them during shutdown: org.eclipse.debug.internal.ui.sourcelookup.SourceLookupFacility$SourceLookupJob
+
+!ENTRY org.eclipse.core.jobs 2 2 2020-01-04 00:35:51.618
+!MESSAGE Job found still running after platform shutdown.  Jobs should be canceled by the plugin that scheduled them during shutdown: org.eclipse.debug.internal.ui.sourcelookup.SourceLookupFacility$SourceLookupJob
+
+!ENTRY org.eclipse.core.jobs 2 2 2020-01-04 00:35:51.619
+!MESSAGE Job found still running after platform shutdown.  Jobs should be canceled by the plugin that scheduled them during shutdown: org.eclipse.debug.internal.ui.sourcelookup.SourceLookupFacility$SourceLookupJob
+
+!ENTRY org.eclipse.core.jobs 2 2 2020-01-04 00:35:51.619
+!MESSAGE Job found still running after platform shutdown.  Jobs should be canceled by the plugin that scheduled them during shutdown: org.eclipse.debug.internal.ui.sourcelookup.SourceLookupFacility$SourceLookupJob
+
+!ENTRY org.eclipse.core.jobs 2 2 2020-01-04 00:35:51.619
+!MESSAGE Job found still running after platform shutdown.  Jobs should be canceled by the plugin that scheduled them during shutdown: org.eclipse.debug.internal.ui.sourcelookup.SourceLookupFacility$SourceLookupJob
+
+!ENTRY org.eclipse.core.jobs 2 2 2020-01-04 00:35:51.619
+!MESSAGE Job found still running after platform shutdown.  Jobs should be canceled by the plugin that scheduled them during shutdown: org.eclipse.debug.internal.ui.sourcelookup.SourceLookupFacility$SourceLookupJob
+
+!ENTRY org.eclipse.core.jobs 2 2 2020-01-04 00:35:51.619
+!MESSAGE Job found still running after platform shutdown.  Jobs should be canceled by the plugin that scheduled them during shutdown: org.eclipse.debug.internal.ui.sourcelookup.SourceLookupFacility$SourceLookupJob
+
+!ENTRY org.eclipse.core.jobs 2 2 2020-01-04 00:35:51.619
+!MESSAGE Job found still running after platform shutdown.  Jobs should be canceled by the plugin that scheduled them during shutdown: org.eclipse.debug.internal.ui.sourcelookup.SourceLookupFacility$SourceLookupJob
+
+!ENTRY org.eclipse.core.jobs 2 2 2020-01-04 00:35:51.620
+!MESSAGE Job found still running after platform shutdown.  Jobs should be canceled by the plugin that scheduled them during shutdown: org.eclipse.debug.internal.ui.sourcelookup.SourceLookupFacility$SourceLookupJob
+
+!ENTRY org.eclipse.core.jobs 2 2 2020-01-04 00:35:51.620
+!MESSAGE Job found still running after platform shutdown.  Jobs should be canceled by the plugin that scheduled them during shutdown: org.eclipse.debug.internal.ui.sourcelookup.SourceLookupFacility$SourceLookupJob
+
+!ENTRY org.eclipse.core.jobs 2 2 2020-01-04 00:35:51.620
+!MESSAGE Job found still running after platform shutdown.  Jobs should be canceled by the plugin that scheduled them during shutdown: org.eclipse.debug.internal.ui.sourcelookup.SourceLookupFacility$SourceLookupJob
+
+!ENTRY org.eclipse.core.jobs 2 2 2020-01-04 00:35:51.620
+!MESSAGE Job found still running after platform shutdown.  Jobs should be canceled by the plugin that scheduled them during shutdown: org.eclipse.debug.internal.ui.sourcelookup.SourceLookupFacility$SourceLookupJob
+
+!ENTRY org.eclipse.core.jobs 2 2 2020-01-04 00:35:51.620
+!MESSAGE Job found still running after platform shutdown.  Jobs should be canceled by the plugin that scheduled them during shutdown: org.eclipse.debug.internal.ui.sourcelookup.SourceLookupFacility$SourceLookupJob
+
+!ENTRY org.eclipse.core.jobs 2 2 2020-01-04 00:35:51.620
+!MESSAGE Job found still running after platform shutdown.  Jobs should be canceled by the plugin that scheduled them during shutdown: org.eclipse.debug.internal.ui.sourcelookup.SourceLookupFacility$SourceLookupJob
+
+!ENTRY org.eclipse.core.jobs 2 2 2020-01-04 00:35:51.621
+!MESSAGE Job found still running after platform shutdown.  Jobs should be canceled by the plugin that scheduled them during shutdown: org.eclipse.debug.internal.ui.sourcelookup.SourceLookupFacility$SourceLookupJob
+
+!ENTRY org.eclipse.core.jobs 2 2 2020-01-04 00:35:51.621
+!MESSAGE Job found still running after platform shutdown.  Jobs should be canceled by the plugin that scheduled them during shutdown: org.eclipse.debug.internal.ui.sourcelookup.SourceLookupFacility$SourceLookupJob
+
+!ENTRY org.eclipse.core.jobs 2 2 2020-01-04 00:35:51.621
+!MESSAGE Job found still running after platform shutdown.  Jobs should be canceled by the plugin that scheduled them during shutdown: org.eclipse.debug.internal.ui.sourcelookup.SourceLookupFacility$SourceLookupJob
+
+!ENTRY org.eclipse.core.jobs 2 2 2020-01-04 00:35:51.621
+!MESSAGE Job found still running after platform shutdown.  Jobs should be canceled by the plugin that scheduled them during shutdown: org.eclipse.debug.internal.ui.sourcelookup.SourceLookupFacility$SourceLookupJob
+
+!ENTRY org.eclipse.core.jobs 2 2 2020-01-04 00:35:51.621
+!MESSAGE Job found still running after platform shutdown.  Jobs should be canceled by the plugin that scheduled them during shutdown: org.eclipse.debug.internal.ui.sourcelookup.SourceLookupFacility$SourceLookupJob
+
+!ENTRY org.eclipse.core.jobs 2 2 2020-01-04 00:35:51.622
+!MESSAGE Job found still running after platform shutdown.  Jobs should be canceled by the plugin that scheduled them during shutdown: org.eclipse.debug.internal.ui.sourcelookup.SourceLookupFacility$SourceLookupJob
+
+!ENTRY org.eclipse.core.jobs 2 2 2020-01-04 00:35:51.622
+!MESSAGE Job found still running after platform shutdown.  Jobs should be canceled by the plugin that scheduled them during shutdown: org.eclipse.debug.internal.ui.sourcelookup.SourceLookupFacility$SourceLookupJob
+
+!ENTRY org.eclipse.core.jobs 2 2 2020-01-04 00:35:51.622
+!MESSAGE Job found still running after platform shutdown.  Jobs should be canceled by the plugin that scheduled them during shutdown: org.eclipse.debug.internal.ui.sourcelookup.SourceLookupFacility$SourceLookupJob
+
+!ENTRY org.eclipse.core.jobs 2 2 2020-01-04 00:35:51.622
+!MESSAGE Job found still running after platform shutdown.  Jobs should be canceled by the plugin that scheduled them during shutdown: org.eclipse.debug.internal.ui.sourcelookup.SourceLookupFacility$SourceLookupJob
+
+!ENTRY org.eclipse.core.jobs 2 2 2020-01-04 00:35:51.622
+!MESSAGE Job found still running after platform shutdown.  Jobs should be canceled by the plugin that scheduled them during shutdown: org.eclipse.debug.internal.ui.sourcelookup.SourceLookupFacility$SourceLookupJob
+
+!ENTRY org.eclipse.core.jobs 2 2 2020-01-04 00:35:51.622
+!MESSAGE Job found still running after platform shutdown.  Jobs should be canceled by the plugin that scheduled them during shutdown: org.eclipse.debug.internal.ui.sourcelookup.SourceLookupFacility$SourceLookupJob
+
+!ENTRY org.eclipse.core.jobs 2 2 2020-01-04 00:35:51.623
+!MESSAGE Job found still running after platform shutdown.  Jobs should be canceled by the plugin that scheduled them during shutdown: org.eclipse.debug.internal.ui.sourcelookup.SourceLookupFacility$SourceLookupJob
+
+!ENTRY org.eclipse.core.jobs 2 2 2020-01-04 00:35:51.623
+!MESSAGE Job found still running after platform shutdown.  Jobs should be canceled by the plugin that scheduled them during shutdown: org.eclipse.debug.internal.ui.sourcelookup.SourceLookupFacility$SourceLookupJob
+
+!ENTRY org.eclipse.core.jobs 2 2 2020-01-04 00:35:51.623
+!MESSAGE Job found still running after platform shutdown.  Jobs should be canceled by the plugin that scheduled them during shutdown: org.eclipse.debug.internal.ui.sourcelookup.SourceLookupFacility$SourceLookupJob
+
+!ENTRY org.eclipse.core.jobs 2 2 2020-01-04 00:35:51.623
+!MESSAGE Job found still running after platform shutdown.  Jobs should be canceled by the plugin that scheduled them during shutdown: org.eclipse.debug.internal.ui.sourcelookup.SourceLookupFacility$SourceLookupJob
+
+!ENTRY org.eclipse.core.jobs 2 2 2020-01-04 00:35:51.623
+!MESSAGE Job found still running after platform shutdown.  Jobs should be canceled by the plugin that scheduled them during shutdown: org.eclipse.debug.internal.ui.sourcelookup.SourceLookupFacility$SourceLookupJob
+
+!ENTRY org.eclipse.core.jobs 2 2 2020-01-04 00:35:51.624
+!MESSAGE Job found still running after platform shutdown.  Jobs should be canceled by the plugin that scheduled them during shutdown: org.eclipse.debug.internal.ui.sourcelookup.SourceLookupFacility$SourceLookupJob
+
+!ENTRY org.eclipse.core.jobs 2 2 2020-01-04 00:35:51.624
+!MESSAGE Job found still running after platform shutdown.  Jobs should be canceled by the plugin that scheduled them during shutdown: org.eclipse.debug.internal.ui.sourcelookup.SourceLookupFacility$SourceLookupJob
+
+!ENTRY org.eclipse.core.jobs 2 2 2020-01-04 00:35:51.624
+!MESSAGE Job found still running after platform shutdown.  Jobs should be canceled by the plugin that scheduled them during shutdown: org.eclipse.debug.internal.ui.sourcelookup.SourceLookupFacility$SourceLookupJob
+
+!ENTRY org.eclipse.core.jobs 2 2 2020-01-04 00:35:51.624
+!MESSAGE Job found still running after platform shutdown.  Jobs should be canceled by the plugin that scheduled them during shutdown: org.eclipse.debug.internal.ui.sourcelookup.SourceLookupFacility$SourceLookupJob
+
+!ENTRY org.eclipse.core.jobs 2 2 2020-01-04 00:35:51.624
+!MESSAGE Job found still running after platform shutdown.  Jobs should be canceled by the plugin that scheduled them during shutdown: org.eclipse.debug.internal.ui.sourcelookup.SourceLookupFacility$SourceLookupJob
+
+!ENTRY org.eclipse.core.jobs 2 2 2020-01-04 00:35:51.625
+!MESSAGE Job found still running after platform shutdown.  Jobs should be canceled by the plugin that scheduled them during shutdown: org.eclipse.debug.internal.ui.sourcelookup.SourceLookupFacility$SourceLookupJob
+
+!ENTRY org.eclipse.core.jobs 2 2 2020-01-04 00:35:51.625
+!MESSAGE Job found still running after platform shutdown.  Jobs should be canceled by the plugin that scheduled them during shutdown: org.eclipse.debug.internal.ui.sourcelookup.SourceLookupFacility$SourceLookupJob
+
+!ENTRY org.eclipse.core.jobs 2 2 2020-01-04 00:35:51.625
+!MESSAGE Job found still running after platform shutdown.  Jobs should be canceled by the plugin that scheduled them during shutdown: org.eclipse.debug.internal.ui.sourcelookup.SourceLookupFacility$SourceLookupJob
+
+!ENTRY org.eclipse.core.jobs 2 2 2020-01-04 00:35:51.625
+!MESSAGE Job found still running after platform shutdown.  Jobs should be canceled by the plugin that scheduled them during shutdown: org.eclipse.debug.internal.ui.sourcelookup.SourceLookupFacility$SourceLookupJob
+
+!ENTRY org.eclipse.core.jobs 2 2 2020-01-04 00:35:51.625
+!MESSAGE Job found still running after platform shutdown.  Jobs should be canceled by the plugin that scheduled them during shutdown: org.eclipse.debug.internal.ui.sourcelookup.SourceLookupFacility$SourceLookupJob
+
+!ENTRY org.eclipse.core.jobs 2 2 2020-01-04 00:35:51.626
+!MESSAGE Job found still running after platform shutdown.  Jobs should be canceled by the plugin that scheduled them during shutdown: org.eclipse.debug.internal.ui.sourcelookup.SourceLookupFacility$SourceLookupJob
+
+!ENTRY org.eclipse.core.jobs 2 2 2020-01-04 00:35:51.626
+!MESSAGE Job found still running after platform shutdown.  Jobs should be canceled by the plugin that scheduled them during shutdown: org.eclipse.debug.internal.ui.sourcelookup.SourceLookupFacility$SourceLookupJob
+
+!ENTRY org.eclipse.core.jobs 2 2 2020-01-04 00:35:51.626
+!MESSAGE Job found still running after platform shutdown.  Jobs should be canceled by the plugin that scheduled them during shutdown: org.eclipse.debug.internal.ui.sourcelookup.SourceLookupFacility$SourceLookupJob
+
+!ENTRY org.eclipse.core.jobs 2 2 2020-01-04 00:35:51.626
+!MESSAGE Job found still running after platform shutdown.  Jobs should be canceled by the plugin that scheduled them during shutdown: org.eclipse.debug.internal.ui.sourcelookup.SourceLookupFacility$SourceLookupJob
+
+!ENTRY org.eclipse.core.jobs 2 2 2020-01-04 00:35:51.626
+!MESSAGE Job found still running after platform shutdown.  Jobs should be canceled by the plugin that scheduled them during shutdown: org.eclipse.debug.internal.ui.sourcelookup.SourceLookupFacility$SourceLookupJob
+
+!ENTRY org.eclipse.core.jobs 2 2 2020-01-04 00:35:51.626
+!MESSAGE Job found still running after platform shutdown.  Jobs should be canceled by the plugin that scheduled them during shutdown: org.eclipse.debug.internal.ui.sourcelookup.SourceLookupFacility$SourceLookupJob
+
+!ENTRY org.eclipse.core.jobs 2 2 2020-01-04 00:35:51.627
+!MESSAGE Job found still running after platform shutdown.  Jobs should be canceled by the plugin that scheduled them during shutdown: org.eclipse.debug.internal.ui.sourcelookup.SourceLookupFacility$SourceLookupJob
+
+!ENTRY org.eclipse.core.jobs 2 2 2020-01-04 00:35:51.627
+!MESSAGE Job found still running after platform shutdown.  Jobs should be canceled by the plugin that scheduled them during shutdown: org.eclipse.debug.internal.ui.sourcelookup.SourceLookupFacility$SourceLookupJob
+
+!ENTRY org.eclipse.core.jobs 2 2 2020-01-04 00:35:51.627
+!MESSAGE Job found still running after platform shutdown.  Jobs should be canceled by the plugin that scheduled them during shutdown: org.eclipse.debug.internal.ui.sourcelookup.SourceLookupFacility$SourceLookupJob
+
+!ENTRY org.eclipse.core.jobs 2 2 2020-01-04 00:35:51.627
+!MESSAGE Job found still running after platform shutdown.  Jobs should be canceled by the plugin that scheduled them during shutdown: org.eclipse.debug.internal.ui.sourcelookup.SourceLookupFacility$SourceLookupJob
+
+!ENTRY org.eclipse.core.jobs 2 2 2020-01-04 00:35:51.627
+!MESSAGE Job found still running after platform shutdown.  Jobs should be canceled by the plugin that scheduled them during shutdown: org.eclipse.debug.internal.ui.sourcelookup.SourceLookupFacility$SourceLookupJob
+
+!ENTRY org.eclipse.core.jobs 2 2 2020-01-04 00:35:51.627
+!MESSAGE Job found still running after platform shutdown.  Jobs should be canceled by the plugin that scheduled them during shutdown: org.eclipse.debug.internal.ui.sourcelookup.SourceLookupFacility$SourceLookupJob
+
+!ENTRY org.eclipse.core.jobs 2 2 2020-01-04 00:35:51.628
+!MESSAGE Job found still running after platform shutdown.  Jobs should be canceled by the plugin that scheduled them during shutdown: org.eclipse.debug.internal.ui.sourcelookup.SourceLookupFacility$SourceLookupJob
+
+!ENTRY org.eclipse.core.jobs 2 2 2020-01-04 00:35:51.628
+!MESSAGE Job found still running after platform shutdown.  Jobs should be canceled by the plugin that scheduled them during shutdown: org.eclipse.debug.internal.ui.sourcelookup.SourceLookupFacility$SourceLookupJob
+
+!ENTRY org.eclipse.core.jobs 2 2 2020-01-04 00:35:51.628
+!MESSAGE Job found still running after platform shutdown.  Jobs should be canceled by the plugin that scheduled them during shutdown: org.eclipse.debug.internal.ui.sourcelookup.SourceLookupFacility$SourceLookupJob
+
+!ENTRY org.eclipse.core.jobs 2 2 2020-01-04 00:35:51.628
+!MESSAGE Job found still running after platform shutdown.  Jobs should be canceled by the plugin that scheduled them during shutdown: org.eclipse.debug.internal.ui.sourcelookup.SourceLookupFacility$SourceLookupJob
+
+!ENTRY org.eclipse.core.jobs 2 2 2020-01-04 00:35:51.628
+!MESSAGE Job found still running after platform shutdown.  Jobs should be canceled by the plugin that scheduled them during shutdown: org.eclipse.debug.internal.ui.sourcelookup.SourceLookupFacility$SourceLookupJob
+
+!ENTRY org.eclipse.core.jobs 2 2 2020-01-04 00:35:51.629
+!MESSAGE Job found still running after platform shutdown.  Jobs should be canceled by the plugin that scheduled them during shutdown: org.eclipse.debug.internal.ui.sourcelookup.SourceLookupFacility$SourceLookupJob
+
+!ENTRY org.eclipse.core.jobs 2 2 2020-01-04 00:35:51.629
+!MESSAGE Job found still running after platform shutdown.  Jobs should be canceled by the plugin that scheduled them during shutdown: org.eclipse.debug.internal.ui.sourcelookup.SourceLookupFacility$SourceLookupJob
+
+!ENTRY org.eclipse.core.jobs 2 2 2020-01-04 00:35:51.629
+!MESSAGE Job found still running after platform shutdown.  Jobs should be canceled by the plugin that scheduled them during shutdown: org.eclipse.debug.internal.ui.sourcelookup.SourceLookupFacility$SourceLookupJob
+
+!ENTRY org.eclipse.core.jobs 2 2 2020-01-04 00:35:51.629
+!MESSAGE Job found still running after platform shutdown.  Jobs should be canceled by the plugin that scheduled them during shutdown: org.eclipse.debug.internal.ui.sourcelookup.SourceLookupFacility$SourceLookupJob
+
+!ENTRY org.eclipse.core.jobs 2 2 2020-01-04 00:35:51.629
+!MESSAGE Job found still running after platform shutdown.  Jobs should be canceled by the plugin that scheduled them during shutdown: org.eclipse.debug.internal.ui.sourcelookup.SourceLookupFacility$SourceLookupJob
+
+!ENTRY org.eclipse.core.jobs 2 2 2020-01-04 00:35:51.630
+!MESSAGE Job found still running after platform shutdown.  Jobs should be canceled by the plugin that scheduled them during shutdown: org.eclipse.debug.internal.ui.sourcelookup.SourceLookupFacility$SourceLookupJob
+
+!ENTRY org.eclipse.core.jobs 2 2 2020-01-04 00:35:51.630
+!MESSAGE Job found still running after platform shutdown.  Jobs should be canceled by the plugin that scheduled them during shutdown: org.eclipse.debug.internal.ui.sourcelookup.SourceLookupFacility$SourceLookupJob
+
+!ENTRY org.eclipse.core.jobs 2 2 2020-01-04 00:35:51.630
+!MESSAGE Job found still running after platform shutdown.  Jobs should be canceled by the plugin that scheduled them during shutdown: org.eclipse.debug.internal.ui.sourcelookup.SourceLookupFacility$SourceLookupJob
+
+!ENTRY org.eclipse.core.jobs 2 2 2020-01-04 00:35:51.630
+!MESSAGE Job found still running after platform shutdown.  Jobs should be canceled by the plugin that scheduled them during shutdown: org.eclipse.debug.internal.ui.sourcelookup.SourceLookupFacility$SourceLookupJob
+
+!ENTRY org.eclipse.core.jobs 2 2 2020-01-04 00:35:51.630
+!MESSAGE Job found still running after platform shutdown.  Jobs should be canceled by the plugin that scheduled them during shutdown: org.eclipse.debug.internal.ui.sourcelookup.SourceLookupFacility$SourceLookupJob
+
+!ENTRY org.eclipse.core.jobs 2 2 2020-01-04 00:35:51.631
+!MESSAGE Job found still running after platform shutdown.  Jobs should be canceled by the plugin that scheduled them during shutdown: org.eclipse.debug.internal.ui.sourcelookup.SourceLookupFacility$SourceLookupJob
+
+!ENTRY org.eclipse.core.jobs 2 2 2020-01-04 00:35:51.631
+!MESSAGE Job found still running after platform shutdown.  Jobs should be canceled by the plugin that scheduled them during shutdown: org.eclipse.debug.internal.ui.sourcelookup.SourceLookupFacility$SourceLookupJob
+
+!ENTRY org.eclipse.core.jobs 2 2 2020-01-04 00:35:51.631
+!MESSAGE Job found still running after platform shutdown.  Jobs should be canceled by the plugin that scheduled them during shutdown: org.eclipse.debug.internal.ui.sourcelookup.SourceLookupFacility$SourceLookupJob
+
+!ENTRY org.eclipse.core.jobs 2 2 2020-01-04 00:35:51.631
+!MESSAGE Job found still running after platform shutdown.  Jobs should be canceled by the plugin that scheduled them during shutdown: org.eclipse.debug.internal.ui.sourcelookup.SourceLookupFacility$SourceLookupJob
+
+!ENTRY org.eclipse.core.jobs 2 2 2020-01-04 00:35:51.632
+!MESSAGE Job found still running after platform shutdown.  Jobs should be canceled by the plugin that scheduled them during shutdown: org.eclipse.debug.internal.ui.sourcelookup.SourceLookupFacility$SourceLookupJob
+
+!ENTRY org.eclipse.core.jobs 2 2 2020-01-04 00:35:51.632
+!MESSAGE Job found still running after platform shutdown.  Jobs should be canceled by the plugin that scheduled them during shutdown: org.eclipse.debug.internal.ui.sourcelookup.SourceLookupFacility$SourceLookupJob
+
+!ENTRY org.eclipse.core.jobs 2 2 2020-01-04 00:35:51.632
+!MESSAGE Job found still running after platform shutdown.  Jobs should be canceled by the plugin that scheduled them during shutdown: org.eclipse.debug.internal.ui.sourcelookup.SourceLookupFacility$SourceLookupJob
+
+!ENTRY org.eclipse.core.jobs 2 2 2020-01-04 00:35:51.632
+!MESSAGE Job found still running after platform shutdown.  Jobs should be canceled by the plugin that scheduled them during shutdown: org.eclipse.debug.internal.ui.sourcelookup.SourceLookupFacility$SourceLookupJob
+
+!ENTRY org.eclipse.core.jobs 2 2 2020-01-04 00:35:51.632
+!MESSAGE Job found still running after platform shutdown.  Jobs should be canceled by the plugin that scheduled them during shutdown: org.eclipse.debug.internal.ui.sourcelookup.SourceLookupFacility$SourceLookupJob
+
+!ENTRY org.eclipse.core.jobs 2 2 2020-01-04 00:35:51.632
+!MESSAGE Job found still running after platform shutdown.  Jobs should be canceled by the plugin that scheduled them during shutdown: org.eclipse.debug.internal.ui.sourcelookup.SourceLookupFacility$SourceLookupJob
+
+!ENTRY org.eclipse.core.jobs 2 2 2020-01-04 00:35:51.633
+!MESSAGE Job found still running after platform shutdown.  Jobs should be canceled by the plugin that scheduled them during shutdown: org.eclipse.debug.internal.ui.sourcelookup.SourceLookupFacility$SourceLookupJob
+
+!ENTRY org.eclipse.core.jobs 2 2 2020-01-04 00:35:51.633
+!MESSAGE Job found still running after platform shutdown.  Jobs should be canceled by the plugin that scheduled them during shutdown: org.eclipse.debug.internal.ui.sourcelookup.SourceLookupFacility$SourceLookupJob
+
+!ENTRY org.eclipse.core.jobs 2 2 2020-01-04 00:35:51.633
+!MESSAGE Job found still running after platform shutdown.  Jobs should be canceled by the plugin that scheduled them during shutdown: org.eclipse.debug.internal.ui.sourcelookup.SourceLookupFacility$SourceLookupJob
+
+!ENTRY org.eclipse.core.jobs 2 2 2020-01-04 00:35:51.633
+!MESSAGE Job found still running after platform shutdown.  Jobs should be canceled by the plugin that scheduled them during shutdown: org.eclipse.debug.internal.ui.sourcelookup.SourceLookupFacility$SourceLookupJob
+
+!ENTRY org.eclipse.core.jobs 2 2 2020-01-04 00:35:51.633
+!MESSAGE Job found still running after platform shutdown.  Jobs should be canceled by the plugin that scheduled them during shutdown: org.eclipse.debug.internal.ui.sourcelookup.SourceLookupFacility$SourceLookupJob
+
+!ENTRY org.eclipse.core.jobs 2 2 2020-01-04 00:35:51.634
+!MESSAGE Job found still running after platform shutdown.  Jobs should be canceled by the plugin that scheduled them during shutdown: org.eclipse.debug.internal.ui.sourcelookup.SourceLookupFacility$SourceLookupJob
+
+!ENTRY org.eclipse.core.jobs 2 2 2020-01-04 00:35:51.634
+!MESSAGE Job found still running after platform shutdown.  Jobs should be canceled by the plugin that scheduled them during shutdown: org.eclipse.debug.internal.ui.sourcelookup.SourceLookupFacility$SourceLookupJob
+
+!ENTRY org.eclipse.core.jobs 2 2 2020-01-04 00:35:51.634
+!MESSAGE Job found still running after platform shutdown.  Jobs should be canceled by the plugin that scheduled them during shutdown: org.eclipse.debug.internal.ui.sourcelookup.SourceLookupFacility$SourceLookupJob
+
+!ENTRY org.eclipse.core.jobs 2 2 2020-01-04 00:35:51.634
+!MESSAGE Job found still running after platform shutdown.  Jobs should be canceled by the plugin that scheduled them during shutdown: org.eclipse.debug.internal.ui.sourcelookup.SourceLookupFacility$SourceLookupJob
+
+!ENTRY org.eclipse.core.jobs 2 2 2020-01-04 00:35:51.635
+!MESSAGE Job found still running after platform shutdown.  Jobs should be canceled by the plugin that scheduled them during shutdown: org.eclipse.debug.internal.ui.sourcelookup.SourceLookupFacility$SourceLookupJob
+
+!ENTRY org.eclipse.core.jobs 2 2 2020-01-04 00:35:51.635
+!MESSAGE Job found still running after platform shutdown.  Jobs should be canceled by the plugin that scheduled them during shutdown: org.eclipse.debug.internal.ui.sourcelookup.SourceLookupFacility$SourceLookupJob
+
+!ENTRY org.eclipse.core.jobs 2 2 2020-01-04 00:35:51.635
+!MESSAGE Job found still running after platform shutdown.  Jobs should be canceled by the plugin that scheduled them during shutdown: org.eclipse.debug.internal.ui.sourcelookup.SourceLookupFacility$SourceLookupJob
+
+!ENTRY org.eclipse.core.jobs 2 2 2020-01-04 00:35:51.635
+!MESSAGE Job found still running after platform shutdown.  Jobs should be canceled by the plugin that scheduled them during shutdown: org.eclipse.debug.internal.ui.sourcelookup.SourceLookupFacility$SourceLookupJob
+
+!ENTRY org.eclipse.core.jobs 2 2 2020-01-04 00:35:51.635
+!MESSAGE Job found still running after platform shutdown.  Jobs should be canceled by the plugin that scheduled them during shutdown: org.eclipse.debug.internal.ui.sourcelookup.SourceLookupFacility$SourceLookupJob
+
+!ENTRY org.eclipse.core.jobs 2 2 2020-01-04 00:35:51.636
+!MESSAGE Job found still running after platform shutdown.  Jobs should be canceled by the plugin that scheduled them during shutdown: org.eclipse.debug.internal.ui.sourcelookup.SourceLookupFacility$SourceLookupJob
+
+!ENTRY org.eclipse.core.jobs 2 2 2020-01-04 00:35:51.636
+!MESSAGE Job found still running after platform shutdown.  Jobs should be canceled by the plugin that scheduled them during shutdown: org.eclipse.debug.internal.ui.sourcelookup.SourceLookupFacility$SourceLookupJob
+
+!ENTRY org.eclipse.core.jobs 2 2 2020-01-04 00:35:51.636
+!MESSAGE Job found still running after platform shutdown.  Jobs should be canceled by the plugin that scheduled them during shutdown: org.eclipse.debug.internal.ui.sourcelookup.SourceLookupFacility$SourceLookupJob
+
+!ENTRY org.eclipse.core.jobs 2 2 2020-01-04 00:35:51.636
+!MESSAGE Job found still running after platform shutdown.  Jobs should be canceled by the plugin that scheduled them during shutdown: org.eclipse.debug.internal.ui.sourcelookup.SourceLookupFacility$SourceLookupJob
+
+!ENTRY org.eclipse.core.jobs 2 2 2020-01-04 00:35:51.636
+!MESSAGE Job found still running after platform shutdown.  Jobs should be canceled by the plugin that scheduled them during shutdown: org.eclipse.debug.internal.ui.sourcelookup.SourceLookupFacility$SourceLookupJob
+
+!ENTRY org.eclipse.core.jobs 2 2 2020-01-04 00:35:51.636
+!MESSAGE Job found still running after platform shutdown.  Jobs should be canceled by the plugin that scheduled them during shutdown: org.eclipse.debug.internal.ui.sourcelookup.SourceLookupFacility$SourceLookupJob
+
+!ENTRY org.eclipse.core.jobs 2 2 2020-01-04 00:35:51.637
+!MESSAGE Job found still running after platform shutdown.  Jobs should be canceled by the plugin that scheduled them during shutdown: org.eclipse.debug.internal.ui.sourcelookup.SourceLookupFacility$SourceLookupJob
+
+!ENTRY org.eclipse.core.jobs 2 2 2020-01-04 00:35:51.637
+!MESSAGE Job found still running after platform shutdown.  Jobs should be canceled by the plugin that scheduled them during shutdown: org.eclipse.debug.internal.ui.sourcelookup.SourceLookupFacility$SourceLookupJob
+
+!ENTRY org.eclipse.core.jobs 2 2 2020-01-04 00:35:51.637
+!MESSAGE Job found still running after platform shutdown.  Jobs should be canceled by the plugin that scheduled them during shutdown: org.eclipse.debug.internal.ui.sourcelookup.SourceLookupFacility$SourceLookupJob
+
+!ENTRY org.eclipse.core.jobs 2 2 2020-01-04 00:35:51.637
+!MESSAGE Job found still running after platform shutdown.  Jobs should be canceled by the plugin that scheduled them during shutdown: org.eclipse.debug.internal.ui.sourcelookup.SourceLookupFacility$SourceLookupJob
+
+!ENTRY org.eclipse.core.jobs 2 2 2020-01-04 00:35:51.638
+!MESSAGE Job found still running after platform shutdown.  Jobs should be canceled by the plugin that scheduled them during shutdown: org.eclipse.debug.internal.ui.sourcelookup.SourceLookupFacility$SourceLookupJob
+
+!ENTRY org.eclipse.core.jobs 2 2 2020-01-04 00:35:51.638
+!MESSAGE Job found still running after platform shutdown.  Jobs should be canceled by the plugin that scheduled them during shutdown: org.eclipse.debug.internal.ui.sourcelookup.SourceLookupFacility$SourceLookupJob
+
+!ENTRY org.eclipse.core.jobs 2 2 2020-01-04 00:35:51.638
+!MESSAGE Job found still running after platform shutdown.  Jobs should be canceled by the plugin that scheduled them during shutdown: org.eclipse.debug.internal.ui.sourcelookup.SourceLookupFacility$SourceLookupJob
+
+!ENTRY org.eclipse.core.jobs 2 2 2020-01-04 00:35:51.638
+!MESSAGE Job found still running after platform shutdown.  Jobs should be canceled by the plugin that scheduled them during shutdown: org.eclipse.debug.internal.ui.sourcelookup.SourceLookupFacility$SourceLookupJob
+
+!ENTRY org.eclipse.core.jobs 2 2 2020-01-04 00:35:51.638
+!MESSAGE Job found still running after platform shutdown.  Jobs should be canceled by the plugin that scheduled them during shutdown: org.eclipse.debug.internal.ui.sourcelookup.SourceLookupFacility$SourceLookupJob
+
+!ENTRY org.eclipse.core.jobs 2 2 2020-01-04 00:35:51.639
+!MESSAGE Job found still running after platform shutdown.  Jobs should be canceled by the plugin that scheduled them during shutdown: org.eclipse.debug.internal.ui.sourcelookup.SourceLookupFacility$SourceLookupJob
+
+!ENTRY org.eclipse.core.jobs 2 2 2020-01-04 00:35:51.639
+!MESSAGE Job found still running after platform shutdown.  Jobs should be canceled by the plugin that scheduled them during shutdown: org.eclipse.debug.internal.ui.sourcelookup.SourceLookupFacility$SourceLookupJob
+
+!ENTRY org.eclipse.core.jobs 2 2 2020-01-04 00:35:51.639
+!MESSAGE Job found still running after platform shutdown.  Jobs should be canceled by the plugin that scheduled them during shutdown: org.eclipse.debug.internal.ui.sourcelookup.SourceLookupFacility$SourceLookupJob
+
+!ENTRY org.eclipse.core.jobs 2 2 2020-01-04 00:35:51.639
+!MESSAGE Job found still running after platform shutdown.  Jobs should be canceled by the plugin that scheduled them during shutdown: org.eclipse.debug.internal.ui.sourcelookup.SourceLookupFacility$SourceLookupJob
+
+!ENTRY org.eclipse.core.jobs 2 2 2020-01-04 00:35:51.639
+!MESSAGE Job found still running after platform shutdown.  Jobs should be canceled by the plugin that scheduled them during shutdown: org.eclipse.debug.internal.ui.sourcelookup.SourceLookupFacility$SourceLookupJob
+
+!ENTRY org.eclipse.core.jobs 2 2 2020-01-04 00:35:51.640
+!MESSAGE Job found still running after platform shutdown.  Jobs should be canceled by the plugin that scheduled them during shutdown: org.eclipse.debug.internal.ui.sourcelookup.SourceLookupFacility$SourceLookupJob
+
+!ENTRY org.eclipse.core.jobs 2 2 2020-01-04 00:35:51.640
+!MESSAGE Job found still running after platform shutdown.  Jobs should be canceled by the plugin that scheduled them during shutdown: org.eclipse.debug.internal.ui.sourcelookup.SourceLookupFacility$SourceLookupJob
+
+!ENTRY org.eclipse.core.jobs 2 2 2020-01-04 00:35:51.640
+!MESSAGE Job found still running after platform shutdown.  Jobs should be canceled by the plugin that scheduled them during shutdown: org.eclipse.debug.internal.ui.sourcelookup.SourceLookupFacility$SourceLookupJob
+
+!ENTRY org.eclipse.core.jobs 2 2 2020-01-04 00:35:51.640
+!MESSAGE Job found still running after platform shutdown.  Jobs should be canceled by the plugin that scheduled them during shutdown: org.eclipse.debug.internal.ui.sourcelookup.SourceLookupFacility$SourceLookupJob
+
+!ENTRY org.eclipse.core.jobs 2 2 2020-01-04 00:35:51.640
+!MESSAGE Job found still running after platform shutdown.  Jobs should be canceled by the plugin that scheduled them during shutdown: org.eclipse.debug.internal.ui.sourcelookup.SourceLookupFacility$SourceLookupJob
+
+!ENTRY org.eclipse.core.jobs 2 2 2020-01-04 00:35:51.640
+!MESSAGE Job found still running after platform shutdown.  Jobs should be canceled by the plugin that scheduled them during shutdown: org.eclipse.debug.internal.ui.sourcelookup.SourceLookupFacility$SourceLookupJob
+
+!ENTRY org.eclipse.core.jobs 2 2 2020-01-04 00:35:51.641
+!MESSAGE Job found still running after platform shutdown.  Jobs should be canceled by the plugin that scheduled them during shutdown: org.eclipse.debug.internal.ui.sourcelookup.SourceLookupFacility$SourceLookupJob
+
+!ENTRY org.eclipse.core.jobs 2 2 2020-01-04 00:35:51.641
+!MESSAGE Job found still running after platform shutdown.  Jobs should be canceled by the plugin that scheduled them during shutdown: org.eclipse.debug.internal.ui.sourcelookup.SourceLookupFacility$SourceLookupJob
+
+!ENTRY org.eclipse.core.jobs 2 2 2020-01-04 00:35:51.641
+!MESSAGE Job found still running after platform shutdown.  Jobs should be canceled by the plugin that scheduled them during shutdown: org.eclipse.debug.internal.ui.sourcelookup.SourceLookupFacility$SourceLookupJob
+
+!ENTRY org.eclipse.core.jobs 2 2 2020-01-04 00:35:51.641
+!MESSAGE Job found still running after platform shutdown.  Jobs should be canceled by the plugin that scheduled them during shutdown: org.eclipse.debug.internal.ui.sourcelookup.SourceLookupFacility$SourceLookupJob
+
+!ENTRY org.eclipse.core.jobs 2 2 2020-01-04 00:35:51.641
+!MESSAGE Job found still running after platform shutdown.  Jobs should be canceled by the plugin that scheduled them during shutdown: org.eclipse.debug.internal.ui.sourcelookup.SourceLookupFacility$SourceLookupJob
+
+!ENTRY org.eclipse.core.jobs 2 2 2020-01-04 00:35:51.642
+!MESSAGE Job found still running after platform shutdown.  Jobs should be canceled by the plugin that scheduled them during shutdown: org.eclipse.debug.internal.ui.sourcelookup.SourceLookupFacility$SourceLookupJob
+
+!ENTRY org.eclipse.core.jobs 2 2 2020-01-04 00:35:51.642
+!MESSAGE Job found still running after platform shutdown.  Jobs should be canceled by the plugin that scheduled them during shutdown: org.eclipse.debug.internal.ui.sourcelookup.SourceLookupFacility$SourceLookupJob
+
+!ENTRY org.eclipse.core.jobs 2 2 2020-01-04 00:35:51.642
+!MESSAGE Job found still running after platform shutdown.  Jobs should be canceled by the plugin that scheduled them during shutdown: org.eclipse.debug.internal.ui.sourcelookup.SourceLookupFacility$SourceLookupJob
+
+!ENTRY org.eclipse.core.jobs 2 2 2020-01-04 00:35:51.642
+!MESSAGE Job found still running after platform shutdown.  Jobs should be canceled by the plugin that scheduled them during shutdown: org.eclipse.debug.internal.ui.sourcelookup.SourceLookupFacility$SourceLookupJob
+
+!ENTRY org.eclipse.core.jobs 2 2 2020-01-04 00:35:51.642
+!MESSAGE Job found still running after platform shutdown.  Jobs should be canceled by the plugin that scheduled them during shutdown: org.eclipse.debug.internal.ui.sourcelookup.SourceLookupFacility$SourceLookupJob
+
+!ENTRY org.eclipse.core.jobs 2 2 2020-01-04 00:35:51.643
+!MESSAGE Job found still running after platform shutdown.  Jobs should be canceled by the plugin that scheduled them during shutdown: org.eclipse.debug.internal.ui.sourcelookup.SourceLookupFacility$SourceLookupJob
+
+!ENTRY org.eclipse.core.jobs 2 2 2020-01-04 00:35:51.643
+!MESSAGE Job found still running after platform shutdown.  Jobs should be canceled by the plugin that scheduled them during shutdown: org.eclipse.debug.internal.ui.sourcelookup.SourceLookupFacility$SourceLookupJob
+
+!ENTRY org.eclipse.core.jobs 2 2 2020-01-04 00:35:51.643
+!MESSAGE Job found still running after platform shutdown.  Jobs should be canceled by the plugin that scheduled them during shutdown: org.eclipse.debug.internal.ui.sourcelookup.SourceLookupFacility$SourceLookupJob
+
+!ENTRY org.eclipse.core.jobs 2 2 2020-01-04 00:35:51.643
+!MESSAGE Job found still running after platform shutdown.  Jobs should be canceled by the plugin that scheduled them during shutdown: org.eclipse.debug.internal.ui.sourcelookup.SourceLookupFacility$SourceLookupJob
+
+!ENTRY org.eclipse.core.jobs 2 2 2020-01-04 00:35:51.643
+!MESSAGE Job found still running after platform shutdown.  Jobs should be canceled by the plugin that scheduled them during shutdown: org.eclipse.debug.internal.ui.sourcelookup.SourceLookupFacility$SourceLookupJob
+
+!ENTRY org.eclipse.core.jobs 2 2 2020-01-04 00:35:51.644
+!MESSAGE Job found still running after platform shutdown.  Jobs should be canceled by the plugin that scheduled them during shutdown: org.eclipse.debug.internal.ui.sourcelookup.SourceLookupFacility$SourceLookupJob
+
+!ENTRY org.eclipse.core.jobs 2 2 2020-01-04 00:35:51.644
+!MESSAGE Job found still running after platform shutdown.  Jobs should be canceled by the plugin that scheduled them during shutdown: org.eclipse.debug.internal.ui.sourcelookup.SourceLookupFacility$SourceLookupJob
+
+!ENTRY org.eclipse.core.jobs 2 2 2020-01-04 00:35:51.644
+!MESSAGE Job found still running after platform shutdown.  Jobs should be canceled by the plugin that scheduled them during shutdown: org.eclipse.debug.internal.ui.sourcelookup.SourceLookupFacility$SourceLookupJob
+
+!ENTRY org.eclipse.core.jobs 2 2 2020-01-04 00:35:51.644
+!MESSAGE Job found still running after platform shutdown.  Jobs should be canceled by the plugin that scheduled them during shutdown: org.eclipse.debug.internal.ui.sourcelookup.SourceLookupFacility$SourceLookupJob
+
+!ENTRY org.eclipse.core.jobs 2 2 2020-01-04 00:35:51.644
+!MESSAGE Job found still running after platform shutdown.  Jobs should be canceled by the plugin that scheduled them during shutdown: org.eclipse.debug.internal.ui.sourcelookup.SourceLookupFacility$SourceLookupJob
+
+!ENTRY org.eclipse.core.jobs 2 2 2020-01-04 00:35:51.645
+!MESSAGE Job found still running after platform shutdown.  Jobs should be canceled by the plugin that scheduled them during shutdown: org.eclipse.debug.internal.ui.sourcelookup.SourceLookupFacility$SourceLookupJob
+
+!ENTRY org.eclipse.core.jobs 2 2 2020-01-04 00:35:51.645
+!MESSAGE Job found still running after platform shutdown.  Jobs should be canceled by the plugin that scheduled them during shutdown: org.eclipse.debug.internal.ui.sourcelookup.SourceLookupFacility$SourceLookupJob
+
+!ENTRY org.eclipse.core.jobs 2 2 2020-01-04 00:35:51.645
+!MESSAGE Job found still running after platform shutdown.  Jobs should be canceled by the plugin that scheduled them during shutdown: org.eclipse.debug.internal.ui.sourcelookup.SourceLookupFacility$SourceLookupJob
+
+!ENTRY org.eclipse.core.jobs 2 2 2020-01-04 00:35:51.645
+!MESSAGE Job found still running after platform shutdown.  Jobs should be canceled by the plugin that scheduled them during shutdown: org.eclipse.debug.internal.ui.sourcelookup.SourceLookupFacility$SourceLookupJob
+
+!ENTRY org.eclipse.core.jobs 2 2 2020-01-04 00:35:51.645
+!MESSAGE Job found still running after platform shutdown.  Jobs should be canceled by the plugin that scheduled them during shutdown: org.eclipse.debug.internal.ui.sourcelookup.SourceLookupFacility$SourceLookupJob
+
+!ENTRY org.eclipse.core.jobs 2 2 2020-01-04 00:35:51.646
+!MESSAGE Job found still running after platform shutdown.  Jobs should be canceled by the plugin that scheduled them during shutdown: org.eclipse.debug.internal.ui.sourcelookup.SourceLookupFacility$SourceLookupJob
+
+!ENTRY org.eclipse.core.jobs 2 2 2020-01-04 00:35:51.646
+!MESSAGE Job found still running after platform shutdown.  Jobs should be canceled by the plugin that scheduled them during shutdown: org.eclipse.debug.internal.ui.sourcelookup.SourceLookupFacility$SourceLookupJob
+
+!ENTRY org.eclipse.core.jobs 2 2 2020-01-04 00:35:51.646
+!MESSAGE Job found still running after platform shutdown.  Jobs should be canceled by the plugin that scheduled them during shutdown: org.eclipse.debug.internal.ui.sourcelookup.SourceLookupFacility$SourceLookupJob
+
+!ENTRY org.eclipse.core.jobs 2 2 2020-01-04 00:35:51.646
+!MESSAGE Job found still running after platform shutdown.  Jobs should be canceled by the plugin that scheduled them during shutdown: org.eclipse.debug.internal.ui.sourcelookup.SourceLookupFacility$SourceLookupJob
+
+!ENTRY org.eclipse.core.jobs 2 2 2020-01-04 00:35:51.646
+!MESSAGE Job found still running after platform shutdown.  Jobs should be canceled by the plugin that scheduled them during shutdown: org.eclipse.debug.internal.ui.sourcelookup.SourceLookupFacility$SourceLookupJob
+
+!ENTRY org.eclipse.core.jobs 2 2 2020-01-04 00:35:51.647
+!MESSAGE Job found still running after platform shutdown.  Jobs should be canceled by the plugin that scheduled them during shutdown: org.eclipse.debug.internal.ui.sourcelookup.SourceLookupFacility$SourceLookupJob
+
+!ENTRY org.eclipse.core.jobs 2 2 2020-01-04 00:35:51.647
+!MESSAGE Job found still running after platform shutdown.  Jobs should be canceled by the plugin that scheduled them during shutdown: org.eclipse.debug.internal.ui.sourcelookup.SourceLookupFacility$SourceLookupJob
+
+!ENTRY org.eclipse.core.jobs 2 2 2020-01-04 00:35:51.647
+!MESSAGE Job found still running after platform shutdown.  Jobs should be canceled by the plugin that scheduled them during shutdown: org.eclipse.debug.internal.ui.sourcelookup.SourceLookupFacility$SourceLookupJob
+
+!ENTRY org.eclipse.core.jobs 2 2 2020-01-04 00:35:51.647
+!MESSAGE Job found still running after platform shutdown.  Jobs should be canceled by the plugin that scheduled them during shutdown: org.eclipse.debug.internal.ui.sourcelookup.SourceLookupFacility$SourceLookupJob
+
+!ENTRY org.eclipse.core.jobs 2 2 2020-01-04 00:35:51.647
+!MESSAGE Job found still running after platform shutdown.  Jobs should be canceled by the plugin that scheduled them during shutdown: org.eclipse.debug.internal.ui.sourcelookup.SourceLookupFacility$SourceLookupJob
+
+!ENTRY org.eclipse.core.jobs 2 2 2020-01-04 00:35:51.648
+!MESSAGE Job found still running after platform shutdown.  Jobs should be canceled by the plugin that scheduled them during shutdown: org.eclipse.debug.internal.ui.sourcelookup.SourceLookupFacility$SourceLookupJob
+
+!ENTRY org.eclipse.core.jobs 2 2 2020-01-04 00:35:51.648
+!MESSAGE Job found still running after platform shutdown.  Jobs should be canceled by the plugin that scheduled them during shutdown: org.eclipse.debug.internal.ui.sourcelookup.SourceLookupFacility$SourceLookupJob
+
+!ENTRY org.eclipse.core.jobs 2 2 2020-01-04 00:35:51.648
+!MESSAGE Job found still running after platform shutdown.  Jobs should be canceled by the plugin that scheduled them during shutdown: org.eclipse.debug.internal.ui.sourcelookup.SourceLookupFacility$SourceLookupJob
+
+!ENTRY org.eclipse.core.jobs 2 2 2020-01-04 00:35:51.648
+!MESSAGE Job found still running after platform shutdown.  Jobs should be canceled by the plugin that scheduled them during shutdown: org.eclipse.debug.internal.ui.sourcelookup.SourceLookupFacility$SourceLookupJob
+
+!ENTRY org.eclipse.core.jobs 2 2 2020-01-04 00:35:51.648
+!MESSAGE Job found still running after platform shutdown.  Jobs should be canceled by the plugin that scheduled them during shutdown: org.eclipse.debug.internal.ui.model.elements.ElementLabelProvider$LabelJob
+
+!ENTRY org.eclipse.core.jobs 2 2 2020-01-04 00:35:51.649
+!MESSAGE Job found still running after platform shutdown.  Jobs should be canceled by the plugin that scheduled them during shutdown: org.eclipse.debug.internal.ui.sourcelookup.SourceLookupFacility$SourceLookupJob
+
+!ENTRY org.eclipse.core.jobs 2 2 2020-01-04 00:35:51.649
+!MESSAGE Job found still running after platform shutdown.  Jobs should be canceled by the plugin that scheduled them during shutdown: org.eclipse.debug.internal.ui.sourcelookup.SourceLookupFacility$SourceLookupJob
+
+!ENTRY org.eclipse.core.jobs 2 2 2020-01-04 00:35:51.649
+!MESSAGE Job found still running after platform shutdown.  Jobs should be canceled by the plugin that scheduled them during shutdown: org.eclipse.debug.internal.ui.sourcelookup.SourceLookupFacility$SourceLookupJob
+
+!ENTRY org.eclipse.core.jobs 2 2 2020-01-04 00:35:51.649
+!MESSAGE Job found still running after platform shutdown.  Jobs should be canceled by the plugin that scheduled them during shutdown: org.eclipse.debug.internal.ui.sourcelookup.SourceLookupFacility$SourceLookupJob

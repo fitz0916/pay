@@ -193,7 +193,7 @@
                 if(data.code == '10110'){
                     location:top.location.href = location.href
                 }
-            },
+            }
         });
     }
     //删除行
@@ -536,7 +536,7 @@
                     if(data.code == '10110'){
                         location:top.location.href = location.href
                     }
-                },
+                }
             });
         }
     }
@@ -570,6 +570,11 @@
                         placeholder: '请选择用户角色',
                         allowClear: true
                     });
+                },
+                contentLoaded: function(data, status, xhr){
+                    if(data.code == '10110'){
+                        location:top.location.href = location.href
+                    }
                 }
             });
         }
@@ -607,7 +612,7 @@
                     if(data.code == '10110'){
                         location:top.location.href = location.href
                     }
-                },
+                }
             });
         }
     }
