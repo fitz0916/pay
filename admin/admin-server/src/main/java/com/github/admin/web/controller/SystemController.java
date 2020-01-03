@@ -1,5 +1,7 @@
 package com.github.admin.web.controller;
 
+import java.util.List;
+
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PathVariable;
@@ -46,5 +48,10 @@ public class SystemController {
 	@PostMapping("/updateByPrimaryKeySelective")
 	public ModelResult<Integer> updateByPrimaryKeySelective(@RequestBody System system){
 		return systemServiceImpl.updateByPrimaryKeySelective(system);
+	}
+	
+	@GetMapping("/querySystemByStatus/{status}")
+	public ModelResult<List<System>> querySystemByStatus(@PathVariable("status")Integer status){
+		return systemServiceImpl.querySystemByStatus(status);
 	}
 }

@@ -105,4 +105,16 @@ public class SystemServiceImpl implements SystemService{
 		return modelResult;
 	}
 
+	@Override
+	public ModelResult<List<System>> querySystemByStatus(Integer status) {
+		ModelResult<List<System>> modelResult = new ModelResult<List<System>>();
+		if(status == null) {
+			modelResult.withError(Constants.FAIL_MSG_CODE,"状态为非法参数");
+			return modelResult;
+		}
+		List<System> list = systemDao.querySystemByStatus(status);
+		modelResult.setModel(list);
+		return modelResult;
+	}
+
 }

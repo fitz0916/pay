@@ -11691,3 +11691,633 @@ org.eclipse.core.runtime.CoreException: Could not resolve artifact com.github.ad
 2020-01-02 23:23:31,400 [Worker-80698: Launching Application (2)] INFO  o.e.m.c.i.p.WorkspaceClassifierResolverManager - Resolving P/admin-common: com.github.admin:admin-common:1.0-SNAPSHOT with classifier null to /admin-common/target/classes
 2020-01-02 23:23:31,401 [Worker-80698: Launching Application (2)] INFO  o.e.m.c.i.p.WorkspaceClassifierResolverManager - Resolving P/github-appmodel: com.github.appmodel:github-appmodel:1.0-SNAPSHOT with classifier null to /github-appmodel/target/classes
 2020-01-02 23:23:31,401 [Worker-80698: Launching Application (2)] INFO  o.e.m.c.i.p.WorkspaceClassifierResolverManager - Resolving P/admin-client: com.github.admin:admin-client:1.0-SNAPSHOT with classifier null to /admin-client/target/classes
+2020-01-02 23:34:52,893 [Worker-81442: Building] INFO  o.e.m.c.i.embedder.EclipseLogger - Using 'UTF-8' encoding to copy filtered resources.
+2020-01-02 23:34:52,896 [Worker-81442: Building] INFO  o.e.m.c.i.embedder.EclipseLogger - Copying 27 resources
+2020-01-02 23:34:52,899 [Worker-81442: Building] INFO  o.e.m.c.i.embedder.EclipseLogger - Copying 1 resource
+2020-01-02 23:34:52,914 [Worker-81442: Building] INFO  o.e.m.c.i.embedder.EclipseLogger - Copying 254 resources
+2020-01-02 23:34:52,920 [Worker-81442: Building] INFO  o.e.m.c.i.embedder.EclipseLogger - Using 'UTF-8' encoding to copy filtered resources.
+2020-01-02 23:34:52,920 [Worker-81442: Building] INFO  o.e.m.c.i.embedder.EclipseLogger - skip non existing resourceDirectory /Users/xieyongpei/workspace/admin/admin-web/src/test/resources
+2020-01-02 23:35:47,165 [Worker-81677: Building] INFO  o.e.m.c.i.embedder.EclipseLogger - Using 'UTF-8' encoding to copy filtered resources.
+2020-01-02 23:35:47,167 [Worker-81677: Building] INFO  o.e.m.c.i.embedder.EclipseLogger - Copying 27 resources
+2020-01-02 23:35:47,169 [Worker-81677: Building] INFO  o.e.m.c.i.embedder.EclipseLogger - Copying 1 resource
+2020-01-02 23:35:47,179 [Worker-81677: Building] INFO  o.e.m.c.i.embedder.EclipseLogger - Copying 254 resources
+2020-01-02 23:35:47,186 [Worker-81677: Building] INFO  o.e.m.c.i.embedder.EclipseLogger - Using 'UTF-8' encoding to copy filtered resources.
+2020-01-02 23:35:47,186 [Worker-81677: Building] INFO  o.e.m.c.i.embedder.EclipseLogger - skip non existing resourceDirectory /Users/xieyongpei/workspace/admin/admin-web/src/test/resources
+2020-01-02 23:38:08,585 [Worker-81856: Building] INFO  o.e.m.c.i.embedder.EclipseLogger - Using 'UTF-8' encoding to copy filtered resources.
+2020-01-02 23:38:08,585 [Worker-81856: Building] INFO  o.e.m.c.i.embedder.EclipseLogger - skip non existing resourceDirectory /Users/xieyongpei/workspace/admin/admin-client/src/main/resources
+2020-01-02 23:38:08,585 [Worker-81856: Building] INFO  o.e.m.c.i.embedder.EclipseLogger - skip non existing resourceDirectory /Users/xieyongpei/workspace/admin/admin-client/src/main/resources
+2020-01-02 23:38:08,586 [Worker-81856: Building] INFO  o.e.m.c.i.embedder.EclipseLogger - Using 'UTF-8' encoding to copy filtered resources.
+2020-01-02 23:38:08,586 [Worker-81856: Building] INFO  o.e.m.c.i.embedder.EclipseLogger - skip non existing resourceDirectory /Users/xieyongpei/workspace/admin/admin-client/src/test/resources
+2020-01-02 23:38:08,637 [Worker-81856: Building] INFO  o.e.m.c.i.embedder.EclipseLogger - Using 'UTF-8' encoding to copy filtered resources.
+2020-01-02 23:38:08,639 [Worker-81856: Building] INFO  o.e.m.c.i.embedder.EclipseLogger - Copying 27 resources
+2020-01-02 23:38:08,640 [Worker-81856: Building] INFO  o.e.m.c.i.embedder.EclipseLogger - Copying 1 resource
+2020-01-02 23:38:08,650 [Worker-81856: Building] INFO  o.e.m.c.i.embedder.EclipseLogger - Copying 254 resources
+2020-01-02 23:38:08,656 [Worker-81856: Building] INFO  o.e.m.c.i.embedder.EclipseLogger - Using 'UTF-8' encoding to copy filtered resources.
+2020-01-02 23:38:08,656 [Worker-81856: Building] INFO  o.e.m.c.i.embedder.EclipseLogger - skip non existing resourceDirectory /Users/xieyongpei/workspace/admin/admin-web/src/test/resources
+2020-01-02 23:39:02,662 [Worker-82065: Building] INFO  o.e.m.c.i.embedder.EclipseLogger - Using 'UTF-8' encoding to copy filtered resources.
+2020-01-02 23:39:02,662 [Worker-82065: Building] INFO  o.e.m.c.i.embedder.EclipseLogger - skip non existing resourceDirectory /Users/xieyongpei/workspace/admin/admin-client/src/main/resources
+2020-01-02 23:39:02,662 [Worker-82065: Building] INFO  o.e.m.c.i.embedder.EclipseLogger - skip non existing resourceDirectory /Users/xieyongpei/workspace/admin/admin-client/src/main/resources
+2020-01-02 23:39:02,663 [Worker-82065: Building] INFO  o.e.m.c.i.embedder.EclipseLogger - Using 'UTF-8' encoding to copy filtered resources.
+2020-01-02 23:39:02,663 [Worker-82065: Building] INFO  o.e.m.c.i.embedder.EclipseLogger - skip non existing resourceDirectory /Users/xieyongpei/workspace/admin/admin-client/src/test/resources
+2020-01-02 23:39:02,712 [Worker-82065: Building] INFO  o.e.m.c.i.embedder.EclipseLogger - Using 'UTF-8' encoding to copy filtered resources.
+2020-01-02 23:39:02,713 [Worker-82065: Building] INFO  o.e.m.c.i.embedder.EclipseLogger - Copying 27 resources
+2020-01-02 23:39:02,714 [Worker-82065: Building] INFO  o.e.m.c.i.embedder.EclipseLogger - Copying 1 resource
+2020-01-02 23:39:02,723 [Worker-82065: Building] INFO  o.e.m.c.i.embedder.EclipseLogger - Copying 254 resources
+2020-01-02 23:39:02,730 [Worker-82065: Building] INFO  o.e.m.c.i.embedder.EclipseLogger - Using 'UTF-8' encoding to copy filtered resources.
+2020-01-02 23:39:02,731 [Worker-82065: Building] INFO  o.e.m.c.i.embedder.EclipseLogger - skip non existing resourceDirectory /Users/xieyongpei/workspace/admin/admin-web/src/test/resources
+2020-01-02 23:39:29,033 [Worker-82219: Building] INFO  o.e.m.c.i.embedder.EclipseLogger - Using 'UTF-8' encoding to copy filtered resources.
+2020-01-02 23:39:29,034 [Worker-82219: Building] INFO  o.e.m.c.i.embedder.EclipseLogger - Copying 1 resource
+2020-01-02 23:39:29,036 [Worker-82219: Building] INFO  o.e.m.c.i.embedder.EclipseLogger - Copying 11 resources
+2020-01-02 23:39:29,037 [Worker-82219: Building] INFO  o.e.m.c.i.embedder.EclipseLogger - Using 'UTF-8' encoding to copy filtered resources.
+2020-01-02 23:39:29,037 [Worker-82219: Building] INFO  o.e.m.c.i.embedder.EclipseLogger - skip non existing resourceDirectory /Users/xieyongpei/workspace/admin/admin-server/src/test/resources
+2020-01-02 23:39:35,954 [Worker-82335: Building] INFO  o.e.m.c.i.embedder.EclipseLogger - Using 'UTF-8' encoding to copy filtered resources.
+2020-01-02 23:39:35,954 [Worker-82335: Building] INFO  o.e.m.c.i.embedder.EclipseLogger - skip non existing resourceDirectory /Users/xieyongpei/workspace/admin/admin-common/src/main/resources
+2020-01-02 23:39:35,954 [Worker-82335: Building] INFO  o.e.m.c.i.embedder.EclipseLogger - skip non existing resourceDirectory /Users/xieyongpei/workspace/admin/admin-common/src/main/resources
+2020-01-02 23:39:35,955 [Worker-82335: Building] INFO  o.e.m.c.i.embedder.EclipseLogger - Using 'UTF-8' encoding to copy filtered resources.
+2020-01-02 23:39:35,955 [Worker-82335: Building] INFO  o.e.m.c.i.embedder.EclipseLogger - skip non existing resourceDirectory /Users/xieyongpei/workspace/admin/admin-common/src/test/resources
+2020-01-02 23:39:35,992 [Worker-82335: Building] INFO  o.e.m.c.i.embedder.EclipseLogger - Using 'UTF-8' encoding to copy filtered resources.
+2020-01-02 23:39:35,993 [Worker-82335: Building] INFO  o.e.m.c.i.embedder.EclipseLogger - Copying 1 resource
+2020-01-02 23:39:35,994 [Worker-82335: Building] INFO  o.e.m.c.i.embedder.EclipseLogger - Copying 11 resources
+2020-01-02 23:39:35,996 [Worker-82335: Building] INFO  o.e.m.c.i.embedder.EclipseLogger - Using 'UTF-8' encoding to copy filtered resources.
+2020-01-02 23:39:35,996 [Worker-82335: Building] INFO  o.e.m.c.i.embedder.EclipseLogger - skip non existing resourceDirectory /Users/xieyongpei/workspace/admin/admin-server/src/test/resources
+2020-01-02 23:39:57,160 [Worker-82486: Building] INFO  o.e.m.c.i.embedder.EclipseLogger - Using 'UTF-8' encoding to copy filtered resources.
+2020-01-02 23:39:57,161 [Worker-82486: Building] INFO  o.e.m.c.i.embedder.EclipseLogger - Copying 1 resource
+2020-01-02 23:39:57,162 [Worker-82486: Building] INFO  o.e.m.c.i.embedder.EclipseLogger - Copying 11 resources
+2020-01-02 23:39:57,164 [Worker-82486: Building] INFO  o.e.m.c.i.embedder.EclipseLogger - Using 'UTF-8' encoding to copy filtered resources.
+2020-01-02 23:39:57,164 [Worker-82486: Building] INFO  o.e.m.c.i.embedder.EclipseLogger - skip non existing resourceDirectory /Users/xieyongpei/workspace/admin/admin-server/src/test/resources
+2020-01-02 23:41:42,470 [Worker-82665: Building] INFO  o.e.m.c.i.embedder.EclipseLogger - Using 'UTF-8' encoding to copy filtered resources.
+2020-01-02 23:41:42,472 [Worker-82665: Building] INFO  o.e.m.c.i.embedder.EclipseLogger - Copying 1 resource
+2020-01-02 23:41:42,473 [Worker-82665: Building] INFO  o.e.m.c.i.embedder.EclipseLogger - Copying 11 resources
+2020-01-02 23:41:42,475 [Worker-82665: Building] INFO  o.e.m.c.i.embedder.EclipseLogger - Using 'UTF-8' encoding to copy filtered resources.
+2020-01-02 23:41:42,475 [Worker-82665: Building] INFO  o.e.m.c.i.embedder.EclipseLogger - skip non existing resourceDirectory /Users/xieyongpei/workspace/admin/admin-server/src/test/resources
+2020-01-02 23:43:08,786 [Worker-82948: Building] INFO  o.e.m.c.i.embedder.EclipseLogger - Using 'UTF-8' encoding to copy filtered resources.
+2020-01-02 23:43:08,786 [Worker-82948: Building] INFO  o.e.m.c.i.embedder.EclipseLogger - Copying 1 resource
+2020-01-02 23:43:08,787 [Worker-82948: Building] INFO  o.e.m.c.i.embedder.EclipseLogger - Copying 11 resources
+2020-01-02 23:43:08,789 [Worker-82948: Building] INFO  o.e.m.c.i.embedder.EclipseLogger - Using 'UTF-8' encoding to copy filtered resources.
+2020-01-02 23:43:08,789 [Worker-82948: Building] INFO  o.e.m.c.i.embedder.EclipseLogger - skip non existing resourceDirectory /Users/xieyongpei/workspace/admin/admin-server/src/test/resources
+2020-01-02 23:43:18,126 [Worker-83040: Building] INFO  o.e.m.c.i.embedder.EclipseLogger - Using 'UTF-8' encoding to copy filtered resources.
+2020-01-02 23:43:18,127 [Worker-83040: Building] INFO  o.e.m.c.i.embedder.EclipseLogger - Copying 1 resource
+2020-01-02 23:43:18,128 [Worker-83040: Building] INFO  o.e.m.c.i.embedder.EclipseLogger - Copying 11 resources
+2020-01-02 23:43:18,129 [Worker-83040: Building] INFO  o.e.m.c.i.embedder.EclipseLogger - Using 'UTF-8' encoding to copy filtered resources.
+2020-01-02 23:43:18,129 [Worker-83040: Building] INFO  o.e.m.c.i.embedder.EclipseLogger - skip non existing resourceDirectory /Users/xieyongpei/workspace/admin/admin-server/src/test/resources
+2020-01-02 23:44:50,528 [Worker-83413: Building] INFO  o.e.m.c.i.embedder.EclipseLogger - Using 'UTF-8' encoding to copy filtered resources.
+2020-01-02 23:44:50,528 [Worker-83413: Building] INFO  o.e.m.c.i.embedder.EclipseLogger - Copying 1 resource
+2020-01-02 23:44:50,529 [Worker-83413: Building] INFO  o.e.m.c.i.embedder.EclipseLogger - Copying 11 resources
+2020-01-02 23:44:50,531 [Worker-83413: Building] INFO  o.e.m.c.i.embedder.EclipseLogger - Using 'UTF-8' encoding to copy filtered resources.
+2020-01-02 23:44:50,531 [Worker-83413: Building] INFO  o.e.m.c.i.embedder.EclipseLogger - skip non existing resourceDirectory /Users/xieyongpei/workspace/admin/admin-server/src/test/resources
+2020-01-02 23:45:15,518 [Worker-83526: Building] INFO  o.e.m.c.i.embedder.EclipseLogger - Using 'UTF-8' encoding to copy filtered resources.
+2020-01-02 23:45:15,519 [Worker-83526: Building] INFO  o.e.m.c.i.embedder.EclipseLogger - Copying 1 resource
+2020-01-02 23:45:15,520 [Worker-83526: Building] INFO  o.e.m.c.i.embedder.EclipseLogger - Copying 11 resources
+2020-01-02 23:45:15,521 [Worker-83526: Building] INFO  o.e.m.c.i.embedder.EclipseLogger - Using 'UTF-8' encoding to copy filtered resources.
+2020-01-02 23:45:15,521 [Worker-83526: Building] INFO  o.e.m.c.i.embedder.EclipseLogger - skip non existing resourceDirectory /Users/xieyongpei/workspace/admin/admin-server/src/test/resources
+2020-01-02 23:45:50,699 [Worker-83662: Building] INFO  o.e.m.c.i.embedder.EclipseLogger - Using 'UTF-8' encoding to copy filtered resources.
+2020-01-02 23:45:50,703 [Worker-83662: Building] INFO  o.e.m.c.i.embedder.EclipseLogger - Copying 27 resources
+2020-01-02 23:45:50,705 [Worker-83662: Building] INFO  o.e.m.c.i.embedder.EclipseLogger - Copying 1 resource
+2020-01-02 23:45:50,721 [Worker-83662: Building] INFO  o.e.m.c.i.embedder.EclipseLogger - Copying 254 resources
+2020-01-02 23:45:50,728 [Worker-83662: Building] INFO  o.e.m.c.i.embedder.EclipseLogger - Using 'UTF-8' encoding to copy filtered resources.
+2020-01-02 23:45:50,728 [Worker-83662: Building] INFO  o.e.m.c.i.embedder.EclipseLogger - skip non existing resourceDirectory /Users/xieyongpei/workspace/admin/admin-web/src/test/resources
+2020-01-02 23:47:21,866 [Worker-84000: Building] INFO  o.e.m.c.i.embedder.EclipseLogger - Using 'UTF-8' encoding to copy filtered resources.
+2020-01-02 23:47:21,868 [Worker-84000: Building] INFO  o.e.m.c.i.embedder.EclipseLogger - Copying 27 resources
+2020-01-02 23:47:21,869 [Worker-84000: Building] INFO  o.e.m.c.i.embedder.EclipseLogger - Copying 1 resource
+2020-01-02 23:47:21,879 [Worker-84000: Building] INFO  o.e.m.c.i.embedder.EclipseLogger - Copying 254 resources
+2020-01-02 23:47:21,886 [Worker-84000: Building] INFO  o.e.m.c.i.embedder.EclipseLogger - Using 'UTF-8' encoding to copy filtered resources.
+2020-01-02 23:47:21,886 [Worker-84000: Building] INFO  o.e.m.c.i.embedder.EclipseLogger - skip non existing resourceDirectory /Users/xieyongpei/workspace/admin/admin-web/src/test/resources
+2020-01-02 23:47:51,596 [Worker-84146: Building] INFO  o.e.m.c.i.embedder.EclipseLogger - Using 'UTF-8' encoding to copy filtered resources.
+2020-01-02 23:47:51,598 [Worker-84146: Building] INFO  o.e.m.c.i.embedder.EclipseLogger - Copying 27 resources
+2020-01-02 23:47:51,599 [Worker-84146: Building] INFO  o.e.m.c.i.embedder.EclipseLogger - Copying 1 resource
+2020-01-02 23:47:51,608 [Worker-84146: Building] INFO  o.e.m.c.i.embedder.EclipseLogger - Copying 254 resources
+2020-01-02 23:47:51,615 [Worker-84146: Building] INFO  o.e.m.c.i.embedder.EclipseLogger - Using 'UTF-8' encoding to copy filtered resources.
+2020-01-02 23:47:51,615 [Worker-84146: Building] INFO  o.e.m.c.i.embedder.EclipseLogger - skip non existing resourceDirectory /Users/xieyongpei/workspace/admin/admin-web/src/test/resources
+2020-01-02 23:48:05,726 [Worker-84262: Building] INFO  o.e.m.c.i.embedder.EclipseLogger - Using 'UTF-8' encoding to copy filtered resources.
+2020-01-02 23:48:05,727 [Worker-84262: Building] INFO  o.e.m.c.i.embedder.EclipseLogger - Copying 27 resources
+2020-01-02 23:48:05,730 [Worker-84262: Building] INFO  o.e.m.c.i.embedder.EclipseLogger - Copying 1 resource
+2020-01-02 23:48:05,739 [Worker-84262: Building] INFO  o.e.m.c.i.embedder.EclipseLogger - Copying 254 resources
+2020-01-02 23:48:05,747 [Worker-84262: Building] INFO  o.e.m.c.i.embedder.EclipseLogger - Using 'UTF-8' encoding to copy filtered resources.
+2020-01-02 23:48:05,747 [Worker-84262: Building] INFO  o.e.m.c.i.embedder.EclipseLogger - skip non existing resourceDirectory /Users/xieyongpei/workspace/admin/admin-web/src/test/resources
+2020-01-02 23:49:17,747 [Worker-84483: Building] INFO  o.e.m.c.i.embedder.EclipseLogger - Using 'UTF-8' encoding to copy filtered resources.
+2020-01-02 23:49:17,749 [Worker-84483: Building] INFO  o.e.m.c.i.embedder.EclipseLogger - Copying 27 resources
+2020-01-02 23:49:17,750 [Worker-84483: Building] INFO  o.e.m.c.i.embedder.EclipseLogger - Copying 1 resource
+2020-01-02 23:49:17,758 [Worker-84483: Building] INFO  o.e.m.c.i.embedder.EclipseLogger - Copying 254 resources
+2020-01-02 23:49:17,765 [Worker-84483: Building] INFO  o.e.m.c.i.embedder.EclipseLogger - Using 'UTF-8' encoding to copy filtered resources.
+2020-01-02 23:49:17,765 [Worker-84483: Building] INFO  o.e.m.c.i.embedder.EclipseLogger - skip non existing resourceDirectory /Users/xieyongpei/workspace/admin/admin-web/src/test/resources
+2020-01-02 23:49:28,249 [Worker-84605: Building] INFO  o.e.m.c.i.embedder.EclipseLogger - Using 'UTF-8' encoding to copy filtered resources.
+2020-01-02 23:49:28,249 [Worker-84605: Building] INFO  o.e.m.c.i.embedder.EclipseLogger - skip non existing resourceDirectory /Users/xieyongpei/workspace/admin/admin-client/src/main/resources
+2020-01-02 23:49:28,249 [Worker-84605: Building] INFO  o.e.m.c.i.embedder.EclipseLogger - skip non existing resourceDirectory /Users/xieyongpei/workspace/admin/admin-client/src/main/resources
+2020-01-02 23:49:28,250 [Worker-84605: Building] INFO  o.e.m.c.i.embedder.EclipseLogger - Using 'UTF-8' encoding to copy filtered resources.
+2020-01-02 23:49:28,250 [Worker-84605: Building] INFO  o.e.m.c.i.embedder.EclipseLogger - skip non existing resourceDirectory /Users/xieyongpei/workspace/admin/admin-client/src/test/resources
+2020-01-02 23:49:28,300 [Worker-84605: Building] INFO  o.e.m.c.i.embedder.EclipseLogger - Using 'UTF-8' encoding to copy filtered resources.
+2020-01-02 23:49:28,301 [Worker-84605: Building] INFO  o.e.m.c.i.embedder.EclipseLogger - Copying 27 resources
+2020-01-02 23:49:28,302 [Worker-84605: Building] INFO  o.e.m.c.i.embedder.EclipseLogger - Copying 1 resource
+2020-01-02 23:49:28,312 [Worker-84605: Building] INFO  o.e.m.c.i.embedder.EclipseLogger - Copying 254 resources
+2020-01-02 23:49:28,320 [Worker-84605: Building] INFO  o.e.m.c.i.embedder.EclipseLogger - Using 'UTF-8' encoding to copy filtered resources.
+2020-01-02 23:49:28,320 [Worker-84605: Building] INFO  o.e.m.c.i.embedder.EclipseLogger - skip non existing resourceDirectory /Users/xieyongpei/workspace/admin/admin-web/src/test/resources
+2020-01-02 23:49:36,754 [Worker-84707: Building] INFO  o.e.m.c.i.embedder.EclipseLogger - Using 'UTF-8' encoding to copy filtered resources.
+2020-01-02 23:49:36,754 [Worker-84707: Building] INFO  o.e.m.c.i.embedder.EclipseLogger - skip non existing resourceDirectory /Users/xieyongpei/workspace/admin/admin-client/src/main/resources
+2020-01-02 23:49:36,754 [Worker-84707: Building] INFO  o.e.m.c.i.embedder.EclipseLogger - skip non existing resourceDirectory /Users/xieyongpei/workspace/admin/admin-client/src/main/resources
+2020-01-02 23:49:36,755 [Worker-84707: Building] INFO  o.e.m.c.i.embedder.EclipseLogger - Using 'UTF-8' encoding to copy filtered resources.
+2020-01-02 23:49:36,755 [Worker-84707: Building] INFO  o.e.m.c.i.embedder.EclipseLogger - skip non existing resourceDirectory /Users/xieyongpei/workspace/admin/admin-client/src/test/resources
+2020-01-02 23:49:36,801 [Worker-84707: Building] INFO  o.e.m.c.i.embedder.EclipseLogger - Using 'UTF-8' encoding to copy filtered resources.
+2020-01-02 23:49:36,803 [Worker-84707: Building] INFO  o.e.m.c.i.embedder.EclipseLogger - Copying 27 resources
+2020-01-02 23:49:36,804 [Worker-84707: Building] INFO  o.e.m.c.i.embedder.EclipseLogger - Copying 1 resource
+2020-01-02 23:49:36,812 [Worker-84707: Building] INFO  o.e.m.c.i.embedder.EclipseLogger - Copying 254 resources
+2020-01-02 23:49:36,818 [Worker-84707: Building] INFO  o.e.m.c.i.embedder.EclipseLogger - Using 'UTF-8' encoding to copy filtered resources.
+2020-01-02 23:49:36,818 [Worker-84707: Building] INFO  o.e.m.c.i.embedder.EclipseLogger - skip non existing resourceDirectory /Users/xieyongpei/workspace/admin/admin-web/src/test/resources
+2020-01-02 23:52:11,906 [Worker-84836: Building] INFO  o.e.m.c.i.embedder.EclipseLogger - Using 'UTF-8' encoding to copy filtered resources.
+2020-01-02 23:52:11,907 [Worker-84836: Building] INFO  o.e.m.c.i.embedder.EclipseLogger - Copying 1 resource
+2020-01-02 23:52:11,909 [Worker-84836: Building] INFO  o.e.m.c.i.embedder.EclipseLogger - Copying 11 resources
+2020-01-02 23:52:11,911 [Worker-84836: Building] INFO  o.e.m.c.i.embedder.EclipseLogger - Using 'UTF-8' encoding to copy filtered resources.
+2020-01-02 23:52:11,911 [Worker-84836: Building] INFO  o.e.m.c.i.embedder.EclipseLogger - skip non existing resourceDirectory /Users/xieyongpei/workspace/admin/admin-server/src/test/resources
+2020-01-02 23:52:22,194 [Worker-84927: Building] INFO  o.e.m.c.i.embedder.EclipseLogger - Using 'UTF-8' encoding to copy filtered resources.
+2020-01-02 23:52:22,195 [Worker-84927: Building] INFO  o.e.m.c.i.embedder.EclipseLogger - Copying 1 resource
+2020-01-02 23:52:22,196 [Worker-84927: Building] INFO  o.e.m.c.i.embedder.EclipseLogger - Copying 11 resources
+2020-01-02 23:52:22,197 [Worker-84927: Building] INFO  o.e.m.c.i.embedder.EclipseLogger - Using 'UTF-8' encoding to copy filtered resources.
+2020-01-02 23:52:22,197 [Worker-84927: Building] INFO  o.e.m.c.i.embedder.EclipseLogger - skip non existing resourceDirectory /Users/xieyongpei/workspace/admin/admin-server/src/test/resources
+2020-01-02 23:53:03,143 [Worker-85061: Building] INFO  o.e.m.c.i.embedder.EclipseLogger - Using 'UTF-8' encoding to copy filtered resources.
+2020-01-02 23:53:03,144 [Worker-85061: Building] INFO  o.e.m.c.i.embedder.EclipseLogger - Copying 1 resource
+2020-01-02 23:53:03,145 [Worker-85061: Building] INFO  o.e.m.c.i.embedder.EclipseLogger - Copying 11 resources
+2020-01-02 23:53:03,147 [Worker-85061: Building] INFO  o.e.m.c.i.embedder.EclipseLogger - Using 'UTF-8' encoding to copy filtered resources.
+2020-01-02 23:53:03,147 [Worker-85061: Building] INFO  o.e.m.c.i.embedder.EclipseLogger - skip non existing resourceDirectory /Users/xieyongpei/workspace/admin/admin-server/src/test/resources
+2020-01-02 23:53:05,616 [Worker-85132: Building] INFO  o.e.m.c.i.embedder.EclipseLogger - Using 'UTF-8' encoding to copy filtered resources.
+2020-01-02 23:53:05,617 [Worker-85132: Building] INFO  o.e.m.c.i.embedder.EclipseLogger - Copying 1 resource
+2020-01-02 23:53:05,618 [Worker-85132: Building] INFO  o.e.m.c.i.embedder.EclipseLogger - Copying 11 resources
+2020-01-02 23:53:05,620 [Worker-85132: Building] INFO  o.e.m.c.i.embedder.EclipseLogger - Using 'UTF-8' encoding to copy filtered resources.
+2020-01-02 23:53:05,620 [Worker-85132: Building] INFO  o.e.m.c.i.embedder.EclipseLogger - skip non existing resourceDirectory /Users/xieyongpei/workspace/admin/admin-server/src/test/resources
+2020-01-02 23:54:09,929 [Worker-85217: Building] INFO  o.e.m.c.i.embedder.EclipseLogger - Using 'UTF-8' encoding to copy filtered resources.
+2020-01-02 23:54:09,929 [Worker-85217: Building] INFO  o.e.m.c.i.embedder.EclipseLogger - skip non existing resourceDirectory /Users/xieyongpei/workspace/admin/admin-common/src/main/resources
+2020-01-02 23:54:09,929 [Worker-85217: Building] INFO  o.e.m.c.i.embedder.EclipseLogger - skip non existing resourceDirectory /Users/xieyongpei/workspace/admin/admin-common/src/main/resources
+2020-01-02 23:54:09,930 [Worker-85217: Building] INFO  o.e.m.c.i.embedder.EclipseLogger - Using 'UTF-8' encoding to copy filtered resources.
+2020-01-02 23:54:09,930 [Worker-85217: Building] INFO  o.e.m.c.i.embedder.EclipseLogger - skip non existing resourceDirectory /Users/xieyongpei/workspace/admin/admin-common/src/test/resources
+2020-01-02 23:54:24,157 [Worker-85296: Building] INFO  o.e.m.c.i.embedder.EclipseLogger - Using 'UTF-8' encoding to copy filtered resources.
+2020-01-02 23:54:24,158 [Worker-85296: Building] INFO  o.e.m.c.i.embedder.EclipseLogger - Copying 1 resource
+2020-01-02 23:54:24,160 [Worker-85296: Building] INFO  o.e.m.c.i.embedder.EclipseLogger - Copying 11 resources
+2020-01-02 23:54:24,162 [Worker-85296: Building] INFO  o.e.m.c.i.embedder.EclipseLogger - Using 'UTF-8' encoding to copy filtered resources.
+2020-01-02 23:54:24,162 [Worker-85296: Building] INFO  o.e.m.c.i.embedder.EclipseLogger - skip non existing resourceDirectory /Users/xieyongpei/workspace/admin/admin-server/src/test/resources
+2020-01-02 23:55:41,656 [Worker-85438: Building] INFO  o.e.m.c.i.embedder.EclipseLogger - Using 'UTF-8' encoding to copy filtered resources.
+2020-01-02 23:55:41,656 [Worker-85438: Building] INFO  o.e.m.c.i.embedder.EclipseLogger - Copying 1 resource
+2020-01-02 23:55:41,657 [Worker-85438: Building] INFO  o.e.m.c.i.embedder.EclipseLogger - Copying 11 resources
+2020-01-02 23:55:41,659 [Worker-85438: Building] INFO  o.e.m.c.i.embedder.EclipseLogger - Using 'UTF-8' encoding to copy filtered resources.
+2020-01-02 23:55:41,659 [Worker-85438: Building] INFO  o.e.m.c.i.embedder.EclipseLogger - skip non existing resourceDirectory /Users/xieyongpei/workspace/admin/admin-server/src/test/resources
+2020-01-02 23:55:56,257 [Worker-85536: Building] INFO  o.e.m.c.i.embedder.EclipseLogger - Using 'UTF-8' encoding to copy filtered resources.
+2020-01-02 23:55:56,257 [Worker-85536: Building] INFO  o.e.m.c.i.embedder.EclipseLogger - skip non existing resourceDirectory /Users/xieyongpei/workspace/admin/admin-common/src/main/resources
+2020-01-02 23:55:56,257 [Worker-85536: Building] INFO  o.e.m.c.i.embedder.EclipseLogger - skip non existing resourceDirectory /Users/xieyongpei/workspace/admin/admin-common/src/main/resources
+2020-01-02 23:55:56,258 [Worker-85536: Building] INFO  o.e.m.c.i.embedder.EclipseLogger - Using 'UTF-8' encoding to copy filtered resources.
+2020-01-02 23:55:56,258 [Worker-85536: Building] INFO  o.e.m.c.i.embedder.EclipseLogger - skip non existing resourceDirectory /Users/xieyongpei/workspace/admin/admin-common/src/test/resources
+2020-01-02 23:55:56,286 [Worker-85536: Building] INFO  o.e.m.c.i.embedder.EclipseLogger - Using 'UTF-8' encoding to copy filtered resources.
+2020-01-02 23:55:56,287 [Worker-85536: Building] INFO  o.e.m.c.i.embedder.EclipseLogger - Copying 1 resource
+2020-01-02 23:55:56,288 [Worker-85536: Building] INFO  o.e.m.c.i.embedder.EclipseLogger - Copying 11 resources
+2020-01-02 23:55:56,289 [Worker-85536: Building] INFO  o.e.m.c.i.embedder.EclipseLogger - Using 'UTF-8' encoding to copy filtered resources.
+2020-01-02 23:55:56,289 [Worker-85536: Building] INFO  o.e.m.c.i.embedder.EclipseLogger - skip non existing resourceDirectory /Users/xieyongpei/workspace/admin/admin-server/src/test/resources
+2020-01-02 23:56:09,476 [Worker-85654: Building] INFO  o.e.m.c.i.embedder.EclipseLogger - Using 'UTF-8' encoding to copy filtered resources.
+2020-01-02 23:56:09,476 [Worker-85654: Building] INFO  o.e.m.c.i.embedder.EclipseLogger - skip non existing resourceDirectory /Users/xieyongpei/workspace/admin/admin-client/src/main/resources
+2020-01-02 23:56:09,476 [Worker-85654: Building] INFO  o.e.m.c.i.embedder.EclipseLogger - skip non existing resourceDirectory /Users/xieyongpei/workspace/admin/admin-client/src/main/resources
+2020-01-02 23:56:09,478 [Worker-85654: Building] INFO  o.e.m.c.i.embedder.EclipseLogger - Using 'UTF-8' encoding to copy filtered resources.
+2020-01-02 23:56:09,478 [Worker-85654: Building] INFO  o.e.m.c.i.embedder.EclipseLogger - skip non existing resourceDirectory /Users/xieyongpei/workspace/admin/admin-client/src/test/resources
+2020-01-02 23:56:46,316 [Worker-85777: Building] INFO  o.e.m.c.i.embedder.EclipseLogger - Using 'UTF-8' encoding to copy filtered resources.
+2020-01-02 23:56:46,316 [Worker-85777: Building] INFO  o.e.m.c.i.embedder.EclipseLogger - skip non existing resourceDirectory /Users/xieyongpei/workspace/admin/admin-client/src/main/resources
+2020-01-02 23:56:46,316 [Worker-85777: Building] INFO  o.e.m.c.i.embedder.EclipseLogger - skip non existing resourceDirectory /Users/xieyongpei/workspace/admin/admin-client/src/main/resources
+2020-01-02 23:56:46,317 [Worker-85777: Building] INFO  o.e.m.c.i.embedder.EclipseLogger - Using 'UTF-8' encoding to copy filtered resources.
+2020-01-02 23:56:46,317 [Worker-85777: Building] INFO  o.e.m.c.i.embedder.EclipseLogger - skip non existing resourceDirectory /Users/xieyongpei/workspace/admin/admin-client/src/test/resources
+2020-01-02 23:56:46,363 [Worker-85777: Building] INFO  o.e.m.c.i.embedder.EclipseLogger - Using 'UTF-8' encoding to copy filtered resources.
+2020-01-02 23:56:46,364 [Worker-85777: Building] INFO  o.e.m.c.i.embedder.EclipseLogger - Copying 27 resources
+2020-01-02 23:56:46,365 [Worker-85777: Building] INFO  o.e.m.c.i.embedder.EclipseLogger - Copying 1 resource
+2020-01-02 23:56:46,373 [Worker-85777: Building] INFO  o.e.m.c.i.embedder.EclipseLogger - Copying 254 resources
+2020-01-02 23:56:46,380 [Worker-85777: Building] INFO  o.e.m.c.i.embedder.EclipseLogger - Using 'UTF-8' encoding to copy filtered resources.
+2020-01-02 23:56:46,380 [Worker-85777: Building] INFO  o.e.m.c.i.embedder.EclipseLogger - skip non existing resourceDirectory /Users/xieyongpei/workspace/admin/admin-web/src/test/resources
+2020-01-02 23:57:02,558 [Worker-85889: Building] INFO  o.e.m.c.i.embedder.EclipseLogger - Using 'UTF-8' encoding to copy filtered resources.
+2020-01-02 23:57:02,560 [Worker-85889: Building] INFO  o.e.m.c.i.embedder.EclipseLogger - Copying 1 resource
+2020-01-02 23:57:02,561 [Worker-85889: Building] INFO  o.e.m.c.i.embedder.EclipseLogger - Copying 11 resources
+2020-01-02 23:57:02,563 [Worker-85889: Building] INFO  o.e.m.c.i.embedder.EclipseLogger - Using 'UTF-8' encoding to copy filtered resources.
+2020-01-02 23:57:02,563 [Worker-85889: Building] INFO  o.e.m.c.i.embedder.EclipseLogger - skip non existing resourceDirectory /Users/xieyongpei/workspace/admin/admin-server/src/test/resources
+2020-01-02 23:58:19,364 [Worker-86103: Building] INFO  o.e.m.c.i.embedder.EclipseLogger - Using 'UTF-8' encoding to copy filtered resources.
+2020-01-02 23:58:19,365 [Worker-86103: Building] INFO  o.e.m.c.i.embedder.EclipseLogger - Copying 1 resource
+2020-01-02 23:58:19,366 [Worker-86103: Building] INFO  o.e.m.c.i.embedder.EclipseLogger - Copying 11 resources
+2020-01-02 23:58:19,368 [Worker-86103: Building] INFO  o.e.m.c.i.embedder.EclipseLogger - Using 'UTF-8' encoding to copy filtered resources.
+2020-01-02 23:58:19,368 [Worker-86103: Building] INFO  o.e.m.c.i.embedder.EclipseLogger - skip non existing resourceDirectory /Users/xieyongpei/workspace/admin/admin-server/src/test/resources
+2020-01-03 00:03:36,089 [Worker-86469: Building] INFO  o.e.m.c.i.embedder.EclipseLogger - Using 'UTF-8' encoding to copy filtered resources.
+2020-01-03 00:03:36,091 [Worker-86469: Building] INFO  o.e.m.c.i.embedder.EclipseLogger - Copying 1 resource
+2020-01-03 00:03:36,092 [Worker-86469: Building] INFO  o.e.m.c.i.embedder.EclipseLogger - Copying 11 resources
+2020-01-03 00:03:36,094 [Worker-86469: Building] INFO  o.e.m.c.i.embedder.EclipseLogger - Using 'UTF-8' encoding to copy filtered resources.
+2020-01-03 00:03:36,094 [Worker-86469: Building] INFO  o.e.m.c.i.embedder.EclipseLogger - skip non existing resourceDirectory /Users/xieyongpei/workspace/admin/admin-server/src/test/resources
+2020-01-03 00:05:01,432 [Worker-86685: Building] INFO  o.e.m.c.i.embedder.EclipseLogger - Using 'UTF-8' encoding to copy filtered resources.
+2020-01-03 00:05:01,433 [Worker-86685: Building] INFO  o.e.m.c.i.embedder.EclipseLogger - Copying 1 resource
+2020-01-03 00:05:01,435 [Worker-86685: Building] INFO  o.e.m.c.i.embedder.EclipseLogger - Copying 11 resources
+2020-01-03 00:05:01,436 [Worker-86685: Building] INFO  o.e.m.c.i.embedder.EclipseLogger - Using 'UTF-8' encoding to copy filtered resources.
+2020-01-03 00:05:01,436 [Worker-86685: Building] INFO  o.e.m.c.i.embedder.EclipseLogger - skip non existing resourceDirectory /Users/xieyongpei/workspace/admin/admin-server/src/test/resources
+2020-01-03 00:05:12,266 [Worker-86779: Building] INFO  o.e.m.c.i.embedder.EclipseLogger - Using 'UTF-8' encoding to copy filtered resources.
+2020-01-03 00:05:12,267 [Worker-86779: Building] INFO  o.e.m.c.i.embedder.EclipseLogger - Copying 1 resource
+2020-01-03 00:05:12,268 [Worker-86779: Building] INFO  o.e.m.c.i.embedder.EclipseLogger - Copying 11 resources
+2020-01-03 00:05:12,269 [Worker-86779: Building] INFO  o.e.m.c.i.embedder.EclipseLogger - Using 'UTF-8' encoding to copy filtered resources.
+2020-01-03 00:05:12,269 [Worker-86779: Building] INFO  o.e.m.c.i.embedder.EclipseLogger - skip non existing resourceDirectory /Users/xieyongpei/workspace/admin/admin-server/src/test/resources
+2020-01-03 00:06:08,921 [Worker-86903: Building] INFO  o.e.m.c.i.embedder.EclipseLogger - Using 'UTF-8' encoding to copy filtered resources.
+2020-01-03 00:06:08,921 [Worker-86903: Building] INFO  o.e.m.c.i.embedder.EclipseLogger - Copying 1 resource
+2020-01-03 00:06:08,922 [Worker-86903: Building] INFO  o.e.m.c.i.embedder.EclipseLogger - Copying 11 resources
+2020-01-03 00:06:08,923 [Worker-86903: Building] INFO  o.e.m.c.i.embedder.EclipseLogger - Using 'UTF-8' encoding to copy filtered resources.
+2020-01-03 00:06:08,923 [Worker-86903: Building] INFO  o.e.m.c.i.embedder.EclipseLogger - skip non existing resourceDirectory /Users/xieyongpei/workspace/admin/admin-server/src/test/resources
+2020-01-03 00:06:24,993 [Worker-86993: Building] INFO  o.e.m.c.i.embedder.EclipseLogger - Using 'UTF-8' encoding to copy filtered resources.
+2020-01-03 00:06:24,993 [Worker-86993: Building] INFO  o.e.m.c.i.embedder.EclipseLogger - Copying 1 resource
+2020-01-03 00:06:24,994 [Worker-86993: Building] INFO  o.e.m.c.i.embedder.EclipseLogger - Copying 11 resources
+2020-01-03 00:06:24,996 [Worker-86993: Building] INFO  o.e.m.c.i.embedder.EclipseLogger - Using 'UTF-8' encoding to copy filtered resources.
+2020-01-03 00:06:24,996 [Worker-86993: Building] INFO  o.e.m.c.i.embedder.EclipseLogger - skip non existing resourceDirectory /Users/xieyongpei/workspace/admin/admin-server/src/test/resources
+2020-01-03 00:06:52,927 [Worker-87089: Building] INFO  o.e.m.c.i.embedder.EclipseLogger - Using 'UTF-8' encoding to copy filtered resources.
+2020-01-03 00:06:52,932 [Worker-87089: Building] INFO  o.e.m.c.i.embedder.EclipseLogger - Copying 27 resources
+2020-01-03 00:06:52,933 [Worker-87089: Building] INFO  o.e.m.c.i.embedder.EclipseLogger - Copying 1 resource
+2020-01-03 00:06:52,949 [Worker-87089: Building] INFO  o.e.m.c.i.embedder.EclipseLogger - Copying 254 resources
+2020-01-03 00:06:52,955 [Worker-87089: Building] INFO  o.e.m.c.i.embedder.EclipseLogger - Using 'UTF-8' encoding to copy filtered resources.
+2020-01-03 00:06:52,956 [Worker-87089: Building] INFO  o.e.m.c.i.embedder.EclipseLogger - skip non existing resourceDirectory /Users/xieyongpei/workspace/admin/admin-web/src/test/resources
+2020-01-03 00:06:59,975 [Worker-87191: Building] INFO  o.e.m.c.i.embedder.EclipseLogger - Using 'UTF-8' encoding to copy filtered resources.
+2020-01-03 00:06:59,976 [Worker-87191: Building] INFO  o.e.m.c.i.embedder.EclipseLogger - Copying 27 resources
+2020-01-03 00:06:59,978 [Worker-87191: Building] INFO  o.e.m.c.i.embedder.EclipseLogger - Copying 1 resource
+2020-01-03 00:06:59,986 [Worker-87191: Building] INFO  o.e.m.c.i.embedder.EclipseLogger - Copying 254 resources
+2020-01-03 00:06:59,993 [Worker-87191: Building] INFO  o.e.m.c.i.embedder.EclipseLogger - Using 'UTF-8' encoding to copy filtered resources.
+2020-01-03 00:06:59,993 [Worker-87191: Building] INFO  o.e.m.c.i.embedder.EclipseLogger - skip non existing resourceDirectory /Users/xieyongpei/workspace/admin/admin-web/src/test/resources
+2020-01-03 00:09:09,422 [Worker-87390: Building] INFO  o.e.m.c.i.embedder.EclipseLogger - Using 'UTF-8' encoding to copy filtered resources.
+2020-01-03 00:09:09,424 [Worker-87390: Building] INFO  o.e.m.c.i.embedder.EclipseLogger - Copying 28 resources
+2020-01-03 00:09:09,426 [Worker-87390: Building] INFO  o.e.m.c.i.embedder.EclipseLogger - Copying 1 resource
+2020-01-03 00:09:09,435 [Worker-87390: Building] INFO  o.e.m.c.i.embedder.EclipseLogger - Copying 254 resources
+2020-01-03 00:09:09,442 [Worker-87390: Building] INFO  o.e.m.c.i.embedder.EclipseLogger - Using 'UTF-8' encoding to copy filtered resources.
+2020-01-03 00:09:09,442 [Worker-87390: Building] INFO  o.e.m.c.i.embedder.EclipseLogger - skip non existing resourceDirectory /Users/xieyongpei/workspace/admin/admin-web/src/test/resources
+2020-01-03 10:44:48,253 [Worker-88017: Building] INFO  o.e.m.c.i.embedder.EclipseLogger - Using 'UTF-8' encoding to copy filtered resources.
+2020-01-03 10:44:48,254 [Worker-88017: Building] INFO  o.e.m.c.i.embedder.EclipseLogger - skip non existing resourceDirectory /Users/xieyongpei/workspace/admin/admin-client/src/main/resources
+2020-01-03 10:44:48,254 [Worker-88017: Building] INFO  o.e.m.c.i.embedder.EclipseLogger - skip non existing resourceDirectory /Users/xieyongpei/workspace/admin/admin-client/src/main/resources
+2020-01-03 10:44:48,255 [Worker-88017: Building] INFO  o.e.m.c.i.embedder.EclipseLogger - Using 'UTF-8' encoding to copy filtered resources.
+2020-01-03 10:44:48,255 [Worker-88017: Building] INFO  o.e.m.c.i.embedder.EclipseLogger - skip non existing resourceDirectory /Users/xieyongpei/workspace/admin/admin-client/src/test/resources
+2020-01-03 10:45:39,028 [Worker-88154: Building] INFO  o.e.m.c.i.embedder.EclipseLogger - Using 'UTF-8' encoding to copy filtered resources.
+2020-01-03 10:45:39,028 [Worker-88154: Building] INFO  o.e.m.c.i.embedder.EclipseLogger - skip non existing resourceDirectory /Users/xieyongpei/workspace/admin/admin-client/src/main/resources
+2020-01-03 10:45:39,028 [Worker-88154: Building] INFO  o.e.m.c.i.embedder.EclipseLogger - skip non existing resourceDirectory /Users/xieyongpei/workspace/admin/admin-client/src/main/resources
+2020-01-03 10:45:39,029 [Worker-88154: Building] INFO  o.e.m.c.i.embedder.EclipseLogger - Using 'UTF-8' encoding to copy filtered resources.
+2020-01-03 10:45:39,029 [Worker-88154: Building] INFO  o.e.m.c.i.embedder.EclipseLogger - skip non existing resourceDirectory /Users/xieyongpei/workspace/admin/admin-client/src/test/resources
+2020-01-03 10:46:13,511 [Worker-88276: Building] INFO  o.e.m.c.i.embedder.EclipseLogger - Using 'UTF-8' encoding to copy filtered resources.
+2020-01-03 10:46:13,511 [Worker-88276: Building] INFO  o.e.m.c.i.embedder.EclipseLogger - skip non existing resourceDirectory /Users/xieyongpei/workspace/admin/admin-client/src/main/resources
+2020-01-03 10:46:13,511 [Worker-88276: Building] INFO  o.e.m.c.i.embedder.EclipseLogger - skip non existing resourceDirectory /Users/xieyongpei/workspace/admin/admin-client/src/main/resources
+2020-01-03 10:46:13,512 [Worker-88276: Building] INFO  o.e.m.c.i.embedder.EclipseLogger - Using 'UTF-8' encoding to copy filtered resources.
+2020-01-03 10:46:13,512 [Worker-88276: Building] INFO  o.e.m.c.i.embedder.EclipseLogger - skip non existing resourceDirectory /Users/xieyongpei/workspace/admin/admin-client/src/test/resources
+2020-01-03 10:46:48,617 [Worker-88441: Building] INFO  o.e.m.c.i.embedder.EclipseLogger - Using 'UTF-8' encoding to copy filtered resources.
+2020-01-03 10:46:48,620 [Worker-88441: Building] INFO  o.e.m.c.i.embedder.EclipseLogger - Copying 1 resource
+2020-01-03 10:46:48,622 [Worker-88441: Building] INFO  o.e.m.c.i.embedder.EclipseLogger - Copying 11 resources
+2020-01-03 10:46:48,623 [Worker-88441: Building] INFO  o.e.m.c.i.embedder.EclipseLogger - Using 'UTF-8' encoding to copy filtered resources.
+2020-01-03 10:46:48,623 [Worker-88441: Building] INFO  o.e.m.c.i.embedder.EclipseLogger - skip non existing resourceDirectory /Users/xieyongpei/workspace/admin/admin-server/src/test/resources
+2020-01-03 10:46:55,325 [Worker-88549: Building] INFO  o.e.m.c.i.embedder.EclipseLogger - Using 'UTF-8' encoding to copy filtered resources.
+2020-01-03 10:46:55,325 [Worker-88549: Building] INFO  o.e.m.c.i.embedder.EclipseLogger - skip non existing resourceDirectory /Users/xieyongpei/workspace/admin/admin-common/src/main/resources
+2020-01-03 10:46:55,325 [Worker-88549: Building] INFO  o.e.m.c.i.embedder.EclipseLogger - skip non existing resourceDirectory /Users/xieyongpei/workspace/admin/admin-common/src/main/resources
+2020-01-03 10:46:55,326 [Worker-88549: Building] INFO  o.e.m.c.i.embedder.EclipseLogger - Using 'UTF-8' encoding to copy filtered resources.
+2020-01-03 10:46:55,326 [Worker-88549: Building] INFO  o.e.m.c.i.embedder.EclipseLogger - skip non existing resourceDirectory /Users/xieyongpei/workspace/admin/admin-common/src/test/resources
+2020-01-03 10:46:55,364 [Worker-88549: Building] INFO  o.e.m.c.i.embedder.EclipseLogger - Using 'UTF-8' encoding to copy filtered resources.
+2020-01-03 10:46:55,364 [Worker-88549: Building] INFO  o.e.m.c.i.embedder.EclipseLogger - Copying 1 resource
+2020-01-03 10:46:55,365 [Worker-88549: Building] INFO  o.e.m.c.i.embedder.EclipseLogger - Copying 11 resources
+2020-01-03 10:46:55,366 [Worker-88549: Building] INFO  o.e.m.c.i.embedder.EclipseLogger - Using 'UTF-8' encoding to copy filtered resources.
+2020-01-03 10:46:55,366 [Worker-88549: Building] INFO  o.e.m.c.i.embedder.EclipseLogger - skip non existing resourceDirectory /Users/xieyongpei/workspace/admin/admin-server/src/test/resources
+2020-01-03 10:48:15,836 [Worker-88822: Building] INFO  o.e.m.c.i.embedder.EclipseLogger - Using 'UTF-8' encoding to copy filtered resources.
+2020-01-03 10:48:15,836 [Worker-88822: Building] INFO  o.e.m.c.i.embedder.EclipseLogger - Copying 1 resource
+2020-01-03 10:48:15,837 [Worker-88822: Building] INFO  o.e.m.c.i.embedder.EclipseLogger - Copying 11 resources
+2020-01-03 10:48:15,839 [Worker-88822: Building] INFO  o.e.m.c.i.embedder.EclipseLogger - Using 'UTF-8' encoding to copy filtered resources.
+2020-01-03 10:48:15,839 [Worker-88822: Building] INFO  o.e.m.c.i.embedder.EclipseLogger - skip non existing resourceDirectory /Users/xieyongpei/workspace/admin/admin-server/src/test/resources
+2020-01-03 10:49:33,910 [Worker-88992: Building] INFO  o.e.m.c.i.embedder.EclipseLogger - Using 'UTF-8' encoding to copy filtered resources.
+2020-01-03 10:49:33,911 [Worker-88992: Building] INFO  o.e.m.c.i.embedder.EclipseLogger - Copying 1 resource
+2020-01-03 10:49:33,912 [Worker-88992: Building] INFO  o.e.m.c.i.embedder.EclipseLogger - Copying 11 resources
+2020-01-03 10:49:33,915 [Worker-88992: Building] INFO  o.e.m.c.i.embedder.EclipseLogger - Using 'UTF-8' encoding to copy filtered resources.
+2020-01-03 10:49:33,915 [Worker-88992: Building] INFO  o.e.m.c.i.embedder.EclipseLogger - skip non existing resourceDirectory /Users/xieyongpei/workspace/admin/admin-server/src/test/resources
+2020-01-03 10:50:00,316 [Worker-89114: Building] INFO  o.e.m.c.i.embedder.EclipseLogger - Using 'UTF-8' encoding to copy filtered resources.
+2020-01-03 10:50:00,316 [Worker-89114: Building] INFO  o.e.m.c.i.embedder.EclipseLogger - Copying 1 resource
+2020-01-03 10:50:00,317 [Worker-89114: Building] INFO  o.e.m.c.i.embedder.EclipseLogger - Copying 11 resources
+2020-01-03 10:50:00,319 [Worker-89114: Building] INFO  o.e.m.c.i.embedder.EclipseLogger - Using 'UTF-8' encoding to copy filtered resources.
+2020-01-03 10:50:00,319 [Worker-89114: Building] INFO  o.e.m.c.i.embedder.EclipseLogger - skip non existing resourceDirectory /Users/xieyongpei/workspace/admin/admin-server/src/test/resources
+2020-01-03 10:50:06,316 [Worker-89179: Building] INFO  o.e.m.c.i.embedder.EclipseLogger - Using 'UTF-8' encoding to copy filtered resources.
+2020-01-03 10:50:06,321 [Worker-89179: Building] INFO  o.e.m.c.i.embedder.EclipseLogger - Copying 28 resources
+2020-01-03 10:50:06,323 [Worker-89179: Building] INFO  o.e.m.c.i.embedder.EclipseLogger - Copying 1 resource
+2020-01-03 10:50:06,337 [Worker-89179: Building] INFO  o.e.m.c.i.embedder.EclipseLogger - Copying 254 resources
+2020-01-03 10:50:06,344 [Worker-89179: Building] INFO  o.e.m.c.i.embedder.EclipseLogger - Using 'UTF-8' encoding to copy filtered resources.
+2020-01-03 10:50:06,344 [Worker-89179: Building] INFO  o.e.m.c.i.embedder.EclipseLogger - skip non existing resourceDirectory /Users/xieyongpei/workspace/admin/admin-web/src/test/resources
+2020-01-03 10:51:52,913 [Worker-89544: Building] INFO  o.e.m.c.i.embedder.EclipseLogger - Using 'UTF-8' encoding to copy filtered resources.
+2020-01-03 10:51:52,937 [Worker-89544: Building] INFO  o.e.m.c.i.embedder.EclipseLogger - Copying 28 resources
+2020-01-03 10:51:52,939 [Worker-89544: Building] INFO  o.e.m.c.i.embedder.EclipseLogger - Copying 1 resource
+2020-01-03 10:51:52,948 [Worker-89544: Building] INFO  o.e.m.c.i.embedder.EclipseLogger - Copying 254 resources
+2020-01-03 10:51:52,955 [Worker-89544: Building] INFO  o.e.m.c.i.embedder.EclipseLogger - Using 'UTF-8' encoding to copy filtered resources.
+2020-01-03 10:51:52,955 [Worker-89544: Building] INFO  o.e.m.c.i.embedder.EclipseLogger - skip non existing resourceDirectory /Users/xieyongpei/workspace/admin/admin-web/src/test/resources
+2020-01-03 10:52:50,434 [Worker-89792: Building] INFO  o.e.m.c.i.embedder.EclipseLogger - Using 'UTF-8' encoding to copy filtered resources.
+2020-01-03 10:52:50,436 [Worker-89792: Building] INFO  o.e.m.c.i.embedder.EclipseLogger - Copying 28 resources
+2020-01-03 10:52:50,437 [Worker-89792: Building] INFO  o.e.m.c.i.embedder.EclipseLogger - Copying 1 resource
+2020-01-03 10:52:50,446 [Worker-89792: Building] INFO  o.e.m.c.i.embedder.EclipseLogger - Copying 254 resources
+2020-01-03 10:52:50,453 [Worker-89792: Building] INFO  o.e.m.c.i.embedder.EclipseLogger - Using 'UTF-8' encoding to copy filtered resources.
+2020-01-03 10:52:50,453 [Worker-89792: Building] INFO  o.e.m.c.i.embedder.EclipseLogger - skip non existing resourceDirectory /Users/xieyongpei/workspace/admin/admin-web/src/test/resources
+2020-01-03 10:52:54,763 [Worker-89879: Building] INFO  o.e.m.c.i.embedder.EclipseLogger - Using 'UTF-8' encoding to copy filtered resources.
+2020-01-03 10:52:54,765 [Worker-89879: Building] INFO  o.e.m.c.i.embedder.EclipseLogger - Copying 28 resources
+2020-01-03 10:52:54,766 [Worker-89879: Building] INFO  o.e.m.c.i.embedder.EclipseLogger - Copying 1 resource
+2020-01-03 10:52:54,775 [Worker-89879: Building] INFO  o.e.m.c.i.embedder.EclipseLogger - Copying 254 resources
+2020-01-03 10:52:54,783 [Worker-89879: Building] INFO  o.e.m.c.i.embedder.EclipseLogger - Using 'UTF-8' encoding to copy filtered resources.
+2020-01-03 10:52:54,783 [Worker-89879: Building] INFO  o.e.m.c.i.embedder.EclipseLogger - skip non existing resourceDirectory /Users/xieyongpei/workspace/admin/admin-web/src/test/resources
+2020-01-03 10:54:20,110 [Worker-90079: Building] INFO  o.e.m.c.i.embedder.EclipseLogger - Using 'UTF-8' encoding to copy filtered resources.
+2020-01-03 10:54:20,110 [Worker-90079: Building] INFO  o.e.m.c.i.embedder.EclipseLogger - skip non existing resourceDirectory /Users/xieyongpei/workspace/admin/admin-client/src/main/resources
+2020-01-03 10:54:20,110 [Worker-90079: Building] INFO  o.e.m.c.i.embedder.EclipseLogger - skip non existing resourceDirectory /Users/xieyongpei/workspace/admin/admin-client/src/main/resources
+2020-01-03 10:54:20,111 [Worker-90079: Building] INFO  o.e.m.c.i.embedder.EclipseLogger - Using 'UTF-8' encoding to copy filtered resources.
+2020-01-03 10:54:20,111 [Worker-90079: Building] INFO  o.e.m.c.i.embedder.EclipseLogger - skip non existing resourceDirectory /Users/xieyongpei/workspace/admin/admin-client/src/test/resources
+2020-01-03 10:54:20,165 [Worker-90079: Building] INFO  o.e.m.c.i.embedder.EclipseLogger - Using 'UTF-8' encoding to copy filtered resources.
+2020-01-03 10:54:20,167 [Worker-90079: Building] INFO  o.e.m.c.i.embedder.EclipseLogger - Copying 28 resources
+2020-01-03 10:54:20,167 [Worker-90079: Building] INFO  o.e.m.c.i.embedder.EclipseLogger - Copying 1 resource
+2020-01-03 10:54:20,177 [Worker-90079: Building] INFO  o.e.m.c.i.embedder.EclipseLogger - Copying 254 resources
+2020-01-03 10:54:20,184 [Worker-90079: Building] INFO  o.e.m.c.i.embedder.EclipseLogger - Using 'UTF-8' encoding to copy filtered resources.
+2020-01-03 10:54:20,184 [Worker-90079: Building] INFO  o.e.m.c.i.embedder.EclipseLogger - skip non existing resourceDirectory /Users/xieyongpei/workspace/admin/admin-web/src/test/resources
+2020-01-03 10:54:34,853 [Worker-90189: Building] INFO  o.e.m.c.i.embedder.EclipseLogger - Using 'UTF-8' encoding to copy filtered resources.
+2020-01-03 10:54:34,853 [Worker-90189: Building] INFO  o.e.m.c.i.embedder.EclipseLogger - skip non existing resourceDirectory /Users/xieyongpei/workspace/admin/admin-client/src/main/resources
+2020-01-03 10:54:34,853 [Worker-90189: Building] INFO  o.e.m.c.i.embedder.EclipseLogger - skip non existing resourceDirectory /Users/xieyongpei/workspace/admin/admin-client/src/main/resources
+2020-01-03 10:54:34,854 [Worker-90189: Building] INFO  o.e.m.c.i.embedder.EclipseLogger - Using 'UTF-8' encoding to copy filtered resources.
+2020-01-03 10:54:34,854 [Worker-90189: Building] INFO  o.e.m.c.i.embedder.EclipseLogger - skip non existing resourceDirectory /Users/xieyongpei/workspace/admin/admin-client/src/test/resources
+2020-01-03 10:54:34,906 [Worker-90189: Building] INFO  o.e.m.c.i.embedder.EclipseLogger - Using 'UTF-8' encoding to copy filtered resources.
+2020-01-03 10:54:34,908 [Worker-90189: Building] INFO  o.e.m.c.i.embedder.EclipseLogger - Copying 28 resources
+2020-01-03 10:54:34,909 [Worker-90189: Building] INFO  o.e.m.c.i.embedder.EclipseLogger - Copying 1 resource
+2020-01-03 10:54:34,917 [Worker-90189: Building] INFO  o.e.m.c.i.embedder.EclipseLogger - Copying 254 resources
+2020-01-03 10:54:34,925 [Worker-90189: Building] INFO  o.e.m.c.i.embedder.EclipseLogger - Using 'UTF-8' encoding to copy filtered resources.
+2020-01-03 10:54:34,925 [Worker-90189: Building] INFO  o.e.m.c.i.embedder.EclipseLogger - skip non existing resourceDirectory /Users/xieyongpei/workspace/admin/admin-web/src/test/resources
+2020-01-03 10:54:45,317 [Worker-90298: Building] INFO  o.e.m.c.i.embedder.EclipseLogger - Using 'UTF-8' encoding to copy filtered resources.
+2020-01-03 10:54:45,317 [Worker-90298: Building] INFO  o.e.m.c.i.embedder.EclipseLogger - skip non existing resourceDirectory /Users/xieyongpei/workspace/admin/admin-client/src/main/resources
+2020-01-03 10:54:45,317 [Worker-90298: Building] INFO  o.e.m.c.i.embedder.EclipseLogger - skip non existing resourceDirectory /Users/xieyongpei/workspace/admin/admin-client/src/main/resources
+2020-01-03 10:54:45,318 [Worker-90298: Building] INFO  o.e.m.c.i.embedder.EclipseLogger - Using 'UTF-8' encoding to copy filtered resources.
+2020-01-03 10:54:45,318 [Worker-90298: Building] INFO  o.e.m.c.i.embedder.EclipseLogger - skip non existing resourceDirectory /Users/xieyongpei/workspace/admin/admin-client/src/test/resources
+2020-01-03 10:54:45,374 [Worker-90298: Building] INFO  o.e.m.c.i.embedder.EclipseLogger - Using 'UTF-8' encoding to copy filtered resources.
+2020-01-03 10:54:45,376 [Worker-90298: Building] INFO  o.e.m.c.i.embedder.EclipseLogger - Copying 28 resources
+2020-01-03 10:54:45,377 [Worker-90298: Building] INFO  o.e.m.c.i.embedder.EclipseLogger - Copying 1 resource
+2020-01-03 10:54:45,387 [Worker-90298: Building] INFO  o.e.m.c.i.embedder.EclipseLogger - Copying 254 resources
+2020-01-03 10:54:45,394 [Worker-90298: Building] INFO  o.e.m.c.i.embedder.EclipseLogger - Using 'UTF-8' encoding to copy filtered resources.
+2020-01-03 10:54:45,394 [Worker-90298: Building] INFO  o.e.m.c.i.embedder.EclipseLogger - skip non existing resourceDirectory /Users/xieyongpei/workspace/admin/admin-web/src/test/resources
+2020-01-03 10:55:30,754 [Worker-90543: Building] INFO  o.e.m.c.i.embedder.EclipseLogger - Using 'UTF-8' encoding to copy filtered resources.
+2020-01-03 10:55:30,754 [Worker-90543: Building] INFO  o.e.m.c.i.embedder.EclipseLogger - skip non existing resourceDirectory /Users/xieyongpei/workspace/admin/admin-client/src/main/resources
+2020-01-03 10:55:30,754 [Worker-90543: Building] INFO  o.e.m.c.i.embedder.EclipseLogger - skip non existing resourceDirectory /Users/xieyongpei/workspace/admin/admin-client/src/main/resources
+2020-01-03 10:55:30,755 [Worker-90543: Building] INFO  o.e.m.c.i.embedder.EclipseLogger - Using 'UTF-8' encoding to copy filtered resources.
+2020-01-03 10:55:30,755 [Worker-90543: Building] INFO  o.e.m.c.i.embedder.EclipseLogger - skip non existing resourceDirectory /Users/xieyongpei/workspace/admin/admin-client/src/test/resources
+2020-01-03 10:55:30,806 [Worker-90543: Building] INFO  o.e.m.c.i.embedder.EclipseLogger - Using 'UTF-8' encoding to copy filtered resources.
+2020-01-03 10:55:30,807 [Worker-90543: Building] INFO  o.e.m.c.i.embedder.EclipseLogger - Copying 28 resources
+2020-01-03 10:55:30,808 [Worker-90543: Building] INFO  o.e.m.c.i.embedder.EclipseLogger - Copying 1 resource
+2020-01-03 10:55:30,817 [Worker-90543: Building] INFO  o.e.m.c.i.embedder.EclipseLogger - Copying 254 resources
+2020-01-03 10:55:30,824 [Worker-90543: Building] INFO  o.e.m.c.i.embedder.EclipseLogger - Using 'UTF-8' encoding to copy filtered resources.
+2020-01-03 10:55:30,824 [Worker-90543: Building] INFO  o.e.m.c.i.embedder.EclipseLogger - skip non existing resourceDirectory /Users/xieyongpei/workspace/admin/admin-web/src/test/resources
+2020-01-03 10:55:41,051 [Worker-90640: Building] INFO  o.e.m.c.i.embedder.EclipseLogger - Using 'UTF-8' encoding to copy filtered resources.
+2020-01-03 10:55:41,051 [Worker-90640: Building] INFO  o.e.m.c.i.embedder.EclipseLogger - skip non existing resourceDirectory /Users/xieyongpei/workspace/admin/admin-client/src/main/resources
+2020-01-03 10:55:41,051 [Worker-90640: Building] INFO  o.e.m.c.i.embedder.EclipseLogger - skip non existing resourceDirectory /Users/xieyongpei/workspace/admin/admin-client/src/main/resources
+2020-01-03 10:55:41,052 [Worker-90640: Building] INFO  o.e.m.c.i.embedder.EclipseLogger - Using 'UTF-8' encoding to copy filtered resources.
+2020-01-03 10:55:41,052 [Worker-90640: Building] INFO  o.e.m.c.i.embedder.EclipseLogger - skip non existing resourceDirectory /Users/xieyongpei/workspace/admin/admin-client/src/test/resources
+2020-01-03 10:56:35,799 [Worker-90835: Building] INFO  o.e.m.c.i.embedder.EclipseLogger - Using 'UTF-8' encoding to copy filtered resources.
+2020-01-03 10:56:35,800 [Worker-90835: Building] INFO  o.e.m.c.i.embedder.EclipseLogger - Copying 1 resource
+2020-01-03 10:56:35,801 [Worker-90835: Building] INFO  o.e.m.c.i.embedder.EclipseLogger - Copying 11 resources
+2020-01-03 10:56:35,802 [Worker-90835: Building] INFO  o.e.m.c.i.embedder.EclipseLogger - Using 'UTF-8' encoding to copy filtered resources.
+2020-01-03 10:56:35,802 [Worker-90835: Building] INFO  o.e.m.c.i.embedder.EclipseLogger - skip non existing resourceDirectory /Users/xieyongpei/workspace/admin/admin-server/src/test/resources
+2020-01-03 10:58:31,923 [Worker-91171: Building] INFO  o.e.m.c.i.embedder.EclipseLogger - Using 'UTF-8' encoding to copy filtered resources.
+2020-01-03 10:58:31,923 [Worker-91171: Building] INFO  o.e.m.c.i.embedder.EclipseLogger - Copying 1 resource
+2020-01-03 10:58:31,924 [Worker-91171: Building] INFO  o.e.m.c.i.embedder.EclipseLogger - Copying 11 resources
+2020-01-03 10:58:31,925 [Worker-91171: Building] INFO  o.e.m.c.i.embedder.EclipseLogger - Using 'UTF-8' encoding to copy filtered resources.
+2020-01-03 10:58:31,925 [Worker-91171: Building] INFO  o.e.m.c.i.embedder.EclipseLogger - skip non existing resourceDirectory /Users/xieyongpei/workspace/admin/admin-server/src/test/resources
+2020-01-03 10:58:40,890 [Worker-91284: Building] INFO  o.e.m.c.i.embedder.EclipseLogger - Using 'UTF-8' encoding to copy filtered resources.
+2020-01-03 10:58:40,890 [Worker-91284: Building] INFO  o.e.m.c.i.embedder.EclipseLogger - skip non existing resourceDirectory /Users/xieyongpei/workspace/admin/admin-common/src/main/resources
+2020-01-03 10:58:40,890 [Worker-91284: Building] INFO  o.e.m.c.i.embedder.EclipseLogger - skip non existing resourceDirectory /Users/xieyongpei/workspace/admin/admin-common/src/main/resources
+2020-01-03 10:58:40,891 [Worker-91284: Building] INFO  o.e.m.c.i.embedder.EclipseLogger - Using 'UTF-8' encoding to copy filtered resources.
+2020-01-03 10:58:40,891 [Worker-91284: Building] INFO  o.e.m.c.i.embedder.EclipseLogger - skip non existing resourceDirectory /Users/xieyongpei/workspace/admin/admin-common/src/test/resources
+2020-01-03 10:58:40,929 [Worker-91284: Building] INFO  o.e.m.c.i.embedder.EclipseLogger - Using 'UTF-8' encoding to copy filtered resources.
+2020-01-03 10:58:40,930 [Worker-91284: Building] INFO  o.e.m.c.i.embedder.EclipseLogger - Copying 1 resource
+2020-01-03 10:58:40,931 [Worker-91284: Building] INFO  o.e.m.c.i.embedder.EclipseLogger - Copying 11 resources
+2020-01-03 10:58:40,932 [Worker-91284: Building] INFO  o.e.m.c.i.embedder.EclipseLogger - Using 'UTF-8' encoding to copy filtered resources.
+2020-01-03 10:58:40,932 [Worker-91284: Building] INFO  o.e.m.c.i.embedder.EclipseLogger - skip non existing resourceDirectory /Users/xieyongpei/workspace/admin/admin-server/src/test/resources
+2020-01-03 10:58:52,629 [Worker-91412: Building] INFO  o.e.m.c.i.embedder.EclipseLogger - Using 'UTF-8' encoding to copy filtered resources.
+2020-01-03 10:58:52,629 [Worker-91412: Building] INFO  o.e.m.c.i.embedder.EclipseLogger - skip non existing resourceDirectory /Users/xieyongpei/workspace/admin/admin-common/src/main/resources
+2020-01-03 10:58:52,629 [Worker-91412: Building] INFO  o.e.m.c.i.embedder.EclipseLogger - skip non existing resourceDirectory /Users/xieyongpei/workspace/admin/admin-common/src/main/resources
+2020-01-03 10:58:52,630 [Worker-91412: Building] INFO  o.e.m.c.i.embedder.EclipseLogger - Using 'UTF-8' encoding to copy filtered resources.
+2020-01-03 10:58:52,630 [Worker-91412: Building] INFO  o.e.m.c.i.embedder.EclipseLogger - skip non existing resourceDirectory /Users/xieyongpei/workspace/admin/admin-common/src/test/resources
+2020-01-03 10:58:52,666 [Worker-91412: Building] INFO  o.e.m.c.i.embedder.EclipseLogger - Using 'UTF-8' encoding to copy filtered resources.
+2020-01-03 10:58:52,666 [Worker-91412: Building] INFO  o.e.m.c.i.embedder.EclipseLogger - Copying 1 resource
+2020-01-03 10:58:52,667 [Worker-91412: Building] INFO  o.e.m.c.i.embedder.EclipseLogger - Copying 11 resources
+2020-01-03 10:58:52,669 [Worker-91412: Building] INFO  o.e.m.c.i.embedder.EclipseLogger - Using 'UTF-8' encoding to copy filtered resources.
+2020-01-03 10:58:52,669 [Worker-91412: Building] INFO  o.e.m.c.i.embedder.EclipseLogger - skip non existing resourceDirectory /Users/xieyongpei/workspace/admin/admin-server/src/test/resources
+2020-01-03 10:58:58,798 [Worker-91513: Building] INFO  o.e.m.c.i.embedder.EclipseLogger - Using 'UTF-8' encoding to copy filtered resources.
+2020-01-03 10:58:58,798 [Worker-91513: Building] INFO  o.e.m.c.i.embedder.EclipseLogger - skip non existing resourceDirectory /Users/xieyongpei/workspace/admin/admin-common/src/main/resources
+2020-01-03 10:58:58,798 [Worker-91513: Building] INFO  o.e.m.c.i.embedder.EclipseLogger - skip non existing resourceDirectory /Users/xieyongpei/workspace/admin/admin-common/src/main/resources
+2020-01-03 10:58:58,799 [Worker-91513: Building] INFO  o.e.m.c.i.embedder.EclipseLogger - Using 'UTF-8' encoding to copy filtered resources.
+2020-01-03 10:58:58,799 [Worker-91513: Building] INFO  o.e.m.c.i.embedder.EclipseLogger - skip non existing resourceDirectory /Users/xieyongpei/workspace/admin/admin-common/src/test/resources
+2020-01-03 10:58:58,833 [Worker-91513: Building] INFO  o.e.m.c.i.embedder.EclipseLogger - Using 'UTF-8' encoding to copy filtered resources.
+2020-01-03 10:58:58,833 [Worker-91513: Building] INFO  o.e.m.c.i.embedder.EclipseLogger - Copying 1 resource
+2020-01-03 10:58:58,834 [Worker-91513: Building] INFO  o.e.m.c.i.embedder.EclipseLogger - Copying 11 resources
+2020-01-03 10:58:58,836 [Worker-91513: Building] INFO  o.e.m.c.i.embedder.EclipseLogger - Using 'UTF-8' encoding to copy filtered resources.
+2020-01-03 10:58:58,836 [Worker-91513: Building] INFO  o.e.m.c.i.embedder.EclipseLogger - skip non existing resourceDirectory /Users/xieyongpei/workspace/admin/admin-server/src/test/resources
+2020-01-03 10:59:05,166 [Worker-91642: Building] INFO  o.e.m.c.i.embedder.EclipseLogger - Using 'UTF-8' encoding to copy filtered resources.
+2020-01-03 10:59:05,166 [Worker-91642: Building] INFO  o.e.m.c.i.embedder.EclipseLogger - skip non existing resourceDirectory /Users/xieyongpei/workspace/admin/admin-common/src/main/resources
+2020-01-03 10:59:05,166 [Worker-91642: Building] INFO  o.e.m.c.i.embedder.EclipseLogger - skip non existing resourceDirectory /Users/xieyongpei/workspace/admin/admin-common/src/main/resources
+2020-01-03 10:59:05,168 [Worker-91642: Building] INFO  o.e.m.c.i.embedder.EclipseLogger - Using 'UTF-8' encoding to copy filtered resources.
+2020-01-03 10:59:05,168 [Worker-91642: Building] INFO  o.e.m.c.i.embedder.EclipseLogger - skip non existing resourceDirectory /Users/xieyongpei/workspace/admin/admin-common/src/test/resources
+2020-01-03 10:59:05,207 [Worker-91642: Building] INFO  o.e.m.c.i.embedder.EclipseLogger - Using 'UTF-8' encoding to copy filtered resources.
+2020-01-03 10:59:05,207 [Worker-91642: Building] INFO  o.e.m.c.i.embedder.EclipseLogger - Copying 1 resource
+2020-01-03 10:59:05,208 [Worker-91642: Building] INFO  o.e.m.c.i.embedder.EclipseLogger - Copying 11 resources
+2020-01-03 10:59:05,210 [Worker-91642: Building] INFO  o.e.m.c.i.embedder.EclipseLogger - Using 'UTF-8' encoding to copy filtered resources.
+2020-01-03 10:59:05,210 [Worker-91642: Building] INFO  o.e.m.c.i.embedder.EclipseLogger - skip non existing resourceDirectory /Users/xieyongpei/workspace/admin/admin-server/src/test/resources
+2020-01-03 10:59:12,832 [Worker-91766: Building] INFO  o.e.m.c.i.embedder.EclipseLogger - Using 'UTF-8' encoding to copy filtered resources.
+2020-01-03 10:59:12,832 [Worker-91766: Building] INFO  o.e.m.c.i.embedder.EclipseLogger - skip non existing resourceDirectory /Users/xieyongpei/workspace/admin/admin-common/src/main/resources
+2020-01-03 10:59:12,832 [Worker-91766: Building] INFO  o.e.m.c.i.embedder.EclipseLogger - skip non existing resourceDirectory /Users/xieyongpei/workspace/admin/admin-common/src/main/resources
+2020-01-03 10:59:12,832 [Worker-91766: Building] INFO  o.e.m.c.i.embedder.EclipseLogger - Using 'UTF-8' encoding to copy filtered resources.
+2020-01-03 10:59:12,832 [Worker-91766: Building] INFO  o.e.m.c.i.embedder.EclipseLogger - skip non existing resourceDirectory /Users/xieyongpei/workspace/admin/admin-common/src/test/resources
+2020-01-03 10:59:12,867 [Worker-91766: Building] INFO  o.e.m.c.i.embedder.EclipseLogger - Using 'UTF-8' encoding to copy filtered resources.
+2020-01-03 10:59:12,868 [Worker-91766: Building] INFO  o.e.m.c.i.embedder.EclipseLogger - Copying 1 resource
+2020-01-03 10:59:12,869 [Worker-91766: Building] INFO  o.e.m.c.i.embedder.EclipseLogger - Copying 11 resources
+2020-01-03 10:59:12,870 [Worker-91766: Building] INFO  o.e.m.c.i.embedder.EclipseLogger - Using 'UTF-8' encoding to copy filtered resources.
+2020-01-03 10:59:12,870 [Worker-91766: Building] INFO  o.e.m.c.i.embedder.EclipseLogger - skip non existing resourceDirectory /Users/xieyongpei/workspace/admin/admin-server/src/test/resources
+2020-01-03 10:59:19,646 [Worker-91873: Building] INFO  o.e.m.c.i.embedder.EclipseLogger - Using 'UTF-8' encoding to copy filtered resources.
+2020-01-03 10:59:19,646 [Worker-91873: Building] INFO  o.e.m.c.i.embedder.EclipseLogger - skip non existing resourceDirectory /Users/xieyongpei/workspace/admin/admin-common/src/main/resources
+2020-01-03 10:59:19,646 [Worker-91873: Building] INFO  o.e.m.c.i.embedder.EclipseLogger - skip non existing resourceDirectory /Users/xieyongpei/workspace/admin/admin-common/src/main/resources
+2020-01-03 10:59:19,647 [Worker-91873: Building] INFO  o.e.m.c.i.embedder.EclipseLogger - Using 'UTF-8' encoding to copy filtered resources.
+2020-01-03 10:59:19,647 [Worker-91873: Building] INFO  o.e.m.c.i.embedder.EclipseLogger - skip non existing resourceDirectory /Users/xieyongpei/workspace/admin/admin-common/src/test/resources
+2020-01-03 10:59:19,679 [Worker-91873: Building] INFO  o.e.m.c.i.embedder.EclipseLogger - Using 'UTF-8' encoding to copy filtered resources.
+2020-01-03 10:59:19,680 [Worker-91873: Building] INFO  o.e.m.c.i.embedder.EclipseLogger - Copying 1 resource
+2020-01-03 10:59:19,681 [Worker-91873: Building] INFO  o.e.m.c.i.embedder.EclipseLogger - Copying 11 resources
+2020-01-03 10:59:19,682 [Worker-91873: Building] INFO  o.e.m.c.i.embedder.EclipseLogger - Using 'UTF-8' encoding to copy filtered resources.
+2020-01-03 10:59:19,682 [Worker-91873: Building] INFO  o.e.m.c.i.embedder.EclipseLogger - skip non existing resourceDirectory /Users/xieyongpei/workspace/admin/admin-server/src/test/resources
+2020-01-03 10:59:25,611 [Worker-91979: Building] INFO  o.e.m.c.i.embedder.EclipseLogger - Using 'UTF-8' encoding to copy filtered resources.
+2020-01-03 10:59:25,612 [Worker-91979: Building] INFO  o.e.m.c.i.embedder.EclipseLogger - skip non existing resourceDirectory /Users/xieyongpei/workspace/admin/admin-common/src/main/resources
+2020-01-03 10:59:25,612 [Worker-91979: Building] INFO  o.e.m.c.i.embedder.EclipseLogger - skip non existing resourceDirectory /Users/xieyongpei/workspace/admin/admin-common/src/main/resources
+2020-01-03 10:59:25,612 [Worker-91979: Building] INFO  o.e.m.c.i.embedder.EclipseLogger - Using 'UTF-8' encoding to copy filtered resources.
+2020-01-03 10:59:25,612 [Worker-91979: Building] INFO  o.e.m.c.i.embedder.EclipseLogger - skip non existing resourceDirectory /Users/xieyongpei/workspace/admin/admin-common/src/test/resources
+2020-01-03 10:59:25,648 [Worker-91979: Building] INFO  o.e.m.c.i.embedder.EclipseLogger - Using 'UTF-8' encoding to copy filtered resources.
+2020-01-03 10:59:25,648 [Worker-91979: Building] INFO  o.e.m.c.i.embedder.EclipseLogger - Copying 1 resource
+2020-01-03 10:59:25,649 [Worker-91979: Building] INFO  o.e.m.c.i.embedder.EclipseLogger - Copying 11 resources
+2020-01-03 10:59:25,650 [Worker-91979: Building] INFO  o.e.m.c.i.embedder.EclipseLogger - Using 'UTF-8' encoding to copy filtered resources.
+2020-01-03 10:59:25,650 [Worker-91979: Building] INFO  o.e.m.c.i.embedder.EclipseLogger - skip non existing resourceDirectory /Users/xieyongpei/workspace/admin/admin-server/src/test/resources
+2020-01-03 10:59:31,916 [Worker-92095: Building] INFO  o.e.m.c.i.embedder.EclipseLogger - Using 'UTF-8' encoding to copy filtered resources.
+2020-01-03 10:59:31,916 [Worker-92095: Building] INFO  o.e.m.c.i.embedder.EclipseLogger - skip non existing resourceDirectory /Users/xieyongpei/workspace/admin/admin-common/src/main/resources
+2020-01-03 10:59:31,917 [Worker-92095: Building] INFO  o.e.m.c.i.embedder.EclipseLogger - skip non existing resourceDirectory /Users/xieyongpei/workspace/admin/admin-common/src/main/resources
+2020-01-03 10:59:31,917 [Worker-92095: Building] INFO  o.e.m.c.i.embedder.EclipseLogger - Using 'UTF-8' encoding to copy filtered resources.
+2020-01-03 10:59:31,917 [Worker-92095: Building] INFO  o.e.m.c.i.embedder.EclipseLogger - skip non existing resourceDirectory /Users/xieyongpei/workspace/admin/admin-common/src/test/resources
+2020-01-03 10:59:31,953 [Worker-92095: Building] INFO  o.e.m.c.i.embedder.EclipseLogger - Using 'UTF-8' encoding to copy filtered resources.
+2020-01-03 10:59:31,953 [Worker-92095: Building] INFO  o.e.m.c.i.embedder.EclipseLogger - Copying 1 resource
+2020-01-03 10:59:31,954 [Worker-92095: Building] INFO  o.e.m.c.i.embedder.EclipseLogger - Copying 11 resources
+2020-01-03 10:59:31,956 [Worker-92095: Building] INFO  o.e.m.c.i.embedder.EclipseLogger - Using 'UTF-8' encoding to copy filtered resources.
+2020-01-03 10:59:31,956 [Worker-92095: Building] INFO  o.e.m.c.i.embedder.EclipseLogger - skip non existing resourceDirectory /Users/xieyongpei/workspace/admin/admin-server/src/test/resources
+2020-01-03 10:59:51,010 [Worker-92268: Building] INFO  o.e.m.c.i.embedder.EclipseLogger - Using 'UTF-8' encoding to copy filtered resources.
+2020-01-03 10:59:51,011 [Worker-92268: Building] INFO  o.e.m.c.i.embedder.EclipseLogger - Copying 1 resource
+2020-01-03 10:59:51,012 [Worker-92268: Building] INFO  o.e.m.c.i.embedder.EclipseLogger - Copying 11 resources
+2020-01-03 10:59:51,013 [Worker-92268: Building] INFO  o.e.m.c.i.embedder.EclipseLogger - Using 'UTF-8' encoding to copy filtered resources.
+2020-01-03 10:59:51,013 [Worker-92268: Building] INFO  o.e.m.c.i.embedder.EclipseLogger - skip non existing resourceDirectory /Users/xieyongpei/workspace/admin/admin-server/src/test/resources
+2020-01-03 11:01:13,536 [Worker-92428: Building] INFO  o.e.m.c.i.embedder.EclipseLogger - Using 'UTF-8' encoding to copy filtered resources.
+2020-01-03 11:01:13,537 [Worker-92428: Building] INFO  o.e.m.c.i.embedder.EclipseLogger - Copying 1 resource
+2020-01-03 11:01:13,538 [Worker-92428: Building] INFO  o.e.m.c.i.embedder.EclipseLogger - Copying 11 resources
+2020-01-03 11:01:13,539 [Worker-92428: Building] INFO  o.e.m.c.i.embedder.EclipseLogger - Using 'UTF-8' encoding to copy filtered resources.
+2020-01-03 11:01:13,539 [Worker-92428: Building] INFO  o.e.m.c.i.embedder.EclipseLogger - skip non existing resourceDirectory /Users/xieyongpei/workspace/admin/admin-server/src/test/resources
+2020-01-03 11:03:09,841 [Worker-92747: Building] INFO  o.e.m.c.i.embedder.EclipseLogger - Using 'UTF-8' encoding to copy filtered resources.
+2020-01-03 11:03:09,841 [Worker-92747: Building] INFO  o.e.m.c.i.embedder.EclipseLogger - Copying 1 resource
+2020-01-03 11:03:09,842 [Worker-92747: Building] INFO  o.e.m.c.i.embedder.EclipseLogger - Copying 11 resources
+2020-01-03 11:03:09,844 [Worker-92747: Building] INFO  o.e.m.c.i.embedder.EclipseLogger - Using 'UTF-8' encoding to copy filtered resources.
+2020-01-03 11:03:09,844 [Worker-92747: Building] INFO  o.e.m.c.i.embedder.EclipseLogger - skip non existing resourceDirectory /Users/xieyongpei/workspace/admin/admin-server/src/test/resources
+2020-01-03 11:04:20,598 [Worker-92912: Building] INFO  o.e.m.c.i.embedder.EclipseLogger - Using 'UTF-8' encoding to copy filtered resources.
+2020-01-03 11:04:20,599 [Worker-92912: Building] INFO  o.e.m.c.i.embedder.EclipseLogger - Copying 1 resource
+2020-01-03 11:04:20,600 [Worker-92912: Building] INFO  o.e.m.c.i.embedder.EclipseLogger - Copying 11 resources
+2020-01-03 11:04:20,601 [Worker-92912: Building] INFO  o.e.m.c.i.embedder.EclipseLogger - Using 'UTF-8' encoding to copy filtered resources.
+2020-01-03 11:04:20,601 [Worker-92912: Building] INFO  o.e.m.c.i.embedder.EclipseLogger - skip non existing resourceDirectory /Users/xieyongpei/workspace/admin/admin-server/src/test/resources
+2020-01-03 11:05:34,380 [Worker-93095: Building] INFO  o.e.m.c.i.embedder.EclipseLogger - Using 'UTF-8' encoding to copy filtered resources.
+2020-01-03 11:05:34,380 [Worker-93095: Building] INFO  o.e.m.c.i.embedder.EclipseLogger - Copying 1 resource
+2020-01-03 11:05:34,381 [Worker-93095: Building] INFO  o.e.m.c.i.embedder.EclipseLogger - Copying 11 resources
+2020-01-03 11:05:34,382 [Worker-93095: Building] INFO  o.e.m.c.i.embedder.EclipseLogger - Using 'UTF-8' encoding to copy filtered resources.
+2020-01-03 11:05:34,382 [Worker-93095: Building] INFO  o.e.m.c.i.embedder.EclipseLogger - skip non existing resourceDirectory /Users/xieyongpei/workspace/admin/admin-server/src/test/resources
+2020-01-03 11:06:21,628 [Worker-93296: Building] INFO  o.e.m.c.i.embedder.EclipseLogger - Using 'UTF-8' encoding to copy filtered resources.
+2020-01-03 11:06:21,628 [Worker-93296: Building] INFO  o.e.m.c.i.embedder.EclipseLogger - Copying 1 resource
+2020-01-03 11:06:21,629 [Worker-93296: Building] INFO  o.e.m.c.i.embedder.EclipseLogger - Copying 11 resources
+2020-01-03 11:06:21,631 [Worker-93296: Building] INFO  o.e.m.c.i.embedder.EclipseLogger - Using 'UTF-8' encoding to copy filtered resources.
+2020-01-03 11:06:21,631 [Worker-93296: Building] INFO  o.e.m.c.i.embedder.EclipseLogger - skip non existing resourceDirectory /Users/xieyongpei/workspace/admin/admin-server/src/test/resources
+2020-01-03 11:07:54,852 [Worker-93594: Building] INFO  o.e.m.c.i.embedder.EclipseLogger - Using 'UTF-8' encoding to copy filtered resources.
+2020-01-03 11:07:54,852 [Worker-93594: Building] INFO  o.e.m.c.i.embedder.EclipseLogger - Copying 1 resource
+2020-01-03 11:07:54,853 [Worker-93594: Building] INFO  o.e.m.c.i.embedder.EclipseLogger - Copying 11 resources
+2020-01-03 11:07:54,855 [Worker-93594: Building] INFO  o.e.m.c.i.embedder.EclipseLogger - Using 'UTF-8' encoding to copy filtered resources.
+2020-01-03 11:07:54,855 [Worker-93594: Building] INFO  o.e.m.c.i.embedder.EclipseLogger - skip non existing resourceDirectory /Users/xieyongpei/workspace/admin/admin-server/src/test/resources
+2020-01-03 11:09:21,063 [Worker-93862: Building] INFO  o.e.m.c.i.embedder.EclipseLogger - Using 'UTF-8' encoding to copy filtered resources.
+2020-01-03 11:09:21,065 [Worker-93862: Building] INFO  o.e.m.c.i.embedder.EclipseLogger - Copying 1 resource
+2020-01-03 11:09:21,066 [Worker-93862: Building] INFO  o.e.m.c.i.embedder.EclipseLogger - Copying 11 resources
+2020-01-03 11:09:21,068 [Worker-93862: Building] INFO  o.e.m.c.i.embedder.EclipseLogger - Using 'UTF-8' encoding to copy filtered resources.
+2020-01-03 11:09:21,068 [Worker-93862: Building] INFO  o.e.m.c.i.embedder.EclipseLogger - skip non existing resourceDirectory /Users/xieyongpei/workspace/admin/admin-server/src/test/resources
+2020-01-03 11:10:28,230 [Worker-94059: Building] INFO  o.e.m.c.i.embedder.EclipseLogger - Using 'UTF-8' encoding to copy filtered resources.
+2020-01-03 11:10:28,230 [Worker-94059: Building] INFO  o.e.m.c.i.embedder.EclipseLogger - Copying 1 resource
+2020-01-03 11:10:28,231 [Worker-94059: Building] INFO  o.e.m.c.i.embedder.EclipseLogger - Copying 11 resources
+2020-01-03 11:10:28,232 [Worker-94059: Building] INFO  o.e.m.c.i.embedder.EclipseLogger - Using 'UTF-8' encoding to copy filtered resources.
+2020-01-03 11:10:28,233 [Worker-94059: Building] INFO  o.e.m.c.i.embedder.EclipseLogger - skip non existing resourceDirectory /Users/xieyongpei/workspace/admin/admin-server/src/test/resources
+2020-01-03 11:11:40,521 [Worker-94258: Building] INFO  o.e.m.c.i.embedder.EclipseLogger - Using 'UTF-8' encoding to copy filtered resources.
+2020-01-03 11:11:40,522 [Worker-94258: Building] INFO  o.e.m.c.i.embedder.EclipseLogger - Copying 1 resource
+2020-01-03 11:11:40,523 [Worker-94258: Building] INFO  o.e.m.c.i.embedder.EclipseLogger - Copying 11 resources
+2020-01-03 11:11:40,524 [Worker-94258: Building] INFO  o.e.m.c.i.embedder.EclipseLogger - Using 'UTF-8' encoding to copy filtered resources.
+2020-01-03 11:11:40,524 [Worker-94258: Building] INFO  o.e.m.c.i.embedder.EclipseLogger - skip non existing resourceDirectory /Users/xieyongpei/workspace/admin/admin-server/src/test/resources
+2020-01-03 11:12:40,605 [Worker-94356: Building] INFO  o.e.m.c.i.embedder.EclipseLogger - Using 'UTF-8' encoding to copy filtered resources.
+2020-01-03 11:12:40,606 [Worker-94356: Building] INFO  o.e.m.c.i.embedder.EclipseLogger - Copying 1 resource
+2020-01-03 11:12:40,607 [Worker-94356: Building] INFO  o.e.m.c.i.embedder.EclipseLogger - Copying 11 resources
+2020-01-03 11:12:40,608 [Worker-94356: Building] INFO  o.e.m.c.i.embedder.EclipseLogger - Using 'UTF-8' encoding to copy filtered resources.
+2020-01-03 11:12:40,609 [Worker-94356: Building] INFO  o.e.m.c.i.embedder.EclipseLogger - skip non existing resourceDirectory /Users/xieyongpei/workspace/admin/admin-server/src/test/resources
+2020-01-03 11:14:00,314 [Worker-94572: Building] INFO  o.e.m.c.i.embedder.EclipseLogger - Using 'UTF-8' encoding to copy filtered resources.
+2020-01-03 11:14:00,315 [Worker-94572: Building] INFO  o.e.m.c.i.embedder.EclipseLogger - Copying 1 resource
+2020-01-03 11:14:00,317 [Worker-94572: Building] INFO  o.e.m.c.i.embedder.EclipseLogger - Copying 11 resources
+2020-01-03 11:14:00,318 [Worker-94572: Building] INFO  o.e.m.c.i.embedder.EclipseLogger - Using 'UTF-8' encoding to copy filtered resources.
+2020-01-03 11:14:00,318 [Worker-94572: Building] INFO  o.e.m.c.i.embedder.EclipseLogger - skip non existing resourceDirectory /Users/xieyongpei/workspace/admin/admin-server/src/test/resources
+2020-01-03 11:15:46,873 [Worker-94895: Building] INFO  o.e.m.c.i.embedder.EclipseLogger - Using 'UTF-8' encoding to copy filtered resources.
+2020-01-03 11:15:46,874 [Worker-94895: Building] INFO  o.e.m.c.i.embedder.EclipseLogger - Copying 1 resource
+2020-01-03 11:15:46,876 [Worker-94895: Building] INFO  o.e.m.c.i.embedder.EclipseLogger - Copying 11 resources
+2020-01-03 11:15:46,877 [Worker-94895: Building] INFO  o.e.m.c.i.embedder.EclipseLogger - Using 'UTF-8' encoding to copy filtered resources.
+2020-01-03 11:15:46,877 [Worker-94895: Building] INFO  o.e.m.c.i.embedder.EclipseLogger - skip non existing resourceDirectory /Users/xieyongpei/workspace/admin/admin-server/src/test/resources
+2020-01-03 11:16:23,657 [Worker-95048: Building] INFO  o.e.m.c.i.embedder.EclipseLogger - Using 'UTF-8' encoding to copy filtered resources.
+2020-01-03 11:16:23,658 [Worker-95048: Building] INFO  o.e.m.c.i.embedder.EclipseLogger - Copying 1 resource
+2020-01-03 11:16:23,659 [Worker-95048: Building] INFO  o.e.m.c.i.embedder.EclipseLogger - Copying 11 resources
+2020-01-03 11:16:23,660 [Worker-95048: Building] INFO  o.e.m.c.i.embedder.EclipseLogger - Using 'UTF-8' encoding to copy filtered resources.
+2020-01-03 11:16:23,660 [Worker-95048: Building] INFO  o.e.m.c.i.embedder.EclipseLogger - skip non existing resourceDirectory /Users/xieyongpei/workspace/admin/admin-server/src/test/resources
+2020-01-03 11:16:29,610 [Worker-95126: Building] INFO  o.e.m.c.i.embedder.EclipseLogger - Using 'UTF-8' encoding to copy filtered resources.
+2020-01-03 11:16:29,610 [Worker-95126: Building] INFO  o.e.m.c.i.embedder.EclipseLogger - Copying 1 resource
+2020-01-03 11:16:29,611 [Worker-95126: Building] INFO  o.e.m.c.i.embedder.EclipseLogger - Copying 11 resources
+2020-01-03 11:16:29,613 [Worker-95126: Building] INFO  o.e.m.c.i.embedder.EclipseLogger - Using 'UTF-8' encoding to copy filtered resources.
+2020-01-03 11:16:29,613 [Worker-95126: Building] INFO  o.e.m.c.i.embedder.EclipseLogger - skip non existing resourceDirectory /Users/xieyongpei/workspace/admin/admin-server/src/test/resources
+2020-01-03 11:17:42,790 [Worker-95256: Building] INFO  o.e.m.c.i.embedder.EclipseLogger - Using 'UTF-8' encoding to copy filtered resources.
+2020-01-03 11:17:42,791 [Worker-95256: Building] INFO  o.e.m.c.i.embedder.EclipseLogger - Copying 1 resource
+2020-01-03 11:17:42,792 [Worker-95256: Building] INFO  o.e.m.c.i.embedder.EclipseLogger - Copying 11 resources
+2020-01-03 11:17:42,794 [Worker-95256: Building] INFO  o.e.m.c.i.embedder.EclipseLogger - Using 'UTF-8' encoding to copy filtered resources.
+2020-01-03 11:17:42,794 [Worker-95256: Building] INFO  o.e.m.c.i.embedder.EclipseLogger - skip non existing resourceDirectory /Users/xieyongpei/workspace/admin/admin-server/src/test/resources
+2020-01-03 11:23:56,483 [Worker-95775: Building] INFO  o.e.m.c.i.embedder.EclipseLogger - Using 'UTF-8' encoding to copy filtered resources.
+2020-01-03 11:23:56,485 [Worker-95775: Building] INFO  o.e.m.c.i.embedder.EclipseLogger - Copying 1 resource
+2020-01-03 11:23:56,486 [Worker-95775: Building] INFO  o.e.m.c.i.embedder.EclipseLogger - Copying 11 resources
+2020-01-03 11:23:56,488 [Worker-95775: Building] INFO  o.e.m.c.i.embedder.EclipseLogger - Using 'UTF-8' encoding to copy filtered resources.
+2020-01-03 11:23:56,488 [Worker-95775: Building] INFO  o.e.m.c.i.embedder.EclipseLogger - skip non existing resourceDirectory /Users/xieyongpei/workspace/admin/admin-server/src/test/resources
+2020-01-03 11:24:37,166 [Worker-95932: Building] INFO  o.e.m.c.i.embedder.EclipseLogger - Using 'UTF-8' encoding to copy filtered resources.
+2020-01-03 11:24:37,167 [Worker-95932: Building] INFO  o.e.m.c.i.embedder.EclipseLogger - Copying 1 resource
+2020-01-03 11:24:37,168 [Worker-95932: Building] INFO  o.e.m.c.i.embedder.EclipseLogger - Copying 11 resources
+2020-01-03 11:24:37,169 [Worker-95932: Building] INFO  o.e.m.c.i.embedder.EclipseLogger - Using 'UTF-8' encoding to copy filtered resources.
+2020-01-03 11:24:37,169 [Worker-95932: Building] INFO  o.e.m.c.i.embedder.EclipseLogger - skip non existing resourceDirectory /Users/xieyongpei/workspace/admin/admin-server/src/test/resources
+2020-01-03 11:33:02,607 [Worker-97138: Building] INFO  o.e.m.c.i.embedder.EclipseLogger - Using 'UTF-8' encoding to copy filtered resources.
+2020-01-03 11:33:02,608 [Worker-97138: Building] INFO  o.e.m.c.i.embedder.EclipseLogger - Copying 1 resource
+2020-01-03 11:33:02,609 [Worker-97138: Building] INFO  o.e.m.c.i.embedder.EclipseLogger - Copying 11 resources
+2020-01-03 11:33:02,611 [Worker-97138: Building] INFO  o.e.m.c.i.embedder.EclipseLogger - Using 'UTF-8' encoding to copy filtered resources.
+2020-01-03 11:33:02,611 [Worker-97138: Building] INFO  o.e.m.c.i.embedder.EclipseLogger - skip non existing resourceDirectory /Users/xieyongpei/workspace/admin/admin-server/src/test/resources
+2020-01-03 11:34:23,725 [Worker-97254: Building] INFO  o.e.m.c.i.embedder.EclipseLogger - Using 'UTF-8' encoding to copy filtered resources.
+2020-01-03 11:34:23,726 [Worker-97254: Building] INFO  o.e.m.c.i.embedder.EclipseLogger - Copying 1 resource
+2020-01-03 11:34:23,727 [Worker-97254: Building] INFO  o.e.m.c.i.embedder.EclipseLogger - Copying 11 resources
+2020-01-03 11:34:23,728 [Worker-97254: Building] INFO  o.e.m.c.i.embedder.EclipseLogger - Using 'UTF-8' encoding to copy filtered resources.
+2020-01-03 11:34:23,728 [Worker-97254: Building] INFO  o.e.m.c.i.embedder.EclipseLogger - skip non existing resourceDirectory /Users/xieyongpei/workspace/admin/admin-server/src/test/resources
+2020-01-03 11:34:31,126 [Worker-97308: Building] INFO  o.e.m.c.i.embedder.EclipseLogger - Using 'UTF-8' encoding to copy filtered resources.
+2020-01-03 11:34:31,127 [Worker-97308: Building] INFO  o.e.m.c.i.embedder.EclipseLogger - Copying 1 resource
+2020-01-03 11:34:31,128 [Worker-97308: Building] INFO  o.e.m.c.i.embedder.EclipseLogger - Copying 11 resources
+2020-01-03 11:34:31,129 [Worker-97308: Building] INFO  o.e.m.c.i.embedder.EclipseLogger - Using 'UTF-8' encoding to copy filtered resources.
+2020-01-03 11:34:31,129 [Worker-97308: Building] INFO  o.e.m.c.i.embedder.EclipseLogger - skip non existing resourceDirectory /Users/xieyongpei/workspace/admin/admin-server/src/test/resources
+2020-01-03 11:36:15,125 [Worker-97404: Building] INFO  o.e.m.c.i.embedder.EclipseLogger - Using 'UTF-8' encoding to copy filtered resources.
+2020-01-03 11:36:15,125 [Worker-97404: Building] INFO  o.e.m.c.i.embedder.EclipseLogger - Copying 1 resource
+2020-01-03 11:36:15,126 [Worker-97404: Building] INFO  o.e.m.c.i.embedder.EclipseLogger - Copying 11 resources
+2020-01-03 11:36:15,128 [Worker-97404: Building] INFO  o.e.m.c.i.embedder.EclipseLogger - Using 'UTF-8' encoding to copy filtered resources.
+2020-01-03 11:36:15,128 [Worker-97404: Building] INFO  o.e.m.c.i.embedder.EclipseLogger - skip non existing resourceDirectory /Users/xieyongpei/workspace/admin/admin-server/src/test/resources
+2020-01-03 11:43:24,798 [Worker-98273: Building] INFO  o.e.m.c.i.embedder.EclipseLogger - Using 'UTF-8' encoding to copy filtered resources.
+2020-01-03 11:43:24,799 [Worker-98273: Building] INFO  o.e.m.c.i.embedder.EclipseLogger - Copying 1 resource
+2020-01-03 11:43:24,800 [Worker-98273: Building] INFO  o.e.m.c.i.embedder.EclipseLogger - Copying 11 resources
+2020-01-03 11:43:24,802 [Worker-98273: Building] INFO  o.e.m.c.i.embedder.EclipseLogger - Using 'UTF-8' encoding to copy filtered resources.
+2020-01-03 11:43:24,802 [Worker-98273: Building] INFO  o.e.m.c.i.embedder.EclipseLogger - skip non existing resourceDirectory /Users/xieyongpei/workspace/admin/admin-server/src/test/resources
+2020-01-03 11:43:34,241 [Worker-98342: Building] INFO  o.e.m.c.i.embedder.EclipseLogger - Using 'UTF-8' encoding to copy filtered resources.
+2020-01-03 11:43:34,242 [Worker-98342: Building] INFO  o.e.m.c.i.embedder.EclipseLogger - Copying 1 resource
+2020-01-03 11:43:34,243 [Worker-98342: Building] INFO  o.e.m.c.i.embedder.EclipseLogger - Copying 11 resources
+2020-01-03 11:43:34,244 [Worker-98342: Building] INFO  o.e.m.c.i.embedder.EclipseLogger - Using 'UTF-8' encoding to copy filtered resources.
+2020-01-03 11:43:34,244 [Worker-98342: Building] INFO  o.e.m.c.i.embedder.EclipseLogger - skip non existing resourceDirectory /Users/xieyongpei/workspace/admin/admin-server/src/test/resources
+2020-01-03 11:44:46,131 [Worker-98469: Building] INFO  o.e.m.c.i.embedder.EclipseLogger - Using 'UTF-8' encoding to copy filtered resources.
+2020-01-03 11:44:46,133 [Worker-98469: Building] INFO  o.e.m.c.i.embedder.EclipseLogger - Copying 1 resource
+2020-01-03 11:44:46,134 [Worker-98469: Building] INFO  o.e.m.c.i.embedder.EclipseLogger - Copying 11 resources
+2020-01-03 11:44:46,136 [Worker-98469: Building] INFO  o.e.m.c.i.embedder.EclipseLogger - Using 'UTF-8' encoding to copy filtered resources.
+2020-01-03 11:44:46,136 [Worker-98469: Building] INFO  o.e.m.c.i.embedder.EclipseLogger - skip non existing resourceDirectory /Users/xieyongpei/workspace/admin/admin-server/src/test/resources
+2020-01-03 11:47:54,872 [Worker-98820: Building] INFO  o.e.m.c.i.embedder.EclipseLogger - Using 'UTF-8' encoding to copy filtered resources.
+2020-01-03 11:47:54,873 [Worker-98820: Building] INFO  o.e.m.c.i.embedder.EclipseLogger - Copying 1 resource
+2020-01-03 11:47:54,874 [Worker-98820: Building] INFO  o.e.m.c.i.embedder.EclipseLogger - Copying 11 resources
+2020-01-03 11:47:54,875 [Worker-98820: Building] INFO  o.e.m.c.i.embedder.EclipseLogger - Using 'UTF-8' encoding to copy filtered resources.
+2020-01-03 11:47:54,875 [Worker-98820: Building] INFO  o.e.m.c.i.embedder.EclipseLogger - skip non existing resourceDirectory /Users/xieyongpei/workspace/admin/admin-server/src/test/resources
+2020-01-03 11:49:29,402 [Worker-98942: Building] INFO  o.e.m.c.i.embedder.EclipseLogger - Using 'UTF-8' encoding to copy filtered resources.
+2020-01-03 11:49:29,403 [Worker-98942: Building] INFO  o.e.m.c.i.embedder.EclipseLogger - Copying 1 resource
+2020-01-03 11:49:29,404 [Worker-98942: Building] INFO  o.e.m.c.i.embedder.EclipseLogger - Copying 11 resources
+2020-01-03 11:49:29,405 [Worker-98942: Building] INFO  o.e.m.c.i.embedder.EclipseLogger - Using 'UTF-8' encoding to copy filtered resources.
+2020-01-03 11:49:29,405 [Worker-98942: Building] INFO  o.e.m.c.i.embedder.EclipseLogger - skip non existing resourceDirectory /Users/xieyongpei/workspace/admin/admin-server/src/test/resources
+2020-01-03 11:51:34,501 [Worker-99239: Building] INFO  o.e.m.c.i.embedder.EclipseLogger - Using 'UTF-8' encoding to copy filtered resources.
+2020-01-03 11:51:34,509 [Worker-99239: Building] INFO  o.e.m.c.i.embedder.EclipseLogger - Copying 28 resources
+2020-01-03 11:51:34,511 [Worker-99239: Building] INFO  o.e.m.c.i.embedder.EclipseLogger - Copying 1 resource
+2020-01-03 11:51:34,531 [Worker-99239: Building] INFO  o.e.m.c.i.embedder.EclipseLogger - Copying 254 resources
+2020-01-03 11:51:34,548 [Worker-99239: Building] INFO  o.e.m.c.i.embedder.EclipseLogger - Using 'UTF-8' encoding to copy filtered resources.
+2020-01-03 11:51:34,548 [Worker-99239: Building] INFO  o.e.m.c.i.embedder.EclipseLogger - skip non existing resourceDirectory /Users/xieyongpei/workspace/admin/admin-web/src/test/resources
+2020-01-03 11:52:49,936 [Worker-99603: Building] INFO  o.e.m.c.i.embedder.EclipseLogger - Using 'UTF-8' encoding to copy filtered resources.
+2020-01-03 11:52:49,937 [Worker-99603: Building] INFO  o.e.m.c.i.embedder.EclipseLogger - Copying 28 resources
+2020-01-03 11:52:49,939 [Worker-99603: Building] INFO  o.e.m.c.i.embedder.EclipseLogger - Copying 1 resource
+2020-01-03 11:52:49,948 [Worker-99603: Building] INFO  o.e.m.c.i.embedder.EclipseLogger - Copying 254 resources
+2020-01-03 11:52:49,955 [Worker-99603: Building] INFO  o.e.m.c.i.embedder.EclipseLogger - Using 'UTF-8' encoding to copy filtered resources.
+2020-01-03 11:52:49,955 [Worker-99603: Building] INFO  o.e.m.c.i.embedder.EclipseLogger - skip non existing resourceDirectory /Users/xieyongpei/workspace/admin/admin-web/src/test/resources
+2020-01-03 11:54:17,790 [Worker-99962: Building] INFO  o.e.m.c.i.embedder.EclipseLogger - Using 'UTF-8' encoding to copy filtered resources.
+2020-01-03 11:54:17,791 [Worker-99962: Building] INFO  o.e.m.c.i.embedder.EclipseLogger - Copying 28 resources
+2020-01-03 11:54:17,793 [Worker-99962: Building] INFO  o.e.m.c.i.embedder.EclipseLogger - Copying 1 resource
+2020-01-03 11:54:17,802 [Worker-99962: Building] INFO  o.e.m.c.i.embedder.EclipseLogger - Copying 254 resources
+2020-01-03 11:54:17,809 [Worker-99962: Building] INFO  o.e.m.c.i.embedder.EclipseLogger - Using 'UTF-8' encoding to copy filtered resources.
+2020-01-03 11:54:17,809 [Worker-99962: Building] INFO  o.e.m.c.i.embedder.EclipseLogger - skip non existing resourceDirectory /Users/xieyongpei/workspace/admin/admin-web/src/test/resources
+2020-01-03 11:56:14,789 [Worker-100274: Building] INFO  o.e.m.c.i.embedder.EclipseLogger - Using 'UTF-8' encoding to copy filtered resources.
+2020-01-03 11:56:14,791 [Worker-100274: Building] INFO  o.e.m.c.i.embedder.EclipseLogger - Copying 28 resources
+2020-01-03 11:56:14,793 [Worker-100274: Building] INFO  o.e.m.c.i.embedder.EclipseLogger - Copying 1 resource
+2020-01-03 11:56:14,802 [Worker-100274: Building] INFO  o.e.m.c.i.embedder.EclipseLogger - Copying 254 resources
+2020-01-03 11:56:14,810 [Worker-100274: Building] INFO  o.e.m.c.i.embedder.EclipseLogger - Using 'UTF-8' encoding to copy filtered resources.
+2020-01-03 11:56:14,810 [Worker-100274: Building] INFO  o.e.m.c.i.embedder.EclipseLogger - skip non existing resourceDirectory /Users/xieyongpei/workspace/admin/admin-web/src/test/resources
+2020-01-03 11:57:11,303 [Worker-100461: Building] INFO  o.e.m.c.i.embedder.EclipseLogger - Using 'UTF-8' encoding to copy filtered resources.
+2020-01-03 11:57:11,304 [Worker-100461: Building] INFO  o.e.m.c.i.embedder.EclipseLogger - Copying 28 resources
+2020-01-03 11:57:11,306 [Worker-100461: Building] INFO  o.e.m.c.i.embedder.EclipseLogger - Copying 1 resource
+2020-01-03 11:57:11,314 [Worker-100461: Building] INFO  o.e.m.c.i.embedder.EclipseLogger - Copying 254 resources
+2020-01-03 11:57:11,322 [Worker-100461: Building] INFO  o.e.m.c.i.embedder.EclipseLogger - Using 'UTF-8' encoding to copy filtered resources.
+2020-01-03 11:57:11,322 [Worker-100461: Building] INFO  o.e.m.c.i.embedder.EclipseLogger - skip non existing resourceDirectory /Users/xieyongpei/workspace/admin/admin-web/src/test/resources
+2020-01-03 11:57:56,701 [Worker-100613: Building] INFO  o.e.m.c.i.embedder.EclipseLogger - Using 'UTF-8' encoding to copy filtered resources.
+2020-01-03 11:57:56,703 [Worker-100613: Building] INFO  o.e.m.c.i.embedder.EclipseLogger - Copying 28 resources
+2020-01-03 11:57:56,705 [Worker-100613: Building] INFO  o.e.m.c.i.embedder.EclipseLogger - Copying 1 resource
+2020-01-03 11:57:56,714 [Worker-100613: Building] INFO  o.e.m.c.i.embedder.EclipseLogger - Copying 254 resources
+2020-01-03 11:57:56,721 [Worker-100613: Building] INFO  o.e.m.c.i.embedder.EclipseLogger - Using 'UTF-8' encoding to copy filtered resources.
+2020-01-03 11:57:56,721 [Worker-100613: Building] INFO  o.e.m.c.i.embedder.EclipseLogger - skip non existing resourceDirectory /Users/xieyongpei/workspace/admin/admin-web/src/test/resources
+2020-01-03 11:59:11,942 [Worker-100848: Building] INFO  o.e.m.c.i.embedder.EclipseLogger - Using 'UTF-8' encoding to copy filtered resources.
+2020-01-03 11:59:11,944 [Worker-100848: Building] INFO  o.e.m.c.i.embedder.EclipseLogger - Copying 28 resources
+2020-01-03 11:59:11,946 [Worker-100848: Building] INFO  o.e.m.c.i.embedder.EclipseLogger - Copying 1 resource
+2020-01-03 11:59:11,956 [Worker-100848: Building] INFO  o.e.m.c.i.embedder.EclipseLogger - Copying 254 resources
+2020-01-03 11:59:11,963 [Worker-100848: Building] INFO  o.e.m.c.i.embedder.EclipseLogger - Using 'UTF-8' encoding to copy filtered resources.
+2020-01-03 11:59:11,963 [Worker-100848: Building] INFO  o.e.m.c.i.embedder.EclipseLogger - skip non existing resourceDirectory /Users/xieyongpei/workspace/admin/admin-web/src/test/resources

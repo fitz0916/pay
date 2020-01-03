@@ -140,7 +140,11 @@ public class RoleServiceImpl implements RoleService{
 			rolePermissionDao.deleteByRoleId(roleId);
 			result += roleDao.deleteByPrimaryKey(roleId);
 		}
-		modelResult.setModel(result);
+		if(result > 0) {
+			modelResult.setModel(result);
+		}else {
+			modelResult.withError(Constants.FAIL_MSG_CODE,Constants.DELETE_FAIL_MSG);
+		}
 		return modelResult;
 	}
 

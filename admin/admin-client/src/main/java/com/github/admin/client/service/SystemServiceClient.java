@@ -1,5 +1,7 @@
 package com.github.admin.client.service;
 
+import java.util.List;
+
 import org.springframework.cloud.openfeign.FeignClient;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PathVariable;
@@ -30,4 +32,12 @@ public interface SystemServiceClient {
 
 	@PostMapping("/updateByPrimaryKeySelective")
 	public ModelResult<Integer> updateByPrimaryKeySelective(@RequestBody System system);
+
+	/***
+	 * 根据状态来查询
+	 * @param status
+	 * @return
+	 */
+	@GetMapping("/querySystemByStatus/{status}")
+	public ModelResult<List<System>> querySystemByStatus(@PathVariable("status")Integer status);
 }

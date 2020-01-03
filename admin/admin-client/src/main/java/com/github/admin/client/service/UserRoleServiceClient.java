@@ -17,4 +17,7 @@ public interface UserRoleServiceClient {
 	@GetMapping("/selectByUserId/{userId}")
 	ModelResult<List<UserRole>> selectByUserId(@PathVariable("userId") Integer userId);
 
+	@GetMapping("/role/{roleIds}/{userId}")
+	ModelResult<Integer> role(@PathVariable("roleIds")String[] roleIds, @PathVariable("userId")Integer userId);
+
 }

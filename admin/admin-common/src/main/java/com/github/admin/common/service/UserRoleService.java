@@ -9,4 +9,6 @@ public interface UserRoleService {
 
 	ModelResult<List<UserRole>> selectByUserId(Integer userId);
 
+	ModelResult<Integer> role(String[] roleIds, Integer userId);
+
 }

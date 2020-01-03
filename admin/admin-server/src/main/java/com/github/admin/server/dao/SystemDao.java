@@ -21,6 +21,8 @@ public interface SystemDao {
 	public System selectByPrimaryKey(@Param("systemId")Integer systemId);
 
 	public int updateByPrimaryKeySelective(System system);
+
+	public List<System> querySystemByStatus(@Param("status")Integer status);
 	
 	
 }

@@ -229,59 +229,59 @@ public class UserController {
 		        return "/manager/user/role";
 		    }
 
-//		    /**
-//		     * 用户角色
-//		     * @param id
-//		     * @param request
-//		     * @return
-//		     */
-//		    @ApiOperation("修改用户角色")
-//		    @RequiresPermissions("admin:user:role")
-//		    @RequestMapping(value = "/role/{id}", method = RequestMethod.POST)
-//		    @ResponseBody
-//		    public Object role(@PathVariable("id") int id, HttpServletRequest request) {
-//		        String[] roleIds = request.getParameterValues("roleId");
-//		        int count = userRoleServiceClient.role(roleIds, id);
-//		        if(count <= 0) {
-//					return ResultUtils.toJSONResult(false);
-//				}
-//				return ResultUtils.toJSONResult(true);
-//		    }
-//		    
-//		    /**
-//		     * 用户权限
-//		     * @param id
-//		     * @param modelMap
-//		     * @return
-//		     */
-//		    @ApiOperation("进入用户权限页")
-//		    @RequiresPermissions("admin:user:permission")
-//		    @RequestMapping(value = "/permission/{id}", method = RequestMethod.GET)
-//		    public String permission(@PathVariable("id") int id, ModelMap modelMap) {
-//		        User user = userServiceClient.selectByPrimaryKey(id);
-//		        modelMap.put("user", user);
-//		        return "/manager/user/permission";
-//		    }
-//
-//		    /**
-//		     * 用户权限
-//		     * @param id
-//		     * @param request
-//		     * @return
-//		     */
-//		    @ApiOperation("修改用户权限")
-//		    @RequiresPermissions("admin:user:permission")
-//		    @RequestMapping(value = "/permission/{id}", method = RequestMethod.POST)
-//		    @ResponseBody
-//		    public Object permission(@PathVariable("id") int id, HttpServletRequest request) {
-//		        JSONArray datas = JSONArray.parseArray(request.getParameter("datas"));
-//		        int count = userPermissionServiceClient.permission(datas, id);
-//		        if(count <= 0) {
-//					return ResultUtils.toJSONResult(false);
-//				}
-//				return ResultUtils.toJSONResult(true);
-//		    }
-//		    
+		    /**
+		     * 用户角色
+		     * @param id
+		     * @param request
+		     * @return
+		     */
+		    @ApiOperation("修改用户角色")
+		    @RequiresPermissions("admin:user:role")
+		    @RequestMapping(value = "/role/{id}", method = RequestMethod.POST)
+		    @ResponseBody
+		    public Object role(@PathVariable("id") int id, HttpServletRequest request) {
+		        String[] roleIds = request.getParameterValues("roleId");
+		        ModelResult<Integer> modelResult = userRoleServiceClient.role(roleIds, id);
+		        return ResultUtils.buildResult(modelResult);
+		    }
+		    
+		    /**
+		     * 用户权限
+		     * @param id
+		     * @param modelMap
+		     * @return
+		     */
+		    @ApiOperation("进入用户权限页")
+		    @RequiresPermissions("admin:user:permission")
+		    @RequestMapping(value = "/permission/{id}", method = RequestMethod.GET)
+		    public String permission(@PathVariable("id") int id, ModelMap modelMap) {
+		        ModelResult<User> modelResult = userServiceClient.selectByPrimaryKey(id);
+		        if(!modelResult.isSuccess()) {
+		        	throw new NullPointerException("查询用户信息异常");
+		        }
+		        User user = modelResult.getModel();
+	        	modelMap.put("user", user);
+		        return "/manager/user/permission";
+		        
+		        
+		    }
+
+		    /**
+		     * 用户权限
+		     * @param id
+		     * @param request
+		     * @return
+		     */
+		    @ApiOperation("修改用户权限")
+		    @RequiresPermissions("admin:user:permission")
+		    @RequestMapping(value = "/permission/{id}", method = RequestMethod.POST)
+		    @ResponseBody
+		    public Object permission(@PathVariable("id") int id, HttpServletRequest request) {
+		        JSONArray datas = JSONArray.parseArray(request.getParameter("datas"));
+		        ModelResult<Integer> modelResult = userPermissionServiceClient.permission(datas, id);
+		        return ResultUtils.buildResult(modelResult);
+		    }
+		    
 //		    
 //		    @ApiOperation("修改密码")
 //		    @RequiresPermissions("admin:password:update")

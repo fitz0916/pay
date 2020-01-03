@@ -24,4 +24,8 @@ public class UserRoleController {
 	ModelResult<List<UserRole>> selectByUserId(@PathVariable("userId") Integer userId){
 		return userRoleServiceImpl.selectByUserId(userId);
 	}
+	@GetMapping("/role/{roleIds}/{userId}")
+	ModelResult<Integer> role(@PathVariable("roleIds")String[] roleIds, @PathVariable("userId")Integer userId){
+		return userRoleServiceImpl.role(roleIds,userId);
+	}
 }

@@ -16,5 +16,7 @@ public interface UserRoleDao {
 
 	List<UserRole> selectByUserId(@Param("userId")Integer userId);
 
+	int insertSelective(UserRole userRole);
+
 
 }

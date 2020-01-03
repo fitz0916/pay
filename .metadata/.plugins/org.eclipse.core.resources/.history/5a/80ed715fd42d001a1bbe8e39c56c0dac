@@ -1,0 +1,54 @@
+package com.github.admin.client.service;
+
+import java.util.List;
+
+import org.springframework.cloud.openfeign.FeignClient;
+import org.springframework.web.bind.annotation.GetMapping;
+import org.springframework.web.bind.annotation.PathVariable;
+import org.springframework.web.bind.annotation.PostMapping;
+import org.springframework.web.bind.annotation.RequestBody;
+import org.springframework.web.bind.annotation.RequestMapping;
+
+import com.alibaba.fastjson.JSONArray;
+import com.github.admin.common.domain.Permission;
+import com.github.admin.common.domain.PermissionInfo;
+import com.github.admin.common.vo.PageVo;
+import com.github.appmodel.domain.result.ModelResult;
+import com.github.appmodel.page.DataPage;
+
+@FeignClient(name="admin-server")
+@RequestMapping("/admin/server/permission")
+public interface PermissionServiceClient {
+
+	@GetMapping("/selectPermissionByUserId/{systemId}/{userId}")
+	ModelResult<List<Permission>> selectPermissionByUserId(@PathVariable("systemId")Integer systemId, @PathVariable("userId")Integer userId);
+
+	@PostMapping("/pagePermissionInfoList")
+	ModelResult<PageVo> pagePermissionInfoList(@RequestBody DataPage<PermissionInfo> dataPage);
+	
+	
+	@GetMapping("/getTreeByRoleId/{roleId}")
+	public JSONArray getTreeByRoleId(@PathVariable("roleId") int roleId);
+
+	@GetMapping("/selectByPrimaryKey/{permissionId}")
+	public Permission selectByPrimaryKey(@PathVariable("permissionId")int permissionId);
+	
+	@GetMapping("/selectByParentId/{parentId}")
+	public List<Permission> selectByParentId(@PathVariable("parentId")int parentId);
+
+	@PostMapping("/updateByPrimaryKeySelective")
+	public int updateByPrimaryKeySelective(@RequestBody Permission permission);
+
+	@PostMapping("/insertSelective")
+	public int insertSelective(@RequestBody Permission permission);
+
+	@GetMapping("/getTreeByUserId/{userId}/{userPermissionType}")
+	public JSONArray getTreeByUserId(@PathVariable("userId")int userId, @PathVariable("userPermissionType")byte userPermissionType);
+	
+	@GetMapping("/deleteByPrimaryKeys/{ids}")
+	public int deleteByPrimaryKeys(String ids);
+	
+	
+	
+
+}
