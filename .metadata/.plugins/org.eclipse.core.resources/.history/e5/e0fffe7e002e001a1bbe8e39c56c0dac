@@ -116,9 +116,9 @@ public class UserController {
 		    @ResponseBody
 		    public Object create(User user){
 		      ComplexResult result = FluentValidator.checkAll()
-		                .on(user.getUserName(),new LengthValidator(1,5,"账号"))
-		                .on(user.getPassword(),new LengthValidator(1,5,"密码"))
-		                .on(user.getRealName(),new LengthValidator(1,5,"姓名"))
+		                .on(user.getUserName(),new LengthValidator(1,20,"账号"))
+		                .on(user.getPassword(),new LengthValidator(6,32,"密码"))
+		                .on(user.getRealName(),new LengthValidator(2,20,"姓名"))
 		                .doValidate()
 		                .result(ResultCollectors.toComplex());
 
@@ -152,8 +152,8 @@ public class UserController {
 		    @ResponseBody
 		    public Object update(@PathVariable("id") int id, User user) {
 		        ComplexResult result = FluentValidator.checkAll()
-		                .on(user.getUserName(), new LengthValidator(1, 5, "帐号"))
-		                .on(user.getRealName(), new LengthValidator(1,5,"姓名"))
+		                .on(user.getUserName(), new LengthValidator(1, 20, "帐号"))
+		                .on(user.getRealName(), new LengthValidator(2,20,"姓名"))
 		                .doValidate()
 		                .result(ResultCollectors.toComplex());
 		        if (!result.isSuccess()) {

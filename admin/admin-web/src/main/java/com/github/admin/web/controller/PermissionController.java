@@ -157,8 +157,8 @@ public class PermissionController {
 	    @RequestMapping(value = "/role/{id}", method = RequestMethod.POST)
 	    @ResponseBody
 	    public Object role(@PathVariable("id") int roleId) {
-	        Object obj = permissionServiceClient.getTreeByRoleId(roleId);
-	        return obj;
+	        ModelResult<JSONArray> modelResult = permissionServiceClient.getTreeByRoleId(roleId);
+	        return modelResult.getModel();
 	    }
 	 	
 	 	 @ApiOperation("修改用户权限")
