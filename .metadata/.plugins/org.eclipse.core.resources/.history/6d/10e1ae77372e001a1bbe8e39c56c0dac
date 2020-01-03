@@ -63,10 +63,10 @@ public class LoginFilter extends AdviceFilter{
 	        }else{
 	        	logger.info("当前用户session不存在，但登录用户不存在");
 	        	if(isAjax(httpServletRequest)) {
-	        		logger.info("当前用户为ajax请求.....");
+	        		logger.info("当前用户为ajax请求");
 	        		buildJSONResult(response);
 	        	}else {
-	        		logger.info("当前用户为普通请求.....");
+	        		logger.info("当前用户为普通请求");
 	        		httpServletResponse.sendRedirect(LOGIN_URL);
 	        	}
 	        	

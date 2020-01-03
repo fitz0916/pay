@@ -29,13 +29,14 @@ public class ExceptionHandle{
 	@ExceptionHandler(ShiroException.class)
 	public Object resolveShiroException(HttpServletRequest request, HandlerMethod handlerMethod, Throwable exception) {
 		LOGGER.error("当前全局异常拦截ShiroException权限异常，用户没有权限访问！");
+		
 		if(SpringWebUtils.isAjax(handlerMethod)) {
 			ModelResult<ResultVo> modelResult = new ModelResult<ResultVo>();
 			modelResult.withError("403", "您没有权限操作！");
 			return ResultUtils.buildResult(modelResult);
 		}else {
 			ModelAndView modelAndView = new ModelAndView();
-			request.setAttribute(SERVLERT_STATUS_CODE, 403);
+			request.setAttribute(SERVLERT_STATUS_CODE, "403");
 			modelAndView.setViewName("/error"); 
 			modelAndView.addObject("error",exception.getMessage());
 			return modelAndView;

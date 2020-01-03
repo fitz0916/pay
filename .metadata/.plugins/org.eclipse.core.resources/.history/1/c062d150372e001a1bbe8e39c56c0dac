@@ -27,7 +27,6 @@ public class LoginFilter extends AdviceFilter{
 	private static final String URI = "/manage/index";
 	private static final String X_REQUEST_WITH = "x-requested-with";
 	private static final String XML_HTTP_REQUEST = "XMLHttpRequest";
-	private static final String LOGIN_URL = "/login";
 	
 	protected boolean preHandle(ServletRequest request, ServletResponse response) throws Exception {
 		logger.info("...............shiro filter........");
@@ -51,22 +50,18 @@ public class LoginFilter extends AdviceFilter{
 	        	logger.info("当前用户userName = 【{}】",userName);
 	        	if(StringUtils.isBlank(userName)) {
 	        		logger.info("当前用户session存在，但登录用户不存在");
-	        		if(isAjax(httpServletRequest)) {
-	        			logger.info("当前用户为ajax请求");
+	        		if(isAjax(request)) {
 	        			buildJSONResult(response);
 	        		}else {
-	        			logger.info("当前用户为普通请求");
 	        			httpServletResponse.sendRedirect(LOGIN_URL);
 	        		}
 	    			return false;
 	        	}
 	        }else{
 	        	logger.info("当前用户session不存在，但登录用户不存在");
-	        	if(isAjax(httpServletRequest)) {
-	        		logger.info("当前用户为ajax请求.....");
+	        	if(isAjax(servletRequest)) {
 	        		buildJSONResult(response);
 	        	}else {
-	        		logger.info("当前用户为普通请求.....");
 	        		httpServletResponse.sendRedirect(LOGIN_URL);
 	        	}
 	        	
