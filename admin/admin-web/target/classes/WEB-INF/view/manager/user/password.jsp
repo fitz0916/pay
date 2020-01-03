@@ -64,13 +64,16 @@
                                 }
                             });
                         });
+                    }else if(result.code == '10110'){
+                    	layer.msg(result.msg);
+                        location:top.location.href = '${basePath}/login';
                     } else {
                         $.confirm({
                             theme: 'dark',
                             animation: 'rotateX',
                             closeAnimation: 'rotateX',
                             title: false,
-                            content: result.data.errorMsg,
+                            content: result.msg,
                             buttons: {
                                 confirm: {
                                     text: '确认',

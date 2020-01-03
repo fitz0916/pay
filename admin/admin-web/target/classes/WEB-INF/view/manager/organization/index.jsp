@@ -127,7 +127,7 @@ function deleteRow(organizationId) {
                                 }else if(result.code == '10110'){
                                 	layer.msg(result.msg);
                                     location:top.location.href = '${basePath}/login';
-                                } else {
+                                }else{
                                     $.confirm({
                                         theme: 'dark',
                                         animation: 'rotateX',
