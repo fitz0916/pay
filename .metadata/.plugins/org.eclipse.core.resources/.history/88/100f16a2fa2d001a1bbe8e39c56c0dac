@@ -1,0 +1,24 @@
+package com.github.admin.server.service;
+
+import org.springframework.stereotype.Service;
+
+import com.alibaba.fastjson.JSONArray;
+import com.github.admin.common.constants.Constants;
+import com.github.admin.common.service.RolePermissionService;
+import com.github.appmodel.domain.result.ModelResult;
+
+@Service
+public class RolePermissionServiceImpl implements RolePermissionService{
+
+	@Override
+	public ModelResult<Integer> rolePermission(JSONArray datas, Integer roleId) {
+		ModelResult<Integer> modelResult = new ModelResult<Integer>();
+		if(datas == null || roleId == null || roleId == 0) {
+			modelResult.withError(Constants.FAIL_MSG_CODE, "请求包含非法参数");
+			return modelResult;
+		}
+		
+		return null;
+	}
+
+}

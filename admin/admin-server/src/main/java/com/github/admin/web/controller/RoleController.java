@@ -23,39 +23,39 @@ import com.github.appmodel.page.DataPage;
 public class RoleController {
 
 	@Autowired
-	private RoleService roleService;
+	private RoleService roleServiceImpl;
 	
 	@GetMapping("/selectRoleByUserId/{userId}")
 	ModelResult<List<Role>> selectRoleByUserId(@PathVariable("userId")Integer userId){
-		return roleService.selectRoleByUserId(userId);
+		return roleServiceImpl.selectRoleByUserId(userId);
 	}
 	@PostMapping("/pageRoleList")
 	ModelResult<PageVo> pageRoleList(@RequestBody DataPage<Role> dataPage){
-		return roleService.pageRoleList(dataPage);
+		return roleServiceImpl.pageRoleList(dataPage);
 	}
 
 	@PostMapping("/allRolesList")
 	ModelResult<List<Role>> allRolesList(){
-		return roleService.allRolesList();
+		return roleServiceImpl.allRolesList();
 	}
 
 	@PostMapping("/insertSelective")
 	ModelResult<Integer> insertSelective(@RequestBody Role role){
-		return roleService.insertSelective(role);
+		return roleServiceImpl.insertSelective(role);
 	}
 
 	@GetMapping("/selectByPrimaryKey/{roleId}")
 	ModelResult<Role> selectByPrimaryKey(@PathVariable("roleId")Integer roleId){
-		return roleService.selectByPrimaryKey(roleId);
+		return roleServiceImpl.selectByPrimaryKey(roleId);
 	}
 
 	@PostMapping("/updateByPrimaryKeySelective")
 	ModelResult<Integer> updateByPrimaryKeySelective(@RequestBody Role role){
-		return roleService.updateByPrimaryKeySelective(role);
+		return roleServiceImpl.updateByPrimaryKeySelective(role);
 	}
 
 	@GetMapping("/deleteByPrimaryKeys/{roleIds}")
 	ModelResult<Integer> deleteByPrimaryKeys(@PathVariable("roleIds")String roleIds){
-		return roleService.deleteByPrimaryKeys(roleIds);
+		return roleServiceImpl.deleteByPrimaryKeys(roleIds);
 	}
 }

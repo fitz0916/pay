@@ -27,6 +27,6 @@ public interface PermissionDao {
 
 	public long pagePermissionInfoListCount();
 
-	public List<PermissionInfo> pagePermissionInfoList(int start, int offset);
+	public List<PermissionInfo> pagePermissionInfoList(@Param("start")int start, @Param("offset")int offset);
 
 }
