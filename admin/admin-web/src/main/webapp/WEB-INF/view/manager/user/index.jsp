@@ -320,6 +320,12 @@
             onContentReady: function () {
                 initMaterialInput();
                 //initTree();
+            },
+    		contentLoaded: function(data, status, xhr){
+                if(data.code == '10110'){
+                	layer.msg(data.msg);
+                    location:top.location.href = '${basePath}/login';
+                }
             }
         });
     }

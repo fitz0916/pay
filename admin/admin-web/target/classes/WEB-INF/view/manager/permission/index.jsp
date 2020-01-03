@@ -365,10 +365,16 @@ function createAction() {
 		animationSpeed: 300,
 		title: '新增权限',
 		content: 'url:${basePath}/manage/permission/create',
-		onContentReady: function () {
+		onContentReady: function (data, status, xhr) {
 			initMaterialInput();
 			$('select').select2();
-		}
+		},
+		contentLoaded: function(data, status, xhr){
+            if(data.code == '10110'){
+            	layer.msg(data.msg);
+                location:top.location.href = '${basePath}/login';
+            }
+        }
 	});
 }
 // 编辑
@@ -393,17 +399,18 @@ function updateAction() {
 			animationSpeed: 300,
 			title: '编辑权限',
 			content: 'url:${basePath}/manage/permission/update/' + rows[0].permissionId,
-			onContentReady: function () {
+			onContentReady: function (data, status, xhr) {
 				initMaterialInput();
 				$('select').select2();
 				initType();
 				initSelect2();
 			},
-            contentLoaded: function(data, status, xhr){
-                if(data.code == '10110'){
-                    location:top.location.href = location.href
-                }
-            }
+			contentLoaded: function(data, status, xhr){
+	            if(data.code == '10110'){
+	            	layer.msg(data.msg);
+	                location:top.location.href = '${basePath}/login';
+	            }
+	        }
 		});
 	}
 }

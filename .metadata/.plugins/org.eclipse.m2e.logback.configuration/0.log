@@ -12790,3 +12790,134 @@ org.eclipse.core.runtime.CoreException: Could not resolve artifact com.github.ad
 2020-01-03 21:18:54,697 [Worker-130543: Launching Application (2)] INFO  o.e.m.c.i.p.WorkspaceClassifierResolverManager - Resolving P/admin-common: com.github.admin:admin-common:1.0-SNAPSHOT with classifier null to /admin-common/target/classes
 2020-01-03 21:18:54,697 [Worker-130543: Launching Application (2)] INFO  o.e.m.c.i.p.WorkspaceClassifierResolverManager - Resolving P/github-appmodel: com.github.appmodel:github-appmodel:1.0-SNAPSHOT with classifier null to /github-appmodel/target/classes
 2020-01-03 21:18:54,697 [Worker-130543: Launching Application (2)] INFO  o.e.m.c.i.p.WorkspaceClassifierResolverManager - Resolving P/admin-client: com.github.admin:admin-client:1.0-SNAPSHOT with classifier null to /admin-client/target/classes
+2020-01-03 21:36:03,577 [Worker-132510: Launching Application (2)] INFO  o.e.m.c.i.p.WorkspaceClassifierResolverManager - Resolving P/admin-common: com.github.admin:admin-common:1.0-SNAPSHOT with classifier null to /admin-common/target/classes
+2020-01-03 21:36:03,577 [Worker-132510: Launching Application (2)] INFO  o.e.m.c.i.p.WorkspaceClassifierResolverManager - Resolving P/github-appmodel: com.github.appmodel:github-appmodel:1.0-SNAPSHOT with classifier null to /github-appmodel/target/classes
+2020-01-03 21:36:03,577 [Worker-132510: Launching Application (2)] INFO  o.e.m.c.i.p.WorkspaceClassifierResolverManager - Resolving P/admin-client: com.github.admin:admin-client:1.0-SNAPSHOT with classifier null to /admin-client/target/classes
+2020-01-03 21:42:33,163 [Worker-133343: Building] INFO  o.e.m.c.i.embedder.EclipseLogger - Using 'UTF-8' encoding to copy filtered resources.
+2020-01-03 21:42:33,164 [Worker-133343: Building] INFO  o.e.m.c.i.embedder.EclipseLogger - Copying 0 resource
+2020-01-03 21:42:33,164 [Worker-133343: Building] INFO  o.e.m.c.i.embedder.EclipseLogger - Copying 0 resource
+2020-01-03 21:42:33,164 [Worker-133343: Building] INFO  o.e.m.c.i.embedder.EclipseLogger - Copying 1 resource
+2020-01-03 21:42:33,175 [Worker-133343: Building] INFO  o.e.m.c.i.embedder.EclipseLogger - Using 'UTF-8' encoding to copy filtered resources.
+2020-01-03 21:42:33,175 [Worker-133343: Building] INFO  o.e.m.c.i.embedder.EclipseLogger - skip non existing resourceDirectory /Users/xieyongpei/workspace/admin/admin-web/src/test/resources
+2020-01-03 21:43:27,440 [Worker-133770: Building] INFO  o.e.m.c.i.embedder.EclipseLogger - Using 'UTF-8' encoding to copy filtered resources.
+2020-01-03 21:43:27,440 [Worker-133770: Building] INFO  o.e.m.c.i.embedder.EclipseLogger - Copying 0 resource
+2020-01-03 21:43:27,440 [Worker-133770: Building] INFO  o.e.m.c.i.embedder.EclipseLogger - Copying 0 resource
+2020-01-03 21:43:27,440 [Worker-133770: Building] INFO  o.e.m.c.i.embedder.EclipseLogger - Copying 1 resource
+2020-01-03 21:43:27,443 [Worker-133770: Building] INFO  o.e.m.c.i.embedder.EclipseLogger - Using 'UTF-8' encoding to copy filtered resources.
+2020-01-03 21:43:27,443 [Worker-133770: Building] INFO  o.e.m.c.i.embedder.EclipseLogger - skip non existing resourceDirectory /Users/xieyongpei/workspace/admin/admin-web/src/test/resources
+2020-01-03 21:43:43,014 [Worker-134053: Launching Application (2)] INFO  o.e.m.c.i.p.WorkspaceClassifierResolverManager - Resolving P/admin-common: com.github.admin:admin-common:1.0-SNAPSHOT with classifier null to /admin-common/target/classes
+2020-01-03 21:43:43,014 [Worker-134053: Launching Application (2)] INFO  o.e.m.c.i.p.WorkspaceClassifierResolverManager - Resolving P/github-appmodel: com.github.appmodel:github-appmodel:1.0-SNAPSHOT with classifier null to /github-appmodel/target/classes
+2020-01-03 21:43:43,014 [Worker-134053: Launching Application (2)] INFO  o.e.m.c.i.p.WorkspaceClassifierResolverManager - Resolving P/admin-client: com.github.admin:admin-client:1.0-SNAPSHOT with classifier null to /admin-client/target/classes
+2020-01-03 21:47:11,819 [Worker-134396: Building] INFO  o.e.m.c.i.embedder.EclipseLogger - Using 'UTF-8' encoding to copy filtered resources.
+2020-01-03 21:47:11,819 [Worker-134396: Building] INFO  o.e.m.c.i.embedder.EclipseLogger - Copying 0 resource
+2020-01-03 21:47:11,819 [Worker-134396: Building] INFO  o.e.m.c.i.embedder.EclipseLogger - Copying 0 resource
+2020-01-03 21:47:11,819 [Worker-134396: Building] INFO  o.e.m.c.i.embedder.EclipseLogger - Copying 1 resource
+2020-01-03 21:47:11,821 [Worker-134396: Building] INFO  o.e.m.c.i.embedder.EclipseLogger - Using 'UTF-8' encoding to copy filtered resources.
+2020-01-03 21:47:11,821 [Worker-134396: Building] INFO  o.e.m.c.i.embedder.EclipseLogger - skip non existing resourceDirectory /Users/xieyongpei/workspace/admin/admin-web/src/test/resources
+2020-01-03 21:48:41,351 [Worker-134641: Building] INFO  o.e.m.c.i.embedder.EclipseLogger - Using 'UTF-8' encoding to copy filtered resources.
+2020-01-03 21:48:41,351 [Worker-134641: Building] INFO  o.e.m.c.i.embedder.EclipseLogger - Copying 0 resource
+2020-01-03 21:48:41,351 [Worker-134641: Building] INFO  o.e.m.c.i.embedder.EclipseLogger - Copying 0 resource
+2020-01-03 21:48:41,352 [Worker-134641: Building] INFO  o.e.m.c.i.embedder.EclipseLogger - Copying 1 resource
+2020-01-03 21:48:41,359 [Worker-134641: Building] INFO  o.e.m.c.i.embedder.EclipseLogger - Using 'UTF-8' encoding to copy filtered resources.
+2020-01-03 21:48:41,359 [Worker-134641: Building] INFO  o.e.m.c.i.embedder.EclipseLogger - skip non existing resourceDirectory /Users/xieyongpei/workspace/admin/admin-web/src/test/resources
+2020-01-03 21:49:25,184 [Worker-134803: Building] INFO  o.e.m.c.i.embedder.EclipseLogger - Using 'UTF-8' encoding to copy filtered resources.
+2020-01-03 21:49:25,184 [Worker-134803: Building] INFO  o.e.m.c.i.embedder.EclipseLogger - Copying 0 resource
+2020-01-03 21:49:25,184 [Worker-134803: Building] INFO  o.e.m.c.i.embedder.EclipseLogger - Copying 0 resource
+2020-01-03 21:49:25,184 [Worker-134803: Building] INFO  o.e.m.c.i.embedder.EclipseLogger - Copying 1 resource
+2020-01-03 21:49:25,187 [Worker-134803: Building] INFO  o.e.m.c.i.embedder.EclipseLogger - Using 'UTF-8' encoding to copy filtered resources.
+2020-01-03 21:49:25,187 [Worker-134803: Building] INFO  o.e.m.c.i.embedder.EclipseLogger - skip non existing resourceDirectory /Users/xieyongpei/workspace/admin/admin-web/src/test/resources
+2020-01-03 21:50:17,679 [Worker-134971: Launching Application (2)] INFO  o.e.m.c.i.p.WorkspaceClassifierResolverManager - Resolving P/admin-common: com.github.admin:admin-common:1.0-SNAPSHOT with classifier null to /admin-common/target/classes
+2020-01-03 21:50:17,679 [Worker-134971: Launching Application (2)] INFO  o.e.m.c.i.p.WorkspaceClassifierResolverManager - Resolving P/github-appmodel: com.github.appmodel:github-appmodel:1.0-SNAPSHOT with classifier null to /github-appmodel/target/classes
+2020-01-03 21:50:17,679 [Worker-134971: Launching Application (2)] INFO  o.e.m.c.i.p.WorkspaceClassifierResolverManager - Resolving P/admin-client: com.github.admin:admin-client:1.0-SNAPSHOT with classifier null to /admin-client/target/classes
+2020-01-03 21:51:21,208 [Worker-135181: Launching Application (2)] INFO  o.e.m.c.i.p.WorkspaceClassifierResolverManager - Resolving P/admin-common: com.github.admin:admin-common:1.0-SNAPSHOT with classifier null to /admin-common/target/classes
+2020-01-03 21:51:21,208 [Worker-135181: Launching Application (2)] INFO  o.e.m.c.i.p.WorkspaceClassifierResolverManager - Resolving P/github-appmodel: com.github.appmodel:github-appmodel:1.0-SNAPSHOT with classifier null to /github-appmodel/target/classes
+2020-01-03 21:51:21,208 [Worker-135181: Launching Application (2)] INFO  o.e.m.c.i.p.WorkspaceClassifierResolverManager - Resolving P/admin-client: com.github.admin:admin-client:1.0-SNAPSHOT with classifier null to /admin-client/target/classes
+2020-01-03 21:53:56,000 [Worker-135838: Building] INFO  o.e.m.c.i.embedder.EclipseLogger - Using 'UTF-8' encoding to copy filtered resources.
+2020-01-03 21:53:56,000 [Worker-135838: Building] INFO  o.e.m.c.i.embedder.EclipseLogger - Copying 0 resource
+2020-01-03 21:53:56,000 [Worker-135838: Building] INFO  o.e.m.c.i.embedder.EclipseLogger - Copying 0 resource
+2020-01-03 21:53:56,000 [Worker-135838: Building] INFO  o.e.m.c.i.embedder.EclipseLogger - Copying 1 resource
+2020-01-03 21:53:56,003 [Worker-135838: Building] INFO  o.e.m.c.i.embedder.EclipseLogger - Using 'UTF-8' encoding to copy filtered resources.
+2020-01-03 21:53:56,004 [Worker-135838: Building] INFO  o.e.m.c.i.embedder.EclipseLogger - skip non existing resourceDirectory /Users/xieyongpei/workspace/admin/admin-web/src/test/resources
+2020-01-03 21:53:59,843 [Worker-135947: Building] INFO  o.e.m.c.i.embedder.EclipseLogger - Using 'UTF-8' encoding to copy filtered resources.
+2020-01-03 21:53:59,843 [Worker-135947: Building] INFO  o.e.m.c.i.embedder.EclipseLogger - Copying 0 resource
+2020-01-03 21:53:59,843 [Worker-135947: Building] INFO  o.e.m.c.i.embedder.EclipseLogger - Copying 0 resource
+2020-01-03 21:53:59,843 [Worker-135947: Building] INFO  o.e.m.c.i.embedder.EclipseLogger - Copying 1 resource
+2020-01-03 21:53:59,845 [Worker-135947: Building] INFO  o.e.m.c.i.embedder.EclipseLogger - Using 'UTF-8' encoding to copy filtered resources.
+2020-01-03 21:53:59,845 [Worker-135947: Building] INFO  o.e.m.c.i.embedder.EclipseLogger - skip non existing resourceDirectory /Users/xieyongpei/workspace/admin/admin-web/src/test/resources
+2020-01-03 21:54:37,013 [Worker-136069: Building] INFO  o.e.m.c.i.embedder.EclipseLogger - Using 'UTF-8' encoding to copy filtered resources.
+2020-01-03 21:54:37,013 [Worker-136069: Building] INFO  o.e.m.c.i.embedder.EclipseLogger - Copying 0 resource
+2020-01-03 21:54:37,013 [Worker-136069: Building] INFO  o.e.m.c.i.embedder.EclipseLogger - Copying 0 resource
+2020-01-03 21:54:37,013 [Worker-136069: Building] INFO  o.e.m.c.i.embedder.EclipseLogger - Copying 1 resource
+2020-01-03 21:54:37,015 [Worker-136069: Building] INFO  o.e.m.c.i.embedder.EclipseLogger - Using 'UTF-8' encoding to copy filtered resources.
+2020-01-03 21:54:37,015 [Worker-136069: Building] INFO  o.e.m.c.i.embedder.EclipseLogger - skip non existing resourceDirectory /Users/xieyongpei/workspace/admin/admin-web/src/test/resources
+2020-01-03 21:55:20,962 [Worker-136544: Launching Application (2)] INFO  o.e.m.c.i.p.WorkspaceClassifierResolverManager - Resolving P/admin-common: com.github.admin:admin-common:1.0-SNAPSHOT with classifier null to /admin-common/target/classes
+2020-01-03 21:55:20,968 [Worker-136544: Launching Application (2)] INFO  o.e.m.c.i.p.WorkspaceClassifierResolverManager - Resolving P/github-appmodel: com.github.appmodel:github-appmodel:1.0-SNAPSHOT with classifier null to /github-appmodel/target/classes
+2020-01-03 21:55:20,968 [Worker-136544: Launching Application (2)] INFO  o.e.m.c.i.p.WorkspaceClassifierResolverManager - Resolving P/admin-client: com.github.admin:admin-client:1.0-SNAPSHOT with classifier null to /admin-client/target/classes
+2020-01-03 21:56:41,593 [Worker-137344: Building] INFO  o.e.m.c.i.embedder.EclipseLogger - Using 'UTF-8' encoding to copy filtered resources.
+2020-01-03 21:56:41,599 [Worker-137344: Building] INFO  o.e.m.c.i.embedder.EclipseLogger - Copying 0 resource
+2020-01-03 21:56:41,599 [Worker-137344: Building] INFO  o.e.m.c.i.embedder.EclipseLogger - Copying 0 resource
+2020-01-03 21:56:41,599 [Worker-137344: Building] INFO  o.e.m.c.i.embedder.EclipseLogger - Copying 1 resource
+2020-01-03 21:56:41,602 [Worker-137344: Building] INFO  o.e.m.c.i.embedder.EclipseLogger - Using 'UTF-8' encoding to copy filtered resources.
+2020-01-03 21:56:41,602 [Worker-137344: Building] INFO  o.e.m.c.i.embedder.EclipseLogger - skip non existing resourceDirectory /Users/xieyongpei/workspace/admin/admin-web/src/test/resources
+2020-01-03 21:56:47,233 [Worker-137435: Building] INFO  o.e.m.c.i.embedder.EclipseLogger - Using 'UTF-8' encoding to copy filtered resources.
+2020-01-03 21:56:47,233 [Worker-137435: Building] INFO  o.e.m.c.i.embedder.EclipseLogger - Copying 0 resource
+2020-01-03 21:56:47,233 [Worker-137435: Building] INFO  o.e.m.c.i.embedder.EclipseLogger - Copying 0 resource
+2020-01-03 21:56:47,233 [Worker-137435: Building] INFO  o.e.m.c.i.embedder.EclipseLogger - Copying 1 resource
+2020-01-03 21:56:47,235 [Worker-137435: Building] INFO  o.e.m.c.i.embedder.EclipseLogger - Using 'UTF-8' encoding to copy filtered resources.
+2020-01-03 21:56:47,235 [Worker-137435: Building] INFO  o.e.m.c.i.embedder.EclipseLogger - skip non existing resourceDirectory /Users/xieyongpei/workspace/admin/admin-web/src/test/resources
+2020-01-03 21:58:08,216 [Worker-137560: Building] INFO  o.e.m.c.i.embedder.EclipseLogger - Using 'UTF-8' encoding to copy filtered resources.
+2020-01-03 21:58:08,222 [Worker-137560: Building] INFO  o.e.m.c.i.embedder.EclipseLogger - Copying 0 resource
+2020-01-03 21:58:08,222 [Worker-137560: Building] INFO  o.e.m.c.i.embedder.EclipseLogger - Copying 0 resource
+2020-01-03 21:58:08,222 [Worker-137560: Building] INFO  o.e.m.c.i.embedder.EclipseLogger - Copying 1 resource
+2020-01-03 21:58:08,224 [Worker-137560: Building] INFO  o.e.m.c.i.embedder.EclipseLogger - Using 'UTF-8' encoding to copy filtered resources.
+2020-01-03 21:58:08,224 [Worker-137560: Building] INFO  o.e.m.c.i.embedder.EclipseLogger - skip non existing resourceDirectory /Users/xieyongpei/workspace/admin/admin-web/src/test/resources
+2020-01-03 21:58:40,135 [Worker-137711: Building] INFO  o.e.m.c.i.embedder.EclipseLogger - Using 'UTF-8' encoding to copy filtered resources.
+2020-01-03 21:58:40,135 [Worker-137711: Building] INFO  o.e.m.c.i.embedder.EclipseLogger - Copying 0 resource
+2020-01-03 21:58:40,135 [Worker-137711: Building] INFO  o.e.m.c.i.embedder.EclipseLogger - Copying 0 resource
+2020-01-03 21:58:40,135 [Worker-137711: Building] INFO  o.e.m.c.i.embedder.EclipseLogger - Copying 1 resource
+2020-01-03 21:58:40,137 [Worker-137711: Building] INFO  o.e.m.c.i.embedder.EclipseLogger - Using 'UTF-8' encoding to copy filtered resources.
+2020-01-03 21:58:40,137 [Worker-137711: Building] INFO  o.e.m.c.i.embedder.EclipseLogger - skip non existing resourceDirectory /Users/xieyongpei/workspace/admin/admin-web/src/test/resources
+2020-01-03 21:59:02,229 [Worker-138006: Launching Application (2)] INFO  o.e.m.c.i.p.WorkspaceClassifierResolverManager - Resolving P/admin-common: com.github.admin:admin-common:1.0-SNAPSHOT with classifier null to /admin-common/target/classes
+2020-01-03 21:59:02,229 [Worker-138006: Launching Application (2)] INFO  o.e.m.c.i.p.WorkspaceClassifierResolverManager - Resolving P/github-appmodel: com.github.appmodel:github-appmodel:1.0-SNAPSHOT with classifier null to /github-appmodel/target/classes
+2020-01-03 21:59:02,229 [Worker-138006: Launching Application (2)] INFO  o.e.m.c.i.p.WorkspaceClassifierResolverManager - Resolving P/admin-client: com.github.admin:admin-client:1.0-SNAPSHOT with classifier null to /admin-client/target/classes
+2020-01-03 22:03:33,940 [Worker-138369: Building] INFO  o.e.m.c.i.embedder.EclipseLogger - Using 'UTF-8' encoding to copy filtered resources.
+2020-01-03 22:03:33,940 [Worker-138369: Building] INFO  o.e.m.c.i.embedder.EclipseLogger - Copying 0 resource
+2020-01-03 22:03:33,940 [Worker-138369: Building] INFO  o.e.m.c.i.embedder.EclipseLogger - Copying 0 resource
+2020-01-03 22:03:33,940 [Worker-138369: Building] INFO  o.e.m.c.i.embedder.EclipseLogger - Copying 1 resource
+2020-01-03 22:03:33,943 [Worker-138369: Building] INFO  o.e.m.c.i.embedder.EclipseLogger - Using 'UTF-8' encoding to copy filtered resources.
+2020-01-03 22:03:33,943 [Worker-138369: Building] INFO  o.e.m.c.i.embedder.EclipseLogger - skip non existing resourceDirectory /Users/xieyongpei/workspace/admin/admin-web/src/test/resources
+2020-01-03 22:04:30,794 [Worker-138540: Launching Application (1)] INFO  o.e.m.c.i.p.WorkspaceClassifierResolverManager - Resolving P/admin-common: com.github.admin:admin-common:1.0-SNAPSHOT with classifier null to /admin-common/target/classes
+2020-01-03 22:04:30,794 [Worker-138540: Launching Application (1)] INFO  o.e.m.c.i.p.WorkspaceClassifierResolverManager - Resolving P/github-appmodel: com.github.appmodel:github-appmodel:1.0-SNAPSHOT with classifier null to /github-appmodel/target/classes
+2020-01-03 22:04:55,370 [Worker-138771: Launching Application (2)] INFO  o.e.m.c.i.p.WorkspaceClassifierResolverManager - Resolving P/admin-common: com.github.admin:admin-common:1.0-SNAPSHOT with classifier null to /admin-common/target/classes
+2020-01-03 22:04:55,370 [Worker-138771: Launching Application (2)] INFO  o.e.m.c.i.p.WorkspaceClassifierResolverManager - Resolving P/github-appmodel: com.github.appmodel:github-appmodel:1.0-SNAPSHOT with classifier null to /github-appmodel/target/classes
+2020-01-03 22:04:55,370 [Worker-138771: Launching Application (2)] INFO  o.e.m.c.i.p.WorkspaceClassifierResolverManager - Resolving P/admin-client: com.github.admin:admin-client:1.0-SNAPSHOT with classifier null to /admin-client/target/classes
+2020-01-03 22:07:42,179 [Worker-139080: Launching Application (2)] INFO  o.e.m.c.i.p.WorkspaceClassifierResolverManager - Resolving P/admin-common: com.github.admin:admin-common:1.0-SNAPSHOT with classifier null to /admin-common/target/classes
+2020-01-03 22:07:42,180 [Worker-139080: Launching Application (2)] INFO  o.e.m.c.i.p.WorkspaceClassifierResolverManager - Resolving P/github-appmodel: com.github.appmodel:github-appmodel:1.0-SNAPSHOT with classifier null to /github-appmodel/target/classes
+2020-01-03 22:07:42,180 [Worker-139080: Launching Application (2)] INFO  o.e.m.c.i.p.WorkspaceClassifierResolverManager - Resolving P/admin-client: com.github.admin:admin-client:1.0-SNAPSHOT with classifier null to /admin-client/target/classes
+2020-01-03 22:09:37,656 [Worker-139811: Building] INFO  o.e.m.c.i.embedder.EclipseLogger - Using 'UTF-8' encoding to copy filtered resources.
+2020-01-03 22:09:37,657 [Worker-139811: Building] INFO  o.e.m.c.i.embedder.EclipseLogger - Copying 0 resource
+2020-01-03 22:09:37,657 [Worker-139811: Building] INFO  o.e.m.c.i.embedder.EclipseLogger - Copying 0 resource
+2020-01-03 22:09:37,657 [Worker-139811: Building] INFO  o.e.m.c.i.embedder.EclipseLogger - Copying 1 resource
+2020-01-03 22:09:37,660 [Worker-139811: Building] INFO  o.e.m.c.i.embedder.EclipseLogger - Using 'UTF-8' encoding to copy filtered resources.
+2020-01-03 22:09:37,660 [Worker-139811: Building] INFO  o.e.m.c.i.embedder.EclipseLogger - skip non existing resourceDirectory /Users/xieyongpei/workspace/admin/admin-web/src/test/resources
+2020-01-03 22:10:40,710 [Worker-139962: Building] INFO  o.e.m.c.i.embedder.EclipseLogger - Using 'UTF-8' encoding to copy filtered resources.
+2020-01-03 22:10:40,711 [Worker-139962: Building] INFO  o.e.m.c.i.embedder.EclipseLogger - Copying 0 resource
+2020-01-03 22:10:40,711 [Worker-139962: Building] INFO  o.e.m.c.i.embedder.EclipseLogger - Copying 0 resource
+2020-01-03 22:10:40,711 [Worker-139962: Building] INFO  o.e.m.c.i.embedder.EclipseLogger - Copying 1 resource
+2020-01-03 22:10:40,713 [Worker-139962: Building] INFO  o.e.m.c.i.embedder.EclipseLogger - Using 'UTF-8' encoding to copy filtered resources.
+2020-01-03 22:10:40,713 [Worker-139962: Building] INFO  o.e.m.c.i.embedder.EclipseLogger - skip non existing resourceDirectory /Users/xieyongpei/workspace/admin/admin-web/src/test/resources
+2020-01-03 22:10:52,925 [Worker-140053: Building] INFO  o.e.m.c.i.embedder.EclipseLogger - Using 'UTF-8' encoding to copy filtered resources.
+2020-01-03 22:10:52,925 [Worker-140053: Building] INFO  o.e.m.c.i.embedder.EclipseLogger - Copying 0 resource
+2020-01-03 22:10:52,925 [Worker-140053: Building] INFO  o.e.m.c.i.embedder.EclipseLogger - Copying 0 resource
+2020-01-03 22:10:52,926 [Worker-140053: Building] INFO  o.e.m.c.i.embedder.EclipseLogger - Copying 1 resource
+2020-01-03 22:10:52,928 [Worker-140053: Building] INFO  o.e.m.c.i.embedder.EclipseLogger - Using 'UTF-8' encoding to copy filtered resources.
+2020-01-03 22:10:52,928 [Worker-140053: Building] INFO  o.e.m.c.i.embedder.EclipseLogger - skip non existing resourceDirectory /Users/xieyongpei/workspace/admin/admin-web/src/test/resources
+2020-01-03 22:14:01,057 [Worker-140456: Building] INFO  o.e.m.c.i.embedder.EclipseLogger - Using 'UTF-8' encoding to copy filtered resources.
+2020-01-03 22:14:01,058 [Worker-140456: Building] INFO  o.e.m.c.i.embedder.EclipseLogger - Copying 0 resource
+2020-01-03 22:14:01,058 [Worker-140456: Building] INFO  o.e.m.c.i.embedder.EclipseLogger - Copying 0 resource
+2020-01-03 22:14:01,058 [Worker-140456: Building] INFO  o.e.m.c.i.embedder.EclipseLogger - Copying 1 resource
+2020-01-03 22:14:01,061 [Worker-140456: Building] INFO  o.e.m.c.i.embedder.EclipseLogger - Using 'UTF-8' encoding to copy filtered resources.
+2020-01-03 22:14:01,061 [Worker-140456: Building] INFO  o.e.m.c.i.embedder.EclipseLogger - skip non existing resourceDirectory /Users/xieyongpei/workspace/admin/admin-web/src/test/resources
+2020-01-03 22:15:00,010 [Worker-140807: Launching Application (2)] INFO  o.e.m.c.i.p.WorkspaceClassifierResolverManager - Resolving P/admin-common: com.github.admin:admin-common:1.0-SNAPSHOT with classifier null to /admin-common/target/classes
+2020-01-03 22:15:00,010 [Worker-140807: Launching Application (2)] INFO  o.e.m.c.i.p.WorkspaceClassifierResolverManager - Resolving P/github-appmodel: com.github.appmodel:github-appmodel:1.0-SNAPSHOT with classifier null to /github-appmodel/target/classes
+2020-01-03 22:15:00,010 [Worker-140807: Launching Application (2)] INFO  o.e.m.c.i.p.WorkspaceClassifierResolverManager - Resolving P/admin-client: com.github.admin:admin-client:1.0-SNAPSHOT with classifier null to /admin-client/target/classes
