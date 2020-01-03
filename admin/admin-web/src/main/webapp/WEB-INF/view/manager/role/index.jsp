@@ -127,7 +127,10 @@ function deleteRow(roleId) {
                                             }
                                         });
                                     });
-                                } else {
+                                }else if(result.code == '10110'){
+                                	layer.msg(result.msg);
+                                    location:top.location.href = '${basePath}/login';
+                                }else {
                                     $.confirm({
                                         theme: 'dark',
                                         animation: 'rotateX',
@@ -182,7 +185,13 @@ function createAction() {
 		content: 'url:${basePath}/manage/role/create',
 		onContentReady: function () {
 			initMaterialInput();
-		}
+		},
+        contentLoaded: function(data, status, xhr){
+            if(data.code == '10110'){
+	            layer.msg(msg);
+	            location:top.location.href = '${basePath}/login';
+            }
+        },
 	});
 }
 // 编辑

@@ -240,7 +240,7 @@
                                             animation: 'rotateX',
                                             closeAnimation: 'rotateX',
                                             title: false,
-                                            content: result.msg,
+                                            content: result.data.errorMsg,
                                             buttons: {
                                                 confirm: {
                                                     text: '确认',

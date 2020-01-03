@@ -69,7 +69,6 @@ public class LoginFilter extends AdviceFilter{
 	        		logger.info("当前用户为普通请求.....");
 	        		httpServletResponse.sendRedirect(LOGIN_URL);
 	        	}
-	        	
     			return false;
 	        }
 		}
