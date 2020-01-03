@@ -23,6 +23,7 @@ import com.github.admin.common.constants.Constants;
 import com.github.admin.common.domain.Permission;
 import com.github.admin.common.domain.PermissionInfo;
 import com.github.admin.common.domain.System;
+import com.github.admin.common.request.PermissionRequest;
 import com.github.admin.common.utils.ResultUtils;
 import com.github.admin.common.vo.PageVo;
 import com.github.admin.utils.LengthValidator;
@@ -65,17 +66,23 @@ public class PermissionController {
 	            @RequestParam(required = false, defaultValue = "", value = "search") String search,
 	            @RequestParam(required = false, value = "sort") String sort,
 	            @RequestParam(required = false, value = "order") String order,
-	            @RequestParam(required = false,defaultValue = "0",value = "systemId")Integer systemId,
-	            @RequestParam(required = false,defaultValue = "0",value = "type")Integer type,
-	            @RequestParam(required = false,defaultValue = "-1",value = "parentId")Integer parentId,
+	            @RequestParam(required = false,value = "systemId")Integer systemId,
+	            @RequestParam(required = false,value = "type")Integer type,
 	            @RequestParam(required = false,defaultValue = "",value = "name")String name) {
 	        DataPage<PermissionInfo> dataPage = new DataPage<PermissionInfo>();
+	        PermissionRequest permissionRequest = new PermissionRequest();
 	        dataPage.setPageSize(limit);
 	        dataPage.setPageNo(offset/limit+1);//TODO 分页问题
-	        ModelResult<PageVo> modelResult = permissionServiceClient.pagePermissionInfoList(dataPage);
+	        permissionRequest.setSystemId(systemId);
+	        permissionRequest.setType(type);
+	        permissionRequest.setDataPage(dataPage);
+	        ModelResult<PageVo> modelResult = permissionServiceClient.pagePermissionInfoList(permissionRequest);
 	        return ResultUtils.buildPageResult(modelResult);
 	        
 	    }
+		
+		
+		
 		
 		@ApiOperation("增加权限页")
 	    @RequiresPermissions("admin:permission:create")

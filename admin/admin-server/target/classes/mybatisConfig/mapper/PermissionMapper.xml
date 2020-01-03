@@ -77,20 +77,14 @@
 
     <select id="pagePermissionInfoListCount" parameterType="map" resultType="long">
         select count(*) from admin_permission ap
-        <!-- <where>
+        <where>
             <if test="systemId != null">
                 and ap.system_id = #{systemId,jdbcType=INTEGER}
             </if>
-            <if test="parentId != null">
-                and ap.parent_id = #{parentId,jdbcType=INTEGER}
-            </if>
             <if test="type != null">
-                and ap.type = #{type,jdbcType=TINYINT}
+                and ap.type = #{type,jdbcType=INTEGER}
             </if>
-            <if test="permissionName != null and permissionName != ''">
-                and ap.name like CONCAT(CONCAT('%', #{permissionName},'%'))
-            </if>
-        </where> -->
+        </where>
     </select>
     <select id="selectByParentId" resultMap="BaseResultMap" parameterType="map">
         select <include refid="Base_Column_List"/>
@@ -102,20 +96,14 @@
         ap.create_time,(select as1.title from admin_system as1 where as1.system_id=ap.system_id) as system_title,
         (select ap1.name from admin_permission ap1 where ap.parent_id = ap1.permission_id) as parent_name
         from admin_permission ap
-       <!--  <where>
+       <where>
             <if test="systemId != null">
                 and ap.system_id = #{systemId,jdbcType=INTEGER}
             </if>
-            <if test="parentId != null">
-                and ap.parent_id = #{parentId,jdbcType=INTEGER}
-            </if>
             <if test="type != null">
-                and ap.type = #{type,jdbcType=TINYINT}
+                and ap.type = #{type,jdbcType=INTEGER}
             </if>
-            <if test="permissionName != null and permissionName != ''">
-                and ap.name like CONCAT(CONCAT('%', #{permissionName},'%'))
-            </if>
-        </where> -->
+        </where>
         order by ap.permission_id
         <if test="start!=null and offset!=null">
             limit #{start}, #{offset}

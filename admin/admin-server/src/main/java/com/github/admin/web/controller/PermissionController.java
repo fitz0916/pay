@@ -13,6 +13,7 @@ import org.springframework.web.bind.annotation.RestController;
 import com.alibaba.fastjson.JSONArray;
 import com.github.admin.common.domain.Permission;
 import com.github.admin.common.domain.PermissionInfo;
+import com.github.admin.common.request.PermissionRequest;
 import com.github.admin.common.service.PermissionService;
 import com.github.admin.common.vo.PageVo;
 import com.github.appmodel.domain.result.ModelResult;
@@ -31,8 +32,8 @@ public class PermissionController {
 	}
 	
 	@PostMapping("/pagePermissionInfoList")
-	ModelResult<PageVo> pagePermissionInfoList(@RequestBody DataPage<PermissionInfo> dataPage){
-		return permissionServiceImpl.pagePermissionInfoList(dataPage);
+	ModelResult<PageVo> pagePermissionInfoList(@RequestBody PermissionRequest permissionRequest){
+		return permissionServiceImpl.pagePermissionInfoList(permissionRequest);
 	}
 	
 	@GetMapping("/getTreeByRoleId/{roleId}")

@@ -11,10 +11,9 @@ import org.springframework.web.bind.annotation.RequestMapping;
 
 import com.alibaba.fastjson.JSONArray;
 import com.github.admin.common.domain.Permission;
-import com.github.admin.common.domain.PermissionInfo;
+import com.github.admin.common.request.PermissionRequest;
 import com.github.admin.common.vo.PageVo;
 import com.github.appmodel.domain.result.ModelResult;
-import com.github.appmodel.page.DataPage;
 
 @FeignClient(name="admin-server")
 @RequestMapping("/admin/server/permission")
@@ -24,7 +23,7 @@ public interface PermissionServiceClient {
 	ModelResult<List<Permission>> selectPermissionByUserId(@PathVariable("systemId")Integer systemId, @PathVariable("userId")Integer userId);
 
 	@PostMapping("/pagePermissionInfoList")
-	ModelResult<PageVo> pagePermissionInfoList(@RequestBody DataPage<PermissionInfo> dataPage);
+	ModelResult<PageVo> pagePermissionInfoList(@RequestBody PermissionRequest permissionRequest);
 	
 	@GetMapping("/getTreeByRoleId/{roleId}")
 	public ModelResult<JSONArray> getTreeByRoleId(@PathVariable("roleId") Integer roleId);

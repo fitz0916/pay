@@ -17,6 +17,7 @@ import com.github.admin.common.domain.Permission;
 import com.github.admin.common.domain.PermissionInfo;
 import com.github.admin.common.domain.RolePermission;
 import com.github.admin.common.domain.UserPermission;
+import com.github.admin.common.request.PermissionRequest;
 import com.github.admin.common.service.PermissionService;
 import com.github.admin.common.vo.PageVo;
 import com.github.admin.server.dao.PermissionDao;
@@ -57,13 +58,16 @@ public class PermissionServiceImpl implements PermissionService {
 
 
 	@Override
-	public ModelResult<PageVo> pagePermissionInfoList(DataPage<PermissionInfo> dataPage) {
+	public ModelResult<PageVo> pagePermissionInfoList(PermissionRequest permissionRequest) {
 		ModelResult<PageVo> modelResult = new ModelResult<PageVo>();
+		DataPage<PermissionInfo> dataPage = permissionRequest.getDataPage();
 		PageVo pageVo = new PageVo();
 		int start = dataPage.getStartIndex();
 		int offset = dataPage.getPageSize();
-		long totalCount = permissionDao.pagePermissionInfoListCount();
-		List<PermissionInfo> result = permissionDao.pagePermissionInfoList(start,offset);
+		Integer systemId = permissionRequest.getSystemId();
+		Integer type = permissionRequest.getType();
+		long totalCount = permissionDao.pagePermissionInfoListCount(systemId,type);
+		List<PermissionInfo> result = permissionDao.pagePermissionInfoList(start,offset,systemId,type);
 		pageVo.setTotal(totalCount);
 		pageVo.setRows(result);
 		modelResult.setModel(pageVo);
