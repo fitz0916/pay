@@ -233,7 +233,7 @@ function queryPermission(){
 
 //分页查询参数，是以键值对的形式设置的
 function queryParams(params) {
-	var name = $.trim($('#queryParams').val()) == '' ? null: $.trim($('#queryParams').val());
+	var name = $.trim($('#permissionName').val()) == '' ? null: $.trim($('#permissionName').val());
 	var systemId = $('#systemId').val() == 0 ? null : $('#systemId').val();
 	var parentId = $('#parentId').val() ==  -1 ? null : $('#parentId').val();
     return {
