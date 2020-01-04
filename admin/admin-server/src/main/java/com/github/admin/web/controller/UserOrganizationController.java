@@ -20,7 +20,7 @@ public class UserOrganizationController {
 	private UserOrganizationService userOrganizationServiceImpl;
 	
 	
-	@GetMapping("/organization/{insertSelective}/{userId}")
+	@GetMapping("/organization/insertSelective/{organizationIds}/{userId}")
 	ModelResult<Integer> insertSelective(@PathVariable("organizationIds")String[] organizationIds, @PathVariable("userId")Integer userId){
 		return userOrganizationServiceImpl.insertSelective(organizationIds,userId);
 	}

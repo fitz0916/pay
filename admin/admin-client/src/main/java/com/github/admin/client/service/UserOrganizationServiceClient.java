@@ -14,7 +14,7 @@ import com.github.appmodel.domain.result.ModelResult;
 @RequestMapping("/admin/server/userOrganization")
 public interface UserOrganizationServiceClient {
 
-	@GetMapping("/organization/{insertSelective}/{userId}")
+	@GetMapping("/organization/insertSelective/{organizationIds}/{userId}")
 	ModelResult<Integer> insertSelective(@PathVariable("organizationIds")String[] organizationIds, @PathVariable("userId")Integer userId);
 	
 	@GetMapping("/selectByUserId/{userId}")

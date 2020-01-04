@@ -26,9 +26,11 @@
 			</div>
 			 -->
 			<div class="col-sm-8">
+				<!-- 
 				<div class="form-group">
 					<input id="file-Portrait1" type="file" name="files">
 				</div>
+				 -->
 				<div class="form-group">
 					<div class="fg-line">
 						<div class="form-group">

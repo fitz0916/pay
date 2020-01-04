@@ -23,7 +23,7 @@
 		<div class="row">
 			<div class="col-lg-8 form-group">
 				<label for="avatar">头像</label>
-				<input id="avatar" type="text" class="form-control" name="avatar" maxlength="150">
+				<input id="avatar" type="text" class="form-control" value="/resources/images/avatar.jpg" name="avatar" maxlength="150" readonly="readonly">
 			</div>
 			<!-- 
 			<div class="col-lg-4">
