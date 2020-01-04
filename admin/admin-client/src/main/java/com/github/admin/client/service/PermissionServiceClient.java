@@ -44,7 +44,10 @@ public interface PermissionServiceClient {
 	public ModelResult<JSONArray> getTreeByUserId(@PathVariable("userId")Integer userId, @PathVariable("userPermissionType")Integer userPermissionType);
 	
 	@GetMapping("/deleteByPrimaryKeys/{ids}")
-	public ModelResult<Integer> deleteByPrimaryKeys(String ids);
+	public ModelResult<Integer> deleteByPrimaryKeys(@PathVariable("ids")String ids);
+
+	@GetMapping("/selectBySystemId/{systemId}")
+	ModelResult<List<Permission>> selectBySystemId(@PathVariable("systemId")Integer systemId);
 	
 	
 	

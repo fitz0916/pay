@@ -34,4 +34,6 @@ public interface PermissionService {
 
 	ModelResult<Integer> deleteByPrimaryKeys(String ids);
 
+	ModelResult<List<Permission>> selectBySystemId(Integer systemId);
+
 }

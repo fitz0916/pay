@@ -33,7 +33,7 @@
                     <div class="form-group">
                         <label class="col-md-4 control-label">所属系统：</label>
                         <div class="col-md-8">
-                            <select id ="queryBySystem" class="selectpicker" style="width: 150px">
+                            <select id ="systemId" class="selectpicker" style="width: 150px">
 								<option value="0">请选择</option>
 							</select>
                         </div>
@@ -43,7 +43,7 @@
                     <div class="form-group">
                         <label class="col-md-4 control-label">所属上级：</label>
                         <div class="col-md-8 padTop-7">
-                            <select id ="queryByParent" class="selectpicker" style="width: 150px">
+                            <select id ="parentId" class="selectpicker" style="width: 150px">
 								<option value="-1">请选择</option>
 							</select>
                         </div>
@@ -139,24 +139,40 @@ $.ajax({
     	var data = result.data;
         for(var i=0;i<data.length;i++){
             var option = $("<option value="+ data[i].systemId +">" + data[i].title +"</option>");
-            $("#queryBySystem").append(option);
+            $("#systemId").append(option);
         }
     }
 });
 
-$.ajax({
-    type:"GET",
-    url:'${basePath}/manage/permission/all',
-    success:function(result){
-        for(var i=0;i<result.length;i++){
-            var option = $("<option value="+ result[i].parentId +">" + result[i].parentPermission +"</option>");
-            if(result[i].parentId==0){
-                option = $("<option value="+ result[i].parentId +">" + "管理菜单" +"</option>")
-            }
-            $("#queryByParent").append(option);
-        }
-    }
+$('#systemId').change(function(){
+	var systemId = $(this).val();
+	permission(systemId);
+	
 });
+
+function permission(systemId){
+	$.ajax({
+	    type:"GET",
+	    url:'${basePath}/manage/permission/list/' + systemId,
+	    success:function(result){
+	    	var data = result.data;
+	    	if(systemId == 0 || data.length == 0){
+	    		var option = $("<option value='-1'>请选择</option>");
+	    		$("#parentId").html('');
+	    		$("#parentId").append(option);
+	    	}else{
+	    		for(var i = 0;i < data.length;i++){
+		            var option = $("<option value="+ data[i].permissionId +">" + '菜单-' + data[i].name + "</option>");
+		            if(data[i].type == 1){
+		                option = $("<option value="+ data[i].permissionId +">" + "目录-" + data[i].name + "</option>")
+		            }
+		            $("#parentId").append(option);
+		        }
+	    	}
+	    }
+	});
+}
+
 
 /**
  * 查询
@@ -210,7 +226,7 @@ function queryPermission(){
 	                array.push("<option value="+ result[i].parentId +">" + "管理菜单" +"</option>");
 	            }
 	        }
-	    	 $("#queryByParent").append(array.join(''));
+	    	 $("#parentId").append(array.join(''));
 	    }
 	});
 }
@@ -218,8 +234,8 @@ function queryPermission(){
 //分页查询参数，是以键值对的形式设置的
 function queryParams(params) {
 	var name = $.trim($('#queryParams').val()) == '' ? null: $.trim($('#queryParams').val());
-	var systemId = $('#queryBySystem').val() == 0 ? null : $('#queryBySystem').val();
-	var parentId = $('#queryByParent').val() == -1 ? null : $('#queryByParent').val();
+	var systemId = $('#systemId').val() == 0 ? null : $('#systemId').val();
+	var parentId = $('#parentId').val() ==  -1 ? null : $('#parentId').val();
     return {
         name:name,
         limit: params.limit, // 每页显示数量

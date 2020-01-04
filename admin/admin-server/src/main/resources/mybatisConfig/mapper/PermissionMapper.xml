@@ -73,6 +73,7 @@
         <include refid="Base_Column_List" />
         from admin_permission
         where system_id = #{systemId,jdbcType=INTEGER}
+        and type in(1,2)
     </select>
 
     <select id="pagePermissionInfoListCount" parameterType="map" resultType="long">
@@ -83,6 +84,12 @@
             </if>
             <if test="type != null">
                 and ap.type = #{type,jdbcType=INTEGER}
+            </if>
+            <if test="name != null and name != ''">
+                and ap.name like CONCAT(CONCAT('%', #{name},'%'))
+            </if>
+            <if test="parentId != null">
+                and ap.parent_id = #{parentId,jdbcType=INTEGER}
             </if>
         </where>
     </select>
@@ -102,6 +109,12 @@
             </if>
             <if test="type != null">
                 and ap.type = #{type,jdbcType=INTEGER}
+            </if>
+            <if test="name != null and name != ''">
+                and ap.name like CONCAT(CONCAT('%', #{name},'%'))
+            </if>
+            <if test="parentId != null">
+                and ap.parent_id = #{parentId,jdbcType=INTEGER}
             </if>
         </where>
         order by ap.permission_id

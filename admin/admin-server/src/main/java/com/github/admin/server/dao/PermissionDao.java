@@ -25,8 +25,10 @@ public interface PermissionDao {
 
 	public int deleteByPrimaryKey(@Param("permissionId")Integer permissionId);
 
-	public long pagePermissionInfoListCount(@Param("systemId")Integer systemId,@Param("type")Integer type);
+	public long pagePermissionInfoListCount(@Param("systemId")Integer systemId,@Param("type")Integer type,@Param("name")String name,@Param("parentId")Integer parentId);
 
-	public List<PermissionInfo> pagePermissionInfoList(@Param("start")int start, @Param("offset")int offset,@Param("systemId")Integer systemId,@Param("type")Integer type);
+	public List<PermissionInfo> pagePermissionInfoList(@Param("start")int start, @Param("offset")int offset,@Param("systemId")Integer systemId,@Param("type")Integer type,@Param("name")String name,@Param("parentId")Integer parentId);
+
+	public List<Permission> selectBySystemId(@Param("systemId")Integer systemId);
 
 }

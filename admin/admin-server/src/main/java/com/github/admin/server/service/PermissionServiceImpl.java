@@ -67,8 +67,10 @@ public class PermissionServiceImpl extends BaseService implements PermissionServ
 		int offset = dataPage.getPageSize();
 		Integer systemId = permissionRequest.getSystemId();
 		Integer type = permissionRequest.getType();
-		long totalCount = permissionDao.pagePermissionInfoListCount(systemId,type);
-		List<PermissionInfo> result = permissionDao.pagePermissionInfoList(start,offset,systemId,type);
+		String name = permissionRequest.getName();
+		Integer parentId = permissionRequest.getParentId();
+		long totalCount = permissionDao.pagePermissionInfoListCount(systemId,type,name,parentId);
+		List<PermissionInfo> result = permissionDao.pagePermissionInfoList(start,offset,systemId,type,name,parentId);
 		pageVo.setTotal(totalCount);
 		pageVo.setRows(result);
 		modelResult.setModel(pageVo);
@@ -361,6 +363,19 @@ public class PermissionServiceImpl extends BaseService implements PermissionServ
 		}else {
 			modelResult.withError(Constants.FAIL_MSG_CODE,Constants.DELETE_FAIL_MSG);
 		}
+		return modelResult;
+	}
+
+
+	@Override
+	public ModelResult<List<Permission>> selectBySystemId(Integer systemId) {
+		ModelResult<List<Permission>> modelResult = new ModelResult<List<Permission>>();
+		if(systemId == null || systemId == 0) {
+			modelResult.withError("0","系统Id输入非法参数");
+			return modelResult;
+		}
+		List<Permission> list = permissionDao.selectBySystemId(systemId);
+		modelResult.setModel(list);
 		return modelResult;
 	}
 

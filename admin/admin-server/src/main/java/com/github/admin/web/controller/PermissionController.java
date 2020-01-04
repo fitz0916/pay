@@ -12,12 +12,10 @@ import org.springframework.web.bind.annotation.RestController;
 
 import com.alibaba.fastjson.JSONArray;
 import com.github.admin.common.domain.Permission;
-import com.github.admin.common.domain.PermissionInfo;
 import com.github.admin.common.request.PermissionRequest;
 import com.github.admin.common.service.PermissionService;
 import com.github.admin.common.vo.PageVo;
 import com.github.appmodel.domain.result.ModelResult;
-import com.github.appmodel.page.DataPage;
 
 @RestController
 @RequestMapping("/admin/server/permission")
@@ -67,7 +65,12 @@ public class PermissionController {
 	}
 	
 	@GetMapping("/deleteByPrimaryKeys/{ids}")
-	public ModelResult<Integer> deleteByPrimaryKeys(String ids){
+	public ModelResult<Integer> deleteByPrimaryKeys(@PathVariable("ids")String ids){
 		return permissionServiceImpl.deleteByPrimaryKeys(ids);
+	}
+	
+	@GetMapping("/selectBySystemId/{systemId}")
+	ModelResult<List<Permission>> selectBySystemId(@PathVariable("systemId")Integer systemId){
+		return permissionServiceImpl.selectBySystemId(systemId);
 	}
 }

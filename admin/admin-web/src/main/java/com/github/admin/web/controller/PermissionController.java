@@ -160,4 +160,12 @@ public class PermissionController {
 	         return modelResult.getModel();
 	     }
 	 
+	 	 @ApiOperation("修改用户权限")
+	     @RequiresPermissions("admin:permission:read")
+	     @RequestMapping(value = "/list/{systemId}", method = RequestMethod.GET)
+	     @ResponseBody
+	     public Object list(@PathVariable("systemId") Integer systemId) {
+	 		 ModelResult<List<Permission>> modelResult = permissionServiceClient.selectBySystemId(systemId);
+	         return ResultUtils.buildResult(modelResult);
+	     } 
 }

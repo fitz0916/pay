@@ -10,7 +10,7 @@ public class PermissionRequest extends PageRequest{
 	private Integer systemId;
 	private Integer type;
 	private String name;
-	 
+	private Integer parentId;
 	
 	public Integer getSystemId() {
 		return systemId;
@@ -29,6 +29,12 @@ public class PermissionRequest extends PageRequest{
 	}
 	public void setName(String name) {
 		this.name = name;
+	}
+	public Integer getParentId() {
+		return parentId;
+	}
+	public void setParentId(Integer parentId) {
+		this.parentId = parentId;
 	}
 	 
 	 
