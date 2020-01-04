@@ -65,16 +65,7 @@ public class RoleController {
 	    @RequiresPermissions("admin:role:read")
 	    @RequestMapping(value = "/list",method = RequestMethod.POST)
 	    @ResponseBody
-//	    public Object list(
-//	            @RequestParam(required = false, defaultValue = "0", value = "offset") int offset,
-//	            @RequestParam(required = false, defaultValue = "10", value = "limit") int limit,
-//	            @RequestParam(required = false, defaultValue = "", value = "search") String search,
-//	            @RequestParam(required = false, value = "sort") String sort,
-//	            @RequestParam(required = false, value = "order") String order) {
 	    public Object list(@RequestBody RoleRequest roleRequest) {
-//	        DataPage<Role> dataPage = new DataPage<Role>();
-//	        dataPage.setPageSize(limit);
-//	        dataPage.setPageNo(offset/limit+1);
 	        ModelResult<PageVo> modelResult = roleServiceClient.pageRoleList(roleRequest);
 	        return ResultUtils.buildPageResult(modelResult);
 	    }
