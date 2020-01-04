@@ -11,7 +11,6 @@ import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
-import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.ResponseBody;
 
 import com.alibaba.fastjson.JSONArray;
@@ -22,14 +21,12 @@ import com.github.admin.client.service.PermissionServiceClient;
 import com.github.admin.client.service.SystemServiceClient;
 import com.github.admin.common.constants.Constants;
 import com.github.admin.common.domain.Permission;
-import com.github.admin.common.domain.PermissionInfo;
 import com.github.admin.common.domain.System;
 import com.github.admin.common.request.PermissionRequest;
 import com.github.admin.common.utils.ResultUtils;
 import com.github.admin.common.vo.PageVo;
 import com.github.admin.utils.LengthValidator;
 import com.github.appmodel.domain.result.ModelResult;
-import com.github.appmodel.page.DataPage;
 
 import io.swagger.annotations.ApiOperation;
 
@@ -61,24 +58,7 @@ public class PermissionController {
 	    @RequiresPermissions("admin:permission:read")
 	    @RequestMapping(value = "/list",method = RequestMethod.POST)
 	    @ResponseBody
-//	    public Object list(
-//	            @RequestParam(required = false, defaultValue = "0", value = "offset") int offset,
-//	            @RequestParam(required = false, defaultValue = "10", value = "limit") int limit,
-//	            @RequestParam(required = false, defaultValue = "", value = "search") String search,
-//	            @RequestParam(required = false, value = "sort") String sort,
-//	            @RequestParam(required = false, value = "order") String order,
-//	            @RequestParam(required = false,value = "systemId")Integer systemId,
-//	            @RequestParam(required = false,value = "type")Integer type,
-//	            @RequestParam(required = false,defaultValue = "",value = "name")String name) {
 	     public Object list(@RequestBody PermissionRequest permissionRequest) {
-			
-//	        DataPage<PermissionInfo> dataPage = new DataPage<PermissionInfo>();
-//	        PermissionRequest permissionRequest = new PermissionRequest();
-//	        dataPage.setPageSize(limit);
-//	        dataPage.setPageNo(offset/limit+1);//TODO 分页问题
-//	        permissionRequest.setSystemId(systemId);
-//	        permissionRequest.setType(type);
-//	        permissionRequest.setDataPage(dataPage);
 	        ModelResult<PageVo> modelResult = permissionServiceClient.pagePermissionInfoList(permissionRequest);
 	        return ResultUtils.buildPageResult(modelResult);
 	        

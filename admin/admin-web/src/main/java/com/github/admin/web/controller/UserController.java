@@ -82,15 +82,6 @@ public class UserController {
 	    @RequiresPermissions("admin:user:read")
 	    @RequestMapping(value = "/list", method = RequestMethod.POST)
 	    @ResponseBody
-//	    public Object list(
-//	            @RequestParam(required = false, defaultValue = "0", value = "offset") int offset,
-//	            @RequestParam(required = false, defaultValue = "10", value = "limit") int limit,
-//	            @RequestParam(required = false, defaultValue = "", value = "search") String search,
-//	            @RequestParam(required = false, defaultValue = "", value = "userName") String userName,
-//	            @RequestParam(required = false, defaultValue = "", value = "organizationName") String organizationName,
-//	            @RequestParam(required = false, defaultValue = "", value = "roleId") Integer roleId,
-//	            @RequestParam(required = false, value = "sort") String sort,
-//	            @RequestParam(required = false, value = "order") String order,HttpServletRequest request) {
 	    public Object list(@RequestBody UserRequest userRequest) {
 	        ModelResult<PageVo> modelResult = userServiceClient.pageUserInfoList(userRequest);
 	        return ResultUtils.buildPageResult(modelResult);

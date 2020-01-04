@@ -45,11 +45,6 @@ public class SystemController {
 	@RequiresPermissions("admin:system:read")
 	@RequestMapping(value = "/list", method = RequestMethod.POST)
 	@ResponseBody
-//	public Object list(@RequestParam(required = false, defaultValue = "0", value = "offset") int offset,
-//			@RequestParam(required = false, defaultValue = "10", value = "limit") int limit,
-//			@RequestParam(required = false, defaultValue = "", value = "") String search,
-//			@RequestParam(required = false, value = "sort") String sort,
-//			@RequestParam(required = false, value = "order") String order) {
 	public Object list(@RequestBody SystemRequest systemRequest) {
 		DataPage<System> dataPage = new DataPage<System>();
 		dataPage.setPageSize(systemRequest.getLimit());
