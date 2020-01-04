@@ -8,13 +8,16 @@
 <c:set var="basePath" value="${pageContext.request.contextPath}"/>
 <div id="createDialog" class="crudDialog">
 	<form id="createForm" method="post">
+	   <!-- 
 		<div class="form-group">
 			<label for="theme"></label>
-			<input id="theme" type="color" class="form-control" name="theme" maxlength="50">
+			<input id="theme" type="hidden" class="form-control" name="theme" maxlength="50">
 		</div>
+		 -->
+		<input id="theme" type="hidden" class="form-control" value="zmdi zmdi-shield-security" name="theme" maxlength="50">
 		<div class="form-group">
 			<label for="icon">图标</label>
-			<input id="icon" type="text" class="form-control" name="icon" maxlength="20">
+			<input id="icon" type="text" class="form-control" value="zmdi zmdi-shield-security" name="icon" maxlength="20">
 		</div>
 		<div class="form-group">
 			<label for="title">标题</label>
@@ -27,11 +30,13 @@
 		<div class="row">
 			<div class="col-lg-8 form-group">
 				<label for="name">背景图</label>
-				<input id="banner" type="text" class="form-control" name="banner" maxlength="150">
+				<input id="banner" type="text" value="/resources/images/zheng-upms.png" class="form-control" name="banner" maxlength="150">
 			</div>
+			<!--  
 			<div class="col-lg-4">
 				<div id="picker">上传背景图</div>
 			</div>
+			-->
 		</div>
 		<div class="form-group">
 			<label for="description">描述</label>

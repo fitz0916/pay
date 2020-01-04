@@ -240,8 +240,10 @@ function updateAction() {
 				initUploader();
 			},
             contentLoaded: function(data, status, xhr){
-                layer.msg(data.msg);
-                location:top.location.href = '${basePath}/login';
+            	if(data.code == '10110'){
+                	layer.msg(data.msg);
+                    location:top.location.href = '${basePath}/login';
+                }
             }
 		});
 	}

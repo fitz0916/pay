@@ -8,10 +8,13 @@
 <c:set var="basePath" value="${pageContext.request.contextPath}"/>
 <div id="updateDialog" class="crudDialog">
 	<form id="updateForm" method="post">
+	    <!-- 
 		<div class="form-group">
 			<label for="theme"></label>
 			<input id="theme" type="color" class="form-control" name="theme" maxlength="50" value="${system.theme}">
 		</div>
+		 -->
+		 <input id="theme" type="hidden" class="form-control" name="theme" maxlength="50" value="${system.theme}">
 		<div class="form-group">
 			<label for="icon">图标</label>
 			<input id="icon" type="text" class="form-control" name="icon" maxlength="20" value="${system.icon}">
@@ -29,9 +32,11 @@
 				<label for="name">背景图</label>
 				<input id="banner" type="text" class="form-control" name="banner" maxlength="150" value="${system.banner}">
 			</div>
+			<!-- 
 			<div class="col-lg-4">
 				<div id="picker">上传背景图</div>
 			</div>
+			 -->
 		</div>
 		<div class="form-group">
 			<label for="description">描述</label>
