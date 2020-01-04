@@ -1,0 +1,18 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<workingSetManager>
+<workingSet editPageId="org.eclipse.jdt.internal.ui.DynamicSourcesWorkingSet" factoryID="org.eclipse.ui.internal.WorkingSetFactory" id="1578108824912_0" label="Java Main Sources" name="Java Main Sources">
+<item elementID="=pay-eureka/src\/main\/java=/optional=/true=/=/maven.pomderived=/true=/" factoryID="org.eclipse.jdt.ui.PersistableJavaElementFactory"/>
+<item elementID="=pay-eureka/src\/main\/resources=/maven.pomderived=/true=/" factoryID="org.eclipse.jdt.ui.PersistableJavaElementFactory"/>
+</workingSet>
+<workingSet editPageId="org.eclipse.jdt.internal.ui.DynamicSourcesWorkingSet" factoryID="org.eclipse.ui.internal.WorkingSetFactory" id="1578108824926_1" label="Java Test Sources" name="Java Test Sources">
+<item elementID="=pay-eureka/src\/test\/java=/optional=/true=/=/maven.pomderived=/true=/=/test=/true=/" factoryID="org.eclipse.jdt.ui.PersistableJavaElementFactory"/>
+</workingSet>
+<workingSet editPageId="org.eclipse.ui.resourceWorkingSetPage" factoryID="org.eclipse.ui.internal.WorkingSetFactory" id="1578108894596_3" label="admin" name="admin">
+<item factoryID="org.eclipse.ui.internal.model.ResourceFactory" path="/admin" type="4"/>
+<item factoryID="org.eclipse.ui.internal.model.ResourceFactory" path="/admin-web" type="4"/>
+<item factoryID="org.eclipse.ui.internal.model.ResourceFactory" path="/admin-common" type="4"/>
+<item factoryID="org.eclipse.ui.internal.model.ResourceFactory" path="/admin-client" type="4"/>
+<item factoryID="org.eclipse.ui.internal.model.ResourceFactory" path="/admin-server" type="4"/>
+</workingSet>
+<workingSet aggregate="true" factoryID="org.eclipse.ui.internal.WorkingSetFactory" id="1578108828280_2" label="Window Working Set" name="Aggregate for window 1578108828280"/>
+</workingSetManager>
