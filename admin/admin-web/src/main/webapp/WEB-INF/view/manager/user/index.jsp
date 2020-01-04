@@ -49,12 +49,14 @@
                     </div>
                 </div>
             </div>
+                <!-- 
                 <div class="col-md-12 text-right ">
                     <div params="vm.searchParams" class="ng-isolate-scope">
 						<a class="btn btn-success" onclick="query()"><span class="glyphicon glyphicon-search"></span>搜索</button>
 						<a onclick="reset()" class="btn btn-danger pull-right">重置</a>
 					</div>
                 </div>
+                 -->
             </div>
         </form>
      </div>
