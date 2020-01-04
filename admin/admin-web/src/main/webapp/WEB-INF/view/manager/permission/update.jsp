@@ -24,7 +24,7 @@
 		</div>
 		<div class="form-group">
 			<span class="type1 type2 type3">
-				<select id="systemId" name="systemId">
+				<select id="permissionSystemId" name="systemId">
 					<option value="0">请选择系统</option>
 					<c:forEach var="system" items="${systems}">
 						<option value="${system.systemId}"
@@ -35,8 +35,8 @@
 				</select>
 			</span>
 			<span class="type2 type3" hidden>
-				<select id="parentId" name="parentId">
-					<option value="0">请选择上级</option>
+				<select id="permissionParentId" name="parentId">
+					<option value="0">请选择上级2</option>
 				</select>
 			</span>
 		</div>
@@ -91,11 +91,11 @@
             type = $(this).val();
             initType();
         });
-        // 选择系统
-        $('#systemId').change(function() {
-            systemId = $(this).val();
-            initparentId();
-        });
+        $('#permissionSystemId').change(function() {
+    		systemId = $(this).val();
+    		initparentId();
+    	});
+        
     });
     function initType() {
         // 显示对应必填项
@@ -114,37 +114,56 @@
     }
     function initparentId(val) {
         if (systemId != 0) {
-            $.getJSON('${basePath}/manage/permission/list', {systemId: systemId, type: parentIdType, limit: 10000}, function(json) {
-                var datas = [{id: 0, text: '请选择上级'}];
-                for (var i = 0; i < json.rows.length; i ++) {
-                    var data = {};
-                    data.id = json.rows[i].permissionId;
-                    data.text = json.rows[i].name;
-                    datas.push(data);
-                }
-                $('#parentId').empty();
-                $('#parentId').select2({
-                    data : datas
-                });
-                if (!!val) {
-                    $('#parentId').select2().val(val).trigger('change');
+        	var requestData = {
+        			'systemId':systemId,
+        			'type':parentIdType,
+        			'limit':10000
+        		  };
+        	$.ajax({
+        		type: "post",
+                url : "${basePath}/manage/permission/list",
+                contentType: "application/json;charset=utf-8", 
+                data:JSON.stringify(requestData),
+                dataType: "json",
+                success:function (result) {
+                	var datas = [{id: 0, text: '请选择上级'}];
+                    for (var i = 0; i < result.rows.length; i ++) {
+                    	 var data = {};
+                         data.id = result.rows[i].permissionId;
+                         data.text = result.rows[i].name;
+                         datas.push(data);
+                    }
+                    $('#permissionParentId').empty();
+                    $('#permissionParentId').select2({
+                        data : datas
+                    });
+                    if (!!val) {
+                        $('#permissionParentId').select2().val(val).trigger('change');
+                    }
+                },
+                error:function (message) {
+                	$('#permissionParentId').empty();
+                    $('#permissionParentId').select2({
+                        data : [{id: 0, text: '请选择上级'}]
+                    });
                 }
             });
         } else {
-            $('#parentId').empty();
-            $('#parentId').select2({
-                data : [{id: 0, text: '请选择上级'}]
-            });
+             $('#permissionParentId').empty();
+             $('#permissionParentId').select2({
+                 data : [{id: 0, text: '请选择上级'}]
+             });
         }
-    }
+    } 
     function initSelect2() {
+    	var parentId = '${permission.parentId}';
         if (type == 2) {
             parentIdType = 1;
         }
         if (type == 3) {
             parentIdType = 2
         }
-        initparentId(${permission.parentId});
+        initparentId(parentId);
     }
     function updateSubmit() {
         $.ajax({
@@ -152,7 +171,7 @@
             url: '${basePath}/manage/permission/update/${permission.permissionId}',
             data: $('#updateForm').serialize(),
             beforeSend: function() {
-                if ($('#systemId').val() == 0) {
+                if ($('#permissionSystemId').val() == 0) {
                     $.confirm({
                         title: false,
                         content: '请选择系统！',
@@ -174,7 +193,7 @@
                     }
                 }
                 if (type == 2 || type == 3) {
-                    if ($('#parentId').val() == 0) {
+                    if ($('#permissionParentId').val() == 0) {
                         $.confirm({
                             title: false,
                             content: '请选择上级！',

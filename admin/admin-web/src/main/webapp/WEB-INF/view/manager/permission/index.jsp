@@ -174,66 +174,13 @@ function permission(systemId){
 }
 
 
-/**
- * 查询
- */
-function query(){
-    $("#table").bootstrapTable('refresh');
-}
-
-/**
- * 重置
- */
-$('#reset').bind('click',function(){
-	reset();
-});
-function reset(){
-    $('#parentPermission').val("");
-    $("#queryByParent").html('');
-    $("#queryBySystem").html('');
-    querySystem();
-	queryPermission();
-}
-
-function querySystem(){
-	$.ajax({
-	    type:"GET",
-	    url:'/admin/system/all',
-	    success:function(result){
-	    	var array = new Array();
-	    	array.push('<option value="">请选择</option>');
-	        for(var i=0;i<result.length;i++){
-	            //var option = $("<option value="+ result[i].systemId +">" + result[i].title +"</option>");
-	            array.push("<option value="+ result[i].systemId +">" + result[i].title +"</option>");
-	        }
-	    	$("#queryBySystem").append(array.join(''));
-	    }
-	});
-}
-
-function queryPermission(){
-	$.ajax({
-	    type:"GET",
-	    url:'/admin/permission/all',
-	    success:function(result){
-	    	var array = new Array();
-	    	array.push('<option value="">请选择</option>')
-	        for(var i=0;i<result.length;i++){
-	        	if(result[i].parentPermission != undefined){
-	        		array.push("<option value="+ result[i].parentId +">" + result[i].parentPermission +"</option>");
-	        	}
-	            if(result[i].parentId==0){
-	                array.push("<option value="+ result[i].parentId +">" + "管理菜单" +"</option>");
-	            }
-	        }
-	    	 $("#parentId").append(array.join(''));
-	    }
-	});
-}
-
 //分页查询参数，是以键值对的形式设置的
 function queryParams(params) {
-	var name = $.trim($('#permissionName').val()) == '' ? null: $.trim($('#permissionName').val());
+	var permissionName = $.trim($('#permissionName').val());
+	var name = null;
+	if(permissionName != ''){
+		name = permissionName;
+	}
 	var systemId = $('#systemId').val() == 0 ? null : $('#systemId').val();
 	var parentId = $('#parentId').val() ==  -1 ? null : $('#parentId').val();
     return {
@@ -349,14 +296,6 @@ function deleteRow(permissionId) {
         }
     });
 }
-var systems ;
-$.ajax({
-    type:"GET",
-    url:'${basePath}/manage/system/all',
-    success:function(result){
-        systems = result;
-    }
-})
 
 // 格式化图标
 function iconFormatter(value, row, index) {
