@@ -10,6 +10,7 @@ import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
 
 import com.github.admin.common.domain.System;
+import com.github.admin.common.request.SystemRequest;
 import com.github.admin.common.vo.PageVo;
 import com.github.appmodel.domain.result.ModelResult;
 import com.github.appmodel.page.DataPage;
@@ -19,7 +20,7 @@ import com.github.appmodel.page.DataPage;
 public interface SystemServiceClient {
 	
 	@PostMapping("/pageSystemList")
-	public ModelResult<PageVo> pageSystemList(@RequestBody DataPage<System> dataPage);
+	public ModelResult<PageVo> pageSystemList(@RequestBody SystemRequest systemRequest);
 
 	@PostMapping("/insertSelective")
 	public ModelResult<Integer> insertSelective(@RequestBody System system);

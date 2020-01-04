@@ -82,6 +82,8 @@ $(function() {
 	$table.bootstrapTable({
 		url: '${basePath}/manage/permission/list',
 		height: getHeight(),
+		method:'post',
+		dataType:'json',
 		striped: true,
 		search: false,
 		showRefresh: true,

@@ -7,9 +7,9 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.ModelMap;
 import org.springframework.web.bind.annotation.PathVariable;
+import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
-import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.ResponseBody;
 
 import com.baidu.unbiz.fluentvalidator.ComplexResult;
@@ -17,6 +17,7 @@ import com.baidu.unbiz.fluentvalidator.FluentValidator;
 import com.baidu.unbiz.fluentvalidator.ResultCollectors;
 import com.github.admin.client.service.SystemServiceClient;
 import com.github.admin.common.domain.System;
+import com.github.admin.common.request.SystemRequest;
 import com.github.admin.common.utils.ResultUtils;
 import com.github.admin.common.vo.PageVo;
 import com.github.admin.utils.LengthValidator;
@@ -42,17 +43,18 @@ public class SystemController {
 	
 	@ApiOperation("系统列表")
 	@RequiresPermissions("admin:system:read")
-	@RequestMapping(value = "/list", method = RequestMethod.GET)
+	@RequestMapping(value = "/list", method = RequestMethod.POST)
 	@ResponseBody
-	public Object list(@RequestParam(required = false, defaultValue = "0", value = "offset") int offset,
-			@RequestParam(required = false, defaultValue = "10", value = "limit") int limit,
-			@RequestParam(required = false, defaultValue = "", value = "") String search,
-			@RequestParam(required = false, value = "sort") String sort,
-			@RequestParam(required = false, value = "order") String order) {
+//	public Object list(@RequestParam(required = false, defaultValue = "0", value = "offset") int offset,
+//			@RequestParam(required = false, defaultValue = "10", value = "limit") int limit,
+//			@RequestParam(required = false, defaultValue = "", value = "") String search,
+//			@RequestParam(required = false, value = "sort") String sort,
+//			@RequestParam(required = false, value = "order") String order) {
+	public Object list(@RequestBody SystemRequest systemRequest) {
 		DataPage<System> dataPage = new DataPage<System>();
-		dataPage.setPageSize(limit);
-		dataPage.setPageNo(offset/limit+1);
-		ModelResult<PageVo> modelResult = systemServiceClient.pageSystemList(dataPage);
+		dataPage.setPageSize(systemRequest.getLimit());
+		dataPage.setPageNo(systemRequest.getOffset()/systemRequest.getLimit()+1);
+		ModelResult<PageVo> modelResult = systemServiceClient.pageSystemList(systemRequest);
 		return ResultUtils.buildPageResult(modelResult);
 	}
 	

@@ -11,10 +11,10 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 
 import com.github.admin.common.domain.System;
+import com.github.admin.common.request.SystemRequest;
 import com.github.admin.common.service.SystemService;
 import com.github.admin.common.vo.PageVo;
 import com.github.appmodel.domain.result.ModelResult;
-import com.github.appmodel.page.DataPage;
 
 
 @RestController
@@ -26,8 +26,8 @@ public class SystemController {
 	
 	
 	@PostMapping("/pageSystemList")
-	public ModelResult<PageVo> pageSystemList(@RequestBody DataPage<System> dataPage){
-		return systemServiceImpl.pageSystemList(dataPage);
+	public ModelResult<PageVo> pageSystemList(@RequestBody SystemRequest systemRequest){
+		return systemServiceImpl.pageSystemList(systemRequest);
 	}
 	
 	@PostMapping("/insertSelective")

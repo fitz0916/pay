@@ -4,7 +4,7 @@ import com.github.admin.common.domain.BaseObject;
 import com.github.admin.common.domain.UserInfo;
 import com.github.appmodel.page.DataPage;
 
-public class UserRequest extends BaseObject{
+public class UserRequest extends BaseRequest{
 	
 	
 	
@@ -14,18 +14,13 @@ public class UserRequest extends BaseObject{
 	private static final long serialVersionUID = 5599126119006893534L;
 	
 	
-	private DataPage<UserInfo> dataPage;
+	
 	private Integer userType;
 	private String userName;
 	private String organizationName;
 	private Integer roleId;
 	
-	public DataPage<UserInfo> getDataPage() {
-		return dataPage;
-	}
-	public void setDataPage(DataPage<UserInfo> dataPage) {
-		this.dataPage = dataPage;
-	}
+	
 	public Integer getUserType() {
 		return userType;
 	}

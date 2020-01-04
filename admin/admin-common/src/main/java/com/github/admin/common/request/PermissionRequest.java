@@ -1,22 +1,16 @@
 package com.github.admin.common.request;
 
-import com.github.admin.common.domain.BaseObject;
 import com.github.admin.common.domain.PermissionInfo;
 import com.github.appmodel.page.DataPage;
 
-public class PermissionRequest extends BaseObject{
+public class PermissionRequest extends BaseRequest{
 	
-	private DataPage<PermissionInfo> dataPage;
+	
 	private Integer systemId;
 	private Integer type;
 	 
 	 
-	public DataPage<PermissionInfo> getDataPage() {
-		return dataPage;
-	}
-	public void setDataPage(DataPage<PermissionInfo> dataPage) {
-		this.dataPage = dataPage;
-	}
+	
 	public Integer getSystemId() {
 		return systemId;
 	}

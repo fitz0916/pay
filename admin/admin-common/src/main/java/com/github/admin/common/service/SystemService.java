@@ -3,14 +3,14 @@ package com.github.admin.common.service;
 import java.util.List;
 
 import com.github.admin.common.domain.System;
+import com.github.admin.common.request.SystemRequest;
 import com.github.admin.common.vo.PageVo;
 import com.github.appmodel.domain.result.ModelResult;
-import com.github.appmodel.page.DataPage;
 
 
 public interface SystemService {
 
-	ModelResult<PageVo> pageSystemList(DataPage<System> dataPage);
+	ModelResult<PageVo> pageSystemList(SystemRequest systemRequest);
 
 	ModelResult<Integer> insertSelective(System system);
 

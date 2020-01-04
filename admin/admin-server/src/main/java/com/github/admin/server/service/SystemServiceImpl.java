@@ -11,6 +11,7 @@ import org.springframework.transaction.annotation.Transactional;
 
 import com.github.admin.common.constants.Constants;
 import com.github.admin.common.domain.System;
+import com.github.admin.common.request.SystemRequest;
 import com.github.admin.common.service.SystemService;
 import com.github.admin.common.vo.PageVo;
 import com.github.admin.server.dao.SystemDao;
@@ -27,9 +28,12 @@ public class SystemServiceImpl implements SystemService{
 	private SystemDao systemDao;
 	
 	@Override
-	public ModelResult<PageVo> pageSystemList(DataPage<System> dataPage) {
+	public ModelResult<PageVo> pageSystemList(SystemRequest systemRequest) {
 		ModelResult<PageVo> modelResult = new ModelResult<PageVo>();
+		DataPage<System> dataPage = new DataPage<System>();
 		PageVo pageVo = new PageVo();
+		dataPage.setPageSize(systemRequest.getLimit());
+		dataPage.setPageNo(systemRequest.getOffset()/systemRequest.getLimit()+1);
 		int start = dataPage.getStartIndex();
 		int offset = dataPage.getPageSize();
 		long totalCount = systemDao.pageSystemListCount();

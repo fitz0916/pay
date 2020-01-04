@@ -32,6 +32,8 @@ $(function() {
 	$table.bootstrapTable({
 		url: '${basePath}/manage/system/list',
 		height: getHeight(),
+		method:'post',
+		dataType:'json',
 		striped: true,
 		search: true,
 		showRefresh: true,

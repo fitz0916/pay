@@ -53,7 +53,9 @@ public class UserServiceImpl implements UserService{
 	public ModelResult<PageVo> pageUserInfoList(UserRequest userRequest) {
 		ModelResult<PageVo> modelResult = new ModelResult<PageVo>();
 		PageVo pageVo = new PageVo();
-		DataPage<UserInfo> dataPage = userRequest.getDataPage();
+		DataPage<UserInfo> dataPage = new DataPage<UserInfo>();
+		dataPage.setPageSize(userRequest.getLimit());
+		dataPage.setPageNo(userRequest.getOffset()/userRequest.getLimit()+1);
 		String userName = userRequest.getUserName();
 		String organizationName = userRequest.getOrganizationName();
 		Integer roleId = userRequest.getRoleId();

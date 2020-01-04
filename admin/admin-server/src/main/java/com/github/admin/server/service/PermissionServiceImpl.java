@@ -60,8 +60,10 @@ public class PermissionServiceImpl implements PermissionService {
 	@Override
 	public ModelResult<PageVo> pagePermissionInfoList(PermissionRequest permissionRequest) {
 		ModelResult<PageVo> modelResult = new ModelResult<PageVo>();
-		DataPage<PermissionInfo> dataPage = permissionRequest.getDataPage();
+		DataPage<PermissionInfo> dataPage = new DataPage<PermissionInfo>();
 		PageVo pageVo = new PageVo();
+		dataPage.setPageSize(permissionRequest.getLimit());
+		dataPage.setPageNo(permissionRequest.getOffset()/permissionRequest.getLimit()+1);
 		int start = dataPage.getStartIndex();
 		int offset = dataPage.getPageSize();
 		Integer systemId = permissionRequest.getSystemId();
