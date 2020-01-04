@@ -41,6 +41,8 @@ $(function() {
 	$table.bootstrapTable({
 		url: '${basePath}/manage/role/list',
 		height: getHeight(),
+		method:'post',
+		dataType:'json',
 		striped: true,
 		search: true,
 		showRefresh: true,

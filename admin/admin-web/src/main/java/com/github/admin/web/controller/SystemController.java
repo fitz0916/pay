@@ -46,9 +46,6 @@ public class SystemController {
 	@RequestMapping(value = "/list", method = RequestMethod.POST)
 	@ResponseBody
 	public Object list(@RequestBody SystemRequest systemRequest) {
-		DataPage<System> dataPage = new DataPage<System>();
-		dataPage.setPageSize(systemRequest.getLimit());
-		dataPage.setPageNo(systemRequest.getOffset()/systemRequest.getLimit()+1);
 		ModelResult<PageVo> modelResult = systemServiceClient.pageSystemList(systemRequest);
 		return ResultUtils.buildPageResult(modelResult);
 	}

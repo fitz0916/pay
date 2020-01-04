@@ -10,9 +10,9 @@ import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
 
 import com.github.admin.common.domain.Role;
+import com.github.admin.common.request.RoleRequest;
 import com.github.admin.common.vo.PageVo;
 import com.github.appmodel.domain.result.ModelResult;
-import com.github.appmodel.page.DataPage;
 
 @FeignClient(name="admin-server")
 @RequestMapping("/admin/server/role")
@@ -22,7 +22,7 @@ public interface RoleServiceClient {
 	ModelResult<List<Role>> selectRoleByUserId(@PathVariable("userId")Integer userId);
 
 	@PostMapping("/pageRoleList")
-	ModelResult<PageVo> pageRoleList(@RequestBody DataPage<Role> dataPage);
+	ModelResult<PageVo> pageRoleList(@RequestBody RoleRequest roleRequest);
 
 	@PostMapping("/allRolesList")
 	ModelResult<List<Role>> allRolesList();

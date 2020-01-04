@@ -20,7 +20,7 @@ import com.github.appmodel.page.DataPage;
 
 
 @Service
-public class SystemServiceImpl implements SystemService{
+public class SystemServiceImpl extends BaseService implements SystemService{
 
 	private static Logger logger = LoggerFactory.getLogger(SystemServiceImpl.class);
 	
@@ -32,8 +32,7 @@ public class SystemServiceImpl implements SystemService{
 		ModelResult<PageVo> modelResult = new ModelResult<PageVo>();
 		DataPage<System> dataPage = new DataPage<System>();
 		PageVo pageVo = new PageVo();
-		dataPage.setPageSize(systemRequest.getLimit());
-		dataPage.setPageNo(systemRequest.getOffset()/systemRequest.getLimit()+1);
+		this.setDataPage(dataPage, systemRequest);;
 		int start = dataPage.getStartIndex();
 		int offset = dataPage.getPageSize();
 		long totalCount = systemDao.pageSystemListCount();

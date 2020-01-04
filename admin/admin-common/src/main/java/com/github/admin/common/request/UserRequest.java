@@ -4,7 +4,7 @@ import com.github.admin.common.domain.BaseObject;
 import com.github.admin.common.domain.UserInfo;
 import com.github.appmodel.page.DataPage;
 
-public class UserRequest extends BaseRequest{
+public class UserRequest extends PageRequest{
 	
 	
 	

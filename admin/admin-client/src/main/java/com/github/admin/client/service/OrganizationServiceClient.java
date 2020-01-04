@@ -8,10 +8,11 @@ import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
+
 import com.github.admin.common.domain.Organization;
+import com.github.admin.common.request.OrganizationRequest;
 import com.github.admin.common.vo.PageVo;
 import com.github.appmodel.domain.result.ModelResult;
-import com.github.appmodel.page.DataPage;
 
 
 @FeignClient(name="admin-server")
@@ -19,7 +20,7 @@ import com.github.appmodel.page.DataPage;
 public interface OrganizationServiceClient {
 
 	@PostMapping("/pageOrganizationList")
-	ModelResult<PageVo> pageOrganizationList(@RequestBody DataPage<Organization> dataPage);
+	ModelResult<PageVo> pageOrganizationList(@RequestBody OrganizationRequest organizationRequest);
 
 	@PostMapping("/insertSelective")
 	public ModelResult<Integer> insertSelective(@RequestBody Organization organization);

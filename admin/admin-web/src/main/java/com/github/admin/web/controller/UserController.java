@@ -30,7 +30,6 @@ import com.github.admin.common.constants.Constants;
 import com.github.admin.common.domain.Organization;
 import com.github.admin.common.domain.Role;
 import com.github.admin.common.domain.User;
-import com.github.admin.common.domain.UserInfo;
 import com.github.admin.common.domain.UserOrganization;
 import com.github.admin.common.domain.UserRole;
 import com.github.admin.common.request.UserRequest;
@@ -40,7 +39,6 @@ import com.github.admin.common.vo.PageVo;
 import com.github.admin.utils.LengthValidator;
 import com.github.admin.utils.RedisUtils;
 import com.github.appmodel.domain.result.ModelResult;
-import com.github.appmodel.page.DataPage;
 
 import io.swagger.annotations.ApiOperation;
 

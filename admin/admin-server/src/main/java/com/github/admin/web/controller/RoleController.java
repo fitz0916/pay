@@ -11,10 +11,10 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 
 import com.github.admin.common.domain.Role;
+import com.github.admin.common.request.RoleRequest;
 import com.github.admin.common.service.RoleService;
 import com.github.admin.common.vo.PageVo;
 import com.github.appmodel.domain.result.ModelResult;
-import com.github.appmodel.page.DataPage;
 
 
 
@@ -30,8 +30,8 @@ public class RoleController {
 		return roleServiceImpl.selectRoleByUserId(userId);
 	}
 	@PostMapping("/pageRoleList")
-	ModelResult<PageVo> pageRoleList(@RequestBody DataPage<Role> dataPage){
-		return roleServiceImpl.pageRoleList(dataPage);
+	ModelResult<PageVo> pageRoleList(@RequestBody RoleRequest roleRequest){
+		return roleServiceImpl.pageRoleList(roleRequest);
 	}
 
 	@PostMapping("/allRolesList")

@@ -3,7 +3,7 @@ package com.github.admin.common.request;
 import com.github.admin.common.domain.PermissionInfo;
 import com.github.appmodel.page.DataPage;
 
-public class PermissionRequest extends BaseRequest{
+public class PermissionRequest extends PageRequest{
 	
 	
 	private Integer systemId;

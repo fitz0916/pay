@@ -29,7 +29,7 @@ import com.github.appmodel.page.DataPage;
 import com.github.admin.common.domain.System;
 
 @Service
-public class PermissionServiceImpl implements PermissionService {
+public class PermissionServiceImpl extends BaseService implements PermissionService {
 
 	private static Logger logger = LoggerFactory.getLogger(PermissionServiceImpl.class);
 	
@@ -62,8 +62,7 @@ public class PermissionServiceImpl implements PermissionService {
 		ModelResult<PageVo> modelResult = new ModelResult<PageVo>();
 		DataPage<PermissionInfo> dataPage = new DataPage<PermissionInfo>();
 		PageVo pageVo = new PageVo();
-		dataPage.setPageSize(permissionRequest.getLimit());
-		dataPage.setPageNo(permissionRequest.getOffset()/permissionRequest.getLimit()+1);
+		this.setDataPage(dataPage,permissionRequest);
 		int start = dataPage.getStartIndex();
 		int offset = dataPage.getPageSize();
 		Integer systemId = permissionRequest.getSystemId();

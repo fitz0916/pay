@@ -11,6 +11,7 @@ import org.springframework.transaction.annotation.Transactional;
 
 import com.github.admin.common.constants.Constants;
 import com.github.admin.common.domain.Role;
+import com.github.admin.common.request.RoleRequest;
 import com.github.admin.common.service.RoleService;
 import com.github.admin.common.vo.PageVo;
 import com.github.admin.server.dao.RoleDao;
@@ -20,7 +21,7 @@ import com.github.appmodel.domain.result.ModelResult;
 import com.github.appmodel.page.DataPage;
 
 @Service
-public class RoleServiceImpl implements RoleService{
+public class RoleServiceImpl extends BaseService implements RoleService{
 	
 	private static Logger logger = LoggerFactory.getLogger(RoleServiceImpl.class);
 	
@@ -47,9 +48,11 @@ public class RoleServiceImpl implements RoleService{
 	}
 
 	@Override
-	public ModelResult<PageVo> pageRoleList(DataPage<Role> dataPage) {
+	public ModelResult<PageVo> pageRoleList(RoleRequest roleRequest) {
 		ModelResult<PageVo> modelResult = new ModelResult<PageVo>();
 		PageVo pageVo = new PageVo();
+		DataPage<Role> dataPage = new DataPage<Role>();
+		this.setDataPage(dataPage, roleRequest);
 		int start = dataPage.getStartIndex();
 		int offset = dataPage.getPageSize();
 		long totalCount = roleDao.pageRoleListCount();

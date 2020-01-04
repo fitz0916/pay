@@ -38,6 +38,8 @@ $(function() {
 	$table.bootstrapTable({
 		url: '${basePath}/manage/organization/list',
 		height: getHeight(),
+		method:'post',
+		dataType:'json',
 		striped: true,
 		search: true,
 		showRefresh: true,

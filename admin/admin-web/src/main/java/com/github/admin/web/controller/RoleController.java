@@ -9,6 +9,7 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.ModelMap;
 import org.springframework.web.bind.annotation.PathVariable;
+import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.RequestParam;
@@ -21,6 +22,7 @@ import com.github.admin.client.service.RolePermissionServiceClient;
 import com.github.admin.client.service.RoleServiceClient;
 import com.github.admin.common.constants.Constants;
 import com.github.admin.common.domain.Role;
+import com.github.admin.common.request.RoleRequest;
 import com.github.admin.common.utils.ResultUtils;
 import com.github.admin.common.vo.PageVo;
 import com.github.admin.utils.LengthValidator;
@@ -61,18 +63,19 @@ public class RoleController {
 	     */
 	    @ApiOperation("角色列表")
 	    @RequiresPermissions("admin:role:read")
-	    @RequestMapping(value = "/list",method = RequestMethod.GET)
+	    @RequestMapping(value = "/list",method = RequestMethod.POST)
 	    @ResponseBody
-	    public Object list(
-	            @RequestParam(required = false, defaultValue = "0", value = "offset") int offset,
-	            @RequestParam(required = false, defaultValue = "10", value = "limit") int limit,
-	            @RequestParam(required = false, defaultValue = "", value = "search") String search,
-	            @RequestParam(required = false, value = "sort") String sort,
-	            @RequestParam(required = false, value = "order") String order) {
-	        DataPage<Role> dataPage = new DataPage<Role>();
-	        dataPage.setPageSize(limit);
-	        dataPage.setPageNo(offset/limit+1);
-	        ModelResult<PageVo> modelResult = roleServiceClient.pageRoleList(dataPage);
+//	    public Object list(
+//	            @RequestParam(required = false, defaultValue = "0", value = "offset") int offset,
+//	            @RequestParam(required = false, defaultValue = "10", value = "limit") int limit,
+//	            @RequestParam(required = false, defaultValue = "", value = "search") String search,
+//	            @RequestParam(required = false, value = "sort") String sort,
+//	            @RequestParam(required = false, value = "order") String order) {
+	    public Object list(@RequestBody RoleRequest roleRequest) {
+//	        DataPage<Role> dataPage = new DataPage<Role>();
+//	        dataPage.setPageSize(limit);
+//	        dataPage.setPageNo(offset/limit+1);
+	        ModelResult<PageVo> modelResult = roleServiceClient.pageRoleList(roleRequest);
 	        return ResultUtils.buildPageResult(modelResult);
 	    }
 	    @ApiOperation("查找所有角色列表")

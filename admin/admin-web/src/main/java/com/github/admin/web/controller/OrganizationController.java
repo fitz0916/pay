@@ -5,9 +5,9 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.ModelMap;
 import org.springframework.web.bind.annotation.PathVariable;
+import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
-import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.ResponseBody;
 
 import com.baidu.unbiz.fluentvalidator.ComplexResult;
@@ -16,11 +16,11 @@ import com.baidu.unbiz.fluentvalidator.ResultCollectors;
 import com.github.admin.client.service.OrganizationServiceClient;
 import com.github.admin.common.constants.Constants;
 import com.github.admin.common.domain.Organization;
+import com.github.admin.common.request.OrganizationRequest;
 import com.github.admin.common.utils.ResultUtils;
 import com.github.admin.common.vo.PageVo;
 import com.github.admin.utils.LengthValidator;
 import com.github.appmodel.domain.result.ModelResult;
-import com.github.appmodel.page.DataPage;
 
 import io.swagger.annotations.ApiOperation;
 
@@ -41,18 +41,10 @@ public class OrganizationController {
 	
 	@ApiOperation("组织列表")
     @RequiresPermissions("admin:organization:read")
-    @RequestMapping(value = "/list",method = RequestMethod.GET)
+    @RequestMapping(value = "/list",method = RequestMethod.POST)
     @ResponseBody
-    public Object list(
-            @RequestParam(required = false, defaultValue = "0", value = "offset") int offset,
-            @RequestParam(required = false, defaultValue = "10", value = "limit") int limit,
-            @RequestParam(required = false, defaultValue = "", value = "search") String search,
-            @RequestParam(required = false, value = "sort") String sort,
-            @RequestParam(required = false, value = "order") String order) {
-        DataPage<Organization> dataPage = new DataPage<Organization>();
-        dataPage.setPageSize(limit);
-        dataPage.setPageNo(offset/limit+1);
-        ModelResult<PageVo> modelResult = organizationServiceClient.pageOrganizationList(dataPage);
+    public Object list(@RequestBody OrganizationRequest organizationRequest) {
+        ModelResult<PageVo> modelResult = organizationServiceClient.pageOrganizationList(organizationRequest);
         return ResultUtils.buildPageResult(modelResult);
     }
 	

@@ -3,9 +3,9 @@ package com.github.admin.common.service;
 import java.util.List;
 
 import com.github.admin.common.domain.Role;
+import com.github.admin.common.request.RoleRequest;
 import com.github.admin.common.vo.PageVo;
 import com.github.appmodel.domain.result.ModelResult;
-import com.github.appmodel.page.DataPage;
 
 public interface RoleService {
 
@@ -21,7 +21,7 @@ public interface RoleService {
 	 * @param dataPage
 	 * @return
 	 */
-	public ModelResult<PageVo> pageRoleList(DataPage<Role> dataPage);
+	public ModelResult<PageVo> pageRoleList(RoleRequest roleRequest);
 
 	/***
 	 * 查询所以角色

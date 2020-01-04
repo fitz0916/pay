@@ -11,6 +11,7 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 
 import com.github.admin.common.domain.Organization;
+import com.github.admin.common.request.OrganizationRequest;
 import com.github.admin.common.service.OrganizationService;
 import com.github.admin.common.vo.PageVo;
 import com.github.appmodel.domain.result.ModelResult;
@@ -24,8 +25,8 @@ public class OrganizationController {
 	private OrganizationService organizationServiceImpl;
 	
 	@PostMapping("/pageOrganizationList")
-	ModelResult<PageVo> pageOrganizationList(@RequestBody DataPage<Organization> dataPage){
-		return organizationServiceImpl.pageOrganizationList(dataPage);
+	ModelResult<PageVo> pageOrganizationList(@RequestBody OrganizationRequest organizationRequest){
+		return organizationServiceImpl.pageOrganizationList(organizationRequest);
 	}
 	
 	@PostMapping("/insertSelective")

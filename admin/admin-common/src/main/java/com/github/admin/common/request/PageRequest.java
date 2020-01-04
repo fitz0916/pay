@@ -3,7 +3,7 @@ package com.github.admin.common.request;
 import com.github.admin.common.domain.BaseObject;
 import com.github.appmodel.page.DataPage;
 
-public class BaseRequest extends BaseObject{
+public class PageRequest extends BaseObject{
 
 	private DataPage<?> dataPage;
 	private Integer offset = 0;

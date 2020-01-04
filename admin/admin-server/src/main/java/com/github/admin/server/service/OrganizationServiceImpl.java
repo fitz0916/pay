@@ -8,6 +8,7 @@ import org.springframework.stereotype.Service;
 
 import com.github.admin.common.constants.Constants;
 import com.github.admin.common.domain.Organization;
+import com.github.admin.common.request.OrganizationRequest;
 import com.github.admin.common.service.OrganizationService;
 import com.github.admin.common.vo.PageVo;
 import com.github.admin.server.dao.OrganizationDao;
@@ -16,16 +17,18 @@ import com.github.appmodel.page.DataPage;
 
 
 @Service
-public class OrganizationServiceImpl implements OrganizationService{
+public class OrganizationServiceImpl extends BaseService implements OrganizationService{
 
 	@Autowired
 	private OrganizationDao organizationDao;
 	
 	
 	@Override
-	public ModelResult<PageVo> pageOrganizationList(DataPage<Organization> dataPage) {
+	public ModelResult<PageVo> pageOrganizationList(OrganizationRequest organizationRequest) {
 		ModelResult<PageVo> modelResult = new ModelResult<PageVo>();
 		PageVo pageVo = new PageVo();
+		DataPage<Organization> dataPage = new DataPage<Organization>();
+		this.setDataPage(dataPage, organizationRequest);
 		int start = dataPage.getStartIndex();
 		int offset = dataPage.getPageSize();
 		long totalCount = organizationDao.pageOrganizationListCount();
