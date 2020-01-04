@@ -25,7 +25,7 @@
                     <div class="form-group">
                         <label class="col-md-4 control-label text-right">权限名称：</label>
                         <div class="col-md-8">
-                            <input class="form-control"  id="parentPermission">
+                            <input class="form-control"  id="permissionName">
                         </div>
                     </div>
                 </div>
@@ -50,12 +50,14 @@
                     </div>
                 </div>
             </div>
+            <!-- 
                 <div class="col-md-12 text-right ">
                     <div params="vm.searchParams" class="ng-isolate-scope">
 						<button type="button" class="btn btn-success" onclick="query()"><span class="glyphicon glyphicon-search"></span>搜索</button>
 						<a onclick="reset()" class="btn btn-danger pull-right">重置</a>
 					</div>
                 </div>
+                 -->
             </div>
         </form>
      </div>
@@ -134,8 +136,9 @@ $.ajax({
     type:"GET",
     url:'${basePath}/manage/system/all',
     success:function(result){
-        for(var i=0;i<result.length;i++){
-            var option = $("<option value="+ result[i].systemId +">" + result[i].title +"</option>");
+    	var data = result.data;
+        for(var i=0;i<data.length;i++){
+            var option = $("<option value="+ data[i].systemId +">" + data[i].title +"</option>");
             $("#queryBySystem").append(option);
         }
     }
@@ -214,12 +217,15 @@ function queryPermission(){
 
 //分页查询参数，是以键值对的形式设置的
 function queryParams(params) {
+	var name = $.trim($('#queryParams').val()) == '' ? null: $.trim($('#queryParams').val());
+	var systemId = $('#queryBySystem').val() == 0 ? null : $('#queryBySystem').val();
+	var parentId = $('#queryByParent').val() == -1 ? null : $('#queryByParent').val();
     return {
-        name: $('#parentPermission').val().trim(),
+        name:name,
         limit: params.limit, // 每页显示数量
         offset: parseInt(params.offset),
-        systemId: $('#queryBySystem').val()==0 ? null : $('#queryBySystem').val(),
-        parentId: $('#queryByParent').val()==-1 ? null : $('#queryByParent').val(),
+        systemId:systemId,
+        parentId:parentId
     }
 }
 

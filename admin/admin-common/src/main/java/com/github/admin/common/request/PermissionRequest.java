@@ -1,14 +1,15 @@
 package com.github.admin.common.request;
 
-import com.github.admin.common.domain.PermissionInfo;
-import com.github.appmodel.page.DataPage;
-
 public class PermissionRequest extends PageRequest{
 	
 	
+	/**
+	 * 
+	 */
+	private static final long serialVersionUID = -3457050356287947852L;
 	private Integer systemId;
 	private Integer type;
-	 
+	private String name;
 	 
 	
 	public Integer getSystemId() {
@@ -22,6 +23,12 @@ public class PermissionRequest extends PageRequest{
 	}
 	public void setType(Integer type) {
 		this.type = type;
+	}
+	public String getName() {
+		return name; 
+	}
+	public void setName(String name) {
+		this.name = name;
 	}
 	 
 	 

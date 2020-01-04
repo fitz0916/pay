@@ -1,6 +1,7 @@
 package com.github.admin.web.controller;
 
 import java.util.Date;
+import java.util.List;
 
 import org.apache.shiro.authz.annotation.RequiresPermissions;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -22,7 +23,6 @@ import com.github.admin.common.utils.ResultUtils;
 import com.github.admin.common.vo.PageVo;
 import com.github.admin.utils.LengthValidator;
 import com.github.appmodel.domain.result.ModelResult;
-import com.github.appmodel.page.DataPage;
 
 import io.swagger.annotations.ApiOperation;
 
@@ -117,6 +117,15 @@ public class SystemController {
 		}
 		system.setSystemId(id);
 		ModelResult<Integer> modelResult = systemServiceClient.updateByPrimaryKeySelective(system);
+		return ResultUtils.buildResult(modelResult);
+	}
+	
+	@ApiOperation("查找所有系统列表")
+	@RequiresPermissions("admin:system:read")
+	@RequestMapping(value = "/all",method = RequestMethod.GET)
+	@ResponseBody
+	public Object list(){
+		ModelResult<List<System>> modelResult = systemServiceClient.querySystemByStatus(1);
 		return ResultUtils.buildResult(modelResult);
 	}
 }
