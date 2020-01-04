@@ -55,7 +55,7 @@
 		      <option value="zmdi zmdi-plus">新增</option>
 		      <option value="zmdi zmdi-close">删除</option>
 		      <option value="zmdi zmdi-edit">编辑</option>
-		      <option value="zmdi zmdi-key">角色权限</option>
+		      <option value="zmdi zmdi-key">用户授权</option>
 		      <option value="zmdi zmdi-accounts-list">用户组织</option>
 		      <option value="zmdi zmdi-accounts">用户角色</option>
 		    </select>
