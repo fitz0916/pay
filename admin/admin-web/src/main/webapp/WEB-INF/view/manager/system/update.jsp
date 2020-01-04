@@ -27,11 +27,9 @@
 			<label for="name">名称</label>
 			<input id="name" type="text" class="form-control" name="name" maxlength="20" value="${system.name}" required="true">
 		</div>
-		<div class="row">
-			<div class="col-lg-8 form-group">
-				<label for="name">背景图</label>
-				<input id="banner" type="text" class="form-control" name="banner" maxlength="150" value="${system.banner}">
-			</div>
+		<div class="form-group">
+			<label for="name">背景图</label>
+			<input id="banner" type="text" class="form-control" name="banner" maxlength="150" value="${system.banner}">
 			<!-- 
 			<div class="col-lg-4">
 				<div id="picker">上传背景图</div>
