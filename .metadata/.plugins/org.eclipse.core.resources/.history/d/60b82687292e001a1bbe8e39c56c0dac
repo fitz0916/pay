@@ -1,5 +1,0 @@
-package com.github.admin.common.request;
-
-public class PermissionRequest {
-
-}

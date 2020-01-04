@@ -1,9 +1,0 @@
-package com.github.admin.common.service;
-
-import com.github.appmodel.domain.result.ModelResult;
-
-public interface UserOrganizationService {
-
-	ModelResult<Integer> organization(String[] organizationIds, Integer id);
-
-}

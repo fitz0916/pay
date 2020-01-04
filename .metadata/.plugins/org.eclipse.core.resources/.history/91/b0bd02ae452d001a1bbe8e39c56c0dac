@@ -1,8 +1,0 @@
-package com.github.admin.common.constants;
-
-public class Constants {
-
-	 public static final String ADMIN_CURRENT_USER = "admin-current-user-";
-	 
-	 public static final String ADMIN_SERVER_SESSION = "admin-server-session-";
-}

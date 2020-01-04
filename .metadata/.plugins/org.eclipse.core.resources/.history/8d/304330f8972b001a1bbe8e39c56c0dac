@@ -1,9 +1,0 @@
-package com.github.admin.common.service;
-
-import com.github.admin.common.domain.User;
-import com.github.appmodel.domain.result.ModelResult;
-
-public interface UserService {
-
-	ModelResult<User> selectUserByUserName(String userName);
-}

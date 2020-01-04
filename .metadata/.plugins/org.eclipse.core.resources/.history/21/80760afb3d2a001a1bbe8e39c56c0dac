@@ -1,5 +1,0 @@
-package com.github.admin.config;
-
-public class CaptchaConfig {
-
-}

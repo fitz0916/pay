@@ -1,7 +1,0 @@
-package com.github.admin.server.service;
-
-import UserRoleService;
-
-public class UserRoleServiceImpl extends UserRoleService {
-
-}

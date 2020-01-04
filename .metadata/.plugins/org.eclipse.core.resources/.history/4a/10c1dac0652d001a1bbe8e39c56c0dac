@@ -1,7 +1,0 @@
-package com.github.admin.common.request;
-
-import com.github.admin.common.domain.BaseObject;
-
-public class UserRequest extends BaseObject{
-
-}
