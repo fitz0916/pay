@@ -1,0 +1,193 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd" >
+<mapper namespace="AgentPayChannelInfoMapper" >
+  <resultMap id="BaseResultMap" type="AgentPayChannelInfo" >
+    <id column="customer_pay_channelinfo_id" property="customerPayChannelInfoId" jdbcType="INTEGER" />
+    <result column="agent_id" property="agentId" jdbcType="INTEGER" />
+    <result column="paytype_id" property="payTypeId" jdbcType="INTEGER" />
+    <result column="pay_channelinfo_id" property="payChannelInfoId" jdbcType="INTEGER" />
+    <result column="pay_channel_account_id" property="payChannelAccountId" jdbcType="INTEGER" />
+    <result column="remark" property="remark" jdbcType="VARCHAR" />
+    <result column="priority" property="priority" jdbcType="INTEGER" />
+    <result column="is_froze" property="isFroze" jdbcType="BIT" />
+	<association property="chequeChannel" javaType="ChequeChannel">
+	    <id column="id" property="id" jdbcType="INTEGER" />
+	    <result column="bank_num" property="bankNum" jdbcType="VARCHAR" />
+	    <result column="card_type_id" property="cardTypeId" jdbcType="INTEGER" />
+	    <result column="cyber_bank_id" property="cyberBankId" jdbcType="INTEGER" />
+	    <result column="pay_channel_id" property="payChannelId" jdbcType="INTEGER" />
+	    <result column="notes" property="notes" jdbcType="VARCHAR" />
+	    <result column="channel_name" property="channelName" jdbcType="VARCHAR" />
+	    <result column="template_name" property="templateName" jdbcType="VARCHAR" />
+	    <result column="bank_name" property="bankName" jdbcType="VARCHAR" />
+	    <result column="bank_type" property="bankType" jdbcType="SMALLINT" />
+	    <result column="bank_logo" property="bankLogo" jdbcType="VARCHAR" />
+	</association>
+  </resultMap>
+  <sql id="Base_Column_List" >
+    customer_pay_channelinfo_id, agent_id, paytype_id, pay_channelinfo_id, pay_channel_account_id, remark, priority, is_froze
+  </sql>
+  <select id="selectByPrimaryKey" resultMap="BaseResultMap" parameterType="java.lang.Long" >
+    select 
+    <include refid="Base_Column_List" />
+    from pattern_customer_pay_channelinfo
+    where customer_pay_channelinfo_id = #{customerPayChannelInfoId,jdbcType=INTEGER}
+  </select>
+
+  <delete id="deleteByPrimaryKey" parameterType="java.lang.Integer" >
+    delete from pattern_customer_pay_channelinfo
+    where customer_pay_channelinfo_id = #{customerPayChannelInfoId,jdbcType=INTEGER}
+  </delete>
+
+  <insert id="insert" parameterType="AgentPayChannelInfo" >
+    insert into pattern_customer_pay_channelinfo (customer_pay_channelinfo_id, agent_id, paytype_id,
+      pay_channelinfo_id, pay_channel_account_id, remark, priority,
+      is_froze)
+    values (#{customerPayChannelInfoId,jdbcType=INTEGER}, #{agentId,jdbcType=INTEGER}, #{payTypeId,jdbcType=INTEGER},
+      #{payChannelInfoId,jdbcType=INTEGER}, #{payChannelAccountId,jdbcType=INTEGER}, #{remark,jdbcType=VARCHAR}, #{priority,jdbcType=INTEGER},
+      #{isFroze,jdbcType=BIT})
+  </insert>
+  <insert id="insertSelective" parameterType="AgentPayChannelInfo" >
+    insert into pattern_customer_pay_channelinfo
+    <trim prefix="(" suffix=")" suffixOverrides="," >
+      <if test="customerPayChannelInfoId != null" >
+        customer_pay_channelinfo_id,
+      </if>
+      <if test="agentId != null" >
+        agent_id,
+      </if>
+      <if test="payTypeId != null" >
+        paytype_id,
+      </if>
+      <if test="payChannelInfoId != null" >
+        pay_channelinfo_id,
+      </if>
+      <if test="payChannelAccountId != null" >
+        pay_channel_account_id,
+      </if>
+      <if test="remark != null" >
+        remark,
+      </if>
+      <if test="priority != null" >
+        priority,
+      </if>
+      <if test="isFroze != null" >
+        is_froze,
+      </if>
+    </trim>
+    <trim prefix="values (" suffix=")" suffixOverrides="," >
+      <if test="customerPayChannelInfoId != null" >
+        #{customerPayChannelInfoId,jdbcType=INTEGER},
+      </if>
+      <if test="agentId != null" >
+        #{agentId,jdbcType=INTEGER},
+      </if>
+      <if test="payTypeId != null" >
+        #{payTypeId,jdbcType=INTEGER},
+      </if>
+      <if test="payChannelInfoId != null" >
+        #{payChannelInfoId,jdbcType=INTEGER},
+      </if>
+      <if test="payChannelAccountId != null" >
+        #{payChannelAccountId,jdbcType=INTEGER},
+      </if>
+      <if test="remark != null" >
+        #{remark,jdbcType=VARCHAR},
+      </if>
+      <if test="priority != null" >
+        #{priority,jdbcType=INTEGER},
+      </if>
+      <if test="isFroze != null" >
+        #{isFroze,jdbcType=BIT},
+      </if>
+    </trim>
+  </insert>
+
+  <update id="updateByPrimaryKeySelective" parameterType="AgentPayChannelInfo" >
+    update pattern_customer_pay_channelinfo
+    <set >
+      <if test="agentId != null" >
+        agent_id = #{agentId,jdbcType=INTEGER},
+      </if>
+      <if test="payTypeId != null" >
+        paytype_id = #{payTypeId,jdbcType=INTEGER},
+      </if>
+      <if test="payChannelInfoId != null" >
+        pay_channelinfo_id = #{payChannelInfoId,jdbcType=INTEGER},
+      </if>
+      <if test="payChannelAccountId != null" >
+        pay_channel_account_id = #{payChannelAccountId,jdbcType=INTEGER},
+      </if>
+      <if test="remark != null" >
+        remark = #{remark,jdbcType=VARCHAR},
+      </if>
+      <if test="priority != null" >
+        priority = #{priority,jdbcType=INTEGER},
+      </if>
+      <if test="isFroze != null" >
+        is_froze = #{isFroze,jdbcType=BIT},
+      </if>
+    </set>
+    where customer_pay_channelinfo_id = #{customerPayChannelInfoId,jdbcType=INTEGER}
+  </update>
+  <update id="updateByPrimaryKey" parameterType="AgentPayChannelInfo" >
+    update pattern_customer_pay_channelinfo
+    set agent_id = #{agentId,jdbcType=INTEGER},
+      paytype_id = #{payTypeId,jdbcType=INTEGER},
+      pay_channelinfo_id = #{payChannelInfoId,jdbcType=INTEGER},
+      pay_channel_account_id = #{payChannelAccountId,jdbcType=INTEGER},
+      remark = #{remark,jdbcType=VARCHAR},
+      priority = #{priority,jdbcType=INTEGER},
+      is_froze = #{isFroze,jdbcType=BIT}
+    where customer_pay_channelinfo_id = #{customerPayChannelInfoId,jdbcType=INTEGER}
+  </update>
+
+  <select id="selectChnnelTypeSetByAgentIdAndPaytype" resultMap="BaseResultMap" parameterType="java.lang.Integer" >
+    select t1.*
+    from pattern_customer_pay_channelinfo t1 left join pattern_pay_channelinfo t2 on t1.pay_channelinfo_id=t2.pay_channelinfo_id
+    <where>
+      t1.agent_id=#{agentId} and t1.paytype_id=#{payType} and t2.is_lock=#{isLock}
+    </where>
+    order by t1.priority desc
+  </select>
+  <select id="selectByAgentIdAndPayTypeAndBankId" resultMap="BaseResultMap" parameterType="java.lang.Integer" >
+ select DISTINCT agentTypeSet.*,chequeChannel.* from pattern_customer_pay_channelinfo agentTypeSet
+    left join pattern_pay_channelinfo channelInfo on channelInfo.pay_channelinfo_id=agentTypeSet.pay_channelinfo_id
+    right join pattern_cheque_channel chequeChannel on chequeChannel.pay_channel_id=channelInfo.pay_channel_id
+	<where>
+		agentTypeSet.agent_id=#{agentId} 
+		and agentTypeSet.paytype_id=#{payType}
+		and channelInfo.is_lock=#{isLock} 
+		and chequeChannel.cyber_bank_id = #{bankId} 
+	</where>
+		order by agentTypeSet.priority desc
+  </select>
+  <select id="selectByAgentIdAndTypeIdList" resultMap="BaseResultMap" parameterType="java.util.Map">
+    select
+    <include refid="Base_Column_List" />
+    from pattern_customer_pay_channelinfo
+    where agent_id = #{agentId} and paytype_id = #{payTypeId}
+  </select>
+  <select id="selectByAgentIdList" resultMap="BaseResultMap" parameterType="java.util.Map">
+    select
+    <include refid="Base_Column_List" />
+    from pattern_customer_pay_channelinfo
+    where agent_id = #{agentId}
+    group by paytype_id,customer_pay_channelinfo_id
+    <if test="start!=null and offset!=null">
+        limit #{start},#{offset}
+    </if>
+  </select>
+  <select id="selectByAgentIdListCount" resultType="int" parameterType="java.util.Map">
+    select count(*)
+    from pattern_customer_pay_channelinfo
+    where agent_id = #{agentId}
+  </select>
+  <select id="selectAgentPayChannelInfoByPayTypeId" resultMap="BaseResultMap" parameterType="java.util.Map">
+    select
+    <include refid="Base_Column_List" />
+    from pattern_customer_pay_channelinfo
+    where paytype_id = #{payTypeId}
+  </select>
+
+</mapper>

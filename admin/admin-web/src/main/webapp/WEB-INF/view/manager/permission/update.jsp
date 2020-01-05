@@ -56,7 +56,7 @@
 			<label for="icon">图标</label>
 			<input id="icon" type="text" class="form-control" name="icon" maxlength="50" value="${permission.icon}">
 			<label for="icon">图标</label>
-		    <select class="form-control">
+		    <select class="form-control" name="icon">
 		     <option value="zmdi zmdi-accounts-list" <c:if test="${permission.icon eq 'zmdi zmdi-accounts-list'}">selected="selected"</c:if>>目录-代理商管理</option>
 		      <option value="zmdi zmdi-paypal" <c:if test="${permission.icon eq 'zmdi zmdi-paypal'}">selected="selected"</c:if>>目录-支付渠道</option>
 		      <option value="zmdi zmdi-plus" <c:if test="${permission.icon eq 'zmdi zmdi-plus'}">selected="selected"</c:if>>按钮-新增</option>

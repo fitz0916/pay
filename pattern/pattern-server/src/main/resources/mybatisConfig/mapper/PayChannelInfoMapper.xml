@@ -1,0 +1,245 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd" >
+<mapper namespace="PayChannelInfoMapper" >
+  <resultMap id="BaseResultMap" type="PayChannelInfo" >
+    <id column="pay_channelinfo_id" property="payChannelInfoId" jdbcType="INTEGER" />
+    <result column="channelinfo_name" property="channelInfoName" jdbcType="VARCHAR" />
+    <result column="is_lock" property="isLock" jdbcType="BIT" />
+    <result column="remark" property="remark" jdbcType="VARCHAR" />
+    <result column="fee" property="fee" jdbcType="DECIMAL" />
+    <result column="salefee" property="salefee" jdbcType="DECIMAL" />
+    <result column="pay_channel_id" property="payChannelId" jdbcType="INTEGER" />
+    <result column="pay_channel_account_id" property="payChannelAccountId" jdbcType="INTEGER" />
+    <result column="paytype_id" property="payTypeId" jdbcType="VARCHAR" />
+    <result column="create_time" property="createTime" jdbcType="TIMESTAMP" />
+  </resultMap>
+  <sql id="Base_Column_List" >
+    pay_channelinfo_id, channelinfo_name, is_lock, remark, fee, salefee, pay_channel_id, pay_channel_account_id, paytype_id, create_time
+  </sql>
+  <select id="selectByPrimaryKey" resultMap="BaseResultMap" parameterType="java.lang.Long" >
+    select 
+    <include refid="Base_Column_List" />
+    from pattern_pay_channelinfo
+    where pay_channelinfo_id = #{payChannelInfoId,jdbcType=INTEGER}
+  </select>
+  <select id="queryByPayChannelAccountIdAndPayTypeIdCount" resultType="int" parameterType="map">
+    select
+    count(*)
+    from pattern_pay_channelinfo
+    where pay_channel_account_id = #{payChannelAccountId} and paytype_id = #{payTypeId}
+  </select>
+  <select id="queryByChannelInfoNameCount" resultType="int" parameterType="map">
+    select
+    count(*)
+    from pattern_pay_channelinfo
+    where channelinfo_name = #{channelInfoName}
+  </select>
+  <select id="pagePayChannelInfoList" parameterType="map" resultMap="BaseResultMap">
+    select
+    <include refid="Base_Column_List"/>
+    from pattern_pay_channelinfo
+
+    <choose>
+      <when test="payChannelAccountId != null and payTypeId != null">
+        where pay_channel_account_id = #{payChannelAccountId} and paytype_id = #{payTypeId}
+      </when>
+      <otherwise>
+        <if test="payChannelAccountId != null">
+          where pay_channel_account_id = #{payChannelAccountId}
+        </if>
+        <if test="payTypeId != null">
+          where paytype_id = #{payTypeId}
+        </if>
+      </otherwise>
+    </choose>
+
+    group by pay_channel_account_id,pay_channelinfo_id
+    <if test="start!=null and offset!=null">
+      limit #{start}, #{offset}
+    </if>
+  </select>
+  <select id="pageByPayTypeIdList" parameterType="map" resultMap="BaseResultMap">
+    select
+    <include refid="Base_Column_List"/>
+    from pattern_pay_channelinfo
+    where paytype_id = #{payTypeId}
+    group by pay_channel_account_id,pay_channelinfo_id
+    <if test="start!=null and offset!=null">
+      limit #{start}, #{offset}
+    </if>
+  </select>
+  <select id="pageByPayTypeIdListCount" resultType="int" parameterType="map">
+    select count(*)
+    from pattern_pay_channelinfo
+    where paytype_id = #{payTypeId}
+  </select>
+
+  <select id="queryChannelInfoListCount" resultType="int" parameterType="map">
+    select count(*)
+    from pattern_pay_channelinfo
+    <choose>
+      <when test="payChannelAccountId != null and payTypeId != null">
+        where pay_channel_account_id = #{payChannelAccountId} and paytype_id = #{payTypeId}
+      </when>
+      <otherwise>
+        <if test="payChannelAccountId != null">
+          where pay_channel_account_id = #{payChannelAccountId}
+        </if>
+        <if test="payTypeId != null">
+          where paytype_id = #{payTypeId}
+        </if>
+      </otherwise>
+    </choose>
+  </select>
+
+  <select id="selectByPayChannelAccountIdList" resultMap="BaseResultMap" parameterType="java.util.Map">
+    select
+    <include refid="Base_Column_List"/>
+    from pattern_pay_channelinfo
+    where pay_channel_account_id = #{payChannelAccountId}
+  </select>
+
+  <select id="selectByPayChannelAccountIdCount" resultType="int" parameterType="java.util.Map">
+    select count(*)
+    from pattern_pay_channelinfo
+    where pay_channel_account_id = #{payChannelAccountId}
+  </select>
+
+  <delete id="deleteByPrimaryKey" parameterType="java.lang.Integer" >
+    delete from pattern_pay_channelinfo
+    where pay_channelinfo_id = #{payChannelInfoId,jdbcType=INTEGER}
+  </delete>
+
+  <insert id="insert" parameterType="PayChannelInfo" >
+    insert into pattern_pay_channelinfo (pay_channelinfo_id, channelinfo_name, is_lock,
+      remark, fee, salefee, pay_channel_id, pay_channel_account_id, paytype_id, create_time)
+    values (#{payChannelInfoId,jdbcType=INTEGER}, #{channelInfoName,jdbcType=VARCHAR}, #{isLock,jdbcType=BIT},
+      #{remark,jdbcType=VARCHAR}, #{fee,jdbcType=DECIMAL}, #{salefee,jdbcType=DECIMAL},
+      #{payChannelId,jdbcType=INTEGER}, #{payChannelAccountId,jdbcType=INTEGER}, #{payTypeId,jdbcType=INTEGER}, #{createTime,jdbcType=TIMESTAMP})
+  </insert>
+  <insert id="insertSelective" parameterType="PayChannelInfo" >
+    insert into pattern_pay_channelinfo
+    <trim prefix="(" suffix=")" suffixOverrides="," >
+      <if test="payChannelInfoId != null" >
+        pay_channelinfo_id,
+      </if>
+      <if test="channelInfoName != null" >
+        channelinfo_name,
+      </if>
+      <if test="isLock != null" >
+        is_lock,
+      </if>
+      <if test="remark != null" >
+        remark,
+      </if>
+      <if test="fee != null" >
+        fee,
+      </if>
+      <if test="salefee != null" >
+        salefee,
+      </if>
+      <if test="payChannelId != null" >
+        pay_channel_id,
+      </if>
+      <if test="payChannelAccountId != null" >
+        pay_channel_account_id,
+      </if>
+      <if test="payTypeId != null" >
+        paytype_id,
+      </if>
+      <if test="createTime != null" >
+        create_time,
+      </if>
+    </trim>
+    <trim prefix="values (" suffix=")" suffixOverrides="," >
+      <if test="payChannelInfoId != null" >
+        #{payChannelInfoId,jdbcType=INTEGER},
+      </if>
+      <if test="channelInfoName != null" >
+        #{channelInfoName,jdbcType=VARCHAR},
+      </if>
+      <if test="isLock != null" >
+        #{isLock,jdbcType=BIT},
+      </if>
+      <if test="remark != null" >
+        #{remark,jdbcType=VARCHAR},
+      </if>
+      <if test="fee != null" >
+        #{fee,jdbcType=DECIMAL},
+      </if>
+      <if test="salefee != null" >
+        #{salefee,jdbcType=DECIMAL},
+      </if>
+      <if test="payChannelId != null" >
+        #{payChannelId,jdbcType=INTEGER},
+      </if>
+      <if test="payChannelAccountId != null" >
+        #{payChannelAccountId,jdbcType=INTEGER},
+      </if>
+      <if test="payTypeId != null" >
+        #{payTypeId,jdbcType=INTEGER},
+      </if>
+      <if test="createTime != null" >
+        #{createTime,jdbcType=TIMESTAMP},
+      </if>
+    </trim>
+  </insert>
+
+  <update id="updateByPrimaryKeySelective" parameterType="PayChannelInfo" >
+    update pattern_pay_channelinfo
+    <set >
+      <if test="channelInfoName != null" >
+        channelinfo_name = #{channelInfoName,jdbcType=VARCHAR},
+      </if>
+      <if test="isLock != null" >
+        is_lock = #{isLock,jdbcType=BIT},
+      </if>
+      <if test="remark != null" >
+        remark = #{remark,jdbcType=VARCHAR},
+      </if>
+      <if test="fee != null" >
+        fee = #{fee,jdbcType=DECIMAL},
+      </if>
+      <if test="salefee != null" >
+        salefee = #{salefee,jdbcType=DECIMAL},
+      </if>
+      <if test="payChannelId != null" >
+        pay_channel_id = #{payChannelId,jdbcType=INTEGER},
+      </if>
+      <if test="payChannelAccountId != null" >
+        pay_channel_account_id = #{payChannelAccountId,jdbcType=INTEGER},
+      </if>
+      <if test="payTypeId != null" >
+        paytype_id = #{payTypeId,jdbcType=INTEGER},
+      </if>
+      <if test="createTime != null" >
+        create_time = #{createTime,jdbcType=INTEGER},
+      </if>
+    </set>
+    where pay_channelinfo_id = #{payChannelInfoId,jdbcType=INTEGER}
+  </update>
+  <update id="updateByPrimaryKey" parameterType="PayChannelInfo" >
+    update pattern_pay_channelinfo
+    set channelinfo_name = #{channelInfoName,jdbcType=VARCHAR},
+      is_lock = #{isLock,jdbcType=BIT},
+      remark = #{remark,jdbcType=VARCHAR},
+      fee = #{fee,jdbcType=DECIMAL},
+      salefee = #{salefee,jdbcType=DECIMAL},
+      pay_channel_id = #{payChannelId,jdbcType=INTEGER},
+      pay_channel_account_id = #{payChannelAccountId,jdbcType=INTEGER},
+      paytype_id = #{payTypeId,jdbcType=INTEGER},
+      create_time = #{createTime,jdbcType=TIMESTAMP}
+    where pay_channelinfo_id = #{payChannelInfoId,jdbcType=INTEGER}
+  </update>
+  
+  <select id="selectByPayChannelAccountIdAndPaytype" parameterType="java.util.Map" resultMap="BaseResultMap">
+    select 
+    <include refid="Base_Column_List"/>
+    from pattern_pay_channelinfo
+  	<where>
+  		pay_channel_account_id=#{payChannelId}
+  		and
+  		paytype_id = #{tradeType}
+  	</where>
+  </select>
+</mapper>

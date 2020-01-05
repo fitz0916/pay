@@ -51,8 +51,7 @@
 		</div>
 		<div class="form-group type1 type3">
 			<label for="icon">图标</label>
-		    <select class="form-control">
-		     
+		    <select class="form-control" name="icon">
 		      <option value="zmdi zmdi-accounts-list">目录-代理商管理</option>
 		      <option value="zmdi zmdi-paypal">目录-支付渠道</option>
 		      <option value="zmdi zmdi-plus">按钮-新增</option>

@@ -1,0 +1,26 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE configuration PUBLIC "-//mybatis.org//DTD Config 3.0//EN"
+"http://mybatis.org/dtd/mybatis-3-config.dtd">
+
+<configuration>
+	<typeAliases>
+		<typeAlias alias="Calendar" type="java.util.Calendar" />
+		<typeAlias alias="Customer" type="com.github.pattern.common.domain.Customer"/>
+		<typeAlias alias="Agent" type="com.github.pattern.common.domain.Agent"/>
+		<typeAlias alias="CustomerPayChannelInfo" type="com.github.pattern.common.domain.CustomerPayChannelInfo"/>
+		<typeAlias alias="PayChannel" type="com.github.pattern.common.domain.PayChannel"/>
+		<typeAlias alias="RolePermission" type="com.github.pattern.common.domain.PayChannelAccount"/>
+		<typeAlias alias="PayChannelAccountPara" type="com.github.pattern.common.domain.PayChannelAccountPara"/>
+		<typeAlias alias="PayChannelInfo" type="com.github.pattern.common.domain.PayChannelInfo"/>
+		<typeAlias alias="PayChannelInfoRisk" type="com.github.pattern.common.domain.PayChannelInfoRisk"/>
+		<typeAlias alias="PayChannelPara" type="com.github.pattern.common.domain.PayChannelPara"/>
+		<typeAlias alias="PayType" type="com.github.pattern.common.domain.PayType"/>
+		<typeAlias alias="PayWhiteList" type="com.github.pattern.common.domain.PayWhiteList"/>
+	</typeAliases>
+	
+	<typeHandlers>
+        
+         
+    </typeHandlers>
+	
+</configuration>

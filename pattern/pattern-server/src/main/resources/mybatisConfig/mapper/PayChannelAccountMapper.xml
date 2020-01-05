@@ -1,0 +1,243 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd" >
+<mapper namespace="PayChannelAccountMapper" >
+  <resultMap id="BaseResultMap" type="PayChannelAccount" >
+    <id column="pay_channel_account_id" property="payChannelAccountId" jdbcType="INTEGER" />
+    <result column="simple_name" property="simpleName" jdbcType="VARCHAR" />
+    <result column="full_name" property="fullName" jdbcType="VARCHAR" />
+    <result column="pay_channel_id" property="payChannelId" jdbcType="INTEGER" />
+    <result column="is_lock" property="isLock" jdbcType="INTEGER" />
+    <result column="business_contacts" property="businessContacts" jdbcType="VARCHAR" />
+    <result column="qq" property="qq" jdbcType="VARCHAR" />
+    <result column="wechat" property="wechat" jdbcType="VARCHAR" />
+    <result column="mobile" property="mobile" jdbcType="VARCHAR" />
+    <result column="remark" property="remark" jdbcType="VARCHAR" />
+    <result column="support_types" property="supportTypes" jdbcType="VARCHAR" />
+    <result column="create_time" property="createTime" jdbcType="TIMESTAMP" />
+  </resultMap>
+  <sql id="Base_Column_List" >
+    pay_channel_account_id, simple_name, full_name, pay_channel_id, is_lock, business_contacts, qq, wechat, mobile, remark, support_types, create_time
+  </sql>
+
+  <select id="selectByPrimaryKey" resultMap="BaseResultMap" parameterType="java.lang.Long" >
+    select 
+    <include refid="Base_Column_List" />
+    from pattern_pay_channel_account
+    where pay_channel_account_id = #{payChannelAccountId}
+  </select>
+  <select id="pagePayChannelAccountListCount" parameterType="map" resultType="int" >
+    select count(*) from pattern_pay_channel_account
+  </select>
+  <select id="pagePayChannelAccountList" parameterType="map" resultMap="BaseResultMap">
+    select
+    <include refid="Base_Column_List"/>
+    from pattern_pay_channel_account
+
+      <choose>
+          <when test="payChannelAccountId != null and payChannelId != null">
+              where pay_channel_account_id = #{payChannelAccountId} and pay_channel_id = #{payChannelId}
+          </when>
+          <otherwise>
+              <if test="payChannelAccountId != null">
+                  where pay_channel_account_id = #{payChannelAccountId}
+              </if>
+              <if test="payChannelId != null">
+                  where pay_channel_id = #{payChannelId}
+              </if>
+          </otherwise>
+      </choose>
+
+    group by pay_channel_id,pay_channel_account_id
+    <if test="start!=null and offset!=null">
+      limit #{start}, #{offset}
+    </if>
+  </select>
+  <select id="queryPayChannelAccountList" resultMap="BaseResultMap" parameterType="java.util.Map">
+    select
+    <include refid="Base_Column_List"/>
+    from pattern_pay_channel_account
+    <if test="supportType != null and supportType == 1">
+      where support_types like CONCAT('%', #{supportType},'%')
+    </if>
+    <if test="supportType != null and supportType == 2">
+      where support_types like CONCAT('%', #{supportType},'%')
+    </if>
+    group by pay_channel_id,pay_channel_account_id
+  </select>
+  <select id="selectPayChannelAccountByPayChannelIdCount" parameterType="map" resultType="int" >
+    select count(*)
+    from pattern_pay_channel_account
+    where pay_channel_id = #{payChannelId}
+  </select>
+  <select id="selectPayChannelAccountByPayChannelId" resultMap="BaseResultMap">
+    select
+      <include refid="Base_Column_List"/>
+    from pattern_pay_channel_account
+    where pay_channel_id = #{payChannelId}
+  </select>
+  
+  <select id="listByIdList" resultMap="BaseResultMap" parameterType="map">
+    select
+      <include refid="Base_Column_List"/>
+    from pattern_pay_channel_account where pay_channel_account_id in 
+    <foreach collection="primaryKeyList" index="index" item="item" open="(" separator="," close=")">
+        #{item}       
+    </foreach>    
+  </select>
+
+  <select id="selectBySimpleName" resultMap="BaseResultMap" parameterType="java.util.Map">
+    select
+    <include refid="Base_Column_List"/>
+    from pattern_pay_channel_account
+    where simple_name = #{simpleName}
+  </select>
+
+  <delete id="deleteByPrimaryKey" parameterType="java.lang.Integer" >
+    delete from pattern_pay_channel_account
+    where pay_channel_account_id = #{payChannelAccountId,jdbcType=INTEGER}
+  </delete>
+
+  <insert id="insert" parameterType="PayChannelAccount" >
+    insert into pattern_pay_channel_account (pay_channel_account_id, simple_name, full_name,
+      pay_channel_id, is_lock, business_contacts,
+      qq, wechat, mobile, remark, support_types, create_time)
+    values (#{payChannelAccountId,jdbcType=INTEGER}, #{simpleName,jdbcType=VARCHAR}, #{fullName,jdbcType=VARCHAR},
+      #{payChannelId,jdbcType=INTEGER}, #{isLock,jdbcType=BIT}, #{businessManager,jdbcType=VARCHAR},
+      #{qq,jdbcType=VARCHAR}, #{wechat,jdbcType=VARCHAR}, #{mobile,jdbcType=VARCHAR},
+      #{remark,jdbcType=VARCHAR}, #{supportTypes,jdbcType=VARCHAR}, #{createTime,jdbcType=TIMESTAMP})
+  </insert>
+  <insert id="insertSelective" parameterType="PayChannelAccount" >
+    insert into pattern_pay_channel_account
+    <trim prefix="(" suffix=")" suffixOverrides="," >
+      <if test="payChannelAccountId != null" >
+        pay_channel_account_id,
+      </if>
+      <if test="simpleName != null" >
+        simple_name,
+      </if>
+      <if test="fullName != null" >
+        full_name,
+      </if>
+      <if test="payChannelId != null" >
+        pay_channel_id,
+      </if>
+      <if test="isLock != null" >
+        is_lock,
+      </if>
+      <if test="businessManager != null" >
+        business_contacts,
+      </if>
+      <if test="qq != null" >
+        qq,
+      </if>
+      <if test="wechat != null" >
+        wechat,
+      </if>
+      <if test="mobile != null" >
+        mobile,
+      </if>
+      <if test="remark != null" >
+        remark,
+      </if>
+      <if test="supportTypes != null" >
+        support_types,
+      </if>
+      <if test="createTime != null" >
+        create_time,
+      </if>
+    </trim>
+    <trim prefix="values (" suffix=")" suffixOverrides="," >
+      <if test="payChannelAccountId != null" >
+        #{payChannelAccountId,jdbcType=INTEGER},
+      </if>
+      <if test="simpleName != null" >
+        #{simpleName,jdbcType=VARCHAR},
+      </if>
+      <if test="fullName != null" >
+        #{fullName,jdbcType=VARCHAR},
+      </if>
+      <if test="payChannelId != null" >
+        #{payChannelId,jdbcType=INTEGER},
+      </if>
+      <if test="isLock != null" >
+        #{isLock,jdbcType=BIT},
+      </if>
+      <if test="businessManager != null" >
+        #{businessManager,jdbcType=VARCHAR},
+      </if>
+      <if test="qq != null" >
+        #{qq,jdbcType=VARCHAR},
+      </if>
+      <if test="wechat != null" >
+        #{wechat,jdbcType=VARCHAR},
+      </if>
+      <if test="mobile != null" >
+        #{mobile,jdbcType=VARCHAR},
+      </if>
+      <if test="remark != null" >
+        #{remark,jdbcType=VARCHAR},
+      </if>
+      <if test="supportTypes != null" >
+        #{supportTypes,jdbcType=VARCHAR},
+      </if>
+      <if test="createTime != null" >
+        #{createTime,jdbcType=TIMESTAMP},
+      </if>
+    </trim>
+  </insert>
+
+  <update id="updateByPrimaryKeySelective" parameterType="PayChannelAccount" >
+    update pattern_pay_channel_account
+    <set >
+      <if test="simpleName != null" >
+        simple_name = #{simpleName,jdbcType=VARCHAR},
+      </if>
+      <if test="fullName != null" >
+        full_name = #{fullName,jdbcType=VARCHAR},
+      </if>
+      <if test="payChannelId != null" >
+        pay_channel_id = #{payChannelId,jdbcType=INTEGER},
+      </if>
+      <if test="isLock != null" >
+        is_lock = #{isLock,jdbcType=BIT},
+      </if>
+      <if test="businessManager != null" >
+        business_contacts = #{businessManager,jdbcType=VARCHAR},
+      </if>
+      <if test="qq != null" >
+        qq = #{qq,jdbcType=VARCHAR},
+      </if>
+      <if test="wechat != null" >
+        wechat = #{wechat,jdbcType=VARCHAR},
+      </if>
+      <if test="mobile != null" >
+        mobile = #{mobile,jdbcType=VARCHAR},
+      </if>
+      <if test="remark != null" >
+        remark = #{remark,jdbcType=VARCHAR},
+      </if>
+      <if test="supportTypes != null" >
+        support_types = #{supportTypes,jdbcType=VARCHAR},
+      </if>
+      <if test="createTime != null" >
+        create_time = #{createTime,jdbcType=TIMESTAMP},
+      </if>
+    </set>
+    where pay_channel_account_id = #{payChannelAccountId,jdbcType=INTEGER}
+  </update>
+  <update id="updateByPrimaryKey" parameterType="PayChannelAccount" >
+    update pattern_pay_channel_account
+    set simple_name = #{simpleName,jdbcType=VARCHAR},
+      full_name = #{fullName,jdbcType=VARCHAR},
+      pay_channel_id = #{payChannelId,jdbcType=INTEGER},
+      is_lock = #{isLock,jdbcType=BIT},
+      business_contacts = #{businessManager,jdbcType=VARCHAR},
+      qq = #{qq,jdbcType=VARCHAR},
+      wechat = #{wechat,jdbcType=VARCHAR},
+      mobile = #{mobile,jdbcType=VARCHAR},
+      remark = #{remark,jdbcType=VARCHAR},
+      support_types = #{supportTypes,jdbcType=VARCHAR},
+      create_time = #{createTime,jdbcType=TIMESTAMP}
+    where pay_channel_account_id = #{pay_channel_account_id,jdbcType=INTEGER}
+  </update>
+</mapper>

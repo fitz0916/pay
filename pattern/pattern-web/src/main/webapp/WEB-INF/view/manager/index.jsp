@@ -12,23 +12,26 @@
 	<meta charset="utf-8">
 	<meta http-equiv="X-UA-Compatible" content="IE=edge">
 	<meta name="viewport" content="width=device-width, initial-scale=1">
-	<title>运营管理平台</title>
+	<title>运营管理系统</title>
 
-	<link href="${basePath}/resources/plugins/fullPage/jquery.fullPage.css" rel="stylesheet"/>
-	<link href="${basePath}/resources/plugins/bootstrap-3.3.0/css/bootstrap.min.css" rel="stylesheet"/>
-	<link href="${basePath}/resources/plugins/material-design-iconic-font-2.2.0/css/material-design-iconic-font.min.css" rel="stylesheet"/>
-	<link href="${basePath}/resources/plugins/waves-0.7.5/waves.min.css" rel="stylesheet"/>
-	<link href="${basePath}/resources/plugins/malihu-custom-scrollbar-plugin/jquery.mCustomScrollbar.min.css" rel="stylesheet"/>
-	<link href="${basePath}/resources/css/admin.css" rel="stylesheet"/>
+	<link href="../resources/plugins/fullPage/jquery.fullPage.css" rel="stylesheet"/>
+	<link href="../resources/plugins/bootstrap-3.3.0/css/bootstrap.min.css" rel="stylesheet"/>
+	<link href="../resources/plugins/material-design-iconic-font-2.2.0/css/material-design-iconic-font.min.css" rel="stylesheet"/>
+	<link href="../resources/plugins/waves-0.7.5/waves.min.css" rel="stylesheet"/>
+	<link href="../resources/plugins/malihu-custom-scrollbar-plugin/jquery.mCustomScrollbar.min.css" rel="stylesheet"/>
+	<link href="../resources/css/admin.css" rel="stylesheet"/>
 	
 	<style>
-	  
-		/** skins **/
+		/** skins 
 		<c:forEach var="adminSystemtem" items="${adminSystems}">
-			#${adminSystemtem.name} #header {background: ${adminSystemtem.theme};}
-			#${adminSystemtem.name} .content_tab{background: ${adminSystemtem.theme};}
-			#${adminSystemtem.name} .s-profile>a{background: url(${adminSystemtem.banner}) left top no-repeat;}
+			 #header {background: ${adminSystemtem.theme};}
+			 .content_tab{background: ${adminSystemtem.theme};}
+			 .s-profile>a{background: url(${adminSystemtem.banner}) left top no-repeat;}
 		</c:forEach>
+		**/
+		 #header {background: #29A176;}
+		.content_tab{background: #29A176;}
+		.s-profile>a{background: url(/resources/images/zheng-pay.png) left top no-repeat;}
 	</style>
 </head>
 <body>
@@ -42,31 +45,13 @@
 			</div>
 		</li>
 		<li id="logo" class="hidden-xs">
-			<!-- 
 			<a href="index.html">
-				<img src="${basePath}/resources/images/logo.png"/>
+				<img src=""/>
 			</a>
-			 -->
-			<span id="system_title">运营管理平台</span>
+			<span id="system_title">运营管理系统</span>
 		</li>
 		<li class="pull-right">
 			<ul class="hi-menu">
-				<!-- 搜索 -->
-				<li class="dropdown">
-					<a class="waves-effect waves-light" data-toggle="dropdown" href="javascript:;">
-						<i class="him-icon zmdi zmdi-search"></i>
-					</a>
-					<ul class="dropdown-menu dm-icon pull-right">
-						<form id="search-form" class="form-inline">
-							<div class="input-group">
-								<input id="keywords" type="text" name="keywords" class="form-control" placeholder="搜索"/>
-								<div class="input-group-btn">
-									<button type="submit" class="btn btn-default"><span class="glyphicon glyphicon-search"></span></button>
-								</div>
-							</div>
-						</form>
-					</ul>
-				</li>
 				<li class="dropdown">
 					<a class="waves-effect waves-light" data-toggle="dropdown" href="javascript:;">
 						<i class="him-icon zmdi zmdi-more-vert"></i>
@@ -74,15 +59,6 @@
 					<ul class="dropdown-menu dm-icon pull-right">
 						<li class="hidden-xs">
 							<a class="waves-effect" data-ma-action="fullscreen" href="javascript:fullPage();"><i class="zmdi zmdi-fullscreen"></i> 全屏模式</a>
-						</li>
-						<li>
-							<a class="waves-effect" data-ma-action="clear-localstorage" href="javascript:;"><i class="zmdi zmdi-delete"></i> 清除缓存</a>
-						</li>
-						<li>
-							<a class="waves-effect" href="javascript:;"><i class="zmdi zmdi-face"></i> 隐私管理</a>
-						</li>
-						<li>
-							<a class="waves-effect" href="javascript:;"><i class="zmdi zmdi-settings"></i> 系统设置</a>
 						</li>
 						<li>
 							<a class="waves-effect" href="${basePath}/logout"><i class="zmdi zmdi-run"></i> 退出登录</a>
@@ -109,15 +85,6 @@
 			</a>
 			<ul class="main-menu">
 				<li>
-					<a class="waves-effect" href="javascript:;"><i class="zmdi zmdi-account"></i> 个人资料</a>
-				</li>
-				<li>
-					<a class="waves-effect" href="javascript:;"><i class="zmdi zmdi-face"></i> 隐私管理</a>
-				</li>
-				<li>
-					<a class="waves-effect" href="javascript:;"><i class="zmdi zmdi-settings"></i> 系统设置</a>
-				</li>
-				<li>
 					<a class="waves-effect" href="${basePath}/logout"><i class="zmdi zmdi-run"></i> 退出登录</a>
 				</li>
 			</ul>
@@ -130,7 +97,7 @@
 			</li>
 			<c:forEach var="adminPermission" items="${adminPermissions}" varStatus="status">
 				<c:if test="${adminPermission.parentId == 0}">
-				<li class="sub-menu  ">
+				<li class="sub-menu">
 					<a class="waves-effect" href="javascript:;"><i class="${adminPermission.icon}"></i> ${adminPermission.name}</a>
 					<ul>
 						<c:forEach var="subadminPermission" items="${adminPermissions}">
@@ -166,24 +133,23 @@
 		</div>
 		<div class="content_main">
 			<div id="iframe_home" class="iframe cur">
-				<p><h4>欢迎使用运营管理平台</h4></p>
+				<p><h4>欢迎使用运营系统</h4></p>
 			</div>
 		</div>
 	</section>
 </section>
 <footer id="footer"></footer>
 
-<script src="${basePath}/resources/plugins/jquery.1.12.4.min.js"></script>
-<script src="${basePath}/resources/plugins/bootstrap-3.3.0/js/bootstrap.min.js"></script>
-<script src="${basePath}/resources/plugins/waves-0.7.5/waves.min.js"></script>
-<script src="${basePath}/resources/plugins/malihu-custom-scrollbar-plugin/jquery.mCustomScrollbar.concat.min.js"></script>
-<script src="${basePath}/resources/plugins/BootstrapMenu.min.js"></script>
-<script src="${basePath}/resources/plugins/device.min.js"></script>
-<script src="${basePath}/resources/plugins/fullPage/jquery.fullPage.min.js"></script>
-<script src="${basePath}/resources/plugins/fullPage/jquery.jdirk.min.js"></script>
-<script src="${basePath}/resources/plugins/jquery.cookie.js"></script>
-
-<script src="${basePath}/resources/js/common/sessionTimeout.js"></script>
-<script src="${basePath}/resources/js/common/admin.js"></script>
+<script src="../resources/plugins/jquery.1.12.4.min.js"></script>
+<script src="../resources/plugins/bootstrap-3.3.0/js/bootstrap.min.js"></script>
+<script src="../resources/plugins/waves-0.7.5/waves.min.js"></script>
+<script src="../resources/plugins/malihu-custom-scrollbar-plugin/jquery.mCustomScrollbar.concat.min.js"></script>
+<script src="../resources/plugins/BootstrapMenu.min.js"></script>
+<script src="../resources/plugins/device.min.js"></script>
+<script src="../resources/plugins/fullPage/jquery.fullPage.min.js"></script>
+<script src="../resources/plugins/fullPage/jquery.jdirk.min.js"></script>
+<script src="../resources/plugins/jquery.cookie.js"></script>
+<script src="../resources/js/common/sessionTimeout.js"></script>
+<script src="../resources/js/common/admin.js"></script>
 </body>
 </html>

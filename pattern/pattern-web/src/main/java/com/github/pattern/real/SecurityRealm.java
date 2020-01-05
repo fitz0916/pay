@@ -74,7 +74,7 @@ public class SecurityRealm extends AuthorizingRealm{
 			}
 		}
 		//当前用户所以权限
-		ModelResult<List<Permission>> permissionModelResult = permissionServiceClient.selectPermissionByUserId(1, userId);
+		ModelResult<List<Permission>> permissionModelResult = permissionServiceClient.selectPermissionByUserId(2, userId);
 		if(!permissionModelResult.isSuccess()) {
 			logger.error("当前系统systemId = 【1】 且userId = 【{}】没有存在对应的权限",userId);
 			throw new PermissionNotFoundException("当前权限不存在！");

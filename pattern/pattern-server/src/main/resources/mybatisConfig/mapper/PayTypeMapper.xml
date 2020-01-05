@@ -1,0 +1,87 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd" >
+<mapper namespace="PayTypeMapper" >
+  <resultMap id="BaseResultMap" type="PayType" >
+    <id column="paytype_id" property="payTypeId" jdbcType="INTEGER" />
+    <result column="payname" property="payname" jdbcType="VARCHAR" />
+    <result column="remark" property="remark" jdbcType="VARCHAR" />
+  </resultMap>
+  <sql id="Base_Column_List" >
+    paytype_id, payname, remark
+  </sql>
+  <select id="selectByPrimaryKey" resultMap="BaseResultMap" parameterType="java.lang.Long" >
+    select 
+    <include refid="Base_Column_List" />
+    from pattern_paytype
+    where paytype_id = #{payTypeId,jdbcType=INTEGER}
+  </select>
+  <select id="queryPayTypeList" resultMap="BaseResultMap">
+    select
+    <include refid="Base_Column_List" />
+    from pattern_paytype
+  </select>
+
+  <delete id="deleteByPrimaryKey" parameterType="java.lang.Long" >
+    delete from pattern_paytype
+    where paytype_id = #{payTypeId,jdbcType=INTEGER}
+  </delete>
+  <insert id="insert" parameterType="PayType" >
+    insert into pattern_paytype (paytype_id, payname, remark
+      )
+    values (#{payTypeId,jdbcType=INTEGER}, #{payname,jdbcType=VARCHAR}, #{remark,jdbcType=VARCHAR}
+      )
+  </insert>
+  <insert id="insertSelective" parameterType="PayType" >
+    insert into pattern_paytype
+    <trim prefix="(" suffix=")" suffixOverrides="," >
+      <if test="payTypeId != null" >
+        paytype_id,
+      </if>
+      <if test="payname != null" >
+        payname,
+      </if>
+      <if test="remark != null" >
+        remark,
+      </if>
+    </trim>
+    <trim prefix="values (" suffix=")" suffixOverrides="," >
+      <if test="payTypeId != null" >
+        #{payTypeId,jdbcType=INTEGER},
+      </if>
+      <if test="payname != null" >
+        #{payname,jdbcType=VARCHAR},
+      </if>
+      <if test="remark != null" >
+        #{remark,jdbcType=VARCHAR},
+      </if>
+    </trim>
+  </insert>
+  <update id="updateByPrimaryKeySelective" parameterType="PayType" >
+    update pattern_paytype
+    <set >
+      <if test="payname != null" >
+        payname = #{payname,jdbcType=VARCHAR},
+      </if>
+      <if test="remark != null" >
+        remark = #{remark,jdbcType=VARCHAR},
+      </if>
+    </set>
+    where paytype_id = #{payTypeId,jdbcType=INTEGER}
+  </update>
+  <update id="updateByPrimaryKey" parameterType="PayType" >
+    update pattern_paytype
+    set payname = #{payname,jdbcType=VARCHAR},
+      remark = #{remark,jdbcType=VARCHAR}
+    where paytype_id = #{payTypeId,jdbcType=INTEGER}
+  </update>
+  
+  
+   <!-- 自定义 -->
+   <select id="payTypeList" parameterType="map" resultMap="BaseResultMap">
+		SELECT 
+    <include refid="Base_Column_List" />
+		 FROM pattern_paytype 
+  </select>
+  
+  
+</mapper>

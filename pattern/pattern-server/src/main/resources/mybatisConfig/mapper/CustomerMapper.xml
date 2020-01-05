@@ -1,0 +1,24 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd" >
+<mapper namespace="AgentMapper" >
+	<resultMap id="BaseResultMap" type="Customer" >
+		<id column="customer_id" property="customerId" jdbcType="INTEGER"/>
+		<result column="agent_id" property="agentId" jdbcType="INTEGER"/>
+		<result column="shop_id" property="shopId" jdbcType="INTEGER"/>
+		<result column="customer_name" property="customerName" jdbcType="VARCHAR"/>
+		<result column="customer_no" property="customerNo" jdbcType="VARCHAR"/>
+		<result column="settlement" property="settlement" jdbcType="BIGINT"/>
+		<result column="frozen_amount" property="frozenAmount" jdbcType="BIGINT"/>
+		<result column="amount" property="amount" jdbcType="BIGINT"/>
+		<result column="cipher" property="cipher" jdbcType="VARCHAR"/>
+		<result column="create_date" property="createDate" jdbcType="DATETIME"/>
+		<result column="update_date" property="updateDate" jdbcType="DATETIME"/>
+		<result column="pay_status" property="payStatus" jdbcType="TINYINT"/>
+		<result column="payout_status" property="payoutStatus" jdbcType="TINYINT"/>
+		<result column="payout_way" property="payoutWay" jdbcType="TINYINT"/>
+		<result column="unfreeze_amount" property="unfreezeAmount" jdbcType="BIGINT"/>
+		<result column="frozen_amount_sum" property="frozenAmountSum" jdbcType="BIGINT"/>
+		
+	</resultMap>
+	
+	</mapper>

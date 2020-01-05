@@ -1,0 +1,174 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd" >
+<mapper namespace="PayWhiteListMapper" >
+  <resultMap id="BaseResultMap" type="PayWhiteList" >
+	<id column="pay_white_list_id" property="payWhiteListId" jdbcType="INTEGER"/>
+	<result column="agent_id" property="agentId" jdbcType="INTEGER"/>
+	<result column="addr_type" property="addrType" jdbcType="TINYINT"/>
+	<result column="address" property="address" jdbcType="VARCHAR"/>
+	<result column="status" property="status" jdbcType="TINYINT"/>
+	<result column="remark" property="remark" jdbcType="VARCHAR"/>
+	<result column="create_time" property="createTime" jdbcType="TIMESTAMP"/>
+  </resultMap>
+  <sql id="Base_Column_List" >
+    pay_white_list_id,
+    agent_id,
+    addr_type,
+    address,
+    status,
+    remark,
+    create_time
+  </sql>
+  <select id="selectByPrimaryKey" resultMap="BaseResultMap" parameterType="java.lang.Integer" >
+    select 
+    <include refid="Base_Column_List" />
+    from pattern_pay_white_list
+	where pay_white_list_id = #{payWhiteListId,jdbcType=INTEGER}
+  </select>
+  <delete id="deleteByPrimaryKey" parameterType="java.lang.Integer" >
+    delete from pattern_pay_white_list
+	where pay_white_list_id = #{payWhiteListId,jdbcType=INTEGER}
+  </delete>
+  <insert id="insert" parameterType="PayWhiteList" >
+    insert into pattern_pay_white_list (
+    <include refid="Base_Column_List" />
+    )
+    values (
+       #{payWhiteListId,jdbcType=INTEGER} ,
+       #{agentId,jdbcType=INTEGER} ,
+       #{addrType,jdbcType=TINYINT} ,
+       #{address,jdbcType=VARCHAR} ,
+       #{status,jdbcType=TINYINT} ,
+       #{remark,jdbcType=VARCHAR} ,
+       #{createTime,jdbcType=TIMESTAMP} 
+    )
+  </insert>
+  <insert id="insertSelective" parameterType="PayWhiteList" >
+    insert into pattern_pay_white_list
+    <trim prefix="(" suffix=")" suffixOverrides="," >
+	<if test="payWhiteListId != null" >
+		pay_white_list_id,
+	</if>
+	<if test="agentId != null" >
+		agent_id,
+	</if>
+	<if test="addrType != null" >
+		addr_type,
+	</if>
+	<if test="address != null" >
+		address,
+	</if>
+	<if test="status != null" >
+		status,
+	</if>
+	<if test="remark != null" >
+		remark,
+	</if>
+	<if test="createTime != null" >
+		create_time
+	</if>
+    </trim>
+    <trim prefix="values (" suffix=")" suffixOverrides="," >
+    <if test="payWhiteListId != null" >
+    	#{payWhiteListId,jdbcType=INTEGER},
+    </if>
+    <if test="agentId != null" >
+    	#{agentId,jdbcType=INTEGER},
+    </if>
+    <if test="addrType != null" >
+    	#{addrType,jdbcType=TINYINT},
+    </if>
+    <if test="address != null" >
+    	#{address,jdbcType=VARCHAR},
+    </if>
+    <if test="status != null" >
+    	#{status,jdbcType=TINYINT},
+    </if>
+    <if test="remark != null" >
+    	#{remark,jdbcType=VARCHAR},
+    </if>
+    <if test="createTime != null" >
+    	#{createTime,jdbcType=TIMESTAMP}
+    </if>
+    </trim>
+  </insert>
+  <update id="updateByPrimaryKeySelective" parameterType="PayWhiteList" >
+    update pattern_pay_white_list
+    <set >
+	<if test="agentId != null" >
+    	agent_id = #{agentId,jdbcType=INTEGER},
+    </if>
+	<if test="addrType != null" >
+    	addr_type = #{addrType,jdbcType=TINYINT},
+    </if>
+	<if test="address != null" >
+    	address = #{address,jdbcType=VARCHAR},
+    </if>
+	<if test="status != null" >
+    	status = #{status,jdbcType=TINYINT},
+    </if>
+	<if test="remark != null" >
+    	remark = #{remark,jdbcType=VARCHAR},
+    </if>
+	<if test="createTime != null" >
+    	create_time = #{createTime,jdbcType=TIMESTAMP}
+    </if>
+    </set>
+	where pay_white_list_id = #{payWhiteListId,jdbcType=INTEGER}
+  </update>
+  <update id="updateByPrimaryKey" parameterType="PayWhiteList" >
+	update pattern_pay_white_list
+	set
+	agent_id = #{agentId,jdbcType=INTEGER},
+	addr_type = #{addrType,jdbcType=TINYINT},
+	address = #{address,jdbcType=VARCHAR},
+	status = #{status,jdbcType=TINYINT},
+	remark = #{remark,jdbcType=VARCHAR},
+	create_time = #{createTime,jdbcType=TIMESTAMP}
+	where pay_white_list_id = #{payWhiteListId,jdbcType=INTEGER}
+  </update>
+  
+  
+  <!-- 自定义 -->
+  <select id="pageCount" parameterType="map" resultType="int">
+	select count(*) from pattern_pay_white_list
+	<include refid="pageConditions" />
+  </select>
+
+  <select id="pageList" parameterType="map" resultMap="BaseResultMap">
+	select
+	<include refid="Base_Column_List"/>
+	from pattern_pay_white_list
+	<include refid="pageConditions" />
+	<if test="start!=null and offset!=null">
+	limit #{start},#{offset}
+	</if>
+  </select>
+  
+  <sql id="pageConditions" >
+  	<where>
+		<if test="payWhiteListId != null and payWhiteListId != ''">
+            AND pay_white_list_id = #{payWhiteListId,jdbcType=INTEGER}
+       	</if>		      			
+		<if test="agentId != null and agentId != ''">
+            AND agent_id = #{agentId,jdbcType=INTEGER}
+       	</if>		      			
+		<if test="addrType != null and addrType != ''">
+            AND addr_type = #{addrType,jdbcType=TINYINT}
+       	</if>		      			
+		<if test="address != null and address != ''">
+            AND address = #{address,jdbcType=VARCHAR}
+       	</if>		      			
+		<if test="status != null and status != ''">
+            AND status = #{status,jdbcType=TINYINT}
+       	</if>		      			
+		<if test="remark != null and remark != ''">
+            AND remark = #{remark,jdbcType=VARCHAR}
+       	</if>		      			
+		<if test="createTime != null and createTime != ''">
+            AND create_time = #{createTime,jdbcType=TIMESTAMP}
+       	</if>		      			
+    </where>	
+  </sql>
+
+</mapper>

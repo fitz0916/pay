@@ -123,10 +123,10 @@ public class PermissionController {
 	        if (!result.isSuccess()) {
 	        	return ResultUtils.buildErrorMsg(Constants.FAIL_MSG_CODE, result.getErrors());
 	        }
-	        ModelResult<List<Permission>> permissionModelResult = permissionServiceClient.selectByParentId(id);
-	        if(!permissionModelResult.isSuccess() || CollectionUtils.isEmpty(permissionModelResult.getModel())) {
-	        	throw new NullPointerException("父菜单不存在");
-	        }
+//	        ModelResult<List<Permission>> permissionModelResult = permissionServiceClient.selectByParentId(id);
+//	        if(!permissionModelResult.isSuccess() || CollectionUtils.isEmpty(permissionModelResult.getModel())) {
+//	        	throw new NullPointerException("父菜单不存在");
+//	        }
 	       
 	        permission.setPermissionId(id);
 	        ModelResult<Integer> modelResult = permissionServiceClient.updateByPrimaryKeySelective(permission);
