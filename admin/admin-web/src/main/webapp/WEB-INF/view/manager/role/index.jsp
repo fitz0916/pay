@@ -61,6 +61,16 @@ $(function() {
 		idField: 'roleId',
 		maintainSelected: true,
 		toolbar: '#toolbar',
+		responseHandler:function(result){
+			if(result.code == '10110'){
+            	layer.msg(result.msg);
+                location:top.location.href = '${basePath}/login';
+            }
+			return{                            //return bootstrap-table能处理的数据格式
+		        "total":result.total,
+		        "rows":result.rows
+		    }
+		},
 		columns: [
 			{field: 'ck', checkbox: true, align: 'center'},
 			{field: 'roleId', title: '编号', sortable: true, align: 'center'},
