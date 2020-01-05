@@ -52,12 +52,15 @@
 		<div class="form-group type1 type3">
 			<label for="icon">图标</label>
 		    <select class="form-control">
-		      <option value="zmdi zmdi-plus">新增</option>
-		      <option value="zmdi zmdi-close">删除</option>
-		      <option value="zmdi zmdi-edit">编辑</option>
-		      <option value="zmdi zmdi-key">用户授权</option>
-		      <option value="zmdi zmdi-accounts-list">用户组织</option>
-		      <option value="zmdi zmdi-accounts">用户角色</option>
+		     
+		      <option value="zmdi zmdi-accounts-list">目录-代理商管理</option>
+		      <option value="zmdi zmdi-paypal">目录-支付渠道</option>
+		      <option value="zmdi zmdi-plus">按钮-新增</option>
+		      <option value="zmdi zmdi-close">按钮-删除</option>
+		      <option value="zmdi zmdi-edit">按钮-编辑</option>
+		      <option value="zmdi zmdi-key">按钮-用户授权</option>
+		      <option value="zmdi zmdi-accounts-list">按钮-用户组织</option>
+		      <option value="zmdi zmdi-accounts">按钮-用户角色</option>
 		    </select>
 		    <!-- 
 			<input id="icon" type="text" class="form-control" name="icon" maxlength="50" value="zmdi zmdi-widgets">

@@ -57,12 +57,14 @@
 			<input id="icon" type="text" class="form-control" name="icon" maxlength="50" value="${permission.icon}">
 			<label for="icon">图标</label>
 		    <select class="form-control">
-		      <option value="zmdi zmdi-plus" <c:if test="${permission.icon eq 'zmdi zmdi-plus'}">selected="selected"</c:if>>新增</option>
-		      <option value="zmdi zmdi-close" <c:if test="${permission.icon eq 'zmdi zmdi-close'}">selected="selected"</c:if>>删除</option>
-		      <option value="zmdi zmdi-edit" <c:if test="${permission.icon eq 'zmdi zmdi-edit'}">selected="selected"</c:if>>编辑</option>
-		      <option value="zmdi zmdi-key" <c:if test="${permission.icon eq 'zmdi zmdi-key'}">selected="selected"</c:if>>角色授权</option>
-		      <option value="zmdi zmdi-accounts-list" <c:if test="${permission.icon eq 'zmdi zmdi-accounts-list'}">selected="selected"</c:if>>用户组织</option>
-		      <option value="zmdi zmdi-accounts" <c:if test="${permission.icon eq 'zmdi zmdi-accounts'}">selected="selected"</c:if>>用户角色</option>
+		     <option value="zmdi zmdi-accounts-list" <c:if test="${permission.icon eq 'zmdi zmdi-accounts-list'}">selected="selected"</c:if>>目录-代理商管理</option>
+		      <option value="zmdi zmdi-paypal" <c:if test="${permission.icon eq 'zmdi zmdi-paypal'}">selected="selected"</c:if>>目录-支付渠道</option>
+		      <option value="zmdi zmdi-plus" <c:if test="${permission.icon eq 'zmdi zmdi-plus'}">selected="selected"</c:if>>按钮-新增</option>
+		      <option value="zmdi zmdi-close" <c:if test="${permission.icon eq 'zmdi zmdi-close'}">selected="selected"</c:if>>按钮-删除</option>
+		      <option value="zmdi zmdi-edit" <c:if test="${permission.icon eq 'zmdi zmdi-edit'}">selected="selected"</c:if>>按钮-编辑</option>
+		      <option value="zmdi zmdi-key" <c:if test="${permission.icon eq 'zmdi zmdi-key'}">selected="selected"</c:if>>按钮-角色授权</option>
+		      <option value="zmdi zmdi-accounts-list" <c:if test="${permission.icon eq 'zmdi zmdi-accounts-list'}">selected="selected"</c:if>>按钮-用户组织</option>
+		      <option value="zmdi zmdi-accounts" <c:if test="${permission.icon eq 'zmdi zmdi-accounts'}">selected="selected"</c:if>>按钮-用户角色</option>
 		    </select>
 		</div>
 		<div class="radio">
