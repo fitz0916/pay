@@ -59,8 +59,6 @@ $(function() {
 		maintainSelected: true,
 		toolbar: '#toolbar',
 		responseHandler:function(result){
-			alert(result);
-			alert(JSON.stringify(result));
 			if(result.code == '10110'){
             	layer.msg(result.msg);
                 location:top.location.href = '${basePath}/login';
