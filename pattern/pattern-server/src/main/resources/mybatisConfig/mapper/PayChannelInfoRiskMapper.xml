@@ -1,10 +1,10 @@
 <?xml version="1.0" encoding="UTF-8" ?>
 <!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd" >
-<mapper namespace="PayChannelInfoRiskMapper" >
-  <resultMap id="BaseResultMap" type="PayChannelInfoRisk" >
-    <id column="pay_channelinfo_risk_id" property="payChannelInfoRiskId" jdbcType="INTEGER" />
-    <result column="pay_channelinfo_id" property="payChannelInfoId" jdbcType="INTEGER" />
-    <result column="paytype_id" property="payTypeId" jdbcType="INTEGER" />
+<mapper namespace="com.github.pattern.server.dao.PayChannelInfoRiskDao" >
+  <resultMap id="BaseResultMap" type="com.github.pattern.common.domain.PayChannelInfoRisk" >
+    <id column="pay_channelinfo_risk_id" property="payChannelinfoRiskId" jdbcType="INTEGER" />
+    <result column="pay_channelinfo_id" property="payChannelinfoId" jdbcType="INTEGER" />
+    <result column="paytype_id" property="paytypeId" jdbcType="VARCHAR" />
     <result column="allow_time" property="allowTime" jdbcType="VARCHAR" />
     <result column="allow_num" property="allowNum" jdbcType="INTEGER" />
     <result column="pay_interval" property="payInterval" jdbcType="INTEGER" />
@@ -12,70 +12,41 @@
     <result column="day_money" property="dayMoney" jdbcType="INTEGER" />
     <result column="remark" property="remark" jdbcType="VARCHAR" />
     <result column="user_most_number" property="userMostNumber" jdbcType="INTEGER" />
-    <association property="payChannelInfo" javaType="com.eruige.pattern.common.domain.PayChannelInfo"> 
-   		<result property="payChannelAccountId" column="pay_channel_account_id"/> 
-   		<result property="payTypeId" column="paytype_id"/> 
-  	</association> 
   </resultMap>
   <sql id="Base_Column_List" >
-    pay_channelinfo_risk_id, pay_channelinfo_id, paytype_id, allow_time, allow_num, pay_interval, single_money, day_money,
-    remark, user_most_number
+    pay_channelinfo_risk_id, pay_channelinfo_id, paytype_id, allow_time, allow_num, pay_interval, 
+    single_money, day_money, remark, user_most_number
   </sql>
-  <select id="selectByPrimaryKey" resultMap="BaseResultMap" parameterType="java.lang.Long" >
+  <select id="selectByPrimaryKey" resultMap="BaseResultMap" parameterType="java.lang.Integer" >
     select 
     <include refid="Base_Column_List" />
     from pattern_pay_channelinfo_risk
-    where pay_channelinfo_risk_id = #{payChannelInfoRiskId}
+    where pay_channelinfo_risk_id = #{payChannelinfoRiskId,jdbcType=INTEGER}
   </select>
-  <select id="selectInfoRiskByChannelInfoIdAndPayTypeIdCount" resultType="int" parameterType="java.util.Map" >
-    select count(*) from pattern_pay_channelinfo_risk
-    where pay_channelinfo_id = #{payChannelInfoId} and paytype_id=#{payTypeId}
-  </select>
-  
-  <select id="selectByParams" resultMap="BaseResultMap"  parameterType="map" >
-	  SELECT
-		  a.`day_money` AS day_money,
-		  b.`pay_channel_account_id` AS pay_channel_account_id,
-		  b.`paytype_id` AS paytype_id
-		FROM
-		  `pattern_pay_channelinfo_risk` a
-		  INNER JOIN `pattern_pay_channelinfo` b
-		    ON a.`pay_channelinfo_id` = b.`pay_channelinfo_id`
-		WHERE b.`paytype_id` in 
-	    <foreach collection="payTypeIdArray" index="index" item="item" open="(" separator="," close=")">
-	        #{item}       
-	    </foreach>
-		AND b.`pay_channel_account_id` in
-		<foreach collection="accountIdArray" index="index" item="item" open="(" separator="," close=")">
-	        #{item}       
-	    </foreach>
-  </select>
-
   <delete id="deleteByPrimaryKey" parameterType="java.lang.Integer" >
     delete from pattern_pay_channelinfo_risk
-    where pay_channelinfo_risk_id = #{payChannelInfoRiskId,jdbcType=INTEGER}
+    where pay_channelinfo_risk_id = #{payChannelinfoRiskId,jdbcType=INTEGER}
   </delete>
-
-  <insert id="insert" parameterType="PayChannelInfoRisk" >
-    insert into pattern_pay_channelinfo_risk (pay_channelinfo_risk_id, pay_channelinfo_id, paytype_id,
-      allow_time, allow_num, pay_interval,
-      single_money, day_money, remark,
-      user_most_number)
-    values (#{payChannelInfoRiskId,jdbcType=INTEGER}, #{payChannelInfoId,jdbcType=INTEGER}, #{payTypeId,jdbcType=INTEGER},
-      #{allowTime,jdbcType=VARCHAR}, #{allowNum,jdbcType=INTEGER}, #{payInterval,jdbcType=INTEGER},
-      #{singleMoney,jdbcType=VARCHAR}, #{dayMoney,jdbcType=INTEGER}, #{remark,jdbcType=VARCHAR},
-      #{userMostNumber,jdbcType=INTEGER})
+  <insert id="insert" parameterType="com.github.pattern.common.domain.PayChannelInfoRisk" >
+    insert into pattern_pay_channelinfo_risk (pay_channelinfo_risk_id, pay_channelinfo_id, 
+      paytype_id, allow_time, allow_num, 
+      pay_interval, single_money, day_money, 
+      remark, user_most_number)
+    values (#{payChannelinfoRiskId,jdbcType=INTEGER}, #{payChannelinfoId,jdbcType=INTEGER}, 
+      #{paytypeId,jdbcType=VARCHAR}, #{allowTime,jdbcType=VARCHAR}, #{allowNum,jdbcType=INTEGER}, 
+      #{payInterval,jdbcType=INTEGER}, #{singleMoney,jdbcType=VARCHAR}, #{dayMoney,jdbcType=INTEGER}, 
+      #{remark,jdbcType=VARCHAR}, #{userMostNumber,jdbcType=INTEGER})
   </insert>
-  <insert id="insertSelective" parameterType="PayChannelInfoRisk" >
+  <insert id="insertSelective" parameterType="com.github.pattern.common.domain.PayChannelInfoRisk" >
     insert into pattern_pay_channelinfo_risk
     <trim prefix="(" suffix=")" suffixOverrides="," >
-      <if test="payChannelInfoRiskId != null" >
+      <if test="payChannelinfoRiskId != null" >
         pay_channelinfo_risk_id,
       </if>
-      <if test="payChannelInfoId != null" >
+      <if test="payChannelinfoId != null" >
         pay_channelinfo_id,
       </if>
-      <if test="payTypeId != null" >
+      <if test="paytypeId != null" >
         paytype_id,
       </if>
       <if test="allowTime != null" >
@@ -101,14 +72,14 @@
       </if>
     </trim>
     <trim prefix="values (" suffix=")" suffixOverrides="," >
-      <if test="payChannelInfoRiskId != null" >
-        #{payChannelInfoRiskId,jdbcType=INTEGER},
+      <if test="payChannelinfoRiskId != null" >
+        #{payChannelinfoRiskId,jdbcType=INTEGER},
       </if>
-      <if test="payChannelInfoId != null" >
-        #{payChannelInfoId,jdbcType=INTEGER},
+      <if test="payChannelinfoId != null" >
+        #{payChannelinfoId,jdbcType=INTEGER},
       </if>
-      <if test="payTypeId != null" >
-        #{payTypeId,jdbcType=INTEGER},
+      <if test="paytypeId != null" >
+        #{paytypeId,jdbcType=VARCHAR},
       </if>
       <if test="allowTime != null" >
         #{allowTime,jdbcType=VARCHAR},
@@ -133,15 +104,14 @@
       </if>
     </trim>
   </insert>
-
-  <update id="updateByPrimaryKeySelective" parameterType="PayChannelInfoRisk" >
+  <update id="updateByPrimaryKeySelective" parameterType="com.github.pattern.common.domain.PayChannelInfoRisk" >
     update pattern_pay_channelinfo_risk
     <set >
-      <if test="payChannelInfoId != null" >
-        pay_channelinfo_id = #{payChannelInfoId,jdbcType=INTEGER},
+      <if test="payChannelinfoId != null" >
+        pay_channelinfo_id = #{payChannelinfoId,jdbcType=INTEGER},
       </if>
-      <if test="payTypeId != null" >
-        paytype_id = #{payTypeId,jdbcType=INTEGER},
+      <if test="paytypeId != null" >
+        paytype_id = #{paytypeId,jdbcType=VARCHAR},
       </if>
       <if test="allowTime != null" >
         allow_time = #{allowTime,jdbcType=VARCHAR},
@@ -165,12 +135,12 @@
         user_most_number = #{userMostNumber,jdbcType=INTEGER},
       </if>
     </set>
-    where pay_channelinfo_risk_id = #{payChannelInfoRiskId,jdbcType=INTEGER}
+    where pay_channelinfo_risk_id = #{payChannelinfoRiskId,jdbcType=INTEGER}
   </update>
-  <update id="updateByPrimaryKey" parameterType="PayChannelInfoRisk" >
+  <update id="updateByPrimaryKey" parameterType="com.github.pattern.common.domain.PayChannelInfoRisk" >
     update pattern_pay_channelinfo_risk
-    set pay_channelinfo_id = #{payChannelInfoId,jdbcType=INTEGER},
-      paytype_id = #{payTypeId,jdbcType=INTEGER},
+    set pay_channelinfo_id = #{payChannelinfoId,jdbcType=INTEGER},
+      paytype_id = #{paytypeId,jdbcType=VARCHAR},
       allow_time = #{allowTime,jdbcType=VARCHAR},
       allow_num = #{allowNum,jdbcType=INTEGER},
       pay_interval = #{payInterval,jdbcType=INTEGER},
@@ -178,13 +148,6 @@
       day_money = #{dayMoney,jdbcType=INTEGER},
       remark = #{remark,jdbcType=VARCHAR},
       user_most_number = #{userMostNumber,jdbcType=INTEGER}
-    where pay_channelinfo_risk_id = #{payChannelInfoRiskId,jdbcType=INTEGER}
+    where pay_channelinfo_risk_id = #{payChannelinfoRiskId,jdbcType=INTEGER}
   </update>
-  
-  <select id="selectPayChannelInfoRiskByChannelInfoIdAndPayTypeId" resultMap="BaseResultMap" parameterType="java.util.Map" >
-    select 
-    <include refid="Base_Column_List" />
-    from pattern_pay_channelinfo_risk
-    where pay_channelinfo_id = #{payChannelInfoId} and paytype_id=#{payTypeId}
-  </select>
 </mapper>

@@ -1,43 +1,40 @@
 <?xml version="1.0" encoding="UTF-8" ?>
 <!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd" >
-<mapper namespace="PayChannelParaMapper" >
-  <resultMap id="BaseResultMap" type="PayChannelPara" >
+<mapper namespace="com.github.pattern.server.dao.PayChannelParaMapper" >
+  <resultMap id="BaseResultMap" type="com.github.pattern.common.domain.PayChannelPara" >
     <id column="pay_channel_para_id" property="payChannelParaId" jdbcType="INTEGER" />
+    <result column="pay_channel_id" property="payChannelId" jdbcType="INTEGER" />
     <result column="ch_name" property="chName" jdbcType="VARCHAR" />
     <result column="en_name" property="enName" jdbcType="VARCHAR" />
     <result column="remark" property="remark" jdbcType="VARCHAR" />
-    <result column="pay_channel_id" property="payChannelId" jdbcType="INTEGER" />
   </resultMap>
   <sql id="Base_Column_List" >
-    pay_channel_para_id, ch_name, en_name, remark, pay_channel_id
+    pay_channel_para_id, pay_channel_id, ch_name, en_name, remark
   </sql>
-
-  <select id="selectByPrimaryKey" resultMap="BaseResultMap" parameterType="java.lang.Long" >
+  <select id="selectByPrimaryKey" resultMap="BaseResultMap" parameterType="java.lang.Integer" >
     select 
     <include refid="Base_Column_List" />
     from pattern_pay_channel_para
-    where pay_channel_para_id = #{payChannelParaId}
+    where pay_channel_para_id = #{payChannelParaId,jdbcType=INTEGER}
   </select>
-  <select id="selectParaListByChannelId" parameterType="map" resultMap="BaseResultMap">
-    select
-    <include refid="Base_Column_List"/>
-    from pattern_pay_channel_para
-    where pay_channel_id = #{payChannelId}
-  </select>
-
-  <insert id="insert" parameterType="PayChannelPara" >
-    insert into pattern_pay_channel_para (pay_channel_para_id, ch_name, en_name,
-      type, remark, pay_channel_id
-      )
-    values (#{payChannelParaId,jdbcType=INTEGER}, #{chName,jdbcType=VARCHAR}, #{enName,jdbcType=VARCHAR},
-      #{remark,jdbcType=VARCHAR}, #{payChannelId,jdbcType=INTEGER}
-      )
+  <delete id="deleteByPrimaryKey" parameterType="java.lang.Integer" >
+    delete from pattern_pay_channel_para
+    where pay_channel_para_id = #{payChannelParaId,jdbcType=INTEGER}
+  </delete>
+  <insert id="insert" parameterType="com.github.pattern.common.domain.PayChannelPara" >
+    insert into pattern_pay_channel_para (pay_channel_para_id, pay_channel_id, ch_name, 
+      en_name, remark)
+    values (#{payChannelParaId,jdbcType=INTEGER}, #{payChannelId,jdbcType=INTEGER}, #{chName,jdbcType=VARCHAR}, 
+      #{enName,jdbcType=VARCHAR}, #{remark,jdbcType=VARCHAR})
   </insert>
-  <insert id="insertSelective" parameterType="PayChannelPara" >
+  <insert id="insertSelective" parameterType="com.github.pattern.common.domain.PayChannelPara" >
     insert into pattern_pay_channel_para
     <trim prefix="(" suffix=")" suffixOverrides="," >
       <if test="payChannelParaId != null" >
         pay_channel_para_id,
+      </if>
+      <if test="payChannelId != null" >
+        pay_channel_id,
       </if>
       <if test="chName != null" >
         ch_name,
@@ -48,13 +45,13 @@
       <if test="remark != null" >
         remark,
       </if>
-      <if test="payChannelId != null" >
-        pay_channel_id,
-      </if>
     </trim>
     <trim prefix="values (" suffix=")" suffixOverrides="," >
       <if test="payChannelParaId != null" >
         #{payChannelParaId,jdbcType=INTEGER},
+      </if>
+      <if test="payChannelId != null" >
+        #{payChannelId,jdbcType=INTEGER},
       </if>
       <if test="chName != null" >
         #{chName,jdbcType=VARCHAR},
@@ -65,15 +62,14 @@
       <if test="remark != null" >
         #{remark,jdbcType=VARCHAR},
       </if>
-      <if test="payChannelId != null" >
-        #{payChannelId,jdbcType=INTEGER},
-      </if>
     </trim>
   </insert>
-
-  <update id="updateByPrimaryKeySelective" parameterType="PayChannelPara" >
+  <update id="updateByPrimaryKeySelective" parameterType="com.github.pattern.common.domain.PayChannelPara" >
     update pattern_pay_channel_para
     <set >
+      <if test="payChannelId != null" >
+        pay_channel_id = #{payChannelId,jdbcType=INTEGER},
+      </if>
       <if test="chName != null" >
         ch_name = #{chName,jdbcType=VARCHAR},
       </if>
@@ -83,28 +79,15 @@
       <if test="remark != null" >
         remark = #{remark,jdbcType=VARCHAR},
       </if>
-      <if test="payChannelId != null" >
-        pay_channel_id = #{payChannelId,jdbcType=INTEGER},
-      </if>
     </set>
     where pay_channel_para_id = #{payChannelParaId,jdbcType=INTEGER}
   </update>
-  <update id="updateByPrimaryKey" parameterType="PayChannelPara" >
+  <update id="updateByPrimaryKey" parameterType="com.github.pattern.common.domain.PayChannelPara" >
     update pattern_pay_channel_para
-    set ch_name = #{chName,jdbcType=VARCHAR},
+    set pay_channel_id = #{payChannelId,jdbcType=INTEGER},
+      ch_name = #{chName,jdbcType=VARCHAR},
       en_name = #{enName,jdbcType=VARCHAR},
-      remark = #{remark,jdbcType=VARCHAR},
-      pay_channel_id = #{payChannelId,jdbcType=INTEGER}
+      remark = #{remark,jdbcType=VARCHAR}
     where pay_channel_para_id = #{payChannelParaId,jdbcType=INTEGER}
   </update>
-
-  <delete id="deleteByPrimaryKey" parameterType="java.lang.Integer" >
-    delete from pattern_pay_channel_para
-    where pay_channel_para_id = #{payChannelParaId,jdbcType=INTEGER}
-  </delete>
-  <delete id="deleteByPayChannelId" parameterType="java.lang.Integer" >
-    delete from pattern_pay_channel_para
-    where pay_channel_id = #{payChannelId,jdbcType=INTEGER}
-  </delete>
-
 </mapper>

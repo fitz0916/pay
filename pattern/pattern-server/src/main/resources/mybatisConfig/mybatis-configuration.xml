@@ -9,7 +9,7 @@
 		<typeAlias alias="Agent" type="com.github.pattern.common.domain.Agent"/>
 		<typeAlias alias="CustomerPayChannelInfo" type="com.github.pattern.common.domain.CustomerPayChannelInfo"/>
 		<typeAlias alias="PayChannel" type="com.github.pattern.common.domain.PayChannel"/>
-		<typeAlias alias="RolePermission" type="com.github.pattern.common.domain.PayChannelAccount"/>
+		<typeAlias alias="PayChannelAccount" type="com.github.pattern.common.domain.PayChannelAccount"/>
 		<typeAlias alias="PayChannelAccountPara" type="com.github.pattern.common.domain.PayChannelAccountPara"/>
 		<typeAlias alias="PayChannelInfo" type="com.github.pattern.common.domain.PayChannelInfo"/>
 		<typeAlias alias="PayChannelInfoRisk" type="com.github.pattern.common.domain.PayChannelInfoRisk"/>

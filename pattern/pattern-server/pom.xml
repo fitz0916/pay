@@ -14,6 +14,24 @@
 	<version>1.0-SNAPSHOT</version>
 	<name>pattern-server</name>
 	<url>http://maven.apache.org</url>
+	
+	
+	<build>
+	   <plugins>
+	      <!-- Maven的Mybatis生成器 -->
+			<plugin>
+				<groupId>org.mybatis.generator</groupId>
+				<artifactId>mybatis-generator-maven-plugin</artifactId>
+				<version>1.3.2</version>
+				<configuration>
+					<overwrite>true</overwrite>
+					<configurationFile>${basedir}/src/test/resources/mybatisGeneratorConfig.xml</configurationFile>
+				</configuration>
+			</plugin>
+	   </plugins>
+	</build>
+	
+	
 	<dependencies>
 		<dependency>
 			<groupId>com.github.admin</groupId>
