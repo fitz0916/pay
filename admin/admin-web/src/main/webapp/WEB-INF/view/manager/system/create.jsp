@@ -151,8 +151,6 @@ function createSubmit() {
             }
         },
         success: function(result) {
-        	alert(result.code != 1);
-        	alert(result);
 			if (result.code != 1) {
 				if (result.data instanceof Array) {
 					$.each(result.data, function(index, value) {
