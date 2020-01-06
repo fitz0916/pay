@@ -26,21 +26,16 @@ public class Customer extends BaseObject{
     private Date createDate;
     /**更新日期**/
     private Date updateDate;
-    
     /** 支付状态（0启用 1禁用）*/
 	private Integer payStatus;
-
 	/** 代付状态（0启用 1禁用）*/
 	private Integer payoutStatus;
-
 	/** 代付方式（0自动代付 1人工代付）*/
 	private Integer payoutWay;
-
 	/**
 	 * 已解冻总额
 	 */
 	private Long unfreezeAmount;
-
 	/**
 	 * 冻结记录的总额
 	 */
