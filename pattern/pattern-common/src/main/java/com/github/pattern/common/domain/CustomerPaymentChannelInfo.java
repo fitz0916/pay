@@ -3,7 +3,7 @@ package com.github.pattern.common.domain;
 /**
  * 商户支付通道实体类 
  */
-public class CustomerChannelInfo extends BaseObject {
+public class CustomerPaymentChannelInfo extends BaseObject {
 
     /**
      * 商户支付通道ID
