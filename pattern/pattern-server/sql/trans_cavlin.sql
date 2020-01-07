@@ -11,7 +11,7 @@
  Target Server Version : 80018
  File Encoding         : 65001
 
- Date: 07/01/2020 20:52:06
+ Date: 07/01/2020 21:03:57
 */
 
 SET NAMES utf8mb4;
@@ -219,17 +219,17 @@ CREATE TABLE `pattern_payment_white_list` (
 DROP TABLE IF EXISTS `pattern_shop`;
 CREATE TABLE `pattern_shop` (
   `shop_id` int(8) NOT NULL AUTO_INCREMENT COMMENT '门店ID',
-  `brand` varchar(25) DEFAULT NULL COMMENT '品牌',
-  `shop_no` varchar(15) DEFAULT NULL COMMENT '门店编号',
-  `topid` int(10) DEFAULT NULL COMMENT '所属一级代理',
+  `brand` varchar(25) CHARACTER SET utf8 COLLATE utf8_general_ci NOT NULL DEFAULT '' COMMENT '品牌',
+  `shop_no` varchar(15) CHARACTER SET utf8 COLLATE utf8_general_ci NOT NULL DEFAULT '' COMMENT '门店编号',
   `agent_id` int(11) NOT NULL COMMENT '所属商户ID',
-  `shop_name` varchar(50) NOT NULL COMMENT '门店名称',
-  `adress` varchar(100) DEFAULT NULL COMMENT '门店地址',
-  `phone` char(11) DEFAULT NULL COMMENT '门店管理账号',
-  `name` varchar(15) DEFAULT NULL COMMENT '联系人姓名',
-  `tel` char(11) DEFAULT NULL COMMENT '联系人电话',
-  `is_lock` int(2) DEFAULT '0' COMMENT '0启用1禁用',
-  `create_time` datetime DEFAULT NULL COMMENT '创建时间',
+  `shop_name` varchar(50) CHARACTER SET utf8 COLLATE utf8_general_ci NOT NULL DEFAULT '' COMMENT '门店名称',
+  `adress` varchar(100) CHARACTER SET utf8 COLLATE utf8_general_ci NOT NULL DEFAULT '' COMMENT '门店地址',
+  `phone` varchar(11) CHARACTER SET utf8 COLLATE utf8_general_ci NOT NULL DEFAULT '' COMMENT '门店管理账号',
+  `name` varchar(15) CHARACTER SET utf8 COLLATE utf8_general_ci NOT NULL DEFAULT '' COMMENT '联系人姓名',
+  `telephone` varchar(11) CHARACTER SET utf8 COLLATE utf8_general_ci NOT NULL COMMENT '联系人电话',
+  `is_lock` tinyint(2) NOT NULL DEFAULT '0' COMMENT '0启用1禁用',
+  `create_time` datetime NOT NULL ON UPDATE CURRENT_TIMESTAMP COMMENT '创建时间',
+  `update_time` datetime NOT NULL ON UPDATE CURRENT_TIMESTAMP,
   PRIMARY KEY (`shop_id`)
 ) ENGINE=InnoDB AUTO_INCREMENT=2371 DEFAULT CHARSET=utf8 COMMENT='商户门店';
 
