@@ -3,7 +3,7 @@ package com.github.pattern.common.domain;
 import java.math.BigDecimal;
 import java.util.Date;
 
-public class CustomerChannelFee extends BaseObject{
+public class CustomerPaymentChannelFee extends BaseObject{
 	
 	/**
 	 * 

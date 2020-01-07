@@ -2,7 +2,7 @@ package com.github.pattern.common.domain;
 
 import java.util.Date;
 
-public class PaymentChannelRisk extends BaseObject {
+public class PaymentChannelInfoRisk extends BaseObject {
 	
 	private static final long serialVersionUID = 1570252000909853907L;
 	/**
