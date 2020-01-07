@@ -3,6 +3,8 @@ package com.github.pattern.common.domain;
 import java.util.Date;
 
 public class PaymentChannelRisk extends BaseObject {
+	
+	private static final long serialVersionUID = 1570252000909853907L;
 	/**
 	 * 支付通道风控表ID
 	 */

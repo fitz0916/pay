@@ -5,6 +5,11 @@ import java.util.Date;
 public class PaymentChannelAccountPara extends BaseObject {
 
 	/**
+	 * 
+	 */
+	private static final long serialVersionUID = -2344761665430915920L;
+
+	/**
 	 * 渠道账户参数ID
 	 */
 	private Integer paymentChannelAccountParaId;

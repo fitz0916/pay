@@ -4,6 +4,11 @@ import java.util.Date;
 
 public class Customer extends BaseObject{
 
+	/**
+	 * 
+	 */
+	private static final long serialVersionUID = -4386326625439993216L;
+	
 	/**商户ID**/
 	private Integer customerId;
 	/**代理商ID**/

@@ -4,6 +4,11 @@ import java.util.Date;
 
 public class PaymentBlackList extends BaseObject{
 	
+	/**
+	 * 
+	 */
+	private static final long serialVersionUID = -3870567893757187910L;
+
 	private Integer paymentBlackListId;
 	
 	/**

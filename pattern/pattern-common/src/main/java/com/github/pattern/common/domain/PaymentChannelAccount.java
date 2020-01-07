@@ -1,9 +1,12 @@
 package com.github.pattern.common.domain;
 
 import java.util.Date;
-import java.util.List;
 
 public class PaymentChannelAccount extends BaseObject {
+	/**
+	 * 
+	 */
+	private static final long serialVersionUID = 6423346397402232840L;
 	/**
 	 * 渠道账户ID
 	 */

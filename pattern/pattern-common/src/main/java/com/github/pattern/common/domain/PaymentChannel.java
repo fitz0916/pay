@@ -8,6 +8,10 @@ import java.util.Date;
  */
 public class PaymentChannel extends BaseObject {
 	/**
+	 * 
+	 */
+	private static final long serialVersionUID = 6069302618876968435L;
+	/**
 	 * 支付渠道ID
 	 */
 	private Integer paymentChannelId;

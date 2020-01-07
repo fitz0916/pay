@@ -39,6 +39,8 @@ public class PaymentWhiteList extends BaseObject {
 	 * remark 备注
 	 */
 	private String remark;
+	
+	
 	public Integer getPaymentWhiteListId() {
 		return paymentWhiteListId;
 	}

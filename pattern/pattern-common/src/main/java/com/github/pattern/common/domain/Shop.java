@@ -4,7 +4,12 @@ import java.util.Date;
 
 public class Shop extends BaseObject {
 	
-    private Integer shopId;
+    /**
+	 * 
+	 */
+	private static final long serialVersionUID = 5468705794942362619L;
+
+	private Integer shopId;
 
     private String brand;
 

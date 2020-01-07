@@ -5,6 +5,11 @@ import java.util.Date;
 
 public class CustomerChannelFee extends BaseObject{
 	
+	/**
+	 * 
+	 */
+	private static final long serialVersionUID = 777976886412887024L;
+	
 	private Integer paymentChanneldFeeId;
 	//渠道ID
 	private Integer paymentChannelId;

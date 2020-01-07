@@ -9,6 +9,10 @@ public class CustomerPaymentChannelInfo extends BaseObject {
 
 	
     /**
+	 * 
+	 */
+	private static final long serialVersionUID = 405598671940767465L;
+	/**
      * 商户支付通道ID
      */
     private Integer customerPaymentChannelInfoId;
