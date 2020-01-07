@@ -66,6 +66,110 @@ public class PaymentChannel extends BaseObject {
 	 * 备注
 	 */
 	private String remark;
+
+	public Integer getPaymentChannelId() {
+		return paymentChannelId;
+	}
+
+	public void setPaymentChannelId(Integer paymentChannelId) {
+		this.paymentChannelId = paymentChannelId;
+	}
+
+	public String getChannelName() {
+		return channelName;
+	}
+
+	public void setChannelName(String channelName) {
+		this.channelName = channelName;
+	}
+
+	public String getThirdChannelName() {
+		return thirdChannelName;
+	}
+
+	public void setThirdChannelName(String thirdChannelName) {
+		this.thirdChannelName = thirdChannelName;
+	}
+
+	public Integer getSettlementType() {
+		return settlementType;
+	}
+
+	public void setSettlementType(Integer settlementType) {
+		this.settlementType = settlementType;
+	}
+
+	public Integer getStatus() {
+		return status;
+	}
+
+	public void setStatus(Integer status) {
+		this.status = status;
+	}
+
+	public Integer getPayType() {
+		return payType;
+	}
+
+	public void setPayType(Integer payType) {
+		this.payType = payType;
+	}
+
+	public Date getCreateTime() {
+		return createTime;
+	}
+
+	public void setCreateTime(Date createTime) {
+		this.createTime = createTime;
+	}
+
+	public Date getUpdateTime() {
+		return updateTime;
+	}
+
+	public void setUpdateTime(Date updateTime) {
+		this.updateTime = updateTime;
+	}
+
+	public String getBusinessContacts() {
+		return businessContacts;
+	}
+
+	public void setBusinessContacts(String businessContacts) {
+		this.businessContacts = businessContacts;
+	}
+
+	public String getQq() {
+		return qq;
+	}
+
+	public void setQq(String qq) {
+		this.qq = qq;
+	}
+
+	public String getWechat() {
+		return wechat;
+	}
+
+	public void setWechat(String wechat) {
+		this.wechat = wechat;
+	}
+
+	public String getMobile() {
+		return mobile;
+	}
+
+	public void setMobile(String mobile) {
+		this.mobile = mobile;
+	}
+
+	public String getRemark() {
+		return remark;
+	}
+
+	public void setRemark(String remark) {
+		this.remark = remark;
+	}
 	
 	
 }

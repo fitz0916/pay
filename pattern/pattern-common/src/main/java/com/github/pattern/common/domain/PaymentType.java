@@ -31,6 +31,42 @@ public class PaymentType extends BaseObject {
 	 * 备注
 	 */
 	private String remark;
+	public Integer getPaymentTypeId() {
+		return paymentTypeId;
+	}
+	public void setPaymentTypeId(Integer paymentTypeId) {
+		this.paymentTypeId = paymentTypeId;
+	}
+	public Integer getPayModel() {
+		return payModel;
+	}
+	public void setPayModel(Integer payModel) {
+		this.payModel = payModel;
+	}
+	public String getPaymentName() {
+		return paymentName;
+	}
+	public void setPaymentName(String paymentName) {
+		this.paymentName = paymentName;
+	}
+	public Date getCreateTime() {
+		return createTime;
+	}
+	public void setCreateTime(Date createTime) {
+		this.createTime = createTime;
+	}
+	public Date getUpdateTime() {
+		return updateTime;
+	}
+	public void setUpdateTime(Date updateTime) {
+		this.updateTime = updateTime;
+	}
+	public String getRemark() {
+		return remark;
+	}
+	public void setRemark(String remark) {
+		this.remark = remark;
+	}
 
 	
 

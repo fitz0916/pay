@@ -12,7 +12,6 @@ public class CustomerChannelFee extends BaseObject{
 	private BigDecimal thirdRate;
 	//销售费率
 	private BigDecimal salesRate;
-	
 	/***
 	 * 创建时间
 	 */
@@ -23,5 +22,63 @@ public class CustomerChannelFee extends BaseObject{
 	private Date updateTime;
 	
 	private String remark;
+
+	public Integer getPaymentChanneldFeeId() {
+		return paymentChanneldFeeId;
+	}
+
+	public void setPaymentChanneldFeeId(Integer paymentChanneldFeeId) {
+		this.paymentChanneldFeeId = paymentChanneldFeeId;
+	}
+
+	public Integer getPaymentChannelId() {
+		return paymentChannelId;
+	}
+
+	public void setPaymentChannelId(Integer paymentChannelId) {
+		this.paymentChannelId = paymentChannelId;
+	}
+
+	public BigDecimal getThirdRate() {
+		return thirdRate;
+	}
+
+	public void setThirdRate(BigDecimal thirdRate) {
+		this.thirdRate = thirdRate;
+	}
+
+	public BigDecimal getSalesRate() {
+		return salesRate;
+	}
+
+	public void setSalesRate(BigDecimal salesRate) {
+		this.salesRate = salesRate;
+	}
+
+	public Date getCreateTime() {
+		return createTime;
+	}
+
+	public void setCreateTime(Date createTime) {
+		this.createTime = createTime;
+	}
+
+	public Date getUpdateTime() {
+		return updateTime;
+	}
+
+	public void setUpdateTime(Date updateTime) {
+		this.updateTime = updateTime;
+	}
+
+	public String getRemark() {
+		return remark;
+	}
+
+	public void setRemark(String remark) {
+		this.remark = remark;
+	}
+	
+	
 	
 }

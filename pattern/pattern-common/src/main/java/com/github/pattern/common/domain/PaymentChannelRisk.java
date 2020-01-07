@@ -59,6 +59,96 @@ public class PaymentChannelRisk extends BaseObject {
 	 * 备注
 	 */
 	private String remark;
+	public Integer getPaymentChannelInfoRiskId() {
+		return paymentChannelInfoRiskId;
+	}
+	public void setPaymentChannelInfoRiskId(Integer paymentChannelInfoRiskId) {
+		this.paymentChannelInfoRiskId = paymentChannelInfoRiskId;
+	}
+	public Integer getPaymentChannelId() {
+		return paymentChannelId;
+	}
+	public void setPaymentChannelId(Integer paymentChannelId) {
+		this.paymentChannelId = paymentChannelId;
+	}
+	public String getAllowTime() {
+		return allowTime;
+	}
+	public void setAllowTime(String allowTime) {
+		this.allowTime = allowTime;
+	}
+	public Integer getAllowNum() {
+		return allowNum;
+	}
+	public void setAllowNum(Integer allowNum) {
+		this.allowNum = allowNum;
+	}
+	public Integer getPayInterval() {
+		return payInterval;
+	}
+	public void setPayInterval(Integer payInterval) {
+		this.payInterval = payInterval;
+	}
+	public String getSingleMoney() {
+		return singleMoney;
+	}
+	public void setSingleMoney(String singleMoney) {
+		this.singleMoney = singleMoney;
+	}
+	public Integer getDayMoney() {
+		return dayMoney;
+	}
+	public void setDayMoney(Integer dayMoney) {
+		this.dayMoney = dayMoney;
+	}
+	public Integer getUserMostNumber() {
+		return userMostNumber;
+	}
+	public void setUserMostNumber(Integer userMostNumber) {
+		this.userMostNumber = userMostNumber;
+	}
+	public Integer getStrategy() {
+		return strategy;
+	}
+	public void setStrategy(Integer strategy) {
+		this.strategy = strategy;
+	}
+	public Integer getMinMoney() {
+		return minMoney;
+	}
+	public void setMinMoney(Integer minMoney) {
+		this.minMoney = minMoney;
+	}
+	public Integer getMaxMoney() {
+		return maxMoney;
+	}
+	public void setMaxMoney(Integer maxMoney) {
+		this.maxMoney = maxMoney;
+	}
+	public Integer getIsFroze() {
+		return isFroze;
+	}
+	public void setIsFroze(Integer isFroze) {
+		this.isFroze = isFroze;
+	}
+	public Date getCreateTime() {
+		return createTime;
+	}
+	public void setCreateTime(Date createTime) {
+		this.createTime = createTime;
+	}
+	public Date getUpdateTime() {
+		return updateTime;
+	}
+	public void setUpdateTime(Date updateTime) {
+		this.updateTime = updateTime;
+	}
+	public String getRemark() {
+		return remark;
+	}
+	public void setRemark(String remark) {
+		this.remark = remark;
+	}
 
 	
 	
