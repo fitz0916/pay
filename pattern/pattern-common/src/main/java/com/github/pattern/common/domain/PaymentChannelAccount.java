@@ -22,6 +22,9 @@ public class PaymentChannelAccount extends BaseObject {
 	 */
 	private Integer status;
 	
+	private Date createTime;
+	
+	private Date updateTime;
 	/**
 	 * 备注
 	 */

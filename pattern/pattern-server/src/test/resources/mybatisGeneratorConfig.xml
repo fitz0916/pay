@@ -45,35 +45,43 @@
              <table tableName="pattern_customer" domainObjectName="Customer" enableSelectByExample="false" enableDeleteByExample="false"
             enableCountByExample="false" enableUpdateByExample="false" />
             
-             <table tableName="pattern_customer_pay_channelinfo" domainObjectName="CustomerPayChannelInfo" enableSelectByExample="false" enableDeleteByExample="false"
+             <table tableName="pattern_customer_payment_channel_fee" domainObjectName="CustomerPaymentChannelFee" enableSelectByExample="false" enableDeleteByExample="false"
             enableCountByExample="false" enableUpdateByExample="false" />
             
-             <table tableName="pattern_pay_channel" domainObjectName="PayChannel" enableSelectByExample="false" enableDeleteByExample="false"
-            enableCountByExample="false" enableUpdateByExample="false" />
-            
-             <table tableName="pattern_pay_channel_account" domainObjectName="PayChannelAccount" enableSelectByExample="false" enableDeleteByExample="false"
+             <table tableName="pattern_payment_channel" domainObjectName="PaymentChannel" enableSelectByExample="false" enableDeleteByExample="false"
             enableCountByExample="false" enableUpdateByExample="false" />
             
             
-             <table tableName="pattern_pay_channel_para" domainObjectName="PayChannelAccountPara" enableSelectByExample="false" enableDeleteByExample="false"
+            <table tableName="pattern_customer_payment_channel_info" domainObjectName="CustomerPaymentChannelInfo" enableSelectByExample="false" enableDeleteByExample="false"
             enableCountByExample="false" enableUpdateByExample="false" />
             
-             <table tableName="pattern_pay_channelinfo" domainObjectName="PayChannelInfo" enableSelectByExample="false" enableDeleteByExample="false"
+            <table tableName="pattern_payment_black_list" domainObjectName="PaymentBlackList" enableSelectByExample="false" enableDeleteByExample="false"
             enableCountByExample="false" enableUpdateByExample="false" />
             
-             <table tableName="pattern_pay_channelinfo_risk" domainObjectName="PayChannelInfoRisk" enableSelectByExample="false" enableDeleteByExample="false"
+            
+             <table tableName="pattern_payment_channel_account" domainObjectName="PaymentChannelAccount" enableSelectByExample="false" enableDeleteByExample="false"
             enableCountByExample="false" enableUpdateByExample="false" />
             
-             <table tableName="pattern_pay_channel_para" domainObjectName="PayChannelPara" enableSelectByExample="false" enableDeleteByExample="false"
+            
+             <table tableName="pattern_payment_channel_account_para" domainObjectName="PaymentChannelAccountPara" enableSelectByExample="false" enableDeleteByExample="false"
             enableCountByExample="false" enableUpdateByExample="false" />
             
-             <table tableName="pattern_paytype" domainObjectName="PayType" enableSelectByExample="false" enableDeleteByExample="false"
+            
+            
+             <table tableName="pattern_payment_channelinfo_risk" domainObjectName="PaymentChannelInfoRisk" enableSelectByExample="false" enableDeleteByExample="false"
             enableCountByExample="false" enableUpdateByExample="false" />
             
-             <table tableName="pattern_pay_white_list" domainObjectName="PayWhiteList" enableSelectByExample="false" enableDeleteByExample="false"
+            
+            
+             <table tableName="pattern_payment_type" domainObjectName="PaymentType" enableSelectByExample="false" enableDeleteByExample="false"
+            enableCountByExample="false" enableUpdateByExample="false" />
+            
+             <table tableName="pattern_payment_white_list" domainObjectName="PaymentWhiteList" enableSelectByExample="false" enableDeleteByExample="false"
             enableCountByExample="false" enableUpdateByExample="false" />
             
              
+              <table tableName="pattern_shop" domainObjectName="Shop" enableSelectByExample="false" enableDeleteByExample="false"
+            enableCountByExample="false" enableUpdateByExample="false" />
 
     </context>
 </generatorConfiguration>

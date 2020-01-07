@@ -1,0 +1,106 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd" >
+<mapper namespace="com.github.pattern.server.dao.PaymentTypeDao" >
+  <resultMap id="BaseResultMap" type="com.github.pattern.common.domain.PaymentType" >
+    <id column="payment_type_id" property="paymentTypeId" jdbcType="INTEGER" />
+    <result column="payment_name" property="paymentName" jdbcType="VARCHAR" />
+    <result column="pay_model" property="payModel" jdbcType="TINYINT" />
+    <result column="create_time" property="createTime" jdbcType="TIMESTAMP" />
+    <result column="update_time" property="updateTime" jdbcType="TIMESTAMP" />
+    <result column="remark" property="remark" jdbcType="VARCHAR" />
+  </resultMap>
+  <sql id="Base_Column_List" >
+    payment_type_id, payment_name, pay_model, create_time, update_time, remark
+  </sql>
+  <select id="selectByPrimaryKey" resultMap="BaseResultMap" parameterType="java.lang.Integer" >
+    select 
+    <include refid="Base_Column_List" />
+    from pattern_payment_type
+    where payment_type_id = #{paymentTypeId,jdbcType=INTEGER}
+  </select>
+  <delete id="deleteByPrimaryKey" parameterType="java.lang.Integer" >
+    delete from pattern_payment_type
+    where payment_type_id = #{paymentTypeId,jdbcType=INTEGER}
+  </delete>
+  <insert id="insert" parameterType="com.github.pattern.common.domain.PaymentType" >
+    insert into pattern_payment_type (payment_type_id, payment_name, pay_model, 
+      create_time, update_time, remark
+      )
+    values (#{paymentTypeId,jdbcType=INTEGER}, #{paymentName,jdbcType=VARCHAR}, #{payModel,jdbcType=TINYINT}, 
+      #{createTime,jdbcType=TIMESTAMP}, #{updateTime,jdbcType=TIMESTAMP}, #{remark,jdbcType=VARCHAR}
+      )
+  </insert>
+  <insert id="insertSelective" parameterType="com.github.pattern.common.domain.PaymentType" >
+    insert into pattern_payment_type
+    <trim prefix="(" suffix=")" suffixOverrides="," >
+      <if test="paymentTypeId != null" >
+        payment_type_id,
+      </if>
+      <if test="paymentName != null" >
+        payment_name,
+      </if>
+      <if test="payModel != null" >
+        pay_model,
+      </if>
+      <if test="createTime != null" >
+        create_time,
+      </if>
+      <if test="updateTime != null" >
+        update_time,
+      </if>
+      <if test="remark != null" >
+        remark,
+      </if>
+    </trim>
+    <trim prefix="values (" suffix=")" suffixOverrides="," >
+      <if test="paymentTypeId != null" >
+        #{paymentTypeId,jdbcType=INTEGER},
+      </if>
+      <if test="paymentName != null" >
+        #{paymentName,jdbcType=VARCHAR},
+      </if>
+      <if test="payModel != null" >
+        #{payModel,jdbcType=TINYINT},
+      </if>
+      <if test="createTime != null" >
+        #{createTime,jdbcType=TIMESTAMP},
+      </if>
+      <if test="updateTime != null" >
+        #{updateTime,jdbcType=TIMESTAMP},
+      </if>
+      <if test="remark != null" >
+        #{remark,jdbcType=VARCHAR},
+      </if>
+    </trim>
+  </insert>
+  <update id="updateByPrimaryKeySelective" parameterType="com.github.pattern.common.domain.PaymentType" >
+    update pattern_payment_type
+    <set >
+      <if test="paymentName != null" >
+        payment_name = #{paymentName,jdbcType=VARCHAR},
+      </if>
+      <if test="payModel != null" >
+        pay_model = #{payModel,jdbcType=TINYINT},
+      </if>
+      <if test="createTime != null" >
+        create_time = #{createTime,jdbcType=TIMESTAMP},
+      </if>
+      <if test="updateTime != null" >
+        update_time = #{updateTime,jdbcType=TIMESTAMP},
+      </if>
+      <if test="remark != null" >
+        remark = #{remark,jdbcType=VARCHAR},
+      </if>
+    </set>
+    where payment_type_id = #{paymentTypeId,jdbcType=INTEGER}
+  </update>
+  <update id="updateByPrimaryKey" parameterType="com.github.pattern.common.domain.PaymentType" >
+    update pattern_payment_type
+    set payment_name = #{paymentName,jdbcType=VARCHAR},
+      pay_model = #{payModel,jdbcType=TINYINT},
+      create_time = #{createTime,jdbcType=TIMESTAMP},
+      update_time = #{updateTime,jdbcType=TIMESTAMP},
+      remark = #{remark,jdbcType=VARCHAR}
+    where payment_type_id = #{paymentTypeId,jdbcType=INTEGER}
+  </update>
+</mapper>

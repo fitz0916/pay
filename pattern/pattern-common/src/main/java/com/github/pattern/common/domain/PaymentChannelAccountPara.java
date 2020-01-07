@@ -1,5 +1,7 @@
 package com.github.pattern.common.domain;
 
+import java.util.Date;
+
 public class PaymentChannelAccountPara extends BaseObject {
 
 	/**
@@ -20,7 +22,10 @@ public class PaymentChannelAccountPara extends BaseObject {
 	 */
 	private String value;
 
+	private Date createTime;
 	
+	private Date updateTime;
 
+	private String remark;
 	
 }

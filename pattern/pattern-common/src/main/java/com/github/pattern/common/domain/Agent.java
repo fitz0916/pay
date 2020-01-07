@@ -18,10 +18,6 @@ public class Agent extends BaseObject{
 	private Integer type;
 	/**公司注册时间**/
 	private Date registryDate;
-	/**注册时间**/
-    private Date createDate;
-    /**更新时间**/
-    private Date updateDate;
     /**营业执照号**/
 	private String businessLicense;
 	/**联系地址**/
@@ -38,8 +34,12 @@ public class Agent extends BaseObject{
     private String email;
     /**qq**/
     private String qq;
-    /****/
+    /**微信**/
     private String weChat;
+    /**注册时间**/
+    private Date createDate;
+    /**更新时间**/
+    private Date updateDate;
     
 	public Integer getAgentId() {
 		return agentId;

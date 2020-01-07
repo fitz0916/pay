@@ -20,6 +20,10 @@ public class PaymentChannel extends BaseObject {
 	 * 
 	 **/
 	private String thirdChannelName;
+	
+	//结算方式
+	private Integer settlementType;
+		
 	/***
 	 * 渠道状态0：停用 1：启用
 	 */

@@ -3,9 +3,9 @@
 <mapper namespace="com.github.pattern.server.dao.CustomerDao" >
   <resultMap id="BaseResultMap" type="com.github.pattern.common.domain.Customer" >
     <id column="customer_id" property="customerId" jdbcType="INTEGER" />
-    <result column="customer_no" property="customerNo" jdbcType="VARCHAR" />
     <result column="agent_id" property="agentId" jdbcType="INTEGER" />
     <result column="shop_id" property="shopId" jdbcType="INTEGER" />
+    <result column="customer_no" property="customerNo" jdbcType="VARCHAR" />
     <result column="customer_name" property="customerName" jdbcType="VARCHAR" />
     <result column="settlement" property="settlement" jdbcType="BIGINT" />
     <result column="frozen_amount" property="frozenAmount" jdbcType="BIGINT" />
@@ -20,7 +20,7 @@
     <result column="frozen_amount_sum" property="frozenAmountSum" jdbcType="BIGINT" />
   </resultMap>
   <sql id="Base_Column_List" >
-    customer_id, customer_no, agent_id, shop_id, customer_name, settlement, frozen_amount, 
+    customer_id, agent_id, shop_id, customer_no, customer_name, settlement, frozen_amount, 
     amount, cipher, create_date, update_date, pay_status, payout_status, payout_way, 
     unfreeze_amount, frozen_amount_sum
   </sql>
@@ -35,14 +35,14 @@
     where customer_id = #{customerId,jdbcType=INTEGER}
   </delete>
   <insert id="insert" parameterType="com.github.pattern.common.domain.Customer" >
-    insert into pattern_customer (customer_id, customer_no, agent_id, 
-      shop_id, customer_name, settlement, 
+    insert into pattern_customer (customer_id, agent_id, shop_id, 
+      customer_no, customer_name, settlement, 
       frozen_amount, amount, cipher, 
       create_date, update_date, pay_status, 
       payout_status, payout_way, unfreeze_amount, 
       frozen_amount_sum)
-    values (#{customerId,jdbcType=INTEGER}, #{customerNo,jdbcType=VARCHAR}, #{agentId,jdbcType=INTEGER}, 
-      #{shopId,jdbcType=INTEGER}, #{customerName,jdbcType=VARCHAR}, #{settlement,jdbcType=BIGINT}, 
+    values (#{customerId,jdbcType=INTEGER}, #{agentId,jdbcType=INTEGER}, #{shopId,jdbcType=INTEGER}, 
+      #{customerNo,jdbcType=VARCHAR}, #{customerName,jdbcType=VARCHAR}, #{settlement,jdbcType=BIGINT}, 
       #{frozenAmount,jdbcType=BIGINT}, #{amount,jdbcType=BIGINT}, #{cipher,jdbcType=VARCHAR}, 
       #{createDate,jdbcType=TIMESTAMP}, #{updateDate,jdbcType=TIMESTAMP}, #{payStatus,jdbcType=TINYINT}, 
       #{payoutStatus,jdbcType=TINYINT}, #{payoutWay,jdbcType=TINYINT}, #{unfreezeAmount,jdbcType=BIGINT}, 
@@ -54,14 +54,14 @@
       <if test="customerId != null" >
         customer_id,
       </if>
-      <if test="customerNo != null" >
-        customer_no,
-      </if>
       <if test="agentId != null" >
         agent_id,
       </if>
       <if test="shopId != null" >
         shop_id,
+      </if>
+      <if test="customerNo != null" >
+        customer_no,
       </if>
       <if test="customerName != null" >
         customer_name,
@@ -104,14 +104,14 @@
       <if test="customerId != null" >
         #{customerId,jdbcType=INTEGER},
       </if>
-      <if test="customerNo != null" >
-        #{customerNo,jdbcType=VARCHAR},
-      </if>
       <if test="agentId != null" >
         #{agentId,jdbcType=INTEGER},
       </if>
       <if test="shopId != null" >
         #{shopId,jdbcType=INTEGER},
+      </if>
+      <if test="customerNo != null" >
+        #{customerNo,jdbcType=VARCHAR},
       </if>
       <if test="customerName != null" >
         #{customerName,jdbcType=VARCHAR},
@@ -154,14 +154,14 @@
   <update id="updateByPrimaryKeySelective" parameterType="com.github.pattern.common.domain.Customer" >
     update pattern_customer
     <set >
-      <if test="customerNo != null" >
-        customer_no = #{customerNo,jdbcType=VARCHAR},
-      </if>
       <if test="agentId != null" >
         agent_id = #{agentId,jdbcType=INTEGER},
       </if>
       <if test="shopId != null" >
         shop_id = #{shopId,jdbcType=INTEGER},
+      </if>
+      <if test="customerNo != null" >
+        customer_no = #{customerNo,jdbcType=VARCHAR},
       </if>
       <if test="customerName != null" >
         customer_name = #{customerName,jdbcType=VARCHAR},
@@ -204,9 +204,9 @@
   </update>
   <update id="updateByPrimaryKey" parameterType="com.github.pattern.common.domain.Customer" >
     update pattern_customer
-    set customer_no = #{customerNo,jdbcType=VARCHAR},
-      agent_id = #{agentId,jdbcType=INTEGER},
+    set agent_id = #{agentId,jdbcType=INTEGER},
       shop_id = #{shopId,jdbcType=INTEGER},
+      customer_no = #{customerNo,jdbcType=VARCHAR},
       customer_name = #{customerName,jdbcType=VARCHAR},
       settlement = #{settlement,jdbcType=BIGINT},
       frozen_amount = #{frozenAmount,jdbcType=BIGINT},

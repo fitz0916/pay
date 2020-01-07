@@ -1,0 +1,188 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd" >
+<mapper namespace="com.github.pattern.server.dao.PaymentChannelDao" >
+  <resultMap id="BaseResultMap" type="com.github.pattern.common.domain.PaymentChannel" >
+    <id column="pay_channel_id" property="payChannelId" jdbcType="INTEGER" />
+    <result column="channel_name" property="channelName" jdbcType="VARCHAR" />
+    <result column="third_channel_name" property="thirdChannelName" jdbcType="VARCHAR" />
+    <result column="status" property="status" jdbcType="TINYINT" />
+    <result column="settlement_type" property="settlementType" jdbcType="TINYINT" />
+    <result column="pay_type" property="payType" jdbcType="TINYINT" />
+    <result column="business_contacts" property="businessContacts" jdbcType="VARCHAR" />
+    <result column="mobile" property="mobile" jdbcType="VARCHAR" />
+    <result column="qq" property="qq" jdbcType="VARCHAR" />
+    <result column="wechat" property="wechat" jdbcType="VARCHAR" />
+    <result column="create_time" property="createTime" jdbcType="TIMESTAMP" />
+    <result column="update_time" property="updateTime" jdbcType="TIMESTAMP" />
+    <result column="remark" property="remark" jdbcType="VARCHAR" />
+  </resultMap>
+  <sql id="Base_Column_List" >
+    pay_channel_id, channel_name, third_channel_name, status, settlement_type, pay_type, 
+    business_contacts, mobile, qq, wechat, create_time, update_time, remark
+  </sql>
+  <select id="selectByPrimaryKey" resultMap="BaseResultMap" parameterType="java.lang.Integer" >
+    select 
+    <include refid="Base_Column_List" />
+    from pattern_payment_channel
+    where pay_channel_id = #{payChannelId,jdbcType=INTEGER}
+  </select>
+  <delete id="deleteByPrimaryKey" parameterType="java.lang.Integer" >
+    delete from pattern_payment_channel
+    where pay_channel_id = #{payChannelId,jdbcType=INTEGER}
+  </delete>
+  <insert id="insert" parameterType="com.github.pattern.common.domain.PaymentChannel" >
+    insert into pattern_payment_channel (pay_channel_id, channel_name, third_channel_name, 
+      status, settlement_type, pay_type, 
+      business_contacts, mobile, qq, 
+      wechat, create_time, update_time, 
+      remark)
+    values (#{payChannelId,jdbcType=INTEGER}, #{channelName,jdbcType=VARCHAR}, #{thirdChannelName,jdbcType=VARCHAR}, 
+      #{status,jdbcType=TINYINT}, #{settlementType,jdbcType=TINYINT}, #{payType,jdbcType=TINYINT}, 
+      #{businessContacts,jdbcType=VARCHAR}, #{mobile,jdbcType=VARCHAR}, #{qq,jdbcType=VARCHAR}, 
+      #{wechat,jdbcType=VARCHAR}, #{createTime,jdbcType=TIMESTAMP}, #{updateTime,jdbcType=TIMESTAMP}, 
+      #{remark,jdbcType=VARCHAR})
+  </insert>
+  <insert id="insertSelective" parameterType="com.github.pattern.common.domain.PaymentChannel" >
+    insert into pattern_payment_channel
+    <trim prefix="(" suffix=")" suffixOverrides="," >
+      <if test="payChannelId != null" >
+        pay_channel_id,
+      </if>
+      <if test="channelName != null" >
+        channel_name,
+      </if>
+      <if test="thirdChannelName != null" >
+        third_channel_name,
+      </if>
+      <if test="status != null" >
+        status,
+      </if>
+      <if test="settlementType != null" >
+        settlement_type,
+      </if>
+      <if test="payType != null" >
+        pay_type,
+      </if>
+      <if test="businessContacts != null" >
+        business_contacts,
+      </if>
+      <if test="mobile != null" >
+        mobile,
+      </if>
+      <if test="qq != null" >
+        qq,
+      </if>
+      <if test="wechat != null" >
+        wechat,
+      </if>
+      <if test="createTime != null" >
+        create_time,
+      </if>
+      <if test="updateTime != null" >
+        update_time,
+      </if>
+      <if test="remark != null" >
+        remark,
+      </if>
+    </trim>
+    <trim prefix="values (" suffix=")" suffixOverrides="," >
+      <if test="payChannelId != null" >
+        #{payChannelId,jdbcType=INTEGER},
+      </if>
+      <if test="channelName != null" >
+        #{channelName,jdbcType=VARCHAR},
+      </if>
+      <if test="thirdChannelName != null" >
+        #{thirdChannelName,jdbcType=VARCHAR},
+      </if>
+      <if test="status != null" >
+        #{status,jdbcType=TINYINT},
+      </if>
+      <if test="settlementType != null" >
+        #{settlementType,jdbcType=TINYINT},
+      </if>
+      <if test="payType != null" >
+        #{payType,jdbcType=TINYINT},
+      </if>
+      <if test="businessContacts != null" >
+        #{businessContacts,jdbcType=VARCHAR},
+      </if>
+      <if test="mobile != null" >
+        #{mobile,jdbcType=VARCHAR},
+      </if>
+      <if test="qq != null" >
+        #{qq,jdbcType=VARCHAR},
+      </if>
+      <if test="wechat != null" >
+        #{wechat,jdbcType=VARCHAR},
+      </if>
+      <if test="createTime != null" >
+        #{createTime,jdbcType=TIMESTAMP},
+      </if>
+      <if test="updateTime != null" >
+        #{updateTime,jdbcType=TIMESTAMP},
+      </if>
+      <if test="remark != null" >
+        #{remark,jdbcType=VARCHAR},
+      </if>
+    </trim>
+  </insert>
+  <update id="updateByPrimaryKeySelective" parameterType="com.github.pattern.common.domain.PaymentChannel" >
+    update pattern_payment_channel
+    <set >
+      <if test="channelName != null" >
+        channel_name = #{channelName,jdbcType=VARCHAR},
+      </if>
+      <if test="thirdChannelName != null" >
+        third_channel_name = #{thirdChannelName,jdbcType=VARCHAR},
+      </if>
+      <if test="status != null" >
+        status = #{status,jdbcType=TINYINT},
+      </if>
+      <if test="settlementType != null" >
+        settlement_type = #{settlementType,jdbcType=TINYINT},
+      </if>
+      <if test="payType != null" >
+        pay_type = #{payType,jdbcType=TINYINT},
+      </if>
+      <if test="businessContacts != null" >
+        business_contacts = #{businessContacts,jdbcType=VARCHAR},
+      </if>
+      <if test="mobile != null" >
+        mobile = #{mobile,jdbcType=VARCHAR},
+      </if>
+      <if test="qq != null" >
+        qq = #{qq,jdbcType=VARCHAR},
+      </if>
+      <if test="wechat != null" >
+        wechat = #{wechat,jdbcType=VARCHAR},
+      </if>
+      <if test="createTime != null" >
+        create_time = #{createTime,jdbcType=TIMESTAMP},
+      </if>
+      <if test="updateTime != null" >
+        update_time = #{updateTime,jdbcType=TIMESTAMP},
+      </if>
+      <if test="remark != null" >
+        remark = #{remark,jdbcType=VARCHAR},
+      </if>
+    </set>
+    where pay_channel_id = #{payChannelId,jdbcType=INTEGER}
+  </update>
+  <update id="updateByPrimaryKey" parameterType="com.github.pattern.common.domain.PaymentChannel" >
+    update pattern_payment_channel
+    set channel_name = #{channelName,jdbcType=VARCHAR},
+      third_channel_name = #{thirdChannelName,jdbcType=VARCHAR},
+      status = #{status,jdbcType=TINYINT},
+      settlement_type = #{settlementType,jdbcType=TINYINT},
+      pay_type = #{payType,jdbcType=TINYINT},
+      business_contacts = #{businessContacts,jdbcType=VARCHAR},
+      mobile = #{mobile,jdbcType=VARCHAR},
+      qq = #{qq,jdbcType=VARCHAR},
+      wechat = #{wechat,jdbcType=VARCHAR},
+      create_time = #{createTime,jdbcType=TIMESTAMP},
+      update_time = #{updateTime,jdbcType=TIMESTAMP},
+      remark = #{remark,jdbcType=VARCHAR}
+    where pay_channel_id = #{payChannelId,jdbcType=INTEGER}
+  </update>
+</mapper>

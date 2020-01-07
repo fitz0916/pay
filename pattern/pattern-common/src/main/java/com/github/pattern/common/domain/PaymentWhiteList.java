@@ -30,6 +30,11 @@ public class PaymentWhiteList extends BaseObject {
 	 * create_time 创建时间
 	 */
 	private Date createTime;
+	
+	/**
+	 * 更新时间
+	 */
+	private Date updateTime;
 	/**
 	 * remark 备注
 	 */

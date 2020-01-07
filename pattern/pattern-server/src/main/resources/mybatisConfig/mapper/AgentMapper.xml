@@ -7,22 +7,21 @@
     <result column="agent_no" property="agentNo" jdbcType="VARCHAR" />
     <result column="type" property="type" jdbcType="TINYINT" />
     <result column="registry_date" property="registryDate" jdbcType="TIMESTAMP" />
-    <result column="create_date" property="createDate" jdbcType="TIMESTAMP" />
-    <result column="update_date" property="updateDate" jdbcType="TIMESTAMP" />
     <result column="business_license" property="businessLicense" jdbcType="VARCHAR" />
     <result column="address" property="address" jdbcType="VARCHAR" />
     <result column="company_pic_path" property="companyPicPath" jdbcType="VARCHAR" />
-    <result column="idcard_front_path" property="idCardFrontPath" jdbcType="VARCHAR" />
-    <result column="idcard_back_path" property="idCardBackPath" jdbcType="VARCHAR" />
+    <result column="idcard_front_path" property="idcardFrontPath" jdbcType="VARCHAR" />
+    <result column="idcard_back_path" property="idcardBackPath" jdbcType="VARCHAR" />
     <result column="phone" property="phone" jdbcType="VARCHAR" />
     <result column="email" property="email" jdbcType="VARCHAR" />
     <result column="qq" property="qq" jdbcType="VARCHAR" />
     <result column="wechat" property="wechat" jdbcType="VARCHAR" />
+    <result column="create_date" property="createDate" jdbcType="TIMESTAMP" />
+    <result column="update_date" property="updateDate" jdbcType="TIMESTAMP" />
   </resultMap>
   <sql id="Base_Column_List" >
-    agent_id, agent_ame, agent_no, type, registry_date, create_date, update_date, business_license, 
-    address, company_pic_path, idcard_front_path, idcard_back_path, phone, email, qq, 
-    wechat
+    agent_id, agent_ame, agent_no, type, registry_date, business_license, address, company_pic_path, 
+    idcard_front_path, idcard_back_path, phone, email, qq, wechat, create_date, update_date
   </sql>
   <select id="selectByPrimaryKey" resultMap="BaseResultMap" parameterType="java.lang.Integer" >
     select 
@@ -36,17 +35,17 @@
   </delete>
   <insert id="insert" parameterType="com.github.pattern.common.domain.Agent" >
     insert into pattern_agent (agent_id, agent_ame, agent_no, 
-      type, registry_date, create_date, 
-      update_date, business_license, address, 
-      company_pic_path, idcard_front_path, idcard_back_path, 
-      phone, email, qq, wechat
-      )
+      type, registry_date, business_license, 
+      address, company_pic_path, idcard_front_path, 
+      idcard_back_path, phone, email, 
+      qq, wechat, create_date, 
+      update_date)
     values (#{agentId,jdbcType=INTEGER}, #{agentAme,jdbcType=VARCHAR}, #{agentNo,jdbcType=VARCHAR}, 
-      #{type,jdbcType=TINYINT}, #{registryDate,jdbcType=TIMESTAMP}, #{createDate,jdbcType=TIMESTAMP}, 
-      #{updateDate,jdbcType=TIMESTAMP}, #{businessLicense,jdbcType=VARCHAR}, #{address,jdbcType=VARCHAR}, 
-      #{companyPicPath,jdbcType=VARCHAR}, #{idCardFrontPath,jdbcType=VARCHAR}, #{idCardBackPath,jdbcType=VARCHAR}, 
-      #{phone,jdbcType=VARCHAR}, #{email,jdbcType=VARCHAR}, #{qq,jdbcType=VARCHAR}, #{wechat,jdbcType=VARCHAR}
-      )
+      #{type,jdbcType=TINYINT}, #{registryDate,jdbcType=TIMESTAMP}, #{businessLicense,jdbcType=VARCHAR}, 
+      #{address,jdbcType=VARCHAR}, #{companyPicPath,jdbcType=VARCHAR}, #{idcardFrontPath,jdbcType=VARCHAR}, 
+      #{idcardBackPath,jdbcType=VARCHAR}, #{phone,jdbcType=VARCHAR}, #{email,jdbcType=VARCHAR}, 
+      #{qq,jdbcType=VARCHAR}, #{wechat,jdbcType=VARCHAR}, #{createDate,jdbcType=TIMESTAMP}, 
+      #{updateDate,jdbcType=TIMESTAMP})
   </insert>
   <insert id="insertSelective" parameterType="com.github.pattern.common.domain.Agent" >
     insert into pattern_agent
@@ -66,12 +65,6 @@
       <if test="registryDate != null" >
         registry_date,
       </if>
-      <if test="createDate != null" >
-        create_date,
-      </if>
-      <if test="updateDate != null" >
-        update_date,
-      </if>
       <if test="businessLicense != null" >
         business_license,
       </if>
@@ -81,10 +74,10 @@
       <if test="companyPicPath != null" >
         company_pic_path,
       </if>
-      <if test="idCardFrontPath != null" >
+      <if test="idcardFrontPath != null" >
         idcard_front_path,
       </if>
-      <if test="idCardBackPath != null" >
+      <if test="idcardBackPath != null" >
         idcard_back_path,
       </if>
       <if test="phone != null" >
@@ -98,6 +91,12 @@
       </if>
       <if test="wechat != null" >
         wechat,
+      </if>
+      <if test="createDate != null" >
+        create_date,
+      </if>
+      <if test="updateDate != null" >
+        update_date,
       </if>
     </trim>
     <trim prefix="values (" suffix=")" suffixOverrides="," >
@@ -116,12 +115,6 @@
       <if test="registryDate != null" >
         #{registryDate,jdbcType=TIMESTAMP},
       </if>
-      <if test="createDate != null" >
-        #{createDate,jdbcType=TIMESTAMP},
-      </if>
-      <if test="updateDate != null" >
-        #{updateDate,jdbcType=TIMESTAMP},
-      </if>
       <if test="businessLicense != null" >
         #{businessLicense,jdbcType=VARCHAR},
       </if>
@@ -131,11 +124,11 @@
       <if test="companyPicPath != null" >
         #{companyPicPath,jdbcType=VARCHAR},
       </if>
-      <if test="idCardFrontPath != null" >
-        #{idCardFrontPath,jdbcType=VARCHAR},
+      <if test="idcardFrontPath != null" >
+        #{idcardFrontPath,jdbcType=VARCHAR},
       </if>
-      <if test="idCardBackPath != null" >
-        #{idCardBackPath,jdbcType=VARCHAR},
+      <if test="idcardBackPath != null" >
+        #{idcardBackPath,jdbcType=VARCHAR},
       </if>
       <if test="phone != null" >
         #{phone,jdbcType=VARCHAR},
@@ -148,6 +141,12 @@
       </if>
       <if test="wechat != null" >
         #{wechat,jdbcType=VARCHAR},
+      </if>
+      <if test="createDate != null" >
+        #{createDate,jdbcType=TIMESTAMP},
+      </if>
+      <if test="updateDate != null" >
+        #{updateDate,jdbcType=TIMESTAMP},
       </if>
     </trim>
   </insert>
@@ -166,12 +165,6 @@
       <if test="registryDate != null" >
         registry_date = #{registryDate,jdbcType=TIMESTAMP},
       </if>
-      <if test="createDate != null" >
-        create_date = #{createDate,jdbcType=TIMESTAMP},
-      </if>
-      <if test="updateDate != null" >
-        update_date = #{updateDate,jdbcType=TIMESTAMP},
-      </if>
       <if test="businessLicense != null" >
         business_license = #{businessLicense,jdbcType=VARCHAR},
       </if>
@@ -181,11 +174,11 @@
       <if test="companyPicPath != null" >
         company_pic_path = #{companyPicPath,jdbcType=VARCHAR},
       </if>
-      <if test="idCardFrontPath != null" >
-        idcard_front_path = #{idCardFrontPath,jdbcType=VARCHAR},
+      <if test="idcardFrontPath != null" >
+        idcard_front_path = #{idcardFrontPath,jdbcType=VARCHAR},
       </if>
-      <if test="idCardBackPath != null" >
-        idcard_back_path = #{idCardBackPath,jdbcType=VARCHAR},
+      <if test="idcardBackPath != null" >
+        idcard_back_path = #{idcardBackPath,jdbcType=VARCHAR},
       </if>
       <if test="phone != null" >
         phone = #{phone,jdbcType=VARCHAR},
@@ -199,6 +192,12 @@
       <if test="wechat != null" >
         wechat = #{wechat,jdbcType=VARCHAR},
       </if>
+      <if test="createDate != null" >
+        create_date = #{createDate,jdbcType=TIMESTAMP},
+      </if>
+      <if test="updateDate != null" >
+        update_date = #{updateDate,jdbcType=TIMESTAMP},
+      </if>
     </set>
     where agent_id = #{agentId,jdbcType=INTEGER}
   </update>
@@ -208,17 +207,17 @@
       agent_no = #{agentNo,jdbcType=VARCHAR},
       type = #{type,jdbcType=TINYINT},
       registry_date = #{registryDate,jdbcType=TIMESTAMP},
-      create_date = #{createDate,jdbcType=TIMESTAMP},
-      update_date = #{updateDate,jdbcType=TIMESTAMP},
       business_license = #{businessLicense,jdbcType=VARCHAR},
       address = #{address,jdbcType=VARCHAR},
       company_pic_path = #{companyPicPath,jdbcType=VARCHAR},
-      idcard_front_path = #{idCardFrontPath,jdbcType=VARCHAR},
-      idcard_back_path = #{idCardBackPath,jdbcType=VARCHAR},
+      idcard_front_path = #{idcardFrontPath,jdbcType=VARCHAR},
+      idcard_back_path = #{idcardBackPath,jdbcType=VARCHAR},
       phone = #{phone,jdbcType=VARCHAR},
       email = #{email,jdbcType=VARCHAR},
       qq = #{qq,jdbcType=VARCHAR},
-      wechat = #{wechat,jdbcType=VARCHAR}
+      wechat = #{wechat,jdbcType=VARCHAR},
+      create_date = #{createDate,jdbcType=TIMESTAMP},
+      update_date = #{updateDate,jdbcType=TIMESTAMP}
     where agent_id = #{agentId,jdbcType=INTEGER}
   </update>
 </mapper>

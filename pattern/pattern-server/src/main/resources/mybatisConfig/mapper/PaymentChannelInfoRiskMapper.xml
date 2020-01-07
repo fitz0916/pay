@@ -1,0 +1,213 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd" >
+<mapper namespace="com.github.pattern.server.dao.PaymentChannelInfoRiskDao" >
+  <resultMap id="BaseResultMap" type="com.github.pattern.common.domain.PaymentChannelInfoRisk" >
+    <id column="payment_channelinfo_risk_id" property="paymentChannelinfoRiskId" jdbcType="INTEGER" />
+    <result column="payment_channel_id" property="paymentChannelId" jdbcType="INTEGER" />
+    <result column="allowTime" property="allowtime" jdbcType="VARCHAR" />
+    <result column="allow_num" property="allowNum" jdbcType="INTEGER" />
+    <result column="pay_interval" property="payInterval" jdbcType="INTEGER" />
+    <result column="single_money" property="singleMoney" jdbcType="VARCHAR" />
+    <result column="day_money" property="dayMoney" jdbcType="INTEGER" />
+    <result column="user_most_number" property="userMostNumber" jdbcType="INTEGER" />
+    <result column="strategy" property="strategy" jdbcType="TINYINT" />
+    <result column="min_money" property="minMoney" jdbcType="INTEGER" />
+    <result column="max_money" property="maxMoney" jdbcType="INTEGER" />
+    <result column="is_froze" property="isFroze" jdbcType="TINYINT" />
+    <result column="create_time" property="createTime" jdbcType="TIMESTAMP" />
+    <result column="update_time" property="updateTime" jdbcType="TIMESTAMP" />
+    <result column="remark" property="remark" jdbcType="VARCHAR" />
+  </resultMap>
+  <sql id="Base_Column_List" >
+    payment_channelinfo_risk_id, payment_channel_id, allowTime, allow_num, pay_interval, 
+    single_money, day_money, user_most_number, strategy, min_money, max_money, is_froze, 
+    create_time, update_time, remark
+  </sql>
+  <select id="selectByPrimaryKey" resultMap="BaseResultMap" parameterType="java.lang.Integer" >
+    select 
+    <include refid="Base_Column_List" />
+    from pattern_payment_channelinfo_risk
+    where payment_channelinfo_risk_id = #{paymentChannelinfoRiskId,jdbcType=INTEGER}
+  </select>
+  <delete id="deleteByPrimaryKey" parameterType="java.lang.Integer" >
+    delete from pattern_payment_channelinfo_risk
+    where payment_channelinfo_risk_id = #{paymentChannelinfoRiskId,jdbcType=INTEGER}
+  </delete>
+  <insert id="insert" parameterType="com.github.pattern.common.domain.PaymentChannelInfoRisk" >
+    insert into pattern_payment_channelinfo_risk (payment_channelinfo_risk_id, payment_channel_id, 
+      allowTime, allow_num, pay_interval, 
+      single_money, day_money, user_most_number, 
+      strategy, min_money, max_money, 
+      is_froze, create_time, update_time, 
+      remark)
+    values (#{paymentChannelinfoRiskId,jdbcType=INTEGER}, #{paymentChannelId,jdbcType=INTEGER}, 
+      #{allowtime,jdbcType=VARCHAR}, #{allowNum,jdbcType=INTEGER}, #{payInterval,jdbcType=INTEGER}, 
+      #{singleMoney,jdbcType=VARCHAR}, #{dayMoney,jdbcType=INTEGER}, #{userMostNumber,jdbcType=INTEGER}, 
+      #{strategy,jdbcType=TINYINT}, #{minMoney,jdbcType=INTEGER}, #{maxMoney,jdbcType=INTEGER}, 
+      #{isFroze,jdbcType=TINYINT}, #{createTime,jdbcType=TIMESTAMP}, #{updateTime,jdbcType=TIMESTAMP}, 
+      #{remark,jdbcType=VARCHAR})
+  </insert>
+  <insert id="insertSelective" parameterType="com.github.pattern.common.domain.PaymentChannelInfoRisk" >
+    insert into pattern_payment_channelinfo_risk
+    <trim prefix="(" suffix=")" suffixOverrides="," >
+      <if test="paymentChannelinfoRiskId != null" >
+        payment_channelinfo_risk_id,
+      </if>
+      <if test="paymentChannelId != null" >
+        payment_channel_id,
+      </if>
+      <if test="allowtime != null" >
+        allowTime,
+      </if>
+      <if test="allowNum != null" >
+        allow_num,
+      </if>
+      <if test="payInterval != null" >
+        pay_interval,
+      </if>
+      <if test="singleMoney != null" >
+        single_money,
+      </if>
+      <if test="dayMoney != null" >
+        day_money,
+      </if>
+      <if test="userMostNumber != null" >
+        user_most_number,
+      </if>
+      <if test="strategy != null" >
+        strategy,
+      </if>
+      <if test="minMoney != null" >
+        min_money,
+      </if>
+      <if test="maxMoney != null" >
+        max_money,
+      </if>
+      <if test="isFroze != null" >
+        is_froze,
+      </if>
+      <if test="createTime != null" >
+        create_time,
+      </if>
+      <if test="updateTime != null" >
+        update_time,
+      </if>
+      <if test="remark != null" >
+        remark,
+      </if>
+    </trim>
+    <trim prefix="values (" suffix=")" suffixOverrides="," >
+      <if test="paymentChannelinfoRiskId != null" >
+        #{paymentChannelinfoRiskId,jdbcType=INTEGER},
+      </if>
+      <if test="paymentChannelId != null" >
+        #{paymentChannelId,jdbcType=INTEGER},
+      </if>
+      <if test="allowtime != null" >
+        #{allowtime,jdbcType=VARCHAR},
+      </if>
+      <if test="allowNum != null" >
+        #{allowNum,jdbcType=INTEGER},
+      </if>
+      <if test="payInterval != null" >
+        #{payInterval,jdbcType=INTEGER},
+      </if>
+      <if test="singleMoney != null" >
+        #{singleMoney,jdbcType=VARCHAR},
+      </if>
+      <if test="dayMoney != null" >
+        #{dayMoney,jdbcType=INTEGER},
+      </if>
+      <if test="userMostNumber != null" >
+        #{userMostNumber,jdbcType=INTEGER},
+      </if>
+      <if test="strategy != null" >
+        #{strategy,jdbcType=TINYINT},
+      </if>
+      <if test="minMoney != null" >
+        #{minMoney,jdbcType=INTEGER},
+      </if>
+      <if test="maxMoney != null" >
+        #{maxMoney,jdbcType=INTEGER},
+      </if>
+      <if test="isFroze != null" >
+        #{isFroze,jdbcType=TINYINT},
+      </if>
+      <if test="createTime != null" >
+        #{createTime,jdbcType=TIMESTAMP},
+      </if>
+      <if test="updateTime != null" >
+        #{updateTime,jdbcType=TIMESTAMP},
+      </if>
+      <if test="remark != null" >
+        #{remark,jdbcType=VARCHAR},
+      </if>
+    </trim>
+  </insert>
+  <update id="updateByPrimaryKeySelective" parameterType="com.github.pattern.common.domain.PaymentChannelInfoRisk" >
+    update pattern_payment_channelinfo_risk
+    <set >
+      <if test="paymentChannelId != null" >
+        payment_channel_id = #{paymentChannelId,jdbcType=INTEGER},
+      </if>
+      <if test="allowtime != null" >
+        allowTime = #{allowtime,jdbcType=VARCHAR},
+      </if>
+      <if test="allowNum != null" >
+        allow_num = #{allowNum,jdbcType=INTEGER},
+      </if>
+      <if test="payInterval != null" >
+        pay_interval = #{payInterval,jdbcType=INTEGER},
+      </if>
+      <if test="singleMoney != null" >
+        single_money = #{singleMoney,jdbcType=VARCHAR},
+      </if>
+      <if test="dayMoney != null" >
+        day_money = #{dayMoney,jdbcType=INTEGER},
+      </if>
+      <if test="userMostNumber != null" >
+        user_most_number = #{userMostNumber,jdbcType=INTEGER},
+      </if>
+      <if test="strategy != null" >
+        strategy = #{strategy,jdbcType=TINYINT},
+      </if>
+      <if test="minMoney != null" >
+        min_money = #{minMoney,jdbcType=INTEGER},
+      </if>
+      <if test="maxMoney != null" >
+        max_money = #{maxMoney,jdbcType=INTEGER},
+      </if>
+      <if test="isFroze != null" >
+        is_froze = #{isFroze,jdbcType=TINYINT},
+      </if>
+      <if test="createTime != null" >
+        create_time = #{createTime,jdbcType=TIMESTAMP},
+      </if>
+      <if test="updateTime != null" >
+        update_time = #{updateTime,jdbcType=TIMESTAMP},
+      </if>
+      <if test="remark != null" >
+        remark = #{remark,jdbcType=VARCHAR},
+      </if>
+    </set>
+    where payment_channelinfo_risk_id = #{paymentChannelinfoRiskId,jdbcType=INTEGER}
+  </update>
+  <update id="updateByPrimaryKey" parameterType="com.github.pattern.common.domain.PaymentChannelInfoRisk" >
+    update pattern_payment_channelinfo_risk
+    set payment_channel_id = #{paymentChannelId,jdbcType=INTEGER},
+      allowTime = #{allowtime,jdbcType=VARCHAR},
+      allow_num = #{allowNum,jdbcType=INTEGER},
+      pay_interval = #{payInterval,jdbcType=INTEGER},
+      single_money = #{singleMoney,jdbcType=VARCHAR},
+      day_money = #{dayMoney,jdbcType=INTEGER},
+      user_most_number = #{userMostNumber,jdbcType=INTEGER},
+      strategy = #{strategy,jdbcType=TINYINT},
+      min_money = #{minMoney,jdbcType=INTEGER},
+      max_money = #{maxMoney,jdbcType=INTEGER},
+      is_froze = #{isFroze,jdbcType=TINYINT},
+      create_time = #{createTime,jdbcType=TIMESTAMP},
+      update_time = #{updateTime,jdbcType=TIMESTAMP},
+      remark = #{remark,jdbcType=VARCHAR}
+    where payment_channelinfo_risk_id = #{paymentChannelinfoRiskId,jdbcType=INTEGER}
+  </update>
+</mapper>

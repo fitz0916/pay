@@ -1,31 +1,31 @@
 package com.github.pattern.common.domain;
 
+import java.util.Date;
+
 /**
  * 商户支付通道实体类 
  */
 public class CustomerPaymentChannelInfo extends BaseObject {
 
+	
     /**
      * 商户支付通道ID
      */
-    private Integer paymentChannelInfoId;
+    private Integer customerPaymentChannelInfoId;
     /***
      * 渠道ID
      */
     private Integer paymentChannelId;
+   
     /**
      * 商户ID
      */
     private Integer customerId;
+    
+    private Date createTime;
+    
+    private Date updateTtime;
    
-    /**
-     * 优先级（从大到小）
-     */
-    private Integer priority;
-    /**
-     * 是否冻结
-     */
-    private Integer isFroze;
     /**
      * 备注
      */
