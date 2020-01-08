@@ -11,7 +11,7 @@
  Target Server Version : 80018
  File Encoding         : 65001
 
- Date: 08/01/2020 11:03:46
+ Date: 08/01/2020 22:59:12
 */
 
 SET NAMES utf8mb4;
@@ -23,7 +23,7 @@ SET FOREIGN_KEY_CHECKS = 0;
 DROP TABLE IF EXISTS `pattern_agent`;
 CREATE TABLE `pattern_agent` (
   `agent_id` int(11) NOT NULL AUTO_INCREMENT COMMENT '主键',
-  `agent_ame` varchar(100) NOT NULL COMMENT '代理商名称',
+  `agent_name` varchar(100) CHARACTER SET utf8 COLLATE utf8_general_ci NOT NULL COMMENT '代理商名称',
   `agent_no` varchar(20) CHARACTER SET utf8 COLLATE utf8_general_ci NOT NULL COMMENT '代理商编号',
   `status` tinyint(4) NOT NULL DEFAULT '1' COMMENT '0:停用 1：启用 2：删除',
   `type` tinyint(4) NOT NULL COMMENT '1个体工商户 2公司/企业',
@@ -40,7 +40,7 @@ CREATE TABLE `pattern_agent` (
   `create_date` datetime NOT NULL ON UPDATE CURRENT_TIMESTAMP COMMENT '创建时间',
   `update_date` datetime NOT NULL ON UPDATE CURRENT_TIMESTAMP COMMENT '更新时间',
   PRIMARY KEY (`agent_id`)
-) ENGINE=InnoDB AUTO_INCREMENT=414 DEFAULT CHARSET=utf8 COMMENT='代理商/商户';
+) ENGINE=InnoDB AUTO_INCREMENT=415 DEFAULT CHARSET=utf8 COMMENT='代理商/商户';
 
 -- ----------------------------
 -- Table structure for pattern_customer
@@ -232,9 +232,6 @@ CREATE TABLE `pattern_shop` (
   `adress` varchar(100) CHARACTER SET utf8 COLLATE utf8_general_ci NOT NULL DEFAULT '' COMMENT '门店地址',
   `status` tinyint(4) NOT NULL DEFAULT '1' COMMENT '0：禁用 1：启用 2：删除',
   `phone` varchar(11) CHARACTER SET utf8 COLLATE utf8_general_ci NOT NULL DEFAULT '' COMMENT '门店管理账号',
-  `name` varchar(15) CHARACTER SET utf8 COLLATE utf8_general_ci NOT NULL DEFAULT '' COMMENT '联系人姓名',
-  `telephone` varchar(11) CHARACTER SET utf8 COLLATE utf8_general_ci NOT NULL COMMENT '联系人电话',
-  `is_lock` tinyint(2) NOT NULL DEFAULT '0' COMMENT '0启用1禁用',
   `create_time` datetime NOT NULL ON UPDATE CURRENT_TIMESTAMP COMMENT '创建时间',
   `update_time` datetime NOT NULL ON UPDATE CURRENT_TIMESTAMP COMMENT '更新时间',
   PRIMARY KEY (`shop_id`)
