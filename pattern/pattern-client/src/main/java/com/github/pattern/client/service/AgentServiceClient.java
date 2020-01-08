@@ -9,7 +9,7 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import com.github.appmodel.domain.result.ModelResult;
 import com.github.pattern.common.domain.Agent;
 import com.github.pattern.common.request.AgentRequest;
-import com.github.pattern.common.vo.ResultVo;
+import com.github.pattern.common.vo.PageVo;
 
 
 @FeignClient(name="pattern-server")
@@ -17,7 +17,7 @@ import com.github.pattern.common.vo.ResultVo;
 public interface AgentServiceClient {
 	
 	@PostMapping("/page")
-	ModelResult<ResultVo> page(@RequestBody AgentRequest request);
+	ModelResult<PageVo> page(@RequestBody AgentRequest request);
 	
 	@PostMapping("/deleteByPrimaryKey/{agentId}")
 	ModelResult<Integer> deleteByPrimaryKey(@PathVariable("agentId")Integer agentId);

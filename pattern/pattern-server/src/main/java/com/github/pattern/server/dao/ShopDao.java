@@ -1,5 +1,7 @@
 package com.github.pattern.server.dao;
 
+import java.util.List;
+
 import org.apache.ibatis.annotations.Param;
 import org.springframework.stereotype.Repository;
 
@@ -21,4 +23,6 @@ public interface ShopDao {
     int updateByPrimaryKeySelective(Shop record);
 
     int updateByPrimaryKey(Shop record);
+    
+    public List<Shop> selectByAgentId(@Param("shopId")Integer agentId,@Param("status")Integer status);
 }

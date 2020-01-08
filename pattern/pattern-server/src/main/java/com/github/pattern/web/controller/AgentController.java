@@ -11,7 +11,7 @@ import com.github.appmodel.domain.result.ModelResult;
 import com.github.pattern.common.domain.Agent;
 import com.github.pattern.common.request.AgentRequest;
 import com.github.pattern.common.service.AgentService;
-import com.github.pattern.common.vo.ResultVo;
+import com.github.pattern.common.vo.PageVo;
 
 @RestController
 @RequestMapping("/pattern/server/agent")
@@ -22,7 +22,7 @@ public class AgentController {
 	private AgentService agentServiceImpl;
 	
 	@PostMapping("/page")
-	ModelResult<ResultVo> page(@RequestBody AgentRequest request){
+	ModelResult<PageVo> page(@RequestBody AgentRequest request){
 		return agentServiceImpl.page(request);
 	}
 	

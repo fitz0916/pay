@@ -232,4 +232,37 @@
       update_date = #{updateDate,jdbcType=TIMESTAMP}
     where agent_id = #{agentId,jdbcType=INTEGER}
   </update>
+   
+   <select id="pageCount" resultMap="long" parameterType="map" >
+    select count(*)
+       from pattern_agent
+       <where>
+    	<if test="statusList != null and statusList.size() > 0">
+      		status in
+      		<foreach collection="statusList" item="status" index="index" open="(" close=")" separator=",">
+	   			#{status,jdbcType=INTEGER}
+			</foreach>
+      </if>
+    </where>
+  </select>
+  
+  <select id="selectByPrimaryKey" resultMap="BaseResultMap" parameterType="map" >
+    select 
+    <include refid="Base_Column_List" />
+    from pattern_agent  
+    <where>
+    	<if test="statusList != null and statusList.size() > 0">
+      		status in
+      		<foreach collection="statusList" item="status" index="index" open="(" close=")" separator=",">
+	   			#{status,jdbcType=INTEGER}
+			</foreach>
+      </if>
+    </where>
+    
+	<if test="start !=null and offset !=null">
+      limit #{start}, #{offset}
+    </if>
+    
+  </select>
+    
 </mapper>

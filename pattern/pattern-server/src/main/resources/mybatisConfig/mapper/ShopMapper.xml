@@ -26,6 +26,14 @@
     from pattern_shop
     where shop_id = #{shopId,jdbcType=INTEGER}
   </select>
+  <select id="selectByAgentId" resultMap="BaseResultMap" parameterType="map" >
+    select 
+    <include refid="Base_Column_List" />
+    from pattern_shop
+    where agent_id = #{agentId,jdbcType=INTEGER}
+          and status = #{status,jdbcType=INTEGER}
+  </select>
+  
   <delete id="deleteByPrimaryKey" parameterType="java.lang.Integer" >
     delete from pattern_shop
     where shop_id = #{shopId,jdbcType=INTEGER}
