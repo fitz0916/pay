@@ -3,7 +3,7 @@
 <mapper namespace="com.github.pattern.server.dao.AgentDao" >
   <resultMap id="BaseResultMap" type="com.github.pattern.common.domain.Agent" >
     <id column="agent_id" property="agentId" jdbcType="INTEGER" />
-    <result column="agent_ame" property="agentAme" jdbcType="VARCHAR" />
+    <result column="agent_name" property="agentName" jdbcType="VARCHAR" />
     <result column="agent_no" property="agentNo" jdbcType="VARCHAR" />
     <result column="status" property="status" jdbcType="TINYINT" />
     <result column="type" property="type" jdbcType="TINYINT" />
@@ -11,8 +11,8 @@
     <result column="business_license" property="businessLicense" jdbcType="VARCHAR" />
     <result column="address" property="address" jdbcType="VARCHAR" />
     <result column="company_pic_path" property="companyPicPath" jdbcType="VARCHAR" />
-    <result column="idcard_front_path" property="idcardFrontPath" jdbcType="VARCHAR" />
-    <result column="idcard_back_path" property="idcardBackPath" jdbcType="VARCHAR" />
+    <result column="idcard_front_path" property="idCardFrontPath" jdbcType="VARCHAR" />
+    <result column="idcard_back_path" property="idCardBackPath" jdbcType="VARCHAR" />
     <result column="phone" property="phone" jdbcType="VARCHAR" />
     <result column="email" property="email" jdbcType="VARCHAR" />
     <result column="qq" property="qq" jdbcType="VARCHAR" />
@@ -21,7 +21,7 @@
     <result column="update_date" property="updateDate" jdbcType="TIMESTAMP" />
   </resultMap>
   <sql id="Base_Column_List" >
-    agent_id, agent_ame, agent_no, status, type, registry_date, business_license, address, 
+    agent_id, agent_name, agent_no, status, type, registry_date, business_license, address, 
     company_pic_path, idcard_front_path, idcard_back_path, phone, email, qq, wechat, 
     create_date, update_date
   </sql>
@@ -36,16 +36,16 @@
     where agent_id = #{agentId,jdbcType=INTEGER}
   </delete>
   <insert id="insert" parameterType="com.github.pattern.common.domain.Agent" >
-    insert into pattern_agent (agent_id, agent_ame, agent_no, 
+    insert into pattern_agent (agent_id, agent_name, agent_no, 
       status, type, registry_date, 
       business_license, address, company_pic_path, 
       idcard_front_path, idcard_back_path, phone, 
       email, qq, wechat, 
       create_date, update_date)
-    values (#{agentId,jdbcType=INTEGER}, #{agentAme,jdbcType=VARCHAR}, #{agentNo,jdbcType=VARCHAR}, 
+    values (#{agentId,jdbcType=INTEGER}, #{agentName,jdbcType=VARCHAR}, #{agentNo,jdbcType=VARCHAR}, 
       #{status,jdbcType=TINYINT}, #{type,jdbcType=TINYINT}, #{registryDate,jdbcType=TIMESTAMP}, 
       #{businessLicense,jdbcType=VARCHAR}, #{address,jdbcType=VARCHAR}, #{companyPicPath,jdbcType=VARCHAR}, 
-      #{idcardFrontPath,jdbcType=VARCHAR}, #{idcardBackPath,jdbcType=VARCHAR}, #{phone,jdbcType=VARCHAR}, 
+      #{idCardFrontPath,jdbcType=VARCHAR}, #{idCardBackPath,jdbcType=VARCHAR}, #{phone,jdbcType=VARCHAR}, 
       #{email,jdbcType=VARCHAR}, #{qq,jdbcType=VARCHAR}, #{wechat,jdbcType=VARCHAR}, 
       #{createDate,jdbcType=TIMESTAMP}, #{updateDate,jdbcType=TIMESTAMP})
   </insert>
@@ -55,8 +55,8 @@
       <if test="agentId != null" >
         agent_id,
       </if>
-      <if test="agentAme != null" >
-        agent_ame,
+      <if test="agentName != null" >
+        agent_name,
       </if>
       <if test="agentNo != null" >
         agent_no,
@@ -79,10 +79,10 @@
       <if test="companyPicPath != null" >
         company_pic_path,
       </if>
-      <if test="idcardFrontPath != null" >
+      <if test="idCardFrontPath != null" >
         idcard_front_path,
       </if>
-      <if test="idcardBackPath != null" >
+      <if test="idCardBackPath != null" >
         idcard_back_path,
       </if>
       <if test="phone != null" >
@@ -108,8 +108,8 @@
       <if test="agentId != null" >
         #{agentId,jdbcType=INTEGER},
       </if>
-      <if test="agentAme != null" >
-        #{agentAme,jdbcType=VARCHAR},
+      <if test="agentName != null" >
+        #{agentName,jdbcType=VARCHAR},
       </if>
       <if test="agentNo != null" >
         #{agentNo,jdbcType=VARCHAR},
@@ -132,11 +132,11 @@
       <if test="companyPicPath != null" >
         #{companyPicPath,jdbcType=VARCHAR},
       </if>
-      <if test="idcardFrontPath != null" >
-        #{idcardFrontPath,jdbcType=VARCHAR},
+      <if test="idCardFrontPath != null" >
+        #{idCardFrontPath,jdbcType=VARCHAR},
       </if>
-      <if test="idcardBackPath != null" >
-        #{idcardBackPath,jdbcType=VARCHAR},
+      <if test="idCardBackPath != null" >
+        #{idCardBackPath,jdbcType=VARCHAR},
       </if>
       <if test="phone != null" >
         #{phone,jdbcType=VARCHAR},
@@ -161,8 +161,8 @@
   <update id="updateByPrimaryKeySelective" parameterType="com.github.pattern.common.domain.Agent" >
     update pattern_agent
     <set >
-      <if test="agentAme != null" >
-        agent_ame = #{agentAme,jdbcType=VARCHAR},
+      <if test="agentName != null" >
+        agent_name = #{agentName,jdbcType=VARCHAR},
       </if>
       <if test="agentNo != null" >
         agent_no = #{agentNo,jdbcType=VARCHAR},
@@ -185,11 +185,11 @@
       <if test="companyPicPath != null" >
         company_pic_path = #{companyPicPath,jdbcType=VARCHAR},
       </if>
-      <if test="idcardFrontPath != null" >
-        idcard_front_path = #{idcardFrontPath,jdbcType=VARCHAR},
+      <if test="idCardFrontPath != null" >
+        idcard_front_path = #{idCardFrontPath,jdbcType=VARCHAR},
       </if>
-      <if test="idcardBackPath != null" >
-        idcard_back_path = #{idcardBackPath,jdbcType=VARCHAR},
+      <if test="idCardBackPath != null" >
+        idcard_back_path = #{idCardBackPath,jdbcType=VARCHAR},
       </if>
       <if test="phone != null" >
         phone = #{phone,jdbcType=VARCHAR},
@@ -214,7 +214,7 @@
   </update>
   <update id="updateByPrimaryKey" parameterType="com.github.pattern.common.domain.Agent" >
     update pattern_agent
-    set agent_ame = #{agentAme,jdbcType=VARCHAR},
+    set agent_name = #{agentName,jdbcType=VARCHAR},
       agent_no = #{agentNo,jdbcType=VARCHAR},
       status = #{status,jdbcType=TINYINT},
       type = #{type,jdbcType=TINYINT},
@@ -222,8 +222,8 @@
       business_license = #{businessLicense,jdbcType=VARCHAR},
       address = #{address,jdbcType=VARCHAR},
       company_pic_path = #{companyPicPath,jdbcType=VARCHAR},
-      idcard_front_path = #{idcardFrontPath,jdbcType=VARCHAR},
-      idcard_back_path = #{idcardBackPath,jdbcType=VARCHAR},
+      idcard_front_path = #{idCardFrontPath,jdbcType=VARCHAR},
+      idcard_back_path = #{idCardBackPath,jdbcType=VARCHAR},
       phone = #{phone,jdbcType=VARCHAR},
       email = #{email,jdbcType=VARCHAR},
       qq = #{qq,jdbcType=VARCHAR},
@@ -233,7 +233,7 @@
     where agent_id = #{agentId,jdbcType=INTEGER}
   </update>
    
-   <select id="pageCount" resultMap="long" parameterType="map" >
+   <select id="pageCount" resultType="long" parameterType="map" >
     select count(*)
        from pattern_agent
        <where>
@@ -246,7 +246,7 @@
     </where>
   </select>
   
-  <select id="selectByPrimaryKey" resultMap="BaseResultMap" parameterType="map" >
+  <select id="pageList" resultMap="BaseResultMap" parameterType="map" >
     select 
     <include refid="Base_Column_List" />
     from pattern_agent  

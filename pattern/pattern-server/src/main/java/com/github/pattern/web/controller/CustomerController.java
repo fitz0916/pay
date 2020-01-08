@@ -35,7 +35,7 @@ public class CustomerController {
 		return customerServiceImpl.insertSelective(record);
 	}
 
-	@PostMapping("/deleteByPrimaryKey/{customerId}")
+	@PostMapping("/selectByPrimaryKey/{customerId}")
 	public ModelResult<Customer> selectByPrimaryKey(@PathVariable("customerId")Integer customerId){
 		return customerServiceImpl.selectByPrimaryKey(customerId);
 	}

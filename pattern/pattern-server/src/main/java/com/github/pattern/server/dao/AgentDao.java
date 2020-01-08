@@ -25,5 +25,5 @@ public interface AgentDao {
     
     long pageCount(@Param("statusList")List<Integer> status);
     
-    List<Agent> pageList(@Param("start")int start, @Param("offset")int offset,@Param("statusList")List<Integer> status);
+    List<Agent> pageList(@Param("start")Integer start, @Param("offset")Integer offset,@Param("statusList")List<Integer> status);
 }

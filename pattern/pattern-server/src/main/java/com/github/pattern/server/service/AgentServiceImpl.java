@@ -85,6 +85,10 @@ public class AgentServiceImpl extends BaseService implements AgentService{
 		}
 		String agentNo = PatternConstants.AGENT_NO_PREFIX + UUIDGenerator.getRandomNumber(6);
 		record.setAgentNo(agentNo);
+		Date date = new Date();
+		record.setCreateDate(date);
+		record.setUpdateDate(date);
+		record.setRegistryDate(date);
 		int result = agentDao.insertSelective(record);
 		if(result > 0) {
 			modelResult.setModel(result);

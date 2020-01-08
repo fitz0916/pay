@@ -61,7 +61,7 @@ public class ExceptionHandle{
 				msg = msg + "系统异常，请与管理员联系！";
 			}
 //			modelResult.withError(status,msg);
-			return ResultUtils.buildErrorMsg(Constants.DELETE_FAIL_MSG, modelResult);
+			return ResultUtils.buildErrorMsg(Constants.FAIL_MSG_CODE, modelResult);
 		}else {
 			modelAndView.setViewName("/error"); 
 			modelAndView.addObject("error",exception.getMessage());

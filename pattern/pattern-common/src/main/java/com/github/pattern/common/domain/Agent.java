@@ -37,7 +37,7 @@ public class Agent extends BaseObject{
     /**qq**/
     private String qq;
     /**微信**/
-    private String weChat;
+    private String wechat;
     /**注册时间**/
     private Date createDate;
     /**更新时间**/
@@ -133,11 +133,11 @@ public class Agent extends BaseObject{
 	public void setQq(String qq) {
 		this.qq = qq;
 	}
-	public String getWeChat() {
-		return weChat;
+	public String getWechat() {
+		return wechat;
 	}
-	public void setWeChat(String weChat) {
-		this.weChat = weChat;
+	public void setWechat(String wechat) {
+		this.wechat = wechat;
 	}
 	public Integer getStatus() {
 		return status;

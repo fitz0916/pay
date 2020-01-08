@@ -1,16 +1,25 @@
 package com.github.pattern.server.service;
 
+import java.util.List;
+
+import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
 import com.github.appmodel.domain.result.ModelResult;
+import com.github.appmodel.page.DataPage;
+import com.github.pattern.common.domain.Agent;
 import com.github.pattern.common.domain.Shop;
-import com.github.pattern.common.request.AgentRequest;
+import com.github.pattern.common.request.ShopRequest;
 import com.github.pattern.common.service.ShopService;
-import com.github.pattern.common.vo.ResultVo;
+import com.github.pattern.common.vo.PageVo;
+import com.github.pattern.server.dao.ShopDao;
 
 @Service
-public class ShopServiceImpl implements ShopService{
+public class ShopServiceImpl extends BaseService implements ShopService{
 
+	@Autowired
+	private ShopDao shopDao;
+	
 	@Override
 	public ModelResult<Integer> deleteByPrimaryKey(Integer shopId) {
 		// TODO Auto-generated method stub
@@ -48,9 +57,22 @@ public class ShopServiceImpl implements ShopService{
 	}
 
 	@Override
-	public ModelResult<ResultVo> page(AgentRequest request) {
-		// TODO Auto-generated method stub
-		return null;
+	public ModelResult<PageVo> page(ShopRequest request) {
+		ModelResult<PageVo> modelResult = new ModelResult<PageVo>();
+		PageVo pageVo = new PageVo();
+		DataPage<Agent> dataPage = new DataPage<Agent>();
+		this.setDataPage(dataPage, request);;
+		List<Integer> statusList = this.buildStatusList();
+		int start = dataPage.getStartIndex();
+		int offset = dataPage.getPageSize();
+		Integer agentId = request.getAgentId();
+		long totalCount = shopDao.pageCount(statusList,agentId);
+		List<Agent> result = shopDao.pageList(start,offset,statusList,agentId);
+        dataPage.setDataList(result);
+        pageVo.setRows(result);
+        pageVo.setTotal(totalCount);
+        modelResult.setModel(pageVo);
+        return modelResult;
 	}
 	
 	

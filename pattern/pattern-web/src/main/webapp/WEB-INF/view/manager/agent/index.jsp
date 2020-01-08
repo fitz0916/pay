@@ -28,7 +28,9 @@
 <div id="main">
 	<div id="toolbar">
 		<shiro:hasPermission name="pattern:agent:create">
-			<a class="waves-effect waves-button" href="javascript:;" onclick="createAction()"><i class="zmdi zmdi-plus"></i> 新增代理</a>
+			<a class="waves-effect waves-button" href="javascript:;" onclick="createAction()"><i class="zmdi zmdi-plus"></i> 新增</a>
+			<a class="waves-effect waves-button" href="javascript:;" onclick="updateAction()"><i class="zmdi zmdi-plus"></i> 编辑</a>
+			<a class="waves-effect waves-button" href="javascript:;" onclick="deleteAction()"><i class="zmdi zmdi-plus"></i> 删除</a>
 		</shiro:hasPermission>
 	</div>
 	<table id="table"></table>
@@ -36,6 +38,11 @@
 <jsp:include page="../../common/inc/footer.jsp" flush="true"/>
 <script>
 var $table = $('#table');
+
+
+$(function() {
+	initMyTable();
+});
 
 
 //显示商户
@@ -50,26 +57,13 @@ function showBusiness(index){
 }
 
 
-$(function() {
-	$.ajax({
-	    type:"GET",
-	    url:'${basePath}/agent/all',
-	    success:function(result){
-	        for(var i=0;i<result.length;i++){
-	            var option = $("<option value="+ result[i].agentId +">" + result[i].companyName +"</option>");
-	            $("#parentId").append(option);
-	        }
-	    }
-	});
-	
-	initMyTable();
-});
-
 function initMyTable(){
 	// bootstrap table初始化
 	$table.bootstrapTable({
-		url: '${basePath}/agent/list',
+		url: '${basePath}/manage/agent/list',
 		height: getHeight(),
+		method:'post',
+		dataType:'json',
 		striped: true,
 		search: false,
 		showRefresh: true,
@@ -89,25 +83,36 @@ function initMyTable(){
 		toolbar: '#toolbar',
 		queryParams:queryParams,
 		detailView: true,
+        responseHandler:function(result){
+			if(result.code == '10110'){
+            	layer.msg(result.msg);
+                location:top.location.href = '${basePath}/login';
+            }
+			return{                            //return bootstrap-table能处理的数据格式
+		        "total":result.total,
+		        "rows":result.rows
+		    }
+		},
 		columns: [
+			{field: 'ck', checkbox: true},
 			{field:'agentId',title:'代理商ID',align:'center'},
-			{field:'companyName',title:'代理商名称',align:'center'},
-            {field:'name',title:'联系人姓名',align:'center'},
+			{field:'agentName',title:'代理商名称',align:'center'},
+			{field:'agentNo',title:'代理商编号',align:'center'},
+			{field:'businessLicense',title:'营业执照号',align:'center'},
+			{field:'registryDate',title:'注册时间',align:'center',formatter: 'changeDateFormat'},
+            {field: 'status', title: '状态', align: 'center',formatter: 'statusFormatter'},
             {field:'phone',title:'联系人手机',align:'center'},
-			{field:'custType',title:'银行账户类型',align:'center', formatter: function (value, row, index) { return value==1?'对公':'个人';}},
-			{field:'isHolidayCash',title:'节假日出款',align:'center', formatter: function (value, row, index) {return value==0?"不可":"可以";}},
-            {field: 'action', title: '操作', align: 'center', width: 240, formatter: function (value, row, index) {
-            	return [
-           			'<shiro:hasPermission name="pattern:agent:read"><button type="button" class="btn btn-warning btn-sm" style="margin-right:10px;padding:0 10px;" onclick="showBusiness('+index+')">查看商户</button></shiro:hasPermission>',
-           			'<shiro:hasPermission name="pattern:agent:update"><button type="button" class="btn btn-primary btn-sm" style="margin-right:10px;padding:0 10px;" onclick="updateRow('+row.agentId+','+row.role+')">编辑详情</button></shiro:hasPermission>'
-            	].join('');
-            }, events: 'actionEvents'}
+            {field:'qq',title:'QQ',align:'center'},
+            {field:'email',title:'Email',align:'center'},
+            {field:'wechat',title:'微信',align:'center'},
+			{field:'type',title:'公司性质',align:'center', formatter: function (value, row, index) { return value == 1 ? '个体' : '公司/企业';}},
+            {field: 'action', title: '操作', align: 'center', width: 240, formatter: 'actionFormatter'}
 		],
 		//子table触发事件
 	    onExpandRow:function(index,row,$element){
 			var paraTable = $element.html('<table id="child_table'+row.agentId+'"></table>').find('table');
 	        $(paraTable).bootstrapTable({
-	            url: '${basePath}/agent/list?parentId='+row.agentId+'&role=1&limit=-1',	//获取表格数据的url
+	            url: '${basePath}/manage/shop/list?agentId='+row.agentId,	//获取表格数据的url
 	            striped: true,	//是否启用行间隔色
 	            search: false,	//是否启用搜索框，此搜索是客户端搜索，意义不大
 	            searchOnEnterKey: false,	//设置为true时，按回车触发搜索方法，否则自动触发搜索方法
@@ -120,66 +125,20 @@ function initMyTable(){
 	            silentSort: false,
 	            smartDisplay:false,
 	            escape: true,
-	            idField: 'companyName',	//指定主键列
+	            idField: 'shopId',	//指定主键列
 	            maintainSelected: true,
 	            columns: [
-	            	{field:'agentId',title:'商户ID',align:'center'},
-	    			{field:'companyName',title:'商户名称',align:'center'},
-                    {field:'name',title:'联系人姓名',align:'center'},
-                    {field:'phone',title:'联系人手机',align:'center'},
-	    			{field:'custType',title:'银行账户类型',align:'center', visible:false, formatter: function (value, row, index) { return value==1?'对公':'个人';}},
-	    			{field:'amount',title:'可用余额(元)',align:'center', formatter: function (value, row, index) {
-	    				if(value!=null&&value!=''){
-	    					return value/100;
-	    				}else{
-                            return value;
-                        }
-	    			}},
-                    {field:'fortheAmount',title:'待结算总额(元)',align:'center', formatter: function (value, row, index) {
-                            if(value!=null&&value!=''){
-                                return value/100;
-                            }else{
-                               return value;
-							}
-                        }},
-                    {field:'frozenAmount',title:'冻结总额(元)',align:'center', formatter: function (value, row, index) {
-                            if(value!=null&&value!=''){
-                                return value/100;
-                            }else{
-                                return value;
-                            }
-                     }},
-	    			{field:'trade',title:'行业',align:'center', visible:false},
-	    			{field:'pushTimes',title:'推送消息次数',align:'center', visible:false},
-	    			{field:'isHolidayCash',title:'节假日出款',align:'center', formatter: function (value, row, index) {return value==0?"不可":"可以";}},
-                    {field:'payoutWay',title:'代付方式',align:'center', formatter: function (value, row, index){
-                        if(value == 0){
-						    return '自动代付';
-						}else if(value == 1){
-                         	return '人工代付';
-						}
-					}},
-                    {field:'payIpEnabled',title:'支付白名单',align:'center', formatter: function (value, row, index) {
-                            if(value==0){
-                                return '<button type="button" class="btn btn-danger btn-sm" style="padding:0 10px;" disabled>禁用</button>';
-                            }else if(value==1){
-                                return '<shiro:hasPermission name="pattern:payWhiteList:read"><button type="button" class="btn btn-warning btn-sm" style="padding:0 10px;" onclick="showPayWhiteList('+row.agentId+')">启用</button></shiro:hasPermission>';
-                            }
-                        }},
-	    			{field:'payoutIpEnabled',title:'代付白名单',align:'center', formatter: function (value, row, index) {
-	    				if(value==0){
-	    					return '<button type="button" class="btn btn-danger btn-sm" style="padding:0 10px;" disabled>禁用</button>';
-	    				}else if(value==1){
-	            			return '<shiro:hasPermission name="pattern:payoutWhiteList:read"><button type="button" class="btn btn-warning btn-sm" style="padding:0 10px;" onclick="showPayoutWhiteList('+row.agentId+')">启用</button></shiro:hasPermission>'; 
-	    				}
-	    			}},
-                    {field:'payStatus',title:'支付状态',align:'center', formatter: 'payStatusFormatter'},
-                    {field:'payoutStatus',title:'代付状态',align:'center', formatter: 'payoutStatusFormatter'},
+	            	{field:'shopId',title:'门店ID',align:'center'},
+	    			{field:'shopName',title:'门店名称',align:'center'},
+                    {field:'brand',title:'门店品牌',align:'center'},
+                    {field:'phone',title:'手机号码',align:'center'},
+	    			{field:'adress',title:'地址',align:'center'},
+	    			{field:'status',title:'状态',align:'center', formatter:'statusFormatter'},
+                    {field:'createTime',title:'创建时间',align:'center', formatter: 'changeDateFormat'},
 	                {field: 'action', title: '操作', align: 'center', width: 210, formatter: function(value, row, index){
                 		 return [
-               				'<shiro:hasPermission name="pattern:agent:update"><button type="button" class="btn btn-primary btn-sm" style="margin-right:10px;padding:0 10px;" onclick="updateRow('+row.agentId+','+row.role+')">编辑详情</button></shiro:hasPermission>',
-							'<shiro:hasPermission name="pattern:rechargeRecord:create"><button type="button" class="btn btn-info btn-sm" style="margin-right:10px;padding:0 10px;" onclick="showRechargeRow('+row.agentId+')">充值</button></shiro:hasPermission>',
-							 '<shiro:hasPermission name="pattern:frozenRecord:create"><button type="button" class="btn btn-danger btn-sm" style="margin-right:10px;padding:0 10px;" onclick="showFrozenRow('+row.agentId+')">冻结</button></shiro:hasPermission>'
+               				'<shiro:hasPermission name="pattern:shop:update"><button type="button" class="btn btn-primary btn-sm" style="margin-right:10px;padding:0 10px;" onclick="updateRow(' + row.shopId +')">编辑</button></shiro:hasPermission>',
+							'<shiro:hasPermission name="pattern:shop:delete"><button type="button" class="btn btn-info btn-sm" style="margin-right:10px;padding:0 10px;" onclick="deleteRow(' + row.shopId + ')">删除</button></shiro:hasPermission>',
              			].join('');
 	                }, events: 'actionEvent'}
 	            ]
@@ -187,222 +146,396 @@ function initMyTable(){
 		}
 	});
 }
+
+// 格式化操作按钮
+function actionFormatter(value, row, index) {
+    return [
+        '<shiro:hasPermission name="pattern:agent:update"><a class="update" href="javascript:;" onclick="updateRow('+row.agentId+')" data-toggle="tooltip" title="Edit"><i class="glyphicon glyphicon-edit"></i></a></shiro:hasPermission>　',
+        '<shiro:hasPermission name="pattern:agent:delete"><a class="delete" href="javascript:;" onclick="deleteRow('+row.agentId+')" data-toggle="tooltip" title="Remove"><i class="glyphicon glyphicon-remove"></i></a></shiro:hasPermission>'
+    ].join('');
+}
+
+//格式化状态
+function statusFormatter(value, row, index) {
+	if (value == 1) {
+		return '<span class="label label-success">正常</span>';
+	} else {
+		return '<span class="label label-default">锁定</span>';
+	}
+}
+
+function changeDateFormat(value) {
+	  if(value == '' || value == undefined){
+	      return value;
+      }
+	  var myDate = new Date(value);
+	  //获取当前年
+	  var year=myDate.getFullYear();
+	  //获取当前月
+	  var month = myDate.getMonth()+1;
+	      month = month < 10 ? "0"+month : month;
+	  //获取当前日
+	  var date=myDate.getDate();
+	      date = date < 10 ? "0"+date : date;
+	  var h=myDate.getHours();       //获取当前小时数(0-23)
+	      h = h < 10 ? "0"+h : h;
+	  var m=myDate.getMinutes();     //获取当前分钟数(0-59)
+	      m = m < 10 ? "0"+m : m;
+	  var s= myDate.getSeconds();
+	      s = s < 10 ? "0"+s : s;
+	  var time = year+'-'+month+"-"+date;
+	  return time;
+}
+
+//编辑行
+function updateRow(agentId){
+    updateDialog = $.dialog({
+        animationSpeed: 300,
+        title: '编辑代理商',
+        columnClass: 'col-md-10 col-md-offset-1 col-sm-6 col-sm-offset-3 col-xs-10 col-xs-offset-1',
+        content: 'url:${basePath}/manage/agent/update/'+agentId,
+        onContentReady:function(){
+        	initMaterialInput();
+        },
+        contentLoaded: function(data, status, xhr){
+            if(data.code == '10110'){
+            	layer.msg(data.msg);
+                location:top.location.href = '${basePath}/login';
+            }
+        }
+    });
+}
+//删除行
+function deleteRow(userId) {
+    deleteDialog = $.confirm({
+        type: 'red',
+        animationSpeed: 300,
+        title: false,
+        content: '确认删除该用户吗？',
+        buttons: {
+            confirm: {
+                text: '确认',
+                btnClass: 'waves-effect waves-button',
+                action: function () {
+                    var ids = new Array();
+                    ids.push(userId);
+                    $.ajax({
+                        type: 'get',
+                        url: '${basePath}/manage/agent/delete/' + ids.join("-"),
+                        success: function(result) {
+                            if (result.code != 1) {
+                                if (result.data instanceof Array) {
+                                    $.each(result.data, function(index, value) {
+                                        $.confirm({
+                                            theme: 'dark',
+                                            animation: 'rotateX',
+                                            closeAnimation: 'rotateX',
+                                            title: false,
+                                            content: value.errorMsg,
+                                            buttons: {
+                                                confirm: {
+                                                    text: '确认',
+                                                    btnClass: 'waves-effect waves-button waves-light'
+                                                }
+                                            }
+                                        });
+                                    });
+                                }else if(result.code == '10110'){
+                                	layer.msg(result.msg);
+                                    location:top.location.href = '${basePath}/login';
+                                }else {
+                                    $.confirm({
+                                        theme: 'dark',
+                                        animation: 'rotateX',
+                                        closeAnimation: 'rotateX',
+                                        title: false,
+                                        content: result.msg,
+                                        buttons: {
+                                            confirm: {
+                                                text: '确认',
+                                                btnClass: 'waves-effect waves-button waves-light',
+                                                location:top.location.href = location.href
+                                            }
+                                        }
+                                    });
+                                }
+                            } else {
+                                deleteDialog.close();
+                                $table.bootstrapTable('refresh');
+                            }
+                        },
+                        error: function(XMLHttpRequest, textStatus, errorThrown) {
+                            $.confirm({
+                                theme: 'dark',
+                                animation: 'rotateX',
+                                closeAnimation: 'rotateX',
+                                title: false,
+                                content: textStatus,
+                                buttons: {
+                                    confirm: {
+                                        text: '确认',
+                                        btnClass: 'waves-effect waves-button waves-light'
+                                    }
+                                }
+                            });
+                        }
+                    });
+                }
+            },
+            cancel: {
+                text: '取消',
+                btnClass: 'waves-effect waves-button'
+            }
+        }
+    });
+}
 //分页查询参数，是以键值对的形式设置的
 function queryParams(params) {
     return {
         limit: params.limit, // 每页显示数量
-        offset: parseInt(params.offset),
-    	role: 0
+        offset: parseInt(params.offset)
     }
 }
 
-function payStatusFormatter(value,row){
-    if(value == 0){
-        return '<shiro:hasPermission name="pattern:agent:update"><button type="button" class="btn btn-danger btn-sm" style="padding:0 10px;" title="禁用支付" onclick="payStatusRow('+row.agentId+','+row.payStatus+','+row.parentId+')">禁用</button></shiro:hasPermission>';
-	}else if(value == 1){
-        return '<shiro:hasPermission name="pattern:agent:update"><button type="button" class="btn btn-warning btn-sm" style="padding:0 10px;" title="启用支付" onclick="payStatusRow('+row.agentId+','+row.payStatus+','+row.parentId+')">启用</button></shiro:hasPermission>';
-	}
-}
 
-function payoutStatusFormatter(value,row){
-    if(value == 0){
-        return '<shiro:hasPermission name="pattern:agent:update"><button type="button" class="btn btn-danger btn-sm" style="padding:0 10px;" title="禁用代付" onclick="payoutStatusRow('+row.agentId+','+row.payoutStatus+','+row.parentId+')">禁用</button></shiro:hasPermission>';
-    }else if(value == 1){
-        return '<shiro:hasPermission name="pattern:agent:update"><button type="button" class="btn btn-warning btn-sm" style="padding:0 10px;" title="启用代付" onclick="payoutStatusRow('+row.agentId+','+row.payoutStatus+','+row.parentId+')">启用</button></shiro:hasPermission>';
-    }
-}
 
 //新增_对话框
 var createDialog;
 function createAction() {
     createDialog = $.dialog({
         animationSpeed: 300,
-        columnClass: 'col-md-18',
+        columnClass: 'col-md-10 col-md-offset-1 col-sm-6 col-sm-offset-3 col-xs-10 col-xs-offset-1',
         containerFluid: true,
         title: '新增代理',
-        content: 'url:${basePath}/agent/create/0',
+        content: 'url:${basePath}/manage/agent/create',
         onContentReady: function () {
-            initMaterialInput();
-            init();
+           
+        },
+        contentLoaded: function(data, status, xhr){
+            if(data.code == '10110'){
+            	layer.msg(data.msg);
+                location:top.location.href = '${basePath}/login';
+            }
         }
     });
 }
 
 
-//编辑行
+//编辑
 var updateDialog;
-function updateRow(id,role){
-	var titletxt;
-	if(role==1){
-		titletxt='编辑商户';
-	}else{
-		titletxt='编辑代理';
-	}
-  updateDialog = $.dialog({
-      animationSpeed: 300,
-      columnClass: 'col-md-16',
-      containerFluid: true,
-      title: titletxt,
-      content: 'url:${basePath}/agent/update/' + id,
-      onContentReady: function () {
-          initMaterialInput();
-          init();
-      }
-  });
-}
-
-
-//弹窗支付白名单
-var payWhiteListDialog;
-function showPayWhiteList(id){
-	payWhiteListDialog = $.dialog({
-        animationSpeed: 300,
-        title: '商户支付白名单',
-        columnClass: 'agent-main-class',
-        content: 'url:${basePath}/payWhiteList/index/' + id,
-        onContentReady: function () {
-			initMaterialInput();
-            init();
-        }
-    });
-}
-
-//弹窗代付白名单
-var payoutWhiteListDialog;
-function showPayoutWhiteList(id){
-	payoutWhiteListDialog = $.dialog({
-		animationSpeed: 300,
-		title: '商户代付白名单',
-		columnClass: 'agent-main-class',
-		content: 'url:${basePath}/payoutWhiteList/index/' + id,
-		onContentReady: function () {
-			initMaterialInput();
-	        init();
-		}
-	});
-}
-
-
-
-
-
-//商户冻结功能
-var frozenDialog;
-function showFrozenRow(agentId) {
-  frozenDialog = $.dialog({
-      animationSpeed: 300,
-      columnClass: 'col-md-5 frozen-diglog-left',
-      title: '商户余额冻结',
-      content: 'url:${basePath}/frozenRecord/create/'+agentId,
-      onContentReady: function () {
-          initMaterialInput();
-      }
-  });
-}
-
-//商户充值功能
-var rechargeDialog;
-function showRechargeRow(agentId) {
- rechargeDialog = $.dialog({
-      animationSpeed: 300,
-      columnClass: 'col-md-5 frozen-diglog-left',
-      title: '商户余额充值',
-      content: 'url:${basePath}/rechargeRecord/create/'+agentId,
-      onContentReady: function () {
-          initMaterialInput();
-      }
-  });
-}
-
-//修改支付状态
-function payStatusRow(agentId,payStatus,parentId) {
-    var msg = '确认禁用该商户支付吗？禁用后该商户将无法支付！';
-    if(payStatus == 1){
-        msg = '确认启用该商户支付吗？启用后该商户将可以支付！';
-	}
-
-    updateDialog = $.confirm({
-        type: 'red',
-        animationSpeed: 300,
-        title: false,
-        content: msg,
-        buttons: {
-            confirm: {
-                text: '确认',
-                btnClass: 'waves-effect waves-button',
-                action: function () {
-                    $.ajax({
-                        type: 'get',
-                        url: '${basePath}/agent/updatePayStatus/'+agentId+'/'+payStatus,
-                        success: function(result) {
-                            if (result.code == 1) {
-                                layer.msg(result.data,{icon:1,time:1000},function () {
-                                    updateDialog.close();
-                                    $('#child_table'+parentId).bootstrapTable('refresh');
-                                });
-                            } else {
-                                if (result.data instanceof Array) {
-                                    $.each(result.data, function(index, value) {
-                                        layer.alert(value.errorMsg,{icon:2})
-                                    });
-                                } else {
-                                    layer.alert(result.data,{icon:2});
-                                }
-                            }
-                        },
-                        error: function(XMLHttpRequest, textStatus, errorThrown) {
-                            layer.alert(textStatus,{icon:2})
-                        }
-                    });
+function updateAction() {
+    var rows = $table.bootstrapTable('getSelections');
+    if (rows.length != 1) {
+        $.confirm({
+            title: false,
+            content: '请选择一条记录！',
+            autoClose: 'cancel|3000',
+            backgroundDismiss: true,
+            buttons: {
+                cancel: {
+                    text: '取消',
+                    btnClass: 'waves-effect waves-button'
+                }
+            }
+        });
+    } else {
+        updateDialog = $.dialog({
+            title: '编辑代理商',
+            columnClass: 'col-md-10 col-md-offset-1 col-sm-6 col-sm-offset-3 col-xs-10 col-xs-offset-1',
+            content: 'url:${basePath}/manage/agent/update/'+rows[0].agentId,
+            onContentReady:function(){
+            	 initMaterialInput();
+            },
+            contentLoaded: function(data, status, xhr){
+                if(data.code == '10110'){
+                	layer.msg(data.msg);
+                    location:top.location.href = '${basePath}/login';
                 }
             },
-            cancel: {
-                text: '取消',
-                btnClass: 'waves-effect waves-button'
-            }
-        }
-    });
-}
-
-
-//修改代付状态
-function payoutStatusRow(agentId,payoutStatus,parentId) {
-    var msg = '确认禁用该商户代付吗？禁用后该商户将无法代付！';
-    if(payoutStatus == 1){
-        msg = '确认启用该商户代付吗？启用后该商户将可以代付！';
+        });
     }
+}
 
-    updateDialog = $.confirm({
+
+
+
+//删除
+var deleteDialog;
+function deleteAction() {
+	var rows = $table.bootstrapTable('getSelections');
+	if (rows.length == 0) {
+		$.confirm({
+			title: false,
+			content: '请至少选择一条记录！',
+			autoClose: 'cancel|3000',
+			backgroundDismiss: true,
+			buttons: {
+				cancel: {
+					text: '取消',
+					btnClass: 'waves-effect waves-button'
+				}
+			}
+		});
+	} else {
+		deleteDialog = $.confirm({
+			type: 'red',
+			animationSpeed: 300,
+			title: false,
+			content: '确认删除该系统吗？',
+			buttons: {
+				confirm: {
+					text: '确认',
+					btnClass: 'waves-effect waves-button',
+					action: function () {
+						var ids = new Array();
+						for (var i in rows) {
+							ids.push(rows[i].systemId);
+						}
+						$.ajax({
+							type: 'get',
+							url: '${basePath}/manage/agent/delete/' + ids.join("-"),
+							success: function(result) {
+								if (result.code != 1) {
+									if (result.data instanceof Array) {
+										$.each(result.data, function(index, value) {
+											$.confirm({
+												theme: 'dark',
+												animation: 'rotateX',
+												closeAnimation: 'rotateX',
+												title: false,
+												content: value.errorMsg,
+												buttons: {
+													confirm: {
+														text: '确认',
+														btnClass: 'waves-effect waves-button waves-light'
+													}
+												}
+											});
+										});
+									} else if(result.code == '10110'){
+	                                	layer.msg(result.msg);
+	                                    location:top.location.href = '${basePath}/login';
+	                                } else {
+										$.confirm({
+											theme: 'dark',
+											animation: 'rotateX',
+											closeAnimation: 'rotateX',
+											title: false,
+											content: result.data,
+											buttons: {
+												confirm: {
+													text: '确认',
+													btnClass: 'waves-effect waves-button waves-light',
+                                                    location:top.location.href = location.href
+												}
+											}
+										});
+									}
+								} else {
+									deleteDialog.close();
+									$table.bootstrapTable('refresh');
+								}
+							},
+							error: function(XMLHttpRequest, textStatus, errorThrown) {
+								$.confirm({
+									theme: 'dark',
+									animation: 'rotateX',
+									closeAnimation: 'rotateX',
+									title: false,
+									content: textStatus,
+									buttons: {
+										confirm: {
+											text: '确认',
+											btnClass: 'waves-effect waves-button waves-light'
+										}
+									}
+								});
+							}
+						});
+					}
+				},
+				cancel: {
+					text: '取消',
+					btnClass: 'waves-effect waves-button'
+				}
+			}
+		});
+	}
+}
+
+//删除行
+function deleteRow(agentId) {
+    deleteDialog = $.confirm({
         type: 'red',
         animationSpeed: 300,
         title: false,
-        content: msg,
+        content: '确认删除该系统吗？',
         buttons: {
             confirm: {
                 text: '确认',
                 btnClass: 'waves-effect waves-button',
                 action: function () {
+                    var ids = new Array();
+                        ids.push(systemId);
                     $.ajax({
                         type: 'get',
-                        url: '${basePath}/agent/updatePayoutStatus/'+agentId+'/'+payoutStatus,
+                        url: '${basePath}/manage/agent/delete/' + agentId,
                         success: function(result) {
-                            if (result.code == 1) {
-                                layer.msg(result.data,{icon:1,time:1000},function () {
-                                    updateDialog.close();
-                                    $('#child_table'+parentId).bootstrapTable('refresh');
-                                });
-                            } else {
+                            if (result.code != 1) {
                                 if (result.data instanceof Array) {
                                     $.each(result.data, function(index, value) {
-                                        layer.alert(value.errorMsg,{icon:2})
+                                        $.confirm({
+                                            theme: 'dark',
+                                            animation: 'rotateX',
+                                            closeAnimation: 'rotateX',
+                                            title: false,
+                                            content: value.errorMsg,
+                                            buttons: {
+                                                confirm: {
+                                                    text: '确认',
+                                                    btnClass: 'waves-effect waves-button waves-light'
+                                                }
+                                            }
+                                        });
                                     });
+                                } else if(result.code == '10110'){
+                                	layer.msg(result.msg);
+                                    location:top.location.href = '${basePath}/login';
                                 } else {
-                                    layer.alert(result.data,{icon:2});
+                                    $.confirm({
+                                        theme: 'dark',
+                                        animation: 'rotateX',
+                                        closeAnimation: 'rotateX',
+                                        title: false,
+                                        content: result.data,
+                                        buttons: {
+                                            confirm: {
+                                                text: '确认',
+                                                btnClass: 'waves-effect waves-button waves-light',
+                                                location:top.location.href = location.href
+                                            }
+                                        }
+                                    });
                                 }
+                            } else {
+                                deleteDialog.close();
+                                $table.bootstrapTable('refresh');
                             }
                         },
                         error: function(XMLHttpRequest, textStatus, errorThrown) {
-                            layer.alert(textStatus,{icon:2})
+                            $.confirm({
+                                theme: 'dark',
+                                animation: 'rotateX',
+                                closeAnimation: 'rotateX',
+                                title: false,
+                                content: textStatus,
+                                buttons: {
+                                    confirm: {
+                                        text: '确认',
+                                        btnClass: 'waves-effect waves-button waves-light'
+                                    }
+                                }
+                            });
                         }
                     });
                 }
@@ -414,6 +547,7 @@ function payoutStatusRow(agentId,payoutStatus,parentId) {
         }
     });
 }
+
 
 </script>
 </body>

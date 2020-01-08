@@ -25,7 +25,7 @@ public interface CustomerServiceClient {
 	@PostMapping("/insertSelective")
 	ModelResult<Integer> insertSelective(@RequestBody Customer record);
 
-	@PostMapping("/deleteByPrimaryKey/{customerId}")
+	@PostMapping("/selectByPrimaryKey/{customerId}")
 	ModelResult<Customer> selectByPrimaryKey(@PathVariable("customerId")Integer customerId);
 
 	@PostMapping("/updateByPrimaryKeySelective")

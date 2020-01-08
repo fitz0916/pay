@@ -8,8 +8,8 @@ import org.springframework.web.bind.annotation.RequestMapping;
 
 import com.github.appmodel.domain.result.ModelResult;
 import com.github.pattern.common.domain.Shop;
-import com.github.pattern.common.request.AgentRequest;
-import com.github.pattern.common.vo.ResultVo;
+import com.github.pattern.common.request.ShopRequest;
+import com.github.pattern.common.vo.PageVo;
 
 
 @FeignClient(name="pattern-server")
@@ -17,7 +17,7 @@ import com.github.pattern.common.vo.ResultVo;
 public interface ShopServiceClient {
 	
 	@PostMapping("/page")
-	ModelResult<ResultVo> page(@RequestBody AgentRequest request);
+	ModelResult<PageVo> page(@RequestBody ShopRequest request);
 	
 	@PostMapping("/deleteByPrimaryKey/{shopId}")
 	ModelResult<Integer> deleteByPrimaryKey(@PathVariable("shopId")Integer shopId);

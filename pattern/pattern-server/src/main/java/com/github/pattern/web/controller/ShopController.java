@@ -9,9 +9,9 @@ import org.springframework.web.bind.annotation.RestController;
 
 import com.github.appmodel.domain.result.ModelResult;
 import com.github.pattern.common.domain.Shop;
-import com.github.pattern.common.request.AgentRequest;
+import com.github.pattern.common.request.ShopRequest;
 import com.github.pattern.common.service.ShopService;
-import com.github.pattern.common.vo.ResultVo;
+import com.github.pattern.common.vo.PageVo;
 
 @RestController
 @RequestMapping("/pattern/server/shop")
@@ -22,7 +22,7 @@ public class ShopController {
 	
 	
 	@PostMapping("/page")
-	public ModelResult<ResultVo> page(@RequestBody AgentRequest request){
+	public ModelResult<PageVo> page(@RequestBody ShopRequest request){
 		return shopServiceImpl.page(request);
 	}
 	

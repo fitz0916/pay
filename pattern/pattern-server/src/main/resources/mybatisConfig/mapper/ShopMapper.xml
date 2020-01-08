@@ -10,15 +10,12 @@
     <result column="adress" property="adress" jdbcType="VARCHAR" />
     <result column="status" property="status" jdbcType="TINYINT" />
     <result column="phone" property="phone" jdbcType="VARCHAR" />
-    <result column="name" property="name" jdbcType="VARCHAR" />
-    <result column="telephone" property="telephone" jdbcType="VARCHAR" />
-    <result column="is_lock" property="isLock" jdbcType="TINYINT" />
     <result column="create_time" property="createTime" jdbcType="TIMESTAMP" />
     <result column="update_time" property="updateTime" jdbcType="TIMESTAMP" />
   </resultMap>
   <sql id="Base_Column_List" >
-    shop_id, brand, shop_no, agent_id, shop_name, adress, status, phone, name, telephone, 
-    is_lock, create_time, update_time
+    shop_id, brand, shop_no, agent_id, shop_name, adress, status, phone, create_time, 
+    update_time
   </sql>
   <select id="selectByPrimaryKey" resultMap="BaseResultMap" parameterType="java.lang.Integer" >
     select 
@@ -26,14 +23,6 @@
     from pattern_shop
     where shop_id = #{shopId,jdbcType=INTEGER}
   </select>
-  <select id="selectByAgentId" resultMap="BaseResultMap" parameterType="map" >
-    select 
-    <include refid="Base_Column_List" />
-    from pattern_shop
-    where agent_id = #{agentId,jdbcType=INTEGER}
-          and status = #{status,jdbcType=INTEGER}
-  </select>
-  
   <delete id="deleteByPrimaryKey" parameterType="java.lang.Integer" >
     delete from pattern_shop
     where shop_id = #{shopId,jdbcType=INTEGER}
@@ -41,13 +30,11 @@
   <insert id="insert" parameterType="com.github.pattern.common.domain.Shop" >
     insert into pattern_shop (shop_id, brand, shop_no, 
       agent_id, shop_name, adress, 
-      status, phone, name, 
-      telephone, is_lock, create_time, 
+      status, phone, create_time, 
       update_time)
     values (#{shopId,jdbcType=INTEGER}, #{brand,jdbcType=VARCHAR}, #{shopNo,jdbcType=VARCHAR}, 
       #{agentId,jdbcType=INTEGER}, #{shopName,jdbcType=VARCHAR}, #{adress,jdbcType=VARCHAR}, 
-      #{status,jdbcType=TINYINT}, #{phone,jdbcType=VARCHAR}, #{name,jdbcType=VARCHAR}, 
-      #{telephone,jdbcType=VARCHAR}, #{isLock,jdbcType=TINYINT}, #{createTime,jdbcType=TIMESTAMP}, 
+      #{status,jdbcType=TINYINT}, #{phone,jdbcType=VARCHAR}, #{createTime,jdbcType=TIMESTAMP}, 
       #{updateTime,jdbcType=TIMESTAMP})
   </insert>
   <insert id="insertSelective" parameterType="com.github.pattern.common.domain.Shop" >
@@ -76,15 +63,6 @@
       </if>
       <if test="phone != null" >
         phone,
-      </if>
-      <if test="name != null" >
-        name,
-      </if>
-      <if test="telephone != null" >
-        telephone,
-      </if>
-      <if test="isLock != null" >
-        is_lock,
       </if>
       <if test="createTime != null" >
         create_time,
@@ -118,15 +96,6 @@
       <if test="phone != null" >
         #{phone,jdbcType=VARCHAR},
       </if>
-      <if test="name != null" >
-        #{name,jdbcType=VARCHAR},
-      </if>
-      <if test="telephone != null" >
-        #{telephone,jdbcType=VARCHAR},
-      </if>
-      <if test="isLock != null" >
-        #{isLock,jdbcType=TINYINT},
-      </if>
       <if test="createTime != null" >
         #{createTime,jdbcType=TIMESTAMP},
       </if>
@@ -159,15 +128,6 @@
       <if test="phone != null" >
         phone = #{phone,jdbcType=VARCHAR},
       </if>
-      <if test="name != null" >
-        name = #{name,jdbcType=VARCHAR},
-      </if>
-      <if test="telephone != null" >
-        telephone = #{telephone,jdbcType=VARCHAR},
-      </if>
-      <if test="isLock != null" >
-        is_lock = #{isLock,jdbcType=TINYINT},
-      </if>
       <if test="createTime != null" >
         create_time = #{createTime,jdbcType=TIMESTAMP},
       </if>
@@ -186,11 +146,44 @@
       adress = #{adress,jdbcType=VARCHAR},
       status = #{status,jdbcType=TINYINT},
       phone = #{phone,jdbcType=VARCHAR},
-      name = #{name,jdbcType=VARCHAR},
-      telephone = #{telephone,jdbcType=VARCHAR},
-      is_lock = #{isLock,jdbcType=TINYINT},
       create_time = #{createTime,jdbcType=TIMESTAMP},
       update_time = #{updateTime,jdbcType=TIMESTAMP}
     where shop_id = #{shopId,jdbcType=INTEGER}
   </update>
+  
+  
+   <select id="pageCount" resultType="long" parameterType="map" >
+    select count(*)
+     from pattern_shop
+      <where>
+         <if test="agentId != null">
+            and agent_id = #{agentId,jdbcType=INTEGER}
+         </if>
+         <if test="statusList != null and statusList.size() > 0">
+      		and status in
+      		<foreach collection="statusList" item="status" index="index" open="(" close=")" separator=",">
+	   			#{status,jdbcType=INTEGER}
+			</foreach>
+      	</if>
+      </where>
+  </select>
+  
+  <select id="pageList" resultMap="BaseResultMap" parameterType="map" >
+    select 
+     <include refid="Base_Column_List" />
+     from pattern_shop
+      <where>
+         <if test="agentId != null">
+            and agent_id = #{agentId,jdbcType=INTEGER}
+         </if>
+         <if test="statusList != null and statusList.size() > 0">
+      		and status in
+      		<foreach collection="statusList" item="status" index="index" open="(" close=")" separator=",">
+	   			#{status,jdbcType=TINYINT}
+			</foreach>
+      	</if>
+      </where>
+  </select>
+  
+  
 </mapper>
