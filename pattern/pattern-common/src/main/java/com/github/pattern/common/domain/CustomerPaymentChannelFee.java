@@ -26,6 +26,9 @@ public class CustomerPaymentChannelFee extends BaseObject{
 	 */
 	private Date updateTime;
 	
+	/** 支付状态（0启用 1禁用 2删除）*/
+	private Integer status;
+	
 	private String remark;
 
 	public Integer getPaymentChanneldFeeId() {
@@ -36,6 +39,13 @@ public class CustomerPaymentChannelFee extends BaseObject{
 		this.paymentChanneldFeeId = paymentChanneldFeeId;
 	}
 
+	public Integer getStatus() {
+		return status;
+	}
+	public void setStatus(Integer status) {
+		this.status = status;
+	}
+	
 	public Integer getPaymentChannelId() {
 		return paymentChannelId;
 	}

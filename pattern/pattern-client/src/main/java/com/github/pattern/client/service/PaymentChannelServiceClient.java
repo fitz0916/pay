@@ -8,12 +8,17 @@ import org.springframework.web.bind.annotation.RequestMapping;
 
 import com.github.appmodel.domain.result.ModelResult;
 import com.github.pattern.common.domain.PaymentChannel;
+import com.github.pattern.common.request.PaymentChannelRequest;
+import com.github.pattern.common.vo.ResultVo;
 
 
 @FeignClient(name="pattern-server")
 @RequestMapping("/pattern/server/paymentChannel")
 public interface PaymentChannelServiceClient {
 
+		@PostMapping("/page")
+		ModelResult<ResultVo> page(@RequestBody PaymentChannelRequest request);
+	
 		@PostMapping("/deleteByPrimaryKey/{payChannelId}")
 		ModelResult<Integer> deleteByPrimaryKey(@PathVariable("paymentTypeId")Integer payChannelId);
 

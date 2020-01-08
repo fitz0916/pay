@@ -8,26 +8,32 @@ import org.springframework.web.bind.annotation.RequestMapping;
 
 import com.github.appmodel.domain.result.ModelResult;
 import com.github.pattern.common.domain.PaymentChannelAccount;
+import com.github.pattern.common.domain.PaymentChannelAccountPara;
+import com.github.pattern.common.request.PaymentChannelAccountParaRequest;
+import com.github.pattern.common.vo.ResultVo;
 
 
 @FeignClient(name="pattern-server")
 @RequestMapping("/pattern/server/paymentChannelAccountPara")
 public interface PaymentChannelAccountParaServiceClient {
 	
-	@PostMapping("/deleteByPrimaryKey/{paymentChannelAccountId}")
-	ModelResult<Integer> deleteByPrimaryKey(@PathVariable("paymentChannelAccountId")Integer paymentChannelAccountId);
+	@PostMapping("/page")
+	ModelResult<ResultVo> page(@RequestBody PaymentChannelAccountParaRequest request);
+	
+	@PostMapping("/deleteByPrimaryKey/{PaymentChannelAccountParaId}")
+	ModelResult<Integer> deleteByPrimaryKey(@PathVariable("PaymentChannelAccountParaId")Integer PaymentChannelAccountParaId);
 
 	@PostMapping("/insert")
-	ModelResult<Integer> insert(@RequestBody PaymentChannelAccount record);
+	ModelResult<Integer> insert(@RequestBody PaymentChannelAccountPara record);
 
 	@PostMapping("/insertSelective")
-	ModelResult<Integer> insertSelective(@RequestBody PaymentChannelAccount record);
+	ModelResult<Integer> insertSelective(@RequestBody PaymentChannelAccountPara record);
 
-	@PostMapping("/selectByPrimaryKey/{paymentChannelAccountId}")
-	ModelResult<PaymentChannelAccount> selectByPrimaryKey(@PathVariable("paymentChannelAccountId")Integer paymentChannelAccountId);
+	@PostMapping("/selectByPrimaryKey/{PaymentChannelAccountParaId}")
+	ModelResult<PaymentChannelAccountPara> selectByPrimaryKey(@PathVariable("PaymentChannelAccountParaId")Integer PaymentChannelAccountParaId);
 
 	@PostMapping("/updateByPrimaryKeySelective")
-	ModelResult<Integer> updateByPrimaryKeySelective(@RequestBody PaymentChannelAccount record);
+	ModelResult<Integer> updateByPrimaryKeySelective(@RequestBody PaymentChannelAccountPara record);
 
 	@PostMapping("/updateByPrimaryKey")
 	ModelResult<Integer> updateByPrimaryKey(@RequestBody PaymentChannelAccount record);

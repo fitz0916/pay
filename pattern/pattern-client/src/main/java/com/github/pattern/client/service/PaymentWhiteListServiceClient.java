@@ -8,6 +8,8 @@ import org.springframework.web.bind.annotation.RequestMapping;
 
 import com.github.appmodel.domain.result.ModelResult;
 import com.github.pattern.common.domain.PaymentWhiteList;
+import com.github.pattern.common.request.PaymentWhiteListRequest;
+import com.github.pattern.common.vo.ResultVo;
 
 
 
@@ -15,6 +17,9 @@ import com.github.pattern.common.domain.PaymentWhiteList;
 @RequestMapping("/pattern/server/paymentWhiteList")
 public interface PaymentWhiteListServiceClient {
 
+	@PostMapping("/page")
+	ModelResult<ResultVo> page(@RequestBody PaymentWhiteListRequest request);
+	
 	@PostMapping("/deleteByPrimaryKey/{paymentWhiteListId}")
 	ModelResult<Integer> deleteByPrimaryKey(@PathVariable("paymentWhiteListId")Integer paymentWhiteListId);
 

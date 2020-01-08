@@ -13,6 +13,12 @@ public class PaymentChannelInfoRisk extends BaseObject {
 	 * 支付通道ID
 	 */
 	private Integer paymentChannelId;
+
+	/**
+	 * 是否锁定 0：禁用 1：启用 2：删除
+	 */
+	private Integer status;
+	
 	/**
 	 * 允许支付时间(格式hh:mm:ss-hh:mm:ss 24小时制 多条用|隔开,不输入则不限制)
 	 */
@@ -72,6 +78,12 @@ public class PaymentChannelInfoRisk extends BaseObject {
 	}
 	public void setPaymentChannelId(Integer paymentChannelId) {
 		this.paymentChannelId = paymentChannelId;
+	}
+	public Integer getStatus() {
+		return status;
+	}
+	public void setStatus(Integer status) {
+		this.status = status;
 	}
 	public String getAllowTime() {
 		return allowTime;
@@ -151,6 +163,8 @@ public class PaymentChannelInfoRisk extends BaseObject {
 	public void setRemark(String remark) {
 		this.remark = remark;
 	}
+	
+	
 
 	
 	

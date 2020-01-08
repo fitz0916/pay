@@ -29,7 +29,7 @@ public class PaymentChannel extends BaseObject {
 	private Integer settlementType;
 		
 	/***
-	 * 渠道状态0：停用 1：启用
+	 * 渠道状态0：停用 1：启用 2删除
 	 */
 	private Integer status;
 

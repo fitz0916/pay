@@ -21,6 +21,9 @@ public class Shop extends BaseObject {
 
     private String adress;
 
+    //0：禁用 1：启用 2：删除
+    private Integer status;
+    
     private String phone;
 
     private String name;
@@ -33,94 +36,101 @@ public class Shop extends BaseObject {
     
     private Date updateTime;
 
-    public Integer getShopId() {
-        return shopId;
-    }
+	public Integer getShopId() {
+		return shopId;
+	}
 
-    public void setShopId(Integer shopId) {
-        this.shopId = shopId;
-    }
+	public void setShopId(Integer shopId) {
+		this.shopId = shopId;
+	}
 
-    public String getBrand() {
-        return brand;
-    }
+	public String getBrand() {
+		return brand;
+	}
 
-    public void setBrand(String brand) {
-        this.brand = brand;
-    }
+	public void setBrand(String brand) {
+		this.brand = brand;
+	}
 
-    public String getShopNo() {
-        return shopNo;
-    }
+	public String getShopNo() {
+		return shopNo;
+	}
 
-    public void setShopNo(String shopNo) {
-        this.shopNo = shopNo;
-    }
+	public void setShopNo(String shopNo) {
+		this.shopNo = shopNo;
+	}
 
+	public Integer getAgentId() {
+		return agentId;
+	}
 
-    public Integer getAgentId() {
-        return agentId;
-    }
+	public void setAgentId(Integer agentId) {
+		this.agentId = agentId;
+	}
 
-    public void setAgentId(Integer agentId) {
-        this.agentId = agentId;
-    }
+	public String getShopName() {
+		return shopName;
+	}
 
-    public String getShopName() {
-        return shopName;
-    }
+	public void setShopName(String shopName) {
+		this.shopName = shopName;
+	}
 
-    public void setShopName(String shopName) {
-        this.shopName = shopName;
-    }
+	public String getAdress() {
+		return adress;
+	}
 
-    public String getAdress() {
-        return adress;
-    }
+	public void setAdress(String adress) {
+		this.adress = adress;
+	}
 
-    public void setAdress(String adress) {
-        this.adress = adress;
-    }
+	public Integer getStatus() {
+		return status;
+	}
 
-    public String getPhone() {
-        return phone;
-    }
+	public void setStatus(Integer status) {
+		this.status = status;
+	}
 
-    public void setPhone(String phone) {
-        this.phone = phone;
-    }
+	public String getPhone() {
+		return phone;
+	}
 
-    public String getName() {
-        return name;
-    }
+	public void setPhone(String phone) {
+		this.phone = phone;
+	}
 
-    public void setName(String name) {
-        this.name = name;
-    }
+	public String getName() {
+		return name;
+	}
 
-    public String getTelephone() {
-        return telephone;
-    }
+	public void setName(String name) {
+		this.name = name;
+	}
 
-    public void setTelephone(String telephone) {
-        this.telephone = telephone;
-    }
+	public String getTelephone() {
+		return telephone;
+	}
 
-    public Integer getIsLock() {
-        return isLock;
-    }
+	public void setTelephone(String telephone) {
+		this.telephone = telephone;
+	}
 
-    public void setIsLock(Integer isLock) {
-        this.isLock = isLock;
-    }
+	public Integer getIsLock() {
+		return isLock;
+	}
 
-    public Date getCreateTime() {
-        return createTime;
-    }
+	public void setIsLock(Integer isLock) {
+		this.isLock = isLock;
+	}
 
-    public void setCreateTime(Date createTime) {
-        this.createTime = createTime;
-    }
+	public Date getCreateTime() {
+		return createTime;
+	}
+
+	public void setCreateTime(Date createTime) {
+		this.createTime = createTime;
+	}
 
 	public Date getUpdateTime() {
 		return updateTime;
@@ -129,5 +139,7 @@ public class Shop extends BaseObject {
 	public void setUpdateTime(Date updateTime) {
 		this.updateTime = updateTime;
 	}
+
+   
     
 }

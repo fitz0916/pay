@@ -29,7 +29,12 @@ public class CustomerPaymentChannelInfo extends BaseObject {
     private Date createTime;
     
     private Date updateTtime;
-   
+
+	/**
+	 * 支付状态（0禁用 1启用 2删除）
+	 **/
+	private Integer status;
+	
     /**
      * 备注
      */
@@ -51,6 +56,13 @@ public class CustomerPaymentChannelInfo extends BaseObject {
 		this.paymentChannelId = paymentChannelId;
 	}
 
+	public Integer getStatus() {
+		return status;
+	}
+	public void setStatus(Integer status) {
+		this.status = status;
+	}
+	
 	public Integer getCustomerId() {
 		return customerId;
 	}

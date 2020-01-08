@@ -5,6 +5,7 @@
     <id column="agent_id" property="agentId" jdbcType="INTEGER" />
     <result column="agent_ame" property="agentAme" jdbcType="VARCHAR" />
     <result column="agent_no" property="agentNo" jdbcType="VARCHAR" />
+    <result column="status" property="status" jdbcType="TINYINT" />
     <result column="type" property="type" jdbcType="TINYINT" />
     <result column="registry_date" property="registryDate" jdbcType="TIMESTAMP" />
     <result column="business_license" property="businessLicense" jdbcType="VARCHAR" />
@@ -20,8 +21,9 @@
     <result column="update_date" property="updateDate" jdbcType="TIMESTAMP" />
   </resultMap>
   <sql id="Base_Column_List" >
-    agent_id, agent_ame, agent_no, type, registry_date, business_license, address, company_pic_path, 
-    idcard_front_path, idcard_back_path, phone, email, qq, wechat, create_date, update_date
+    agent_id, agent_ame, agent_no, status, type, registry_date, business_license, address, 
+    company_pic_path, idcard_front_path, idcard_back_path, phone, email, qq, wechat, 
+    create_date, update_date
   </sql>
   <select id="selectByPrimaryKey" resultMap="BaseResultMap" parameterType="java.lang.Integer" >
     select 
@@ -35,17 +37,17 @@
   </delete>
   <insert id="insert" parameterType="com.github.pattern.common.domain.Agent" >
     insert into pattern_agent (agent_id, agent_ame, agent_no, 
-      type, registry_date, business_license, 
-      address, company_pic_path, idcard_front_path, 
-      idcard_back_path, phone, email, 
-      qq, wechat, create_date, 
-      update_date)
+      status, type, registry_date, 
+      business_license, address, company_pic_path, 
+      idcard_front_path, idcard_back_path, phone, 
+      email, qq, wechat, 
+      create_date, update_date)
     values (#{agentId,jdbcType=INTEGER}, #{agentAme,jdbcType=VARCHAR}, #{agentNo,jdbcType=VARCHAR}, 
-      #{type,jdbcType=TINYINT}, #{registryDate,jdbcType=TIMESTAMP}, #{businessLicense,jdbcType=VARCHAR}, 
-      #{address,jdbcType=VARCHAR}, #{companyPicPath,jdbcType=VARCHAR}, #{idcardFrontPath,jdbcType=VARCHAR}, 
-      #{idcardBackPath,jdbcType=VARCHAR}, #{phone,jdbcType=VARCHAR}, #{email,jdbcType=VARCHAR}, 
-      #{qq,jdbcType=VARCHAR}, #{wechat,jdbcType=VARCHAR}, #{createDate,jdbcType=TIMESTAMP}, 
-      #{updateDate,jdbcType=TIMESTAMP})
+      #{status,jdbcType=TINYINT}, #{type,jdbcType=TINYINT}, #{registryDate,jdbcType=TIMESTAMP}, 
+      #{businessLicense,jdbcType=VARCHAR}, #{address,jdbcType=VARCHAR}, #{companyPicPath,jdbcType=VARCHAR}, 
+      #{idcardFrontPath,jdbcType=VARCHAR}, #{idcardBackPath,jdbcType=VARCHAR}, #{phone,jdbcType=VARCHAR}, 
+      #{email,jdbcType=VARCHAR}, #{qq,jdbcType=VARCHAR}, #{wechat,jdbcType=VARCHAR}, 
+      #{createDate,jdbcType=TIMESTAMP}, #{updateDate,jdbcType=TIMESTAMP})
   </insert>
   <insert id="insertSelective" parameterType="com.github.pattern.common.domain.Agent" >
     insert into pattern_agent
@@ -58,6 +60,9 @@
       </if>
       <if test="agentNo != null" >
         agent_no,
+      </if>
+      <if test="status != null" >
+        status,
       </if>
       <if test="type != null" >
         type,
@@ -109,6 +114,9 @@
       <if test="agentNo != null" >
         #{agentNo,jdbcType=VARCHAR},
       </if>
+      <if test="status != null" >
+        #{status,jdbcType=TINYINT},
+      </if>
       <if test="type != null" >
         #{type,jdbcType=TINYINT},
       </if>
@@ -159,6 +167,9 @@
       <if test="agentNo != null" >
         agent_no = #{agentNo,jdbcType=VARCHAR},
       </if>
+      <if test="status != null" >
+        status = #{status,jdbcType=TINYINT},
+      </if>
       <if test="type != null" >
         type = #{type,jdbcType=TINYINT},
       </if>
@@ -205,6 +216,7 @@
     update pattern_agent
     set agent_ame = #{agentAme,jdbcType=VARCHAR},
       agent_no = #{agentNo,jdbcType=VARCHAR},
+      status = #{status,jdbcType=TINYINT},
       type = #{type,jdbcType=TINYINT},
       registry_date = #{registryDate,jdbcType=TIMESTAMP},
       business_license = #{businessLicense,jdbcType=VARCHAR},

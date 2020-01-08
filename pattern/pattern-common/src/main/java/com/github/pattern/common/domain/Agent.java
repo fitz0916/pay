@@ -14,6 +14,8 @@ public class Agent extends BaseObject{
 	private String agentName;
 	/**代理商编号**/
 	private String agentNo;
+	/**0:停用 1：启用 2：删除**/
+	private Integer status;
 	/**性质（1个体工商户 2公司/企业）**/
 	private Integer type;
 	/**公司注册时间**/
@@ -136,6 +138,12 @@ public class Agent extends BaseObject{
 	}
 	public void setWeChat(String weChat) {
 		this.weChat = weChat;
+	}
+	public Integer getStatus() {
+		return status;
+	}
+	public void setStatus(Integer status) {
+		this.status = status;
 	}
 
 

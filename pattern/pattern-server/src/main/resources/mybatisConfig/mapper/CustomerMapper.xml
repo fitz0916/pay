@@ -13,16 +13,14 @@
     <result column="cipher" property="cipher" jdbcType="VARCHAR" />
     <result column="create_date" property="createDate" jdbcType="TIMESTAMP" />
     <result column="update_date" property="updateDate" jdbcType="TIMESTAMP" />
-    <result column="pay_status" property="payStatus" jdbcType="TINYINT" />
-    <result column="payout_status" property="payoutStatus" jdbcType="TINYINT" />
+    <result column="status" property="status" jdbcType="TINYINT" />
     <result column="payout_way" property="payoutWay" jdbcType="TINYINT" />
     <result column="unfreeze_amount" property="unfreezeAmount" jdbcType="BIGINT" />
     <result column="frozen_amount_sum" property="frozenAmountSum" jdbcType="BIGINT" />
   </resultMap>
   <sql id="Base_Column_List" >
     customer_id, agent_id, shop_id, customer_no, customer_name, settlement, frozen_amount, 
-    amount, cipher, create_date, update_date, pay_status, payout_status, payout_way, 
-    unfreeze_amount, frozen_amount_sum
+    amount, cipher, create_date, update_date, status, payout_way, unfreeze_amount, frozen_amount_sum
   </sql>
   <select id="selectByPrimaryKey" resultMap="BaseResultMap" parameterType="java.lang.Integer" >
     select 
@@ -38,15 +36,15 @@
     insert into pattern_customer (customer_id, agent_id, shop_id, 
       customer_no, customer_name, settlement, 
       frozen_amount, amount, cipher, 
-      create_date, update_date, pay_status, 
-      payout_status, payout_way, unfreeze_amount, 
-      frozen_amount_sum)
+      create_date, update_date, status, 
+      payout_way, unfreeze_amount, frozen_amount_sum
+      )
     values (#{customerId,jdbcType=INTEGER}, #{agentId,jdbcType=INTEGER}, #{shopId,jdbcType=INTEGER}, 
       #{customerNo,jdbcType=VARCHAR}, #{customerName,jdbcType=VARCHAR}, #{settlement,jdbcType=BIGINT}, 
       #{frozenAmount,jdbcType=BIGINT}, #{amount,jdbcType=BIGINT}, #{cipher,jdbcType=VARCHAR}, 
-      #{createDate,jdbcType=TIMESTAMP}, #{updateDate,jdbcType=TIMESTAMP}, #{payStatus,jdbcType=TINYINT}, 
-      #{payoutStatus,jdbcType=TINYINT}, #{payoutWay,jdbcType=TINYINT}, #{unfreezeAmount,jdbcType=BIGINT}, 
-      #{frozenAmountSum,jdbcType=BIGINT})
+      #{createDate,jdbcType=TIMESTAMP}, #{updateDate,jdbcType=TIMESTAMP}, #{status,jdbcType=TINYINT}, 
+      #{payoutWay,jdbcType=TINYINT}, #{unfreezeAmount,jdbcType=BIGINT}, #{frozenAmountSum,jdbcType=BIGINT}
+      )
   </insert>
   <insert id="insertSelective" parameterType="com.github.pattern.common.domain.Customer" >
     insert into pattern_customer
@@ -84,11 +82,8 @@
       <if test="updateDate != null" >
         update_date,
       </if>
-      <if test="payStatus != null" >
-        pay_status,
-      </if>
-      <if test="payoutStatus != null" >
-        payout_status,
+      <if test="status != null" >
+        status,
       </if>
       <if test="payoutWay != null" >
         payout_way,
@@ -134,11 +129,8 @@
       <if test="updateDate != null" >
         #{updateDate,jdbcType=TIMESTAMP},
       </if>
-      <if test="payStatus != null" >
-        #{payStatus,jdbcType=TINYINT},
-      </if>
-      <if test="payoutStatus != null" >
-        #{payoutStatus,jdbcType=TINYINT},
+      <if test="status != null" >
+        #{status,jdbcType=TINYINT},
       </if>
       <if test="payoutWay != null" >
         #{payoutWay,jdbcType=TINYINT},
@@ -184,11 +176,8 @@
       <if test="updateDate != null" >
         update_date = #{updateDate,jdbcType=TIMESTAMP},
       </if>
-      <if test="payStatus != null" >
-        pay_status = #{payStatus,jdbcType=TINYINT},
-      </if>
-      <if test="payoutStatus != null" >
-        payout_status = #{payoutStatus,jdbcType=TINYINT},
+      <if test="status != null" >
+        status = #{status,jdbcType=TINYINT},
       </if>
       <if test="payoutWay != null" >
         payout_way = #{payoutWay,jdbcType=TINYINT},
@@ -214,8 +203,7 @@
       cipher = #{cipher,jdbcType=VARCHAR},
       create_date = #{createDate,jdbcType=TIMESTAMP},
       update_date = #{updateDate,jdbcType=TIMESTAMP},
-      pay_status = #{payStatus,jdbcType=TINYINT},
-      payout_status = #{payoutStatus,jdbcType=TINYINT},
+      status = #{status,jdbcType=TINYINT},
       payout_way = #{payoutWay,jdbcType=TINYINT},
       unfreeze_amount = #{unfreezeAmount,jdbcType=BIGINT},
       frozen_amount_sum = #{frozenAmountSum,jdbcType=BIGINT}

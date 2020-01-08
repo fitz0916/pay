@@ -1,20 +1,24 @@
 package com.github.pattern.common.service;
 
 import com.github.appmodel.domain.result.ModelResult;
-import com.github.pattern.common.domain.PaymentChannelAccount;
+import com.github.pattern.common.domain.PaymentChannelAccountPara;
+import com.github.pattern.common.request.PaymentChannelAccountParaRequest;
+import com.github.pattern.common.vo.ResultVo;
 
 public interface PaymentChannelAccountParaService {
 	
-	ModelResult<Integer> deleteByPrimaryKey(Integer paymentChannelAccountId);
+	ModelResult<Integer> deleteByPrimaryKey(Integer PaymentChannelAccountParaId);
 
-    ModelResult<Integer> insert(PaymentChannelAccount record);
+    ModelResult<Integer> insert(PaymentChannelAccountPara record);
 
-    ModelResult<Integer> insertSelective(PaymentChannelAccount record);
+    ModelResult<Integer> insertSelective(PaymentChannelAccountPara record);
 
-    ModelResult<PaymentChannelAccount> selectByPrimaryKey(Integer paymentChannelAccountId);
+    ModelResult<PaymentChannelAccountPara> selectByPrimaryKey(Integer PaymentChannelAccountParaId);
 
-    ModelResult<Integer> updateByPrimaryKeySelective(PaymentChannelAccount record);
+    ModelResult<Integer> updateByPrimaryKeySelective(PaymentChannelAccountPara record);
 
-    ModelResult<Integer> updateByPrimaryKey(PaymentChannelAccount record);
+    ModelResult<Integer> updateByPrimaryKey(PaymentChannelAccountPara record);
+
+	ModelResult<ResultVo> page(PaymentChannelAccountParaRequest request);
 
 }

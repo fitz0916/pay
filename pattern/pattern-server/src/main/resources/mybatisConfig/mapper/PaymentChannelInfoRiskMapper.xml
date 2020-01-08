@@ -4,6 +4,7 @@
   <resultMap id="BaseResultMap" type="com.github.pattern.common.domain.PaymentChannelInfoRisk" >
     <id column="payment_channelinfo_risk_id" property="paymentChannelinfoRiskId" jdbcType="INTEGER" />
     <result column="payment_channel_id" property="paymentChannelId" jdbcType="INTEGER" />
+    <result column="status" property="status" jdbcType="TINYINT" />
     <result column="allowTime" property="allowtime" jdbcType="VARCHAR" />
     <result column="allow_num" property="allowNum" jdbcType="INTEGER" />
     <result column="pay_interval" property="payInterval" jdbcType="INTEGER" />
@@ -19,7 +20,7 @@
     <result column="remark" property="remark" jdbcType="VARCHAR" />
   </resultMap>
   <sql id="Base_Column_List" >
-    payment_channelinfo_risk_id, payment_channel_id, allowTime, allow_num, pay_interval, 
+    payment_channelinfo_risk_id, payment_channel_id, status, allowTime, allow_num, pay_interval, 
     single_money, day_money, user_most_number, strategy, min_money, max_money, is_froze, 
     create_time, update_time, remark
   </sql>
@@ -35,17 +36,17 @@
   </delete>
   <insert id="insert" parameterType="com.github.pattern.common.domain.PaymentChannelInfoRisk" >
     insert into pattern_payment_channelinfo_risk (payment_channelinfo_risk_id, payment_channel_id, 
-      allowTime, allow_num, pay_interval, 
-      single_money, day_money, user_most_number, 
-      strategy, min_money, max_money, 
-      is_froze, create_time, update_time, 
-      remark)
+      status, allowTime, allow_num, 
+      pay_interval, single_money, day_money, 
+      user_most_number, strategy, min_money, 
+      max_money, is_froze, create_time, 
+      update_time, remark)
     values (#{paymentChannelinfoRiskId,jdbcType=INTEGER}, #{paymentChannelId,jdbcType=INTEGER}, 
-      #{allowtime,jdbcType=VARCHAR}, #{allowNum,jdbcType=INTEGER}, #{payInterval,jdbcType=INTEGER}, 
-      #{singleMoney,jdbcType=VARCHAR}, #{dayMoney,jdbcType=INTEGER}, #{userMostNumber,jdbcType=INTEGER}, 
-      #{strategy,jdbcType=TINYINT}, #{minMoney,jdbcType=INTEGER}, #{maxMoney,jdbcType=INTEGER}, 
-      #{isFroze,jdbcType=TINYINT}, #{createTime,jdbcType=TIMESTAMP}, #{updateTime,jdbcType=TIMESTAMP}, 
-      #{remark,jdbcType=VARCHAR})
+      #{status,jdbcType=TINYINT}, #{allowtime,jdbcType=VARCHAR}, #{allowNum,jdbcType=INTEGER}, 
+      #{payInterval,jdbcType=INTEGER}, #{singleMoney,jdbcType=VARCHAR}, #{dayMoney,jdbcType=INTEGER}, 
+      #{userMostNumber,jdbcType=INTEGER}, #{strategy,jdbcType=TINYINT}, #{minMoney,jdbcType=INTEGER}, 
+      #{maxMoney,jdbcType=INTEGER}, #{isFroze,jdbcType=TINYINT}, #{createTime,jdbcType=TIMESTAMP}, 
+      #{updateTime,jdbcType=TIMESTAMP}, #{remark,jdbcType=VARCHAR})
   </insert>
   <insert id="insertSelective" parameterType="com.github.pattern.common.domain.PaymentChannelInfoRisk" >
     insert into pattern_payment_channelinfo_risk
@@ -55,6 +56,9 @@
       </if>
       <if test="paymentChannelId != null" >
         payment_channel_id,
+      </if>
+      <if test="status != null" >
+        status,
       </if>
       <if test="allowtime != null" >
         allowTime,
@@ -103,6 +107,9 @@
       <if test="paymentChannelId != null" >
         #{paymentChannelId,jdbcType=INTEGER},
       </if>
+      <if test="status != null" >
+        #{status,jdbcType=TINYINT},
+      </if>
       <if test="allowtime != null" >
         #{allowtime,jdbcType=VARCHAR},
       </if>
@@ -150,6 +157,9 @@
       <if test="paymentChannelId != null" >
         payment_channel_id = #{paymentChannelId,jdbcType=INTEGER},
       </if>
+      <if test="status != null" >
+        status = #{status,jdbcType=TINYINT},
+      </if>
       <if test="allowtime != null" >
         allowTime = #{allowtime,jdbcType=VARCHAR},
       </if>
@@ -195,6 +205,7 @@
   <update id="updateByPrimaryKey" parameterType="com.github.pattern.common.domain.PaymentChannelInfoRisk" >
     update pattern_payment_channelinfo_risk
     set payment_channel_id = #{paymentChannelId,jdbcType=INTEGER},
+      status = #{status,jdbcType=TINYINT},
       allowTime = #{allowtime,jdbcType=VARCHAR},
       allow_num = #{allowNum,jdbcType=INTEGER},
       pay_interval = #{payInterval,jdbcType=INTEGER},

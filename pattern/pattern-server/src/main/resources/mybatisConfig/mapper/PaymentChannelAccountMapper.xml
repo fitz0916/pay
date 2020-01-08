@@ -5,13 +5,14 @@
     <id column="payment_channel_account_id" property="paymentChannelAccountId" jdbcType="INTEGER" />
     <result column="payment_channel_id" property="paymentChannelId" jdbcType="INTEGER" />
     <result column="account_name" property="accountName" jdbcType="VARCHAR" />
+    <result column="status" property="status" jdbcType="TINYINT" />
     <result column="create_time" property="createTime" jdbcType="TIMESTAMP" />
     <result column="update_time" property="updateTime" jdbcType="TIMESTAMP" />
     <result column="remark" property="remark" jdbcType="VARCHAR" />
   </resultMap>
   <sql id="Base_Column_List" >
-    payment_channel_account_id, payment_channel_id, account_name, create_time, update_time, 
-    remark
+    payment_channel_account_id, payment_channel_id, account_name, status, create_time, 
+    update_time, remark
   </sql>
   <select id="selectByPrimaryKey" resultMap="BaseResultMap" parameterType="java.lang.Integer" >
     select 
@@ -25,11 +26,11 @@
   </delete>
   <insert id="insert" parameterType="com.github.pattern.common.domain.PaymentChannelAccount" >
     insert into pattern_payment_channel_account (payment_channel_account_id, payment_channel_id, 
-      account_name, create_time, update_time, 
-      remark)
+      account_name, status, create_time, 
+      update_time, remark)
     values (#{paymentChannelAccountId,jdbcType=INTEGER}, #{paymentChannelId,jdbcType=INTEGER}, 
-      #{accountName,jdbcType=VARCHAR}, #{createTime,jdbcType=TIMESTAMP}, #{updateTime,jdbcType=TIMESTAMP}, 
-      #{remark,jdbcType=VARCHAR})
+      #{accountName,jdbcType=VARCHAR}, #{status,jdbcType=TINYINT}, #{createTime,jdbcType=TIMESTAMP}, 
+      #{updateTime,jdbcType=TIMESTAMP}, #{remark,jdbcType=VARCHAR})
   </insert>
   <insert id="insertSelective" parameterType="com.github.pattern.common.domain.PaymentChannelAccount" >
     insert into pattern_payment_channel_account
@@ -42,6 +43,9 @@
       </if>
       <if test="accountName != null" >
         account_name,
+      </if>
+      <if test="status != null" >
+        status,
       </if>
       <if test="createTime != null" >
         create_time,
@@ -63,6 +67,9 @@
       <if test="accountName != null" >
         #{accountName,jdbcType=VARCHAR},
       </if>
+      <if test="status != null" >
+        #{status,jdbcType=TINYINT},
+      </if>
       <if test="createTime != null" >
         #{createTime,jdbcType=TIMESTAMP},
       </if>
@@ -83,6 +90,9 @@
       <if test="accountName != null" >
         account_name = #{accountName,jdbcType=VARCHAR},
       </if>
+      <if test="status != null" >
+        status = #{status,jdbcType=TINYINT},
+      </if>
       <if test="createTime != null" >
         create_time = #{createTime,jdbcType=TIMESTAMP},
       </if>
@@ -99,6 +109,7 @@
     update pattern_payment_channel_account
     set payment_channel_id = #{paymentChannelId,jdbcType=INTEGER},
       account_name = #{accountName,jdbcType=VARCHAR},
+      status = #{status,jdbcType=TINYINT},
       create_time = #{createTime,jdbcType=TIMESTAMP},
       update_time = #{updateTime,jdbcType=TIMESTAMP},
       remark = #{remark,jdbcType=VARCHAR}

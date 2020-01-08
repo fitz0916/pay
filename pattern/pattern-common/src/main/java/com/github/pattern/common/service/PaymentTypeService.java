@@ -2,6 +2,8 @@ package com.github.pattern.common.service;
 
 import com.github.appmodel.domain.result.ModelResult;
 import com.github.pattern.common.domain.PaymentType;
+import com.github.pattern.common.request.PaymentTypeRequest;
+import com.github.pattern.common.vo.ResultVo;
 
 public interface PaymentTypeService {
 
@@ -16,4 +18,6 @@ public interface PaymentTypeService {
     ModelResult<Integer> updateByPrimaryKeySelective(PaymentType record);
 
     ModelResult<Integer> updateByPrimaryKey(PaymentType record);
+
+	ModelResult<ResultVo> page(PaymentTypeRequest request);
 }

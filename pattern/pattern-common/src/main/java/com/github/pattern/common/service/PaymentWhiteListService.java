@@ -2,6 +2,8 @@ package com.github.pattern.common.service;
 
 import com.github.appmodel.domain.result.ModelResult;
 import com.github.pattern.common.domain.PaymentWhiteList;
+import com.github.pattern.common.request.PaymentWhiteListRequest;
+import com.github.pattern.common.vo.ResultVo;
 
 public interface PaymentWhiteListService {
 
@@ -16,4 +18,6 @@ public interface PaymentWhiteListService {
     ModelResult<Integer> updateByPrimaryKeySelective(PaymentWhiteList record);
 
     ModelResult<Integer> updateByPrimaryKey(PaymentWhiteList record);
+
+	ModelResult<ResultVo> page(PaymentWhiteListRequest request);
 }

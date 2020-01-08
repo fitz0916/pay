@@ -20,7 +20,7 @@ public class PaymentBlackList extends BaseObject{
 	 */
 	private String ip;
 	/**
-	 * status 状态，0未生效，1生效
+	 * status 状态，0：禁用，1：启用 2：删除
 	 */
 	private Integer status;
 	/**

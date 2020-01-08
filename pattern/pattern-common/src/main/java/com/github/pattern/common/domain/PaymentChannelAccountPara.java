@@ -22,6 +22,12 @@ public class PaymentChannelAccountPara extends BaseObject {
 	 * 属性名
 	 */
 	private String name;
+	
+	/**
+	 * 是否锁定 0：禁用 1：启用 2：删除
+	 */
+	private Integer status;
+	
 	/**
 	 * 属性值
 	 */
@@ -41,6 +47,13 @@ public class PaymentChannelAccountPara extends BaseObject {
 		this.paymentChannelAccountParaId = paymentChannelAccountParaId;
 	}
 
+	public Integer getStatus() {
+		return status;
+	}
+	public void setStatus(Integer status) {
+		this.status = status;
+	}
+	
 	public Integer getPaymentChannelAccountId() {
 		return paymentChannelAccountId;
 	}

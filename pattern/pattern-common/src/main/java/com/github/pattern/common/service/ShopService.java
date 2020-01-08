@@ -2,6 +2,8 @@ package com.github.pattern.common.service;
 
 import com.github.appmodel.domain.result.ModelResult;
 import com.github.pattern.common.domain.Shop;
+import com.github.pattern.common.request.AgentRequest;
+import com.github.pattern.common.vo.ResultVo;
 
 public interface ShopService {
 	
@@ -16,5 +18,7 @@ public interface ShopService {
     ModelResult<Integer> updateByPrimaryKeySelective(Shop record);
 
     ModelResult<Integer> updateByPrimaryKey(Shop record);
+
+	ModelResult<ResultVo> page(AgentRequest request);
 
 }

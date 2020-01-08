@@ -8,10 +8,11 @@
     <result column="remark" property="remark" jdbcType="VARCHAR" />
     <result column="create_time" property="createTime" jdbcType="TIMESTAMP" />
     <result column="update_time" property="updateTime" jdbcType="TIMESTAMP" />
+    <result column="status" property="status" jdbcType="TINYINT" />
   </resultMap>
   <sql id="Base_Column_List" >
     customer_payment_channel_info_id, payment_channel_id, customer_id, remark, create_time, 
-    update_time
+    update_time, status
   </sql>
   <select id="selectByPrimaryKey" resultMap="BaseResultMap" parameterType="java.lang.Integer" >
     select 
@@ -26,10 +27,10 @@
   <insert id="insert" parameterType="com.github.pattern.common.domain.CustomerPaymentChannelInfo" >
     insert into pattern_customer_payment_channel_info (customer_payment_channel_info_id, payment_channel_id, 
       customer_id, remark, create_time, 
-      update_time)
+      update_time, status)
     values (#{customerPaymentChannelInfoId,jdbcType=INTEGER}, #{paymentChannelId,jdbcType=INTEGER}, 
       #{customerId,jdbcType=INTEGER}, #{remark,jdbcType=VARCHAR}, #{createTime,jdbcType=TIMESTAMP}, 
-      #{updateTime,jdbcType=TIMESTAMP})
+      #{updateTime,jdbcType=TIMESTAMP}, #{status,jdbcType=TINYINT})
   </insert>
   <insert id="insertSelective" parameterType="com.github.pattern.common.domain.CustomerPaymentChannelInfo" >
     insert into pattern_customer_payment_channel_info
@@ -52,6 +53,9 @@
       <if test="updateTime != null" >
         update_time,
       </if>
+      <if test="status != null" >
+        status,
+      </if>
     </trim>
     <trim prefix="values (" suffix=")" suffixOverrides="," >
       <if test="customerPaymentChannelInfoId != null" >
@@ -71,6 +75,9 @@
       </if>
       <if test="updateTime != null" >
         #{updateTime,jdbcType=TIMESTAMP},
+      </if>
+      <if test="status != null" >
+        #{status,jdbcType=TINYINT},
       </if>
     </trim>
   </insert>
@@ -92,6 +99,9 @@
       <if test="updateTime != null" >
         update_time = #{updateTime,jdbcType=TIMESTAMP},
       </if>
+      <if test="status != null" >
+        status = #{status,jdbcType=TINYINT},
+      </if>
     </set>
     where customer_payment_channel_info_id = #{customerPaymentChannelInfoId,jdbcType=INTEGER}
   </update>
@@ -101,7 +111,8 @@
       customer_id = #{customerId,jdbcType=INTEGER},
       remark = #{remark,jdbcType=VARCHAR},
       create_time = #{createTime,jdbcType=TIMESTAMP},
-      update_time = #{updateTime,jdbcType=TIMESTAMP}
+      update_time = #{updateTime,jdbcType=TIMESTAMP},
+      status = #{status,jdbcType=TINYINT}
     where customer_payment_channel_info_id = #{customerPaymentChannelInfoId,jdbcType=INTEGER}
   </update>
 </mapper>

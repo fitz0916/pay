@@ -21,7 +21,7 @@ public class PaymentChannelAccount extends BaseObject {
 	private String accountName;
 
 	/**
-	 * 是否锁定 0否 1是
+	 * 是否锁定 0：禁用 1：启用 2：删除
 	 */
 	private Integer status;
 	

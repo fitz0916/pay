@@ -4,13 +4,14 @@
   <resultMap id="BaseResultMap" type="com.github.pattern.common.domain.PaymentType" >
     <id column="payment_type_id" property="paymentTypeId" jdbcType="INTEGER" />
     <result column="payment_name" property="paymentName" jdbcType="VARCHAR" />
+    <result column="status" property="status" jdbcType="TINYINT" />
     <result column="pay_model" property="payModel" jdbcType="TINYINT" />
     <result column="create_time" property="createTime" jdbcType="TIMESTAMP" />
     <result column="update_time" property="updateTime" jdbcType="TIMESTAMP" />
     <result column="remark" property="remark" jdbcType="VARCHAR" />
   </resultMap>
   <sql id="Base_Column_List" >
-    payment_type_id, payment_name, pay_model, create_time, update_time, remark
+    payment_type_id, payment_name, status, pay_model, create_time, update_time, remark
   </sql>
   <select id="selectByPrimaryKey" resultMap="BaseResultMap" parameterType="java.lang.Integer" >
     select 
@@ -23,12 +24,12 @@
     where payment_type_id = #{paymentTypeId,jdbcType=INTEGER}
   </delete>
   <insert id="insert" parameterType="com.github.pattern.common.domain.PaymentType" >
-    insert into pattern_payment_type (payment_type_id, payment_name, pay_model, 
-      create_time, update_time, remark
-      )
-    values (#{paymentTypeId,jdbcType=INTEGER}, #{paymentName,jdbcType=VARCHAR}, #{payModel,jdbcType=TINYINT}, 
-      #{createTime,jdbcType=TIMESTAMP}, #{updateTime,jdbcType=TIMESTAMP}, #{remark,jdbcType=VARCHAR}
-      )
+    insert into pattern_payment_type (payment_type_id, payment_name, status, 
+      pay_model, create_time, update_time, 
+      remark)
+    values (#{paymentTypeId,jdbcType=INTEGER}, #{paymentName,jdbcType=VARCHAR}, #{status,jdbcType=TINYINT}, 
+      #{payModel,jdbcType=TINYINT}, #{createTime,jdbcType=TIMESTAMP}, #{updateTime,jdbcType=TIMESTAMP}, 
+      #{remark,jdbcType=VARCHAR})
   </insert>
   <insert id="insertSelective" parameterType="com.github.pattern.common.domain.PaymentType" >
     insert into pattern_payment_type
@@ -38,6 +39,9 @@
       </if>
       <if test="paymentName != null" >
         payment_name,
+      </if>
+      <if test="status != null" >
+        status,
       </if>
       <if test="payModel != null" >
         pay_model,
@@ -59,6 +63,9 @@
       <if test="paymentName != null" >
         #{paymentName,jdbcType=VARCHAR},
       </if>
+      <if test="status != null" >
+        #{status,jdbcType=TINYINT},
+      </if>
       <if test="payModel != null" >
         #{payModel,jdbcType=TINYINT},
       </if>
@@ -79,6 +86,9 @@
       <if test="paymentName != null" >
         payment_name = #{paymentName,jdbcType=VARCHAR},
       </if>
+      <if test="status != null" >
+        status = #{status,jdbcType=TINYINT},
+      </if>
       <if test="payModel != null" >
         pay_model = #{payModel,jdbcType=TINYINT},
       </if>
@@ -97,6 +107,7 @@
   <update id="updateByPrimaryKey" parameterType="com.github.pattern.common.domain.PaymentType" >
     update pattern_payment_type
     set payment_name = #{paymentName,jdbcType=VARCHAR},
+      status = #{status,jdbcType=TINYINT},
       pay_model = #{payModel,jdbcType=TINYINT},
       create_time = #{createTime,jdbcType=TIMESTAMP},
       update_time = #{updateTime,jdbcType=TIMESTAMP},

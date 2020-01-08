@@ -27,10 +27,8 @@ public class Customer extends BaseObject{
 	private Long amount;
 	/**支付|提现密码（很重要，商户申请提现时需用到此密码）**/
     private String cipher;
-    /** 支付状态（0启用 1禁用）*/
-	private Integer payStatus;
-	/** 代付状态（0启用 1禁用）*/
-	private Integer payoutStatus;
+    /** 支付状态（0启用 1禁用 2删除）*/
+	private Integer status;
 	/** 代付方式（0自动代付 1人工代付）*/
 	private Integer payoutWay;
 	/**
@@ -45,6 +43,7 @@ public class Customer extends BaseObject{
     private Date createDate;
     /**更新日期**/
     private Date updateDate;
+    
 	public Integer getCustomerId() {
 		return customerId;
 	}
@@ -56,6 +55,13 @@ public class Customer extends BaseObject{
 	}
 	public void setAgentId(Integer agentId) {
 		this.agentId = agentId;
+	}
+	
+	public Integer getStatus() {
+		return status;
+	}
+	public void setStatus(Integer status) {
+		this.status = status;
 	}
 	public Integer getShopId() {
 		return shopId;
@@ -99,18 +105,7 @@ public class Customer extends BaseObject{
 	public void setCipher(String cipher) {
 		this.cipher = cipher;
 	}
-	public Integer getPayStatus() {
-		return payStatus;
-	}
-	public void setPayStatus(Integer payStatus) {
-		this.payStatus = payStatus;
-	}
-	public Integer getPayoutStatus() {
-		return payoutStatus;
-	}
-	public void setPayoutStatus(Integer payoutStatus) {
-		this.payoutStatus = payoutStatus;
-	}
+	
 	public Integer getPayoutWay() {
 		return payoutWay;
 	}

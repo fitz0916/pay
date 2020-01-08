@@ -11,7 +11,7 @@
  Target Server Version : 80018
  File Encoding         : 65001
 
- Date: 07/01/2020 21:03:57
+ Date: 08/01/2020 11:03:46
 */
 
 SET NAMES utf8mb4;
@@ -25,6 +25,7 @@ CREATE TABLE `pattern_agent` (
   `agent_id` int(11) NOT NULL AUTO_INCREMENT COMMENT '主键',
   `agent_ame` varchar(100) NOT NULL COMMENT '代理商名称',
   `agent_no` varchar(20) CHARACTER SET utf8 COLLATE utf8_general_ci NOT NULL COMMENT '代理商编号',
+  `status` tinyint(4) NOT NULL DEFAULT '1' COMMENT '0:停用 1：启用 2：删除',
   `type` tinyint(4) NOT NULL COMMENT '1个体工商户 2公司/企业',
   `registry_date` datetime NOT NULL ON UPDATE CURRENT_TIMESTAMP COMMENT '公司注册时间',
   `business_license` varchar(50) NOT NULL DEFAULT '0' COMMENT '营业执照号',
@@ -57,8 +58,7 @@ CREATE TABLE `pattern_customer` (
   `cipher` varchar(15) NOT NULL COMMENT '交易/体现密码',
   `create_date` datetime NOT NULL ON UPDATE CURRENT_TIMESTAMP COMMENT '创建时间',
   `update_date` datetime NOT NULL ON UPDATE CURRENT_TIMESTAMP COMMENT '更新时间',
-  `pay_status` tinyint(4) NOT NULL DEFAULT '1' COMMENT '支付状态（0启用 1禁用）',
-  `payout_status` tinyint(4) NOT NULL DEFAULT '1' COMMENT '代付状态（0启用 1禁用',
+  `status` tinyint(4) NOT NULL DEFAULT '1' COMMENT '支付状态（0启用 1禁用 2删除）',
   `payout_way` tinyint(255) NOT NULL COMMENT '代付方式（0自动代付 1人工代付',
   `unfreeze_amount` bigint(12) NOT NULL DEFAULT '0' COMMENT '已解冻总额',
   `frozen_amount_sum` bigint(12) NOT NULL DEFAULT '0' COMMENT '冻结记录的总额',
@@ -77,6 +77,7 @@ CREATE TABLE `pattern_customer_payment_channel_fee` (
   `create_time` datetime NOT NULL ON UPDATE CURRENT_TIMESTAMP COMMENT '创建时间',
   `update_time` datetime NOT NULL ON UPDATE CURRENT_TIMESTAMP COMMENT '更新时间',
   `remark` varchar(100) CHARACTER SET utf8 COLLATE utf8_general_ci NOT NULL DEFAULT '0' COMMENT '备注',
+  `status` tinyint(4) NOT NULL DEFAULT '1' COMMENT '状态，0未生效，1生效 2删除',
   PRIMARY KEY (`payment_channeld_fee_id`) USING BTREE
 ) ENGINE=InnoDB AUTO_INCREMENT=25881 DEFAULT CHARSET=utf8 COMMENT='商户金额变动记录';
 
@@ -88,9 +89,10 @@ CREATE TABLE `pattern_customer_payment_channel_info` (
   `customer_payment_channel_info_id` int(11) NOT NULL AUTO_INCREMENT COMMENT '商户支付通道ID',
   `payment_channel_id` int(10) NOT NULL COMMENT '所属支付通道ID',
   `customer_id` int(10) NOT NULL COMMENT '商户ID',
-  `remark` varchar(100) CHARACTER SET utf8 COLLATE utf8_general_ci NOT NULL DEFAULT '' COMMENT '创建时间',
-  `create_time` datetime NOT NULL ON UPDATE CURRENT_TIMESTAMP COMMENT '更新时间',
-  `update_time` datetime NOT NULL ON UPDATE CURRENT_TIMESTAMP,
+  `remark` varchar(100) CHARACTER SET utf8 COLLATE utf8_general_ci NOT NULL DEFAULT '' COMMENT '备注',
+  `create_time` datetime NOT NULL ON UPDATE CURRENT_TIMESTAMP COMMENT '创建时间',
+  `update_time` datetime NOT NULL ON UPDATE CURRENT_TIMESTAMP COMMENT '更新时间',
+  `status` tinyint(4) NOT NULL DEFAULT '1' COMMENT '0禁用 1启用 2删除',
   PRIMARY KEY (`customer_payment_channel_info_id`) USING BTREE,
   UNIQUE KEY `agent_id` (`customer_id`,`payment_channel_id`)
 ) ENGINE=InnoDB AUTO_INCREMENT=1083 DEFAULT CHARSET=utf8 COMMENT='商户支付通道表';
@@ -118,7 +120,7 @@ CREATE TABLE `pattern_payment_channel` (
   `pay_channel_id` int(11) unsigned NOT NULL AUTO_INCREMENT COMMENT '支付渠道ID',
   `channel_name` varchar(50) NOT NULL DEFAULT '' COMMENT '简称',
   `third_channel_name` varchar(50) CHARACTER SET utf8 COLLATE utf8_general_ci NOT NULL DEFAULT '' COMMENT '模板英文名字',
-  `status` tinyint(4) NOT NULL DEFAULT '1' COMMENT '全称',
+  `status` tinyint(4) NOT NULL DEFAULT '1' COMMENT '0：停用 1：启用 2删除',
   `settlement_type` tinyint(4) NOT NULL COMMENT '结算方式：0:d0，1:d1，2：t0，3：t1',
   `pay_type` tinyint(4) NOT NULL COMMENT '支付类型',
   `business_contacts` varchar(50) CHARACTER SET utf8 COLLATE utf8_general_ci NOT NULL COMMENT '商务联系人',
@@ -139,6 +141,7 @@ CREATE TABLE `pattern_payment_channel_account` (
   `payment_channel_account_id` int(11) unsigned NOT NULL AUTO_INCREMENT COMMENT '渠道账户ID',
   `payment_channel_id` int(11) NOT NULL COMMENT '支付渠道ID',
   `account_name` varchar(50) CHARACTER SET utf8 COLLATE utf8_general_ci NOT NULL DEFAULT '' COMMENT '账号名称',
+  `status` tinyint(4) NOT NULL DEFAULT '1' COMMENT '0：禁用 1：启用 2：删除',
   `create_time` datetime NOT NULL COMMENT '创建时间',
   `update_time` datetime NOT NULL ON UPDATE CURRENT_TIMESTAMP COMMENT '更新时间',
   `remark` varchar(300) CHARACTER SET utf8 COLLATE utf8_general_ci NOT NULL DEFAULT '' COMMENT '备注',
@@ -155,6 +158,7 @@ CREATE TABLE `pattern_payment_channel_account_para` (
   `payment_channel_para_id` int(11) NOT NULL COMMENT '支付渠道参数ID',
   `name` varchar(50) NOT NULL COMMENT '参数名',
   `value` text NOT NULL COMMENT '参数值',
+  `status` tinyint(4) NOT NULL DEFAULT '1' COMMENT '0：禁用 1：启用 2：删除',
   `create_time` datetime NOT NULL ON UPDATE CURRENT_TIMESTAMP COMMENT '创建时间',
   `update_time` datetime NOT NULL ON UPDATE CURRENT_TIMESTAMP COMMENT '更新时间',
   `remark` varchar(150) NOT NULL DEFAULT '' COMMENT '备注',
@@ -168,6 +172,7 @@ DROP TABLE IF EXISTS `pattern_payment_channelinfo_risk`;
 CREATE TABLE `pattern_payment_channelinfo_risk` (
   `payment_channelinfo_risk_id` int(11) unsigned NOT NULL AUTO_INCREMENT COMMENT '支付通道风控表ID',
   `payment_channel_id` int(11) unsigned NOT NULL COMMENT '支付通道ID',
+  `status` tinyint(4) NOT NULL DEFAULT '1' COMMENT '0：禁用 1：启用 2：删除',
   `allowTime` varchar(50) CHARACTER SET utf8 COLLATE utf8_general_ci NOT NULL COMMENT '允许支付时间(格式hh:mm:ss-hh:mm:ss 24小时制 多条用|隔开,不输入则不限制)',
   `allow_num` int(11) NOT NULL DEFAULT '-1' COMMENT '交易次数限制，默认值-1',
   `pay_interval` int(11) NOT NULL DEFAULT '-1' COMMENT '时间间隔 单位秒',
@@ -191,6 +196,7 @@ DROP TABLE IF EXISTS `pattern_payment_type`;
 CREATE TABLE `pattern_payment_type` (
   `payment_type_id` int(11) NOT NULL COMMENT '支付类型ID',
   `payment_name` varchar(30) CHARACTER SET utf8 COLLATE utf8_general_ci NOT NULL COMMENT '支付类型名称',
+  `status` tinyint(4) NOT NULL DEFAULT '1' COMMENT '0：禁用 1：启用 2：删除',
   `pay_model` tinyint(4) NOT NULL COMMENT '支付模式：0:web ，1:app',
   `create_time` datetime NOT NULL ON UPDATE CURRENT_TIMESTAMP COMMENT '创建时间',
   `update_time` datetime NOT NULL ON UPDATE CURRENT_TIMESTAMP COMMENT '更新时间',
@@ -206,7 +212,7 @@ CREATE TABLE `pattern_payment_white_list` (
   `payment_white_list_id` int(11) NOT NULL AUTO_INCREMENT COMMENT '主键',
   `customer_id` int(11) DEFAULT NULL COMMENT '商户ID',
   `ip` varchar(50) CHARACTER SET utf8 COLLATE utf8_general_ci DEFAULT NULL COMMENT 'ip地址',
-  `status` tinyint(4) DEFAULT NULL COMMENT '状态，0未生效，1生效',
+  `status` tinyint(4) DEFAULT NULL COMMENT '0：禁用 1：启用 2：删除',
   `create_time` datetime DEFAULT NULL ON UPDATE CURRENT_TIMESTAMP COMMENT '创建时间',
   `update_time` datetime DEFAULT NULL ON UPDATE CURRENT_TIMESTAMP,
   `remark` varchar(255) CHARACTER SET utf8 COLLATE utf8_general_ci DEFAULT NULL COMMENT '备注',
@@ -224,12 +230,13 @@ CREATE TABLE `pattern_shop` (
   `agent_id` int(11) NOT NULL COMMENT '所属商户ID',
   `shop_name` varchar(50) CHARACTER SET utf8 COLLATE utf8_general_ci NOT NULL DEFAULT '' COMMENT '门店名称',
   `adress` varchar(100) CHARACTER SET utf8 COLLATE utf8_general_ci NOT NULL DEFAULT '' COMMENT '门店地址',
+  `status` tinyint(4) NOT NULL DEFAULT '1' COMMENT '0：禁用 1：启用 2：删除',
   `phone` varchar(11) CHARACTER SET utf8 COLLATE utf8_general_ci NOT NULL DEFAULT '' COMMENT '门店管理账号',
   `name` varchar(15) CHARACTER SET utf8 COLLATE utf8_general_ci NOT NULL DEFAULT '' COMMENT '联系人姓名',
   `telephone` varchar(11) CHARACTER SET utf8 COLLATE utf8_general_ci NOT NULL COMMENT '联系人电话',
   `is_lock` tinyint(2) NOT NULL DEFAULT '0' COMMENT '0启用1禁用',
   `create_time` datetime NOT NULL ON UPDATE CURRENT_TIMESTAMP COMMENT '创建时间',
-  `update_time` datetime NOT NULL ON UPDATE CURRENT_TIMESTAMP,
+  `update_time` datetime NOT NULL ON UPDATE CURRENT_TIMESTAMP COMMENT '更新时间',
   PRIMARY KEY (`shop_id`)
 ) ENGINE=InnoDB AUTO_INCREMENT=2371 DEFAULT CHARSET=utf8 COMMENT='商户门店';
 

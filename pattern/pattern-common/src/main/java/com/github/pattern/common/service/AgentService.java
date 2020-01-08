@@ -2,8 +2,12 @@ package com.github.pattern.common.service;
 
 import com.github.appmodel.domain.result.ModelResult;
 import com.github.pattern.common.domain.Agent;
+import com.github.pattern.common.request.AgentRequest;
+import com.github.pattern.common.vo.ResultVo;
 
 public interface AgentService {
+	
+	ModelResult<ResultVo> page(AgentRequest request);
 	
 	ModelResult<Integer> deleteByPrimaryKey(Integer agentId);
 
