@@ -69,7 +69,7 @@ function initMyTable(){
 		showRefresh: true,
 		showColumns: true,
 		minimumCountColumns: 2,
-		clickToSelect: true,
+		clickToSelect: false,
 		detailFormatter: 'detailFormatter',
 		pagination: true,
 		paginationLoop: false,
@@ -139,9 +139,19 @@ function initMyTable(){
                 		 return [
                				'<shiro:hasPermission name="pattern:shop:update"><button type="button" class="btn btn-primary btn-sm" style="margin-right:10px;padding:0 10px;" onclick="updateRow(' + row.shopId +')">编辑</button></shiro:hasPermission>',
 							'<shiro:hasPermission name="pattern:shop:delete"><button type="button" class="btn btn-info btn-sm" style="margin-right:10px;padding:0 10px;" onclick="deleteRow(' + row.shopId + ')">删除</button></shiro:hasPermission>',
+							'<shiro:hasPermission name="pattern:shop:delete"><button type="button" class="btn btn-info btn-sm" style="margin-right:10px;padding:0 10px;" onclick="viewCustomerRow(' + row.shopId + ')">查看商户</button></shiro:hasPermission>'
              			].join('');
 	                }, events: 'actionEvent'}
-	            ]
+	            ],
+	            responseHandler:function(result){
+	    			if(result.code == '10110'){
+	                	layer.msg(result.msg);
+	                    location:top.location.href = '${basePath}/login';
+	                }
+	    			return{                            //return bootstrap-table能处理的数据格式
+	    		        "rows":result.data
+	    		    }
+	    		},
 	        });
 		}
 	});
@@ -150,8 +160,7 @@ function initMyTable(){
 // 格式化操作按钮
 function actionFormatter(value, row, index) {
     return [
-        '<shiro:hasPermission name="pattern:agent:update"><a class="update" href="javascript:;" onclick="updateRow('+row.agentId+')" data-toggle="tooltip" title="Edit"><i class="glyphicon glyphicon-edit"></i></a></shiro:hasPermission>　',
-        '<shiro:hasPermission name="pattern:agent:delete"><a class="delete" href="javascript:;" onclick="deleteRow('+row.agentId+')" data-toggle="tooltip" title="Remove"><i class="glyphicon glyphicon-remove"></i></a></shiro:hasPermission>'
+        '<shiro:hasPermission name="pattern:shop:create"><a class="add" href="javascript:;" onclick="createShopRow('+row.agentId+')" data-toggle="tooltip" title="新增门店"><i class="zmdi zmdi-plus"></i>新增门店</a></shiro:hasPermission>　',
     ].join('');
 }
 
@@ -187,6 +196,7 @@ function changeDateFormat(value) {
 	  return time;
 }
 
+var updateDialog;
 //编辑行
 function updateRow(agentId){
     updateDialog = $.dialog({
@@ -194,6 +204,46 @@ function updateRow(agentId){
         title: '编辑代理商',
         columnClass: 'col-md-10 col-md-offset-1 col-sm-6 col-sm-offset-3 col-xs-10 col-xs-offset-1',
         content: 'url:${basePath}/manage/agent/update/'+agentId,
+        onContentReady:function(){
+        	initMaterialInput();
+        },
+        contentLoaded: function(data, status, xhr){
+            if(data.code == '10110'){
+            	layer.msg(data.msg);
+                location:top.location.href = '${basePath}/login';
+            }
+        }
+    });
+}
+
+var viewCustomerDialog;
+function viewCustomerRow(shopId){
+	viewCustomerDialog = $.dialog({
+        animationSpeed: 300,
+        title: '查看商户',
+        columnClass: 'col-md-10 col-md-offset-1 col-sm-6 col-sm-offset-3 col-xs-10 col-xs-offset-1',
+        content: 'url:${basePath}/manage/customer/index/' + shopId,
+        onContentReady:function(){
+        	initMaterialInput();
+        },
+        contentLoaded: function(data, status, xhr){
+            if(data.code == '10110'){
+            	layer.msg(data.msg);
+                location:top.location.href = '${basePath}/login';
+            }
+        }
+    });
+}
+  
+
+
+var createShopDialog;
+function createShopRow(agentId){
+	createShopDialog = $.dialog({
+        animationSpeed: 300,
+        title: '新增门店',
+        columnClass: 'col-md-10 col-md-offset-1 col-sm-6 col-sm-offset-3 col-xs-10 col-xs-offset-1',
+        content: 'url:${basePath}/manage/shop/create/'+agentId,
         onContentReady:function(){
         	initMaterialInput();
         },

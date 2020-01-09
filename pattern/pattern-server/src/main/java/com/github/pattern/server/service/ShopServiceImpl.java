@@ -60,21 +60,33 @@ public class ShopServiceImpl extends BaseService implements ShopService{
 	public ModelResult<PageVo> page(ShopRequest request) {
 		ModelResult<PageVo> modelResult = new ModelResult<PageVo>();
 		PageVo pageVo = new PageVo();
-		DataPage<Agent> dataPage = new DataPage<Agent>();
+		DataPage<Shop> dataPage = new DataPage<Shop>();
 		this.setDataPage(dataPage, request);;
 		List<Integer> statusList = this.buildStatusList();
 		int start = dataPage.getStartIndex();
 		int offset = dataPage.getPageSize();
 		Integer agentId = request.getAgentId();
 		long totalCount = shopDao.pageCount(statusList,agentId);
-		List<Agent> result = shopDao.pageList(start,offset,statusList,agentId);
+		List<Shop> result = shopDao.pageList(start,offset,statusList,agentId);
         dataPage.setDataList(result);
         pageVo.setRows(result);
         pageVo.setTotal(totalCount);
         modelResult.setModel(pageVo);
         return modelResult;
 	}
-	
+
+	@Override
+	public ModelResult<List<Shop>> selectByAgentId(Integer agentId) {
+		ModelResult<List<Shop>> modelResult = new ModelResult<List<Shop>>();
+		if(agentId == null || agentId == 0) {
+			modelResult.withError("0", "查询条件为非法参数");
+			return modelResult;
+		}
+		List<Integer> statusList = this.buildStatusList();
+		List<Shop> list = shopDao.selectByAgentId(statusList,agentId);
+		modelResult.setModel(list);
+		return modelResult;
+	}
 	
 
 }

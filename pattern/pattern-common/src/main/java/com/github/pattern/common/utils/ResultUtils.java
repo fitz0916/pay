@@ -14,7 +14,7 @@ public class ResultUtils {
 	private static final String SUCCESS_CODE = "1";
 	private static final String FAIL_CODE = "0";
 			
-	public static ResultVo  buildResult(ModelResult<?> modelResult){
+	public static <T> ResultVo  buildResult(ModelResult<T> modelResult){
 		ResultVo resultVo = new ResultVo();
 		if(modelResult.isSuccess()) {
 			resultVo.setData(modelResult.getModel());

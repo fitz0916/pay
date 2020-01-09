@@ -6,11 +6,12 @@ import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
+
 import com.github.appmodel.domain.result.ModelResult;
 import com.github.pattern.common.domain.Customer;
 import com.github.pattern.common.request.CustomerRequest;
 import com.github.pattern.common.service.CustomerService;
-import com.github.pattern.common.vo.ResultVo;
+import com.github.pattern.common.vo.PageVo;
 
 @RestController
 @RequestMapping("/pattern/server/customer")
@@ -21,7 +22,7 @@ public class CustomerController {
 	private CustomerService customerServiceImpl;
 	
 	@PostMapping("/page")
-	public ModelResult<ResultVo> page(@RequestBody CustomerRequest request){
+	public ModelResult<PageVo> page(@RequestBody CustomerRequest request){
 		return customerServiceImpl.page(request);
 	}
 	

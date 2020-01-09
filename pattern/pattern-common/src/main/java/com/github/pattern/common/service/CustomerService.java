@@ -3,7 +3,7 @@ package com.github.pattern.common.service;
 import com.github.appmodel.domain.result.ModelResult;
 import com.github.pattern.common.domain.Customer;
 import com.github.pattern.common.request.CustomerRequest;
-import com.github.pattern.common.vo.ResultVo;
+import com.github.pattern.common.vo.PageVo;
 
 public interface CustomerService {
 	
@@ -17,6 +17,6 @@ public interface CustomerService {
 
     ModelResult<Integer> updateByPrimaryKey(Customer record);
 
-	ModelResult<ResultVo> page(CustomerRequest request);
+	ModelResult<PageVo> page(CustomerRequest request);
 
 }

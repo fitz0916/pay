@@ -60,7 +60,7 @@ public class AgentServiceImpl extends BaseService implements AgentService{
 		int result = 0;
 		if(agent != null) {
 			//判断商户是否存在，如果存在不允许删除
-			List<Shop> list = shopDao.selectByAgentId(agentId, 1);
+			List<Shop> list = shopDao.selectByAgentId(this.buildStatusList(),agentId);
 			if(CollectionUtils.isEmpty(list)) {
 				agent.setStatus(3);
 				agent.setUpdateDate(new Date());

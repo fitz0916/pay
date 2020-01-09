@@ -1,5 +1,7 @@
 package com.github.pattern.common.service;
 
+import java.util.List;
+
 import com.github.appmodel.domain.result.ModelResult;
 import com.github.pattern.common.domain.Shop;
 import com.github.pattern.common.request.ShopRequest;
@@ -20,5 +22,7 @@ public interface ShopService {
     ModelResult<Integer> updateByPrimaryKey(Shop record);
 
 	ModelResult<PageVo> page(ShopRequest request);
+
+	ModelResult<List<Shop>> selectByAgentId(Integer agentId);
 
 }

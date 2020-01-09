@@ -1,5 +1,7 @@
 package com.github.pattern.web.controller;
 
+import java.util.List;
+
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.PostMapping;
@@ -24,6 +26,11 @@ public class ShopController {
 	@PostMapping("/page")
 	public ModelResult<PageVo> page(@RequestBody ShopRequest request){
 		return shopServiceImpl.page(request);
+	}
+	
+	@PostMapping("/selectByAgentId/{agentId}")
+	public ModelResult<List<Shop>> selectByAgentId(@PathVariable("agentId")Integer agentId){
+		return shopServiceImpl.selectByAgentId(agentId);
 	}
 	
 	@PostMapping("/deleteByPrimaryKey/{shopId}")

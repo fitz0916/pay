@@ -1,5 +1,7 @@
 package com.github.pattern.client.service;
 
+import java.util.List;
+
 import org.springframework.cloud.openfeign.FeignClient;
 import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.PostMapping;
@@ -18,6 +20,9 @@ public interface ShopServiceClient {
 	
 	@PostMapping("/page")
 	ModelResult<PageVo> page(@RequestBody ShopRequest request);
+	
+	@PostMapping("/selectByAgentId/{agentId}")
+	public ModelResult<List<Shop>> selectByAgentId(@PathVariable("agentId")Integer agentId);
 	
 	@PostMapping("/deleteByPrimaryKey/{shopId}")
 	ModelResult<Integer> deleteByPrimaryKey(@PathVariable("shopId")Integer shopId);

@@ -183,6 +183,26 @@
 			</foreach>
       	</if>
       </where>
+      <if test="start !=null and offset !=null">
+        limit #{start}, #{offset}
+      </if>
+  </select>
+  
+  <select id="selectByAgentId" resultMap="BaseResultMap" parameterType="map" >
+    select 
+     <include refid="Base_Column_List" />
+     from pattern_shop
+      <where>
+         <if test="agentId != null">
+            and agent_id = #{agentId,jdbcType=INTEGER}
+         </if>
+         <if test="statusList != null and statusList.size() > 0">
+      		and status in
+      		<foreach collection="statusList" item="status" index="index" open="(" close=")" separator=",">
+	   			#{status,jdbcType=TINYINT}
+			</foreach>
+      	</if>
+      </where>
   </select>
   
   
