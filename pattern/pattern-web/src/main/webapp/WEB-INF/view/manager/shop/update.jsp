@@ -45,6 +45,9 @@
 </div>
 
 <script>
+var childTableId = '#child_table' + ${shop.agentId};
+alert(childTableId);
+var $childTable = $(childTableId);
 function updateSubmit() {
     $.ajax({
         type: 'post',
@@ -89,8 +92,8 @@ function updateSubmit() {
 						});
 				}
 			} else {
-				updateDialog.close();
-				$shopTable.bootstrapTable('refresh');
+				updateShopDialog.close();
+				$childTable.bootstrapTable('refresh');
 			}
         },
         error: function(XMLHttpRequest, textStatus, errorThrown) {

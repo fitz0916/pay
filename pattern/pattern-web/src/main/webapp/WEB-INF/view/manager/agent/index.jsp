@@ -120,6 +120,7 @@ function initMyTable(){
 	            columns: [
 	            	{field:'shopId',title:'门店ID',align:'center'},
 	    			{field:'shopName',title:'门店名称',align:'center'},
+	    			{field:'shopNo',title:'门店编号',align:'center'},
                     {field:'brand',title:'门店品牌',align:'center'},
                     {field:'phone',title:'手机号码',align:'center'},
 	    			{field:'address',title:'地址',align:'center'},

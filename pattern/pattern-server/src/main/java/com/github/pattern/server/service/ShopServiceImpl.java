@@ -1,5 +1,6 @@
 package com.github.pattern.server.service;
 
+import java.util.Date;
 import java.util.List;
 
 import org.springframework.beans.factory.annotation.Autowired;
@@ -7,10 +8,11 @@ import org.springframework.stereotype.Service;
 
 import com.github.appmodel.domain.result.ModelResult;
 import com.github.appmodel.page.DataPage;
-import com.github.pattern.common.domain.Agent;
+import com.github.pattern.common.constants.PatternConstants;
 import com.github.pattern.common.domain.Shop;
 import com.github.pattern.common.request.ShopRequest;
 import com.github.pattern.common.service.ShopService;
+import com.github.pattern.common.utils.UUIDGenerator;
 import com.github.pattern.common.vo.PageVo;
 import com.github.pattern.server.dao.ShopDao;
 
@@ -39,6 +41,11 @@ public class ShopServiceImpl extends BaseService implements ShopService{
 			modelResult.withError("0", "非法参数");
 			return modelResult;
 		}
+		Date date = new Date();
+		String shopNo = PatternConstants.SHOP_NO_PREFIX + UUIDGenerator.getRandomNumber(6);
+		record.setCreateTime(date);
+		record.setUpdateTime(date);
+		record.setShopNo(shopNo);
 		int result = shopDao.insertSelective(record);
 		if(result > 0) {
 			modelResult.setModel(result);
@@ -67,7 +74,9 @@ public class ShopServiceImpl extends BaseService implements ShopService{
 			modelResult.withError("0", "非法参数");
 			return modelResult;
 		}
-		int result = shopDao.insertSelective(record);
+		Date date = new Date();
+		record.setUpdateTime(date);
+		int result = shopDao.updateByPrimaryKeySelective(record);
 		if(result > 0) {
 			modelResult.setModel(result);
 		}else {
