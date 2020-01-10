@@ -55,6 +55,7 @@
 		<div class="form-group type1 type3">
 			<label for="icon">图标</label>
 			<input id="icon" type="text" class="form-control" name="icon" maxlength="50" value="${permission.icon}">
+			<!-- 
 			<label for="icon">图标</label>
 		    <select class="form-control" name="icon">
 		     <option value="zmdi zmdi-accounts-list" <c:if test="${permission.icon eq 'zmdi zmdi-accounts-list'}">selected="selected"</c:if>>目录-代理商管理</option>
@@ -66,6 +67,7 @@
 		      <option value="zmdi zmdi-accounts-list" <c:if test="${permission.icon eq 'zmdi zmdi-accounts-list'}">selected="selected"</c:if>>按钮-用户组织</option>
 		      <option value="zmdi zmdi-accounts" <c:if test="${permission.icon eq 'zmdi zmdi-accounts'}">selected="selected"</c:if>>按钮-用户角色</option>
 		    </select>
+		     -->
 		</div>
 		<div class="radio">
 			<div class="radio radio-inline radio-success">

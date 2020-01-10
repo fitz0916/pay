@@ -7,48 +7,60 @@
 <%@taglib prefix="shiro" uri="http://shiro.apache.org/tags" %>
 <div id="updateDialog" class="crudDialog">
 	<form id="updateForm" method="post">
-		<input type="hidden" name="shopId" value="${shop.shopId}">
-		<input type="hidden" name="agentId" value="${shop.agentId}">
+		<input type="hidden" name="agentId" value="${customer.agentId}">
+	    <input type="hidden" name="shopId" value="${customer.shopId}">
 		<div class="form-group">
-			<label for="shopName">门店名称：</label>
-			<input id="shopName" type="text" class="form-control" value="${shop.shopName}" name="shopName" maxlength="50">
+			<label for="customerName">商户名称：</label>
+			<input id="customerName" type="text" class="form-control" value="${customer.customerName}" name="customerName" maxlength="50">
 		</div>
 		<div class="form-group">
-			<label for="brand">门店品牌：</label>
-			<input id="brand" type="text" class="form-control" value="${shop.brand}" name="brand" maxlength="50">
+			<label for="customerNo">商户号：</label>
+			<input id="customerNo" type="text" class="form-control" value="${customer.customerNo}" name="customerNo" maxlength="50" readonly="readonly">
 		</div>
+		<div class="form-group">
+			<label for="amount">可用金额：</label>
+			<input id="amount" type="text" class="form-control" value="${customer.amount}" name="amount" maxlength="50" readonly="readonly">
+		</div>
+		<div class="form-group">
+			<label for="settlement">待结算金额：</label>
+			<input id="settlement" type="text" class="form-control" value="${customer.settlement}" name="settlement" maxlength="50" readonly="readonly">
+		</div>
+		<div class="form-group">
+			<label for="frozenAmount">冻结金额：</label>
+			<input id="frozenAmount" type="text" class="form-control" value="${customer.frozenAmount}" name="frozenAmount" maxlength="50" readonly="readonly">
+		</div>
+		
 		<div class="radio">
 			<div class="radio radio-inline radio-info">
-				<input id="status_1" type="radio" name="status" value="1" <c:if test="${shop.status == 1}">checked</c:if>>
+				<input id="status_1" type="radio" name="status" value="1" <if test="${customer.status == 1}">checked</if>>
 				<label for="status_1">启用 </label>
 			</div>
 			<div class="radio radio-inline radio-danger">
-				<input id="status_0" type="radio" name="status" value="0" <c:if test="${shop.status == 0}">checked</c:if>>
+				<input id="status_0" type="radio" name="status" value="0" <if test="${customer.status == 0}">checked</if>>
 				<label for="status_0">锁定 </label>
 			</div>
 		</div>
-		<div class="form-group">
-		</div>
-		<div class="form-group">
-			<label for="phone">手机号码：</label>
-			<input id="phone" type="text" class="form-control" value="${shop.phone}" name="phone" maxlength="20">
-		</div>
-		<div class="form-group">
-			<label for="address">门店地址</label>
-			<input id="address" type="text" class="form-control" value="${shop.address}" name="address" maxlength="100">
+		<div class="radio">
+			<div class="radio radio-inline radio-info">
+				<input id="payoutWay_0" type="radio" name="payoutWay" value="0" <if test="${customer.payoutWay == 0}">checked</if>>
+				<label for="payoutWay_0">自动代付 </label>
+			</div>
+			<div class="radio radio-inline radio-danger">
+				<input id="payoutWay_1" type="radio" name="payoutWay" value="1" <if test="${customer.payoutWay == 1}">checked</if>>
+				<label for="payoutWay_1">人工代付 </label>
+			</div>
 		</div>
 		<div class="form-group text-right dialog-buttons">
 			<a class="waves-effect waves-button" href="javascript:;" onclick="updateSubmit();">保存</a>
-			<a class="waves-effect waves-button" href="javascript:;" onclick="updateShopDialog.close();">取消</a>
+			<a class="waves-effect waves-button" href="javascript:;" onclick="updateDialog.close();">取消</a>
 		</div>
 	</form>
 </div>
-
 <script>
 function updateSubmit() {
     $.ajax({
         type: 'post',
-        url: '${basePath}/manage/shop/update',
+        url: '${basePath}/manage/shop/update/${shop.shopId}',
         data: $('#updateForm').serialize(),
         beforeSend: function() {
         },
@@ -90,7 +102,7 @@ function updateSubmit() {
 				}
 			} else {
 				updateDialog.close();
-				$shopTable.bootstrapTable('refresh');
+				$customerTable.bootstrapTable('refresh');
 			}
         },
         error: function(XMLHttpRequest, textStatus, errorThrown) {

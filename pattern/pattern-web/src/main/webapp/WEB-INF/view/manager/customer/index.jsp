@@ -11,7 +11,7 @@
 </div>
 <script type="text/javascript">
 
-var $table = $('#customerTable');
+var $customerTable = $('#customerTable');
 
 
 $(function() {
@@ -20,7 +20,7 @@ $(function() {
 });
 
 function initMyTable(){
-	$table.bootstrapTable({
+	$customerTable.bootstrapTable({
 		url: '${basePath}/manage/customer/list',	//获取表格数据的url
 		method:'post',
 		dataType:'json',

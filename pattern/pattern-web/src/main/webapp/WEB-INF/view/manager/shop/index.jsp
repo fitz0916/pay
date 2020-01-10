@@ -38,7 +38,7 @@
 <jsp:include page="../../common/inc/footer.jsp" flush="true"/>
 <script type="text/javascript">
 
-var $table = $('#table');
+var $shopTable = $('#table');
 
 
 $(function() {
@@ -48,7 +48,7 @@ $(function() {
 
 function initMyTable(){
 	// bootstrap table初始化
-	$table.bootstrapTable({
+	$shopTable.bootstrapTable({
 		url: '${basePath}/manage/shop/list/'+'${shopId}',
 		height: getHeight(),
 		method:'post',

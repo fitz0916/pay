@@ -7,14 +7,14 @@
     <result column="shop_no" property="shopNo" jdbcType="VARCHAR" />
     <result column="agent_id" property="agentId" jdbcType="INTEGER" />
     <result column="shop_name" property="shopName" jdbcType="VARCHAR" />
-    <result column="adress" property="adress" jdbcType="VARCHAR" />
+    <result column="address" property="address" jdbcType="VARCHAR" />
     <result column="status" property="status" jdbcType="TINYINT" />
     <result column="phone" property="phone" jdbcType="VARCHAR" />
     <result column="create_time" property="createTime" jdbcType="TIMESTAMP" />
     <result column="update_time" property="updateTime" jdbcType="TIMESTAMP" />
   </resultMap>
   <sql id="Base_Column_List" >
-    shop_id, brand, shop_no, agent_id, shop_name, adress, status, phone, create_time, 
+    shop_id, brand, shop_no, agent_id, shop_name, address, status, phone, create_time, 
     update_time
   </sql>
   <select id="selectByPrimaryKey" resultMap="BaseResultMap" parameterType="java.lang.Integer" >
@@ -29,11 +29,11 @@
   </delete>
   <insert id="insert" parameterType="com.github.pattern.common.domain.Shop" >
     insert into pattern_shop (shop_id, brand, shop_no, 
-      agent_id, shop_name, adress, 
+      agent_id, shop_name, address, 
       status, phone, create_time, 
       update_time)
     values (#{shopId,jdbcType=INTEGER}, #{brand,jdbcType=VARCHAR}, #{shopNo,jdbcType=VARCHAR}, 
-      #{agentId,jdbcType=INTEGER}, #{shopName,jdbcType=VARCHAR}, #{adress,jdbcType=VARCHAR}, 
+      #{agentId,jdbcType=INTEGER}, #{shopName,jdbcType=VARCHAR}, #{address,jdbcType=VARCHAR}, 
       #{status,jdbcType=TINYINT}, #{phone,jdbcType=VARCHAR}, #{createTime,jdbcType=TIMESTAMP}, 
       #{updateTime,jdbcType=TIMESTAMP})
   </insert>
@@ -55,8 +55,8 @@
       <if test="shopName != null" >
         shop_name,
       </if>
-      <if test="adress != null" >
-        adress,
+      <if test="address != null" >
+        address,
       </if>
       <if test="status != null" >
         status,
@@ -87,8 +87,8 @@
       <if test="shopName != null" >
         #{shopName,jdbcType=VARCHAR},
       </if>
-      <if test="adress != null" >
-        #{adress,jdbcType=VARCHAR},
+      <if test="address != null" >
+        #{address,jdbcType=VARCHAR},
       </if>
       <if test="status != null" >
         #{status,jdbcType=TINYINT},
@@ -119,8 +119,8 @@
       <if test="shopName != null" >
         shop_name = #{shopName,jdbcType=VARCHAR},
       </if>
-      <if test="adress != null" >
-        adress = #{adress,jdbcType=VARCHAR},
+      <if test="address != null" >
+        address = #{address,jdbcType=VARCHAR},
       </if>
       <if test="status != null" >
         status = #{status,jdbcType=TINYINT},
@@ -143,7 +143,7 @@
       shop_no = #{shopNo,jdbcType=VARCHAR},
       agent_id = #{agentId,jdbcType=INTEGER},
       shop_name = #{shopName,jdbcType=VARCHAR},
-      adress = #{adress,jdbcType=VARCHAR},
+      address = #{address,jdbcType=VARCHAR},
       status = #{status,jdbcType=TINYINT},
       phone = #{phone,jdbcType=VARCHAR},
       create_time = #{createTime,jdbcType=TIMESTAMP},

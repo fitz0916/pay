@@ -30,14 +30,16 @@
 		<shiro:hasPermission name="pattern:agent:create">
 			<a class="waves-effect waves-button" href="javascript:;" onclick="createAction()"><i class="zmdi zmdi-plus"></i> 新增</a>
 			<a class="waves-effect waves-button" href="javascript:;" onclick="updateAction()"><i class="zmdi zmdi-plus"></i> 编辑</a>
+			<!-- 
 			<a class="waves-effect waves-button" href="javascript:;" onclick="deleteAction()"><i class="zmdi zmdi-plus"></i> 删除</a>
+			 -->
 		</shiro:hasPermission>
 	</div>
-	<table id="table"></table>
+	<table id="agentTable"></table>
 </div>
 <jsp:include page="../../common/inc/footer.jsp" flush="true"/>
 <script>
-var $table = $('#table');
+var $agentTable = $('#agentTable');
 
 
 $(function() {
@@ -45,21 +47,9 @@ $(function() {
 });
 
 
-//显示商户
-var isopen = true;
-function showBusiness(index){
-	if(isopen){
-		$table.bootstrapTable('expandRow', index);
-	}else{
-		$table.bootstrapTable('collapseRow', index);
-	}
-	isopen=(!isopen);
-}
-
-
 function initMyTable(){
 	// bootstrap table初始化
-	$table.bootstrapTable({
+	$agentTable.bootstrapTable({
 		url: '${basePath}/manage/agent/list',
 		height: getHeight(),
 		method:'post',
@@ -132,14 +122,14 @@ function initMyTable(){
 	    			{field:'shopName',title:'门店名称',align:'center'},
                     {field:'brand',title:'门店品牌',align:'center'},
                     {field:'phone',title:'手机号码',align:'center'},
-	    			{field:'adress',title:'地址',align:'center'},
+	    			{field:'address',title:'地址',align:'center'},
 	    			{field:'status',title:'状态',align:'center', formatter:'statusFormatter'},
                     {field:'createTime',title:'创建时间',align:'center', formatter: 'changeDateFormat'},
 	                {field: 'action', title: '操作', align: 'center', width: 210, formatter: function(value, row, index){
                 		 return [
-               				'<shiro:hasPermission name="pattern:shop:update"><button type="button" class="btn btn-primary btn-sm" style="margin-right:10px;padding:0 10px;" onclick="updateRow(' + row.shopId +')">编辑</button></shiro:hasPermission>',
-							'<shiro:hasPermission name="pattern:shop:delete"><button type="button" class="btn btn-info btn-sm" style="margin-right:10px;padding:0 10px;" onclick="deleteRow(' + row.shopId + ')">删除</button></shiro:hasPermission>',
-							'<shiro:hasPermission name="pattern:shop:delete"><button type="button" class="btn btn-info btn-sm" style="margin-right:10px;padding:0 10px;" onclick="viewCustomerRow(' + row.shopId + ')">查看商户</button></shiro:hasPermission>'
+                			 '<shiro:hasPermission name="pattern:shop:update"><button type="button" class="btn btn-info btn-sm" style="margin-right:10px;padding:0 10px;" onclick="updateShopRow(' + row.shopId + ')">编辑门店</button></shiro:hasPermission>',
+               				 '<shiro:hasPermission name="pattern:customer:create"><button type="button" class="btn btn-primary btn-sm" style="margin-right:10px;padding:0 10px;" onclick="createCustomerRow(' + row.shopId +')">新增商户</button></shiro:hasPermission>',
+							 '<shiro:hasPermission name="pattern:customer:red"><button type="button" class="btn btn-info btn-sm" style="margin-right:10px;padding:0 10px;" onclick="viewCustomerRow(' + row.shopId + ')">查看商户</button></shiro:hasPermission>'
              			].join('');
 	                }, events: 'actionEvent'}
 	            ],
@@ -160,7 +150,7 @@ function initMyTable(){
 // 格式化操作按钮
 function actionFormatter(value, row, index) {
     return [
-        '<shiro:hasPermission name="pattern:shop:create"><a class="add" href="javascript:;" onclick="createShopRow('+row.agentId+')" data-toggle="tooltip" title="新增门店"><i class="zmdi zmdi-plus"></i>新增门店</a></shiro:hasPermission>　',
+        '<shiro:hasPermission name="pattern:shop:create"><a class="add" href="javascript:;" onclick="createShopRow('+row.agentId+')" data-toggle="tooltip" title="新增门店"><i class="zmdi zmdi-plus"></i>新增商户</a></shiro:hasPermission>　',
     ].join('');
 }
 
@@ -255,6 +245,27 @@ function createShopRow(agentId){
         }
     });
 }
+
+var updateShopDialog;
+function updateShopRow(shopId){
+	updateShopDialog = $.dialog({
+        animationSpeed: 300,
+        title: '编辑门店',
+        columnClass: 'col-md-10 col-md-offset-1 col-sm-6 col-sm-offset-3 col-xs-10 col-xs-offset-1',
+        content: 'url:${basePath}/manage/shop/update/'+shopId,
+        onContentReady:function(){
+        	initMaterialInput();
+        },
+        contentLoaded: function(data, status, xhr){
+            if(data.code == '10110'){
+            	layer.msg(data.msg);
+                location:top.location.href = '${basePath}/login';
+            }
+        }
+    });
+}
+
+
 //删除行
 function deleteRow(userId) {
     deleteDialog = $.confirm({
@@ -311,7 +322,7 @@ function deleteRow(userId) {
                                 }
                             } else {
                                 deleteDialog.close();
-                                $table.bootstrapTable('refresh');
+                                $agentTable.bootstrapTable('refresh');
                             }
                         },
                         error: function(XMLHttpRequest, textStatus, errorThrown) {
@@ -374,7 +385,7 @@ function createAction() {
 //编辑
 var updateDialog;
 function updateAction() {
-    var rows = $table.bootstrapTable('getSelections');
+    var rows = $agentTable.bootstrapTable('getSelections');
     if (rows.length != 1) {
         $.confirm({
             title: false,
@@ -412,7 +423,7 @@ function updateAction() {
 //删除
 var deleteDialog;
 function deleteAction() {
-	var rows = $table.bootstrapTable('getSelections');
+	var rows = $agentTable.bootstrapTable('getSelections');
 	if (rows.length == 0) {
 		$.confirm({
 			title: false,
@@ -483,7 +494,7 @@ function deleteAction() {
 									}
 								} else {
 									deleteDialog.close();
-									$table.bootstrapTable('refresh');
+									$agentTable.bootstrapTable('refresh');
 								}
 							},
 							error: function(XMLHttpRequest, textStatus, errorThrown) {
@@ -569,7 +580,7 @@ function deleteRow(agentId) {
                                 }
                             } else {
                                 deleteDialog.close();
-                                $table.bootstrapTable('refresh');
+                                $agentTable.bootstrapTable('refresh');
                             }
                         },
                         error: function(XMLHttpRequest, textStatus, errorThrown) {

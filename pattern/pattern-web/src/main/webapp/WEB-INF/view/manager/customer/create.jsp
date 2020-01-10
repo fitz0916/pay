@@ -7,22 +7,11 @@
 <%@taglib prefix="shiro" uri="http://shiro.apache.org/tags" %>
 <div id="createDialog" class="crudDialog">
 	<form id="createForm" method="post">
-	    <input type="hidden" value="${agent.agentId}">
+		<input type="hidden" name="agentId" value="${shop.agentId}">
+	    <input type="hidden" name="shopId" value="${shop.shopId}">
 		<div class="form-group">
-			<label for="shopName">门店名称：</label>
-			<input id="shopName" type="text" class="form-control" name="shopName" maxlength="50">
-		</div>
-		<div class="form-group">
-			<label for="brand">门店品牌：</label>
-			<input id="brand" type="text" class="form-control" name="brand" maxlength="50">
-		</div>
-		<div class="form-group">
-			<label for="phone">手机号码：</label>
-			<input id="phone" type="text" class="form-control" name="phone" maxlength="20">
-		</div>
-		<div class="form-group">
-			<label for="address">门店地址</label>
-			<input id="address" type="text" class="form-control" name="address" maxlength="100">
+			<label for="customerName">商户名称：</label>
+			<input id="customerName" type="text" class="form-control" name="customerName" maxlength="50">
 		</div>
 		<div class="radio">
 			<div class="radio radio-inline radio-info">
@@ -34,18 +23,27 @@
 				<label for="status_0">锁定 </label>
 			</div>
 		</div>
+		<div class="radio">
+			<div class="radio radio-inline radio-info">
+				<input id="payoutWay_0" type="radio" name="payoutWay" value="0" checked>
+				<label for="payoutWay_0">自动代付 </label>
+			</div>
+			<div class="radio radio-inline radio-danger">
+				<input id="payoutWay_1" type="radio" name="payoutWay" value="1">
+				<label for="payoutWay_1">人工代付 </label>
+			</div>
+		</div>
 		<div class="form-group text-right dialog-buttons">
 			<a class="waves-effect waves-button" href="javascript:;" onclick="createSubmit();">保存</a>
 			<a class="waves-effect waves-button" href="javascript:;" onclick="createDialog.close();">取消</a>
 		</div>
 	</form>
 </div>
-
 <script type="text/javascript">
 function createSubmit() {
     $.ajax({
         type: 'post',
-        url: '${basePath}/manage/shop/create',
+        url: '${basePath}/manage/customer/create',
         data: $('#createForm').serialize(),
         beforeSend: function() {
         },
@@ -87,7 +85,7 @@ function createSubmit() {
 				}
 			} else {
 				createDialog.close();
-				$shopTable.bootstrapTable('refresh');
+				$table.bootstrapTable('refresh');
 			}
         },
         error: function(XMLHttpRequest, textStatus, errorThrown) {

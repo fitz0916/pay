@@ -34,26 +34,62 @@ public class ShopServiceImpl extends BaseService implements ShopService{
 
 	@Override
 	public ModelResult<Integer> insertSelective(Shop record) {
-		// TODO Auto-generated method stub
-		return null;
+		ModelResult<Integer> modelResult = new ModelResult<Integer>();
+		if(record == null) {
+			modelResult.withError("0", "非法参数");
+			return modelResult;
+		}
+		int result = shopDao.insertSelective(record);
+		if(result > 0) {
+			modelResult.setModel(result);
+		}else {
+			modelResult.withError("0", "添加失败");
+		}
+		return modelResult;
 	}
 
 	@Override
 	public ModelResult<Shop> selectByPrimaryKey(Integer shopId) {
-		// TODO Auto-generated method stub
-		return null;
+		ModelResult<Shop> modelResult = new ModelResult<Shop>();
+		if(shopId == null || shopId == 0) {
+			modelResult.withError("0", "非法参数");
+			return modelResult;
+		}
+		Shop shop = shopDao.selectByPrimaryKey(shopId);
+		modelResult.setModel(shop);
+		return modelResult;
 	}
 
 	@Override
 	public ModelResult<Integer> updateByPrimaryKeySelective(Shop record) {
-		// TODO Auto-generated method stub
-		return null;
+		ModelResult<Integer> modelResult = new ModelResult<Integer>();
+		if(record == null) {
+			modelResult.withError("0", "非法参数");
+			return modelResult;
+		}
+		int result = shopDao.insertSelective(record);
+		if(result > 0) {
+			modelResult.setModel(result);
+		}else {
+			modelResult.withError("0", "编辑失败");
+		}
+		return modelResult;
 	}
 
 	@Override
 	public ModelResult<Integer> updateByPrimaryKey(Shop record) {
-		// TODO Auto-generated method stub
-		return null;
+		ModelResult<Integer> modelResult = new ModelResult<Integer>();
+		if(record == null) {
+			modelResult.withError("0", "非法参数");
+			return modelResult;
+		}
+		int result = shopDao.insertSelective(record);
+		if(result > 0) {
+			modelResult.setModel(result);
+		}else {
+			modelResult.withError("0", "编辑失败");
+		}
+		return modelResult;
 	}
 
 	@Override

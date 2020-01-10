@@ -19,7 +19,7 @@ public class Shop extends BaseObject {
 
     private String shopName;
 
-    private String adress;
+    private String address;
 
     //0：禁用 1：启用 2：删除
     private Integer status;
@@ -70,12 +70,12 @@ public class Shop extends BaseObject {
 		this.shopName = shopName;
 	}
 
-	public String getAdress() {
-		return adress;
+	public String getAddress() {
+		return address;
 	}
 
-	public void setAdress(String adress) {
-		this.adress = adress;
+	public void setAdress(String address) {
+		this.address = address;
 	}
 
 	public Integer getStatus() {
