@@ -3,13 +3,13 @@ package com.github.pattern.server.service;
 import java.util.Date;
 import java.util.List;
 
+import org.apache.commons.lang3.RandomStringUtils;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
 import com.github.appmodel.domain.result.ModelResult;
 import com.github.appmodel.page.DataPage;
 import com.github.pattern.common.constants.PatternConstants;
-import com.github.pattern.common.domain.Agent;
 import com.github.pattern.common.domain.Customer;
 import com.github.pattern.common.request.CustomerRequest;
 import com.github.pattern.common.service.CustomerService;
@@ -52,9 +52,11 @@ public class CustomerServiceImpl extends BaseService implements CustomerService{
 			 return modelResult;
 		 }
 		 String customerNo = PatternConstants.CUSTOMER_NO_PREFX + UUIDGenerator.getRandomNumber(6);
+		 String cipher = RandomStringUtils.random(6);
 		 record.setCustomerNo(customerNo);
 		 record.setCreateDate(new Date());
 		 record.setUpdateDate(new Date());
+		 record.setCipher(cipher);
 		 int result = customerDao.insertSelective(record);
 		 if(result > 0) {
 			 modelResult.setModel(result);

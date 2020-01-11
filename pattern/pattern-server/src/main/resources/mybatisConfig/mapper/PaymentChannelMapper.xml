@@ -185,4 +185,20 @@
       remark = #{remark,jdbcType=VARCHAR}
     where pay_channel_id = #{payChannelId,jdbcType=INTEGER}
   </update>
+  
+  <select id="pageList" resultMap="BaseResultMap" parameterType="map" >
+    select 
+    <include refid="Base_Column_List" />
+    from pattern_payment_channel
+    <if test="start !=null and offset !=null">
+        limit #{start}, #{offset}
+      </if>
+  </select>
+  
+  <select id="pageCount" resultType="long" parameterType="map" >
+    select 
+    <include refid="Base_Column_List" />
+    from pattern_payment_channel
+  </select>
+  
 </mapper>

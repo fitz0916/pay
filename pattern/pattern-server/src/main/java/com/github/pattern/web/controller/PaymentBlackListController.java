@@ -11,7 +11,7 @@ import com.github.appmodel.domain.result.ModelResult;
 import com.github.pattern.common.domain.PaymentBlackList;
 import com.github.pattern.common.request.PaymentBlackListRequest;
 import com.github.pattern.common.service.PaymentBlackListService;
-import com.github.pattern.common.vo.ResultVo;
+import com.github.pattern.common.vo.PageVo;
 
 @RestController
 @RequestMapping("/pattern/server/paymentBlackList")
@@ -22,7 +22,7 @@ public class PaymentBlackListController {
 	private PaymentBlackListService paymentBlackListServiceImpl;
 	
 	@PostMapping("/page")
-	public ModelResult<ResultVo> page(@RequestBody PaymentBlackListRequest request){
+	public ModelResult<PageVo> page(@RequestBody PaymentBlackListRequest request){
 		return paymentBlackListServiceImpl.page(request);
 	}
 	

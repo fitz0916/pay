@@ -114,4 +114,25 @@
       remark = #{remark,jdbcType=VARCHAR}
     where payment_black_list_id = #{paymentBlackListId,jdbcType=INTEGER}
   </update>
+  
+  <select id="pageList" resultMap="BaseResultMap" parameterType="map" >
+    select 
+    <include refid="Base_Column_List" />
+    from pattern_payment_black_list
+     where customer_id = #{customerId,jdbcType=INTEGER}
+     <if test="start !=null and offset !=null">
+        limit #{start}, #{offset}
+      </if>
+  </select>
+  
+  
+  <select id="pageCount" resultType="long" parameterType="map" >
+    select 
+    <include refid="Base_Column_List" />
+    from pattern_payment_black_list
+     where customer_id = #{customerId,jdbcType=INTEGER}
+     
+  </select>
+  
+  
 </mapper>

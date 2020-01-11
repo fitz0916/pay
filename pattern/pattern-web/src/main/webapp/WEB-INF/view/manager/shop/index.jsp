@@ -33,12 +33,12 @@
 			<a class="waves-effect waves-button" href="javascript:;" onclick="deleteAction()"><i class="zmdi zmdi-plus"></i> 删除</a>
 		</shiro:hasPermission>
 	</div>
-	<table id="table"></table>
+	<table id="shopTable"></table>
 </div>
 <jsp:include page="../../common/inc/footer.jsp" flush="true"/>
 <script type="text/javascript">
 
-var $shopTable = $('#table');
+var $shopTable = $('#shopTable');
 
 
 $(function() {

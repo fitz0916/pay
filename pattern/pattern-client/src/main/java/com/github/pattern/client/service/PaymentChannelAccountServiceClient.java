@@ -1,5 +1,7 @@
 package com.github.pattern.client.service;
 
+import java.util.List;
+
 import org.springframework.cloud.openfeign.FeignClient;
 import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.PostMapping;
@@ -33,5 +35,8 @@ public interface PaymentChannelAccountServiceClient {
 
 	@PostMapping("/updateByPrimaryKey")
 	ModelResult<Integer> updateByPrimaryKey(@RequestBody PaymentChannelAccount record);
+	
+	@PostMapping("/selectByPaymentChannelId/{paymentChannelId}")
+	ModelResult<List<PaymentChannelAccount>> selectByPaymentChannelId(@PathVariable("paymentChannelId")Integer paymentChannelId);
 
 }

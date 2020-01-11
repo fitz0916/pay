@@ -3,7 +3,7 @@ package com.github.pattern.common.service;
 import com.github.appmodel.domain.result.ModelResult;
 import com.github.pattern.common.domain.PaymentBlackList;
 import com.github.pattern.common.request.PaymentBlackListRequest;
-import com.github.pattern.common.vo.ResultVo;
+import com.github.pattern.common.vo.PageVo;
 
 public interface PaymentBlackListService {
 	
@@ -17,6 +17,6 @@ public interface PaymentBlackListService {
 
     ModelResult<Integer> updateByPrimaryKey(PaymentBlackList record);
 
-	ModelResult<ResultVo> page(PaymentBlackListRequest request);
+	ModelResult<PageVo> page(PaymentBlackListRequest request);
 
 }

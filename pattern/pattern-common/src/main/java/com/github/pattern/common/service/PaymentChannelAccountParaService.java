@@ -19,6 +19,5 @@ public interface PaymentChannelAccountParaService {
 
     ModelResult<Integer> updateByPrimaryKey(PaymentChannelAccountPara record);
 
-	ModelResult<ResultVo> page(PaymentChannelAccountParaRequest request);
 
 }

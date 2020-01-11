@@ -11,7 +11,7 @@ import com.github.appmodel.domain.result.ModelResult;
 import com.github.pattern.common.domain.PaymentChannel;
 import com.github.pattern.common.request.PaymentChannelRequest;
 import com.github.pattern.common.service.PaymentChannelService;
-import com.github.pattern.common.vo.ResultVo;
+import com.github.pattern.common.vo.PageVo;
 
 @RestController
 @RequestMapping("/pattern/server/paymentChannel")
@@ -22,7 +22,7 @@ public class PaymentChannelController {
 	
 
 		@PostMapping("/page")
-		public ModelResult<ResultVo> page(@RequestBody PaymentChannelRequest request){
+		public ModelResult<PageVo> page(@RequestBody PaymentChannelRequest request){
 			return paymentChannelServiceImpl.page(request);
 		}
 	

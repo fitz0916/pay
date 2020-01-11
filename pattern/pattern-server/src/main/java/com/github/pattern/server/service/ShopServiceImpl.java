@@ -24,8 +24,18 @@ public class ShopServiceImpl extends BaseService implements ShopService{
 	
 	@Override
 	public ModelResult<Integer> deleteByPrimaryKey(Integer shopId) {
-		// TODO Auto-generated method stub
-		return null;
+		ModelResult<Integer> modelResult = new ModelResult<Integer>();
+		if(shopId == null || shopId == 0) {
+			modelResult.withError("0", "非法参数");
+			return modelResult;
+		}
+		int result = shopDao.deleteByPrimaryKey(shopId);
+		if(result > 0) {
+			modelResult.setModel(result);
+		}else {
+			modelResult.withError("0", "删除失败");
+		}
+		return modelResult;
 	}
 
 	@Override

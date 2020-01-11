@@ -9,14 +9,14 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import com.github.appmodel.domain.result.ModelResult;
 import com.github.pattern.common.domain.PaymentBlackList;
 import com.github.pattern.common.request.PaymentBlackListRequest;
-import com.github.pattern.common.vo.ResultVo;
+import com.github.pattern.common.vo.PageVo;
 
 @FeignClient(name="pattern-server")
 @RequestMapping("/pattern/server/paymentBlackList")
 public interface PaymentBlackListServiceClient {
 	
 	@PostMapping("/page")
-	ModelResult<ResultVo> page(@RequestBody PaymentBlackListRequest request);
+	ModelResult<PageVo> page(@RequestBody PaymentBlackListRequest request);
 	
 	@PostMapping("/deleteByPrimaryKey/{paymentBlackListId}")
 	ModelResult<Integer> deleteByPrimaryKey(@PathVariable("paymentBlackListId")Integer paymentBlackListId);

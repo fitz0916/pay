@@ -14,18 +14,9 @@
 	<meta name="viewport" content="width=device-width, initial-scale=1">
 	<title>代理商管理</title>
 	<jsp:include page="../../common/inc/head.jsp" flush="true"/>
-	<style type="text/css">
-		.agent-main-class{
-			width: 80%;
-			margin-top: 5%;
-		}
-		.frozen-diglog-left{
-			margin-left: 30%;
-		}
-	</style>
 </head>
 <body>
-<div id="main">
+<div id="agentMain">
 	<div id="toolbar">
 		<shiro:hasPermission name="pattern:agent:create">
 			<a class="waves-effect waves-button" href="javascript:;" onclick="createAction()"><i class="zmdi zmdi-plus"></i> 新增</a>
@@ -96,7 +87,7 @@ function initMyTable(){
             {field:'email',title:'Email',align:'center'},
             {field:'wechat',title:'微信',align:'center'},
 			{field:'type',title:'公司性质',align:'center', formatter: function (value, row, index) { return value == 1 ? '个体' : '公司/企业';}},
-            {field: 'action', title: '操作', align: 'center', width: 240, formatter: 'actionFormatter'}
+            {field: 'action', title: '操作', align: 'center',formatter: 'actionFormatter'}
 		],
 		//子table触发事件
 	    onExpandRow:function(index,row,$element){
@@ -126,7 +117,7 @@ function initMyTable(){
 	    			{field:'address',title:'地址',align:'center'},
 	    			{field:'status',title:'状态',align:'center', formatter:'statusFormatter'},
                     {field:'createTime',title:'创建时间',align:'center', formatter: 'changeDateFormat'},
-	                {field: 'action', title: '操作', align: 'center', width: 210, formatter: function(value, row, index){
+	                {field: 'action', title: '操作', align: 'center',formatter: function(value, row, index){
                 		 return [
                 			 '<shiro:hasPermission name="pattern:shop:update"><button type="button" class="btn btn-info btn-sm" style="margin-right:10px;padding:0 10px;" onclick="updateShopRow(' + row.shopId + ')">编辑门店</button></shiro:hasPermission>',
                				 '<shiro:hasPermission name="pattern:customer:create"><button type="button" class="btn btn-primary btn-sm" style="margin-right:10px;padding:0 10px;" onclick="createCustomerRow(' + row.shopId +')">新增商户</button></shiro:hasPermission>',

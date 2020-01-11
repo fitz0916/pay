@@ -1,5 +1,7 @@
 package com.github.pattern.web.controller;
 
+import java.util.List;
+
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.PostMapping;
@@ -51,4 +53,8 @@ public class PaymentChannelAccountController {
 		return paymentChannelAccountServiceImpl.updateByPrimaryKey(record);
 	}
 
+	@PostMapping("/selectByPaymentChannelId/{paymentChannelId}")
+	ModelResult<List<PaymentChannelAccount>> selectByPaymentChannelId(@PathVariable("paymentChannelId")Integer paymentChannelId){
+		return paymentChannelAccountServiceImpl.selectByPaymentChannelId(paymentChannelId);
+	}
 }

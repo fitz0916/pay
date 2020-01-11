@@ -21,10 +21,6 @@ public class PaymentChannelAccountParaController {
 	@Autowired
 	private PaymentChannelAccountParaService paymentChannelAccountParaServiceImpl;
 	
-	@PostMapping("/page")
-	public ModelResult<ResultVo> page(@RequestBody PaymentChannelAccountParaRequest request){
-		return paymentChannelAccountParaServiceImpl.page(request);
-	}
 	
 	@PostMapping("/deleteByPrimaryKey/{PaymentChannelAccountParaId}")
 	public ModelResult<Integer> deleteByPrimaryKey(@PathVariable("PaymentChannelAccountParaId")Integer PaymentChannelAccountParaId){
