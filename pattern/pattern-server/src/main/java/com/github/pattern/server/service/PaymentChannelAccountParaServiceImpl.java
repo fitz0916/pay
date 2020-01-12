@@ -1,5 +1,7 @@
 package com.github.pattern.server.service;
 
+import java.util.List;
+
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
@@ -82,6 +84,18 @@ public class PaymentChannelAccountParaServiceImpl extends BaseService implements
 		}
 		int result = paymentChannelAccountParaDao.updateByPrimaryKey(record);
 		return this.operation(result);
+	}
+
+	@Override
+	public ModelResult<List<PaymentChannelAccountPara>> selectByPaymentChannelAccountId(Integer paymentChannelAccountId) {
+		ModelResult<List<PaymentChannelAccountPara>> modelResult = new ModelResult<List<PaymentChannelAccountPara>>();
+		if(paymentChannelAccountId == null || paymentChannelAccountId == 0) {
+			modelResult.withError("0", "非法参数");
+			return modelResult;
+		}
+		List<PaymentChannelAccountPara> list = paymentChannelAccountParaDao.selectByPaymentChannelAccountId(paymentChannelAccountId);
+		modelResult.setModel(list);
+		return modelResult;
 	}
 
 	

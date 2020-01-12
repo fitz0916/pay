@@ -1,5 +1,7 @@
 package com.github.pattern.server.dao;
 
+import java.util.List;
+
 import org.apache.ibatis.annotations.Param;
 import org.springframework.stereotype.Repository;
 
@@ -22,4 +24,6 @@ public interface PaymentChannelAccountParaDao {
     int updateByPrimaryKeyWithBLOBs(PaymentChannelAccountPara record);
 
     int updateByPrimaryKey(PaymentChannelAccountPara record);
+
+	List<PaymentChannelAccountPara> selectByPaymentChannelAccountId(@Param("paymentChannelAccountId")Integer paymentChannelAccountId);
 }

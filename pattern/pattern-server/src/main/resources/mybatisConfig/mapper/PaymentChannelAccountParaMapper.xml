@@ -157,4 +157,13 @@
       remark = #{remark,jdbcType=VARCHAR}
     where payment_channel_account_para_id = #{paymentChannelAccountParaId,jdbcType=INTEGER}
   </update>
+  
+  <select id="selectByPaymentChannelAccountId" resultMap="ResultMapWithBLOBs" parameterType="java.lang.Integer" >
+    select 
+    <include refid="Base_Column_List" />
+    ,
+    <include refid="Blob_Column_List" />
+    from pattern_payment_channel_account_para
+    where payment_channel_account_id = #{paymentChannelAccountId,jdbcType=INTEGER}
+  </select>
 </mapper>
