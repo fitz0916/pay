@@ -10,7 +10,7 @@ public class Constants {
 	 
 	 public static final String FAIL_MSG_CODE = "0";
 	 
-	 public static final String FAIL_MSG = "失败";
+	 public static final String FAIL_MSG = "请求失败";
 	 
 	 public static final String ADD_SUCCESS_MSG = "添加成功";
 	 

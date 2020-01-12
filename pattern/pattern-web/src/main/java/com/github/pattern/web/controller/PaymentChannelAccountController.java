@@ -9,6 +9,7 @@ import org.springframework.ui.ModelMap;
 import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
+import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.ResponseBody;
 
 import com.baidu.unbiz.fluentvalidator.ComplexResult;
@@ -18,6 +19,7 @@ import com.github.admin.common.constants.Constants;
 import com.github.appmodel.domain.result.ModelResult;
 import com.github.pattern.client.service.PaymentChannelAccountServiceClient;
 import com.github.pattern.common.domain.PaymentChannelAccount;
+import com.github.pattern.common.domain.Shop;
 import com.github.pattern.common.utils.ResultUtils;
 import com.github.pattern.utils.LengthValidator;
 
@@ -34,13 +36,20 @@ public class PaymentChannelAccountController {
 	
 	@ApiOperation("支付渠道账号首页")
     @RequiresPermissions("pattern:paymentchannelaccount:read")
-    @RequestMapping(value = "/list/{paymentChannelId}",method = RequestMethod.POST)
-	public @ResponseBody Object list(@PathVariable("paymentChannelId")Integer paymentChannelId) {
+    @RequestMapping(value = "/list",method = RequestMethod.GET)
+	public @ResponseBody Object list(@RequestParam("paymentChannelId")Integer paymentChannelId) {
 		ModelResult<List<PaymentChannelAccount>>  modelResult = paymentChannelAccountServiceClient.selectByPaymentChannelId(paymentChannelId);
 		return ResultUtils.buildResult(modelResult);
 		
 	}
 	
+//	@ApiOperation("支付渠道账号首页")
+//    @RequiresPermissions("pattern:paymentchannelaccount:read")
+//    @RequestMapping(value = "/list2",method = RequestMethod.GET)
+//	public @ResponseBody Object list2(@RequestParam("paymentChannelId") Integer paymentChannelId) {
+//		ModelResult<List<PaymentChannelAccount>> modelResult = paymentChannelAccountServiceClient.selectByPaymentChannelId(paymentChannelId);
+//		return ResultUtils.buildResult(modelResult);
+//	}
 	
 	@ApiOperation("添加支付渠道")
     @RequiresPermissions("pattern:paymentchannelaccount:create")
@@ -74,7 +83,7 @@ public class PaymentChannelAccountController {
 	@ApiOperation("编辑支付渠道账号")
     @RequiresPermissions("pattern:paymentchannelaccount:update")
     @RequestMapping(value = "/update/{paymentChannelAccountId}",method = RequestMethod.GET)
-	public String update(@PathVariable("paymentChannelId") Integer paymentChannelAccountId,ModelMap modelMap) {
+	public String update(@PathVariable("paymentChannelAccountId") Integer paymentChannelAccountId,ModelMap modelMap) {
 		ModelResult<PaymentChannelAccount> modelResult = paymentChannelAccountServiceClient.selectByPrimaryKey(paymentChannelAccountId);
 		if(!modelResult.isSuccess()) {
 			throw new NullPointerException("查询失败");

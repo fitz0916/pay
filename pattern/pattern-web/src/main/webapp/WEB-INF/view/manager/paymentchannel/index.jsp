@@ -43,7 +43,7 @@ $(function() {
 		showColumns: true,
 		minimumCountColumns: 2,
 		clickToSelect: true,
-		// detailView: true,
+		detailView: true,
 		detailFormatter: 'detailFormatter',
 		pagination: true,
 		paginationLoop: false,
@@ -76,12 +76,57 @@ $(function() {
             {field: 'mobile', title: '手机号码', align: 'center'},
 			{field: 'action', title: '操作', align: 'center', formatter: 'actionFormatter', events: 'actionEvents', clickToSelect: false}
 		]
+		,
+		//子table触发事件
+	    onExpandRow:function(index,row,$element){
+			var paraTable = $element.html('<table id="child_table'+row.paymentChannelId+'"></table>').find('table');
+	        $(paraTable).bootstrapTable({
+	            url: '${basePath}/manage/paymentchannelaccount/list?paymentChannelId='+row.paymentChannelId,	//获取表格数据的url
+	            striped: true,	//是否启用行间隔色
+	            search: false,	//是否启用搜索框，此搜索是客户端搜索，意义不大
+	            searchOnEnterKey: false,	//设置为true时，按回车触发搜索方法，否则自动触发搜索方法
+	            minimumCountColumns: 2,	//最少允许的列数
+	            clickToSelect: false,	//设置true将在点击行时，自动选择rediobox和checkbox
+	            detailFormatter: 'detailFormatter',
+	            pagination: false,	//在表格底部显示分页组件，默认false
+	            paginationLoop: false,	//设置为 true 启用分页条无限循环的功能
+	            sidePagination: 'server',
+	            silentSort: false,
+	            smartDisplay:false,
+	            escape: true,
+	            idField: 'paymentChannelAccountId',	//指定主键列
+	            maintainSelected: true,
+	            columns: [
+	            	{field:'paymentChannelAccountId',title:'账号ID',align:'center'},
+	    			{field:'accountName',title:'账号名称',align:'center'},
+	    			{field:'status',title:'状态',align:'center', formatter:'statusFormatter'},
+                    {field:'createTime',title:'创建时间',align:'center', formatter: 'changeDateFormat'},
+                    {field:'remark',title:'备注',align:'center'},
+	                {field: 'action', title: '操作', align: 'center',formatter: function(value, row, index){
+                		 return [	
+                			 '<shiro:hasPermission name="pattern:paymentchannelaccount:update"><button type="button" class="btn btn-info btn-sm" style="margin-right:10px;padding:0 10px;" onclick="updateAccountRow(' + row.paymentChannelAccountId + ')">编辑账号</button></shiro:hasPermission>',
+               				 '<shiro:hasPermission name="pattern:paymentchannelaccountpara:create"><button type="button" class="btn btn-primary btn-sm" style="margin-right:10px;padding:0 10px;" onclick="createCustomerRow(' + row.shopId +')">新增账号参数</button></shiro:hasPermission>',
+               				 '<shiro:hasPermission name="pattern:paymentchannelaccountpara:read"><button type="button" class="btn btn-info btn-sm" style="margin-right:10px;padding:0 10px;" onclick="viewCustomerRow(' + row.shopId + ')">查看账号参数</button></shiro:hasPermission>'
+             			].join('');
+	                }, events: 'actionEvent'}
+	            ],
+	            responseHandler:function(result){
+	    			if(result.code == '10110'){
+	                	layer.msg(result.msg);
+	                    location:top.location.href = '${basePath}/login';
+	                }
+	    			return{                            //return bootstrap-table能处理的数据格式
+	    		        "rows":result.data
+	    		    }
+	    		}
+	        });
+		}
 	});
 });
 // 格式化操作按钮
 function actionFormatter(value, row, index) {
     return [
-		'<shiro:hasPermission name="pattern:paymentchannel:update"><a class="update" href="javascript:;" onclick="updateRow('+row.roleId+')" data-toggle="tooltip" title="Edit"><i class="glyphicon glyphicon-edit"></i></a></shiro:hasPermission>　',
+		'<shiro:hasPermission name="pattern:paymentchannelaccount:create"><a class="update" href="javascript:;" onclick="createAccountRow('+row.paymentChannelId+')" data-toggle="tooltip" title="创建渠道账号"><i class="glyphicon glyphicon-edit"></i></a></shiro:hasPermission>　',
     ].join('');
 }
 
@@ -94,7 +139,65 @@ function statusFormatter(value, row, index) {
 	}
 }
 
+function changeDateFormat(value) {
+	  if(value == '' || value == undefined){
+	      return value;
+      }
+	  var myDate = new Date(value);
+	  //获取当前年
+	  var year=myDate.getFullYear();
+	  //获取当前月
+	  var month = myDate.getMonth()+1;
+	      month = month < 10 ? "0"+month : month;
+	  //获取当前日
+	  var date=myDate.getDate();
+	      date = date < 10 ? "0"+date : date;
+	  var h=myDate.getHours();       //获取当前小时数(0-23)
+	      h = h < 10 ? "0"+h : h;
+	  var m=myDate.getMinutes();     //获取当前分钟数(0-59)
+	      m = m < 10 ? "0"+m : m;
+	  var s= myDate.getSeconds();
+	      s = s < 10 ? "0"+s : s;
+	  var time = year+'-'+month+"-"+date;
+	  return time;
+}
 
+var createAccountRowDialog;
+function createAccountRow(paymentChannelId){
+	createAccountRowDialog = $.dialog({
+        animationSpeed: 300,
+        title: '创建渠道账号',
+        columnClass: 'col-md-10 col-md-offset-1 col-sm-6 col-sm-offset-3 col-xs-10 col-xs-offset-1',
+        content: 'url:${basePath}/manage/paymentchannelaccount/create/' + paymentChannelId,
+        onContentReady: function () {
+            initMaterialInput();
+        },
+        contentLoaded: function(data, status, xhr){
+            if(data.code == '10110'){
+            	layer.msg(data.msg);
+                location:top.location.href = '${basePath}/login';
+            }
+        },
+    });
+}
+var updateAccountDialog;
+function updateAccountRow(paymentChannelAccountId){
+	updateAccountDialog = $.dialog({
+        animationSpeed: 300,
+        title: '编辑渠道账号',
+        columnClass: 'col-md-10 col-md-offset-1 col-sm-6 col-sm-offset-3 col-xs-10 col-xs-offset-1',
+        content: 'url:${basePath}/manage/paymentchannelaccount/update/' + paymentChannelAccountId,
+        onContentReady: function () {
+            initMaterialInput();
+        },
+        contentLoaded: function(data, status, xhr){
+            if(data.code == '10110'){
+            	layer.msg(data.msg);
+                location:top.location.href = '${basePath}/login';
+            }
+        },
+    });
+}
 
 //编辑行
 function updateRow(paymentChannelId){

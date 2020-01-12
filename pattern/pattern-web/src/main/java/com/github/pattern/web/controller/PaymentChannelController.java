@@ -22,6 +22,7 @@ import com.github.pattern.common.utils.ResultUtils;
 import com.github.pattern.common.vo.PageVo;
 import com.github.pattern.utils.LengthValidator;
 import com.github.pattern.utils.NotNullValidator;
+import com.github.pattern.utils.PhoneValidator;
 
 import io.swagger.annotations.ApiOperation;
 
@@ -79,7 +80,7 @@ public class PaymentChannelController {
 	            .on(paymentChannel.getBusinessContacts(), new LengthValidator(2, 50, "联系人"))
 	            .on(paymentChannel.getQq(), new LengthValidator(5, 50, "QQ"))
 	            .on(paymentChannel.getWechat(), new LengthValidator(2, 50, "微信"))
-	            .on(paymentChannel.getMobile(), new LengthValidator(2, 50, "手机号码"))
+	            .on(paymentChannel.getMobile(), new PhoneValidator("手机号码"))
 	            .on(paymentChannel.getRemark(), new LengthValidator(2, 50, "备注"))
 	            .doValidate()
 	            .result(ResultCollectors.toComplex());

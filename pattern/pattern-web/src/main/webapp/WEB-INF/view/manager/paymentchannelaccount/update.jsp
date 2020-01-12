@@ -7,39 +7,39 @@
 <%@taglib prefix="shiro" uri="http://shiro.apache.org/tags" %>
 <div id="updateDialog" class="crudDialog">
 	<form id="updateForm" method="post">
-		<input type="hidden" name="paymentChannelAccountId" value="${channelPaymentAccount.paymentChannelAccountId}">
-		<input type="hidden" name="paymentChannelId" value="${channelPaymentAccount.paymentChannelId}">
+		<input type="hidden" id="paymentChannelAccountId" name="paymentChannelAccountId" value="${paymentChannelAccount.paymentChannelAccountId}">
+		<input type="hidden" id="paymentChannelId" name="paymentChannelId" value="${paymentChannelAccount.paymentChannelId}">
 		<div class="form-group">
 			<label for="accountName">账号名称：</label>
-			<input id="accountName" type="text" class="form-control" value="${channelPaymentAccount.accountName}" name="accountName" maxlength="50">
+			<input id="accountName" type="text" class="form-control" value="${paymentChannelAccount.accountName}" name="accountName" maxlength="50">
 		</div>
 		<div class="radio">
 			<div class="radio radio-inline radio-info">
-				<input id="status_1" type="radio" name="status" value="1" <c:if test="${channelPaymentAccount.status == 1}">checked</c:if>>
+				<input id="status_1" type="radio" name="status" value="1" <c:if test="${paymentChannelAccount.status == 1}">checked</c:if>>
 				<label for="status_1">启用 </label>
 			</div>
 			<div class="radio radio-inline radio-danger">
-				<input id="status_0" type="radio" name="status" value="0" <c:if test="${channelPaymentAccount.status == 0}">checked</c:if>>
+				<input id="status_0" type="radio" name="status" value="0" <c:if test="${paymentChannelAccount.status == 0}">checked</c:if>>
 				<label for="status_0">锁定 </label>
 			</div>
 		</div>
+		<div class="form-group"></div>
 		<div class="form-group">
-			<label for="remark">备注：</label>
-			<textarea rows="5" cols="5" name="remark" class="form-control">${channelPaymentAccount.remark}</textarea>
+			<textarea rows="5" cols="5" name="remark" class="form-control" placeholder="备注">${paymentChannelAccount.remark}</textarea>
 		</div>
 		
 		<div class="form-group text-right dialog-buttons">
-			<a class="waves-effect waves-button" href="javascript:;" onclick="updateSubmit();">保存</a>
-			<a class="waves-effect waves-button" href="javascript:;" onclick="updateDialog.close();">取消</a>
+			<a class="waves-effect waves-button" href="javascript:;" onclick="updateAccountSubmit();">保存</a>
+			<a class="waves-effect waves-button" href="javascript:;" onclick="updateAccountDialog.close();">取消</a>
 		</div>
 	</form>
 </div>
 <script type="text/javascript">
-function updateSubmit() {
+function updateAccountSubmit() {
     $.ajax({
         type: 'post',
         url: '${basePath}/manage/paymentchannelaccount/update',
-        data: $('#createForm').serialize(),
+        data: $('#updateForm').serialize(),
         beforeSend: function() {
         },
         success: function(result) {
@@ -79,8 +79,11 @@ function updateSubmit() {
 						});
 				}
 			} else {
-				createDialog.close();
-				$table.bootstrapTable('refresh');
+				updateAccountDialog.close();
+				var paymentChannelId = $('#paymentChannelId').val();
+				var $childAccountTable = $('#child_table'+paymentChannelId);
+				$childAccountTable.bootstrapTable('refresh');
+				//$table.bootstrapTable('refresh');
 			}
         },
         error: function(XMLHttpRequest, textStatus, errorThrown) {

@@ -1,5 +1,6 @@
 package com.github.pattern.server.service;
 
+import java.util.Date;
 import java.util.List;
 
 import org.springframework.beans.factory.annotation.Autowired;
@@ -32,10 +33,13 @@ public class PaymentChannelAccountServiceImpl extends BaseService implements Pay
 	@Override
 	public ModelResult<Integer> insertSelective(PaymentChannelAccount record) {
 		ModelResult<Integer> modelResult = new ModelResult<Integer>();
-		if (record == null || record.getPaymentChannelAccountId() == null) {
+		if (record == null || record.getPaymentChannelId() == null || record.getPaymentChannelId() == 0) {
 			modelResult.withError("0", "非法参数");
 			return modelResult;
 		}
+		Date date = new Date();
+		record.setCreateTime(date);
+		record.setUpdateTime(date);
 		int result = paymentChannelAccountDao.insertSelective(record);
 		return this.operation(result);
 	}
@@ -55,10 +59,11 @@ public class PaymentChannelAccountServiceImpl extends BaseService implements Pay
 	@Override
 	public ModelResult<Integer> updateByPrimaryKeySelective(PaymentChannelAccount record) {
 		ModelResult<Integer> modelResult = new ModelResult<Integer>();
-		if (record == null || record.getPaymentChannelAccountId() == null) {
+		if (record == null ||  record.getPaymentChannelId() == 0) {
 			modelResult.withError("0", "非法参数");
 			return modelResult;
 		}
+		record.setUpdateTime(new Date());
 		int result = paymentChannelAccountDao.updateByPrimaryKeySelective(record);
 		return this.operation(result);
 	}
@@ -66,10 +71,11 @@ public class PaymentChannelAccountServiceImpl extends BaseService implements Pay
 	@Override
 	public ModelResult<Integer> updateByPrimaryKey(PaymentChannelAccount record) {
 		ModelResult<Integer> modelResult = new ModelResult<Integer>();
-		if (record == null || record.getPaymentChannelAccountId() == null) {
+		if (record == null ||  record.getPaymentChannelId() == 0) {
 			modelResult.withError("0", "非法参数");
 			return modelResult;
 		}
+		record.setUpdateTime(new Date());
 		int result = paymentChannelAccountDao.updateByPrimaryKey(record);
 		return this.operation(result);
 	}

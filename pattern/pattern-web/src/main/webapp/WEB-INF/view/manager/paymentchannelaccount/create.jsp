@@ -7,7 +7,7 @@
 <%@taglib prefix="shiro" uri="http://shiro.apache.org/tags" %>
 <div id="createDialog" class="crudDialog">
 	<form id="createForm" method="post">
-		<input type="hidden" name="paymentChannelId" value="${paymentChannelId}">
+		<input type="hidden" id="paymentChannelId" name="paymentChannelId" value="${paymentChannelId}">
 		<div class="form-group">
 			<label for="accountName">账号名称：</label>
 			<input id="accountName" type="text" class="form-control" name="accountName" maxlength="50">
@@ -23,18 +23,20 @@
 			</div>
 		</div>
 		<div class="form-group">
-			<label for="remark">备注：</label>
-			<textarea rows="5" cols="5" name="remark" class="form-control"></textarea>
+			
+		</div>
+		<div class="form-group">
+			<textarea rows="5" cols="5" name="remark" class="form-control" placeholder="备注"></textarea>
 		</div>
 		
 		<div class="form-group text-right dialog-buttons">
-			<a class="waves-effect waves-button" href="javascript:;" onclick="createSubmit();">保存</a>
-			<a class="waves-effect waves-button" href="javascript:;" onclick="createDialog.close();">取消</a>
+			<a class="waves-effect waves-button" href="javascript:;" onclick="createAccountSubmit();">保存</a>
+			<a class="waves-effect waves-button" href="javascript:;" onclick="createAccountRowDialog.close();">取消</a>
 		</div>
 	</form>
 </div>
 <script type="text/javascript">
-function createSubmit() {
+function createAccountSubmit() {
     $.ajax({
         type: 'post',
         url: '${basePath}/manage/paymentchannelaccount/create',
@@ -78,8 +80,10 @@ function createSubmit() {
 						});
 				}
 			} else {
-				createDialog.close();
-				$table.bootstrapTable('refresh');
+				createAccountRowDialog.close();
+				var paymentChannelId = $('#paymentChannelId').val();
+				var $childAccountTable = $('#child_table'+paymentChannelId);
+				$childAccountTable.bootstrapTable('refresh');
 			}
         },
         error: function(XMLHttpRequest, textStatus, errorThrown) {

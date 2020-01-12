@@ -93,7 +93,7 @@ function updateSubmit() {
     $.ajax({
         type: 'post',
         url: '${basePath}/manage/paymentchannel/update',
-        data: $('#createForm').serialize(),
+        data: $('#updateForm').serialize(),
         beforeSend: function() {
         },
         success: function(result) {
@@ -133,7 +133,7 @@ function updateSubmit() {
 						});
 				}
 			} else {
-				createDialog.close();
+				updateDialog.close();
 				$table.bootstrapTable('refresh');
 			}
         },

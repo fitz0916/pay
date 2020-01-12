@@ -14,15 +14,16 @@ import com.baidu.unbiz.fluentvalidator.ComplexResult;
 import com.baidu.unbiz.fluentvalidator.FluentValidator;
 import com.baidu.unbiz.fluentvalidator.ResultCollectors;
 import com.github.admin.common.constants.Constants;
-import com.github.admin.common.domain.Role;
 import com.github.appmodel.domain.result.ModelResult;
 import com.github.pattern.client.service.AgentServiceClient;
 import com.github.pattern.common.domain.Agent;
 import com.github.pattern.common.request.AgentRequest;
 import com.github.pattern.common.utils.ResultUtils;
 import com.github.pattern.common.vo.PageVo;
+import com.github.pattern.utils.EmailValidator;
 import com.github.pattern.utils.LengthValidator;
 import com.github.pattern.utils.NotNullValidator;
+import com.github.pattern.utils.PhoneValidator;
 
 import io.swagger.annotations.ApiOperation;
 
@@ -61,25 +62,31 @@ public class AgentController {
     @ResponseBody
     @RequestMapping(value = "/create", method = RequestMethod.POST)
 	public Object create(Agent agent) {
-		ComplexResult result = FluentValidator.checkAll()
-                .on(agent.getAgentName(), new LengthValidator(5, 50, "代理商名称"))
-                .on(agent.getBusinessLicense(), new LengthValidator(5, 20, "营业执照号"))
-                .on(agent.getAddress(), new LengthValidator(5, 100, "地址"))
-                .on(agent.getCompanyPicPath(), new NotNullValidator("公司营业执照照片"))
-                .on(agent.getIdCardFrontPath(), new NotNullValidator("身份证正面"))
-                .on(agent.getIdCardBackPath(), new NotNullValidator("身份证反面"))
-                .on(agent.getPhone(), new LengthValidator(5, 15, "手机号码"))
-                .on(agent.getEmail(), new LengthValidator(5, 30, "email"))
-                .on(agent.getQq(), new LengthValidator(5, 20, "qq"))
-                .on(agent.getWechat(), new LengthValidator(5, 30, "微信"))
-                .doValidate()
-                .result(ResultCollectors.toComplex());
+		ComplexResult result = valid(agent);
         if (!result.isSuccess()) {
             return ResultUtils.buildErrorMsg(Constants.FAIL_MSG_CODE, result.getErrors());
         }
         
         ModelResult<Integer> modelResult = agentServiceClient.insertSelective(agent);
         return ResultUtils.buildResult(modelResult);
+	}
+	
+	
+	private ComplexResult valid(Agent agent) {
+		ComplexResult result = FluentValidator.checkAll()
+                .on(agent.getAgentName(), new LengthValidator(2, 50, "代理商名称"))
+                .on(agent.getBusinessLicense(), new LengthValidator(2, 20, "营业执照号"))
+                .on(agent.getAddress(), new LengthValidator(2, 100, "地址"))
+                .on(agent.getCompanyPicPath(), new NotNullValidator("公司营业执照照片"))
+                .on(agent.getIdCardFrontPath(), new NotNullValidator("身份证正面"))
+                .on(agent.getIdCardBackPath(), new NotNullValidator("身份证反面"))
+                .on(agent.getPhone(), new PhoneValidator("手机号码"))
+                .on(agent.getEmail(), new EmailValidator("email"))
+                .on(agent.getQq(), new LengthValidator(2, 20, "qq"))
+                .on(agent.getWechat(), new LengthValidator(2, 30, "微信"))
+                .doValidate()
+                .result(ResultCollectors.toComplex());
+		return result;
 	}
 	
 	@ApiOperation("修改")
@@ -99,19 +106,7 @@ public class AgentController {
     @RequestMapping(value = "/update/{id}", method = RequestMethod.POST)
     @ResponseBody
     public Object update(@PathVariable("id") int id, Agent agent) {
-		ComplexResult result = FluentValidator.checkAll()
-                .on(agent.getAgentName(), new LengthValidator(5, 50, "代理商名称"))
-                .on(agent.getBusinessLicense(), new LengthValidator(5, 20, "营业执照号"))
-                .on(agent.getAddress(), new LengthValidator(5, 100, "地址"))
-                .on(agent.getCompanyPicPath(), new NotNullValidator("公司营业执照照片"))
-                .on(agent.getIdCardFrontPath(), new NotNullValidator("身份证正面"))
-                .on(agent.getIdCardBackPath(), new NotNullValidator("身份证反面"))
-                .on(agent.getPhone(), new LengthValidator(5, 15, "手机号码"))
-                .on(agent.getEmail(), new LengthValidator(5, 30, "email"))
-                .on(agent.getQq(), new LengthValidator(5, 20, "qq"))
-                .on(agent.getWechat(), new LengthValidator(5, 30, "微信"))
-                .doValidate()
-                .result(ResultCollectors.toComplex());
+		ComplexResult result = valid(agent);
         if (!result.isSuccess()) {
             return ResultUtils.buildErrorMsg(Constants.FAIL_MSG_CODE, result.getErrors());
         }
