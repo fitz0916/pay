@@ -25,13 +25,36 @@
 				<label for="status_0">锁定 </label>
 			</div>
 		</div>
-		<div class="select">
-		     <select name="payType">
-		         <option value="-1">请选择</option>
-		         <option value="0">微信-扫码</option>
-		         <option value="1">支付宝-扫码</option>
-		         <option value="2">快捷支付</option>
-		     </select>
+		<div class="radio">
+			<div class="radio radio-inline radio-info">
+				<input id="settlementType_0" type="radio" name="settlementType" value="0" checked>
+				<label for="settlementType_0">D0 </label>
+			</div>
+			<div class="radio radio-inline radio-danger">
+				<input id="settlementType_1" type="radio" name="settlementType" value="1">
+				<label for="settlementType_1">D1 </label>
+			</div>
+			<div class="radio radio-inline radio-info">
+				<input id="settlementType_2" type="radio" name="settlementType" value="2">
+				<label for="settlementType_2">T0 </label>
+			</div>
+			<div class="radio radio-inline radio-danger">
+				<input id="settlementType_3" type="radio" name="settlementType" value="3">
+				<label for="settlementType_3">T1 </label>
+			</div>
+		</div>
+		<div class="form-group">
+		
+		</div>
+		<div class="form-group">
+			<div>
+				<select name="payType" class="form-control">
+		             <option value="">请选择支付类型</option>
+		             <option value="0">微信-扫码</option>
+		             <option value="1">支付宝-扫码</option>
+		             <option value="2">快捷支付</option>
+		    	 </select>
+			</div>
 		</div>
 		
 		<div class="form-group">
@@ -55,9 +78,12 @@
 		</div>
 		
 		<div class="form-group">
+			<!-- 
 			<label for="remark">备注：</label>
-			<textarea rows="5" cols="5" name="remark" class="form-control"></textarea>
+			 -->
+			<textarea rows="5" cols="5" name="remark" class="form-control" title="备注" placeholder="备注"></textarea>
 		</div>
+		
 		
 		<div class="form-group text-right dialog-buttons">
 			<a class="waves-effect waves-button" href="javascript:;" onclick="createSubmit();">保存</a>

@@ -52,7 +52,7 @@ $(function() {
 		smartDisplay: false,
 		escape: true,
 		searchOnEnterKey: true,
-		idField: 'roleId',
+		idField: 'paymentChannelId',
 		maintainSelected: true,
 		toolbar: '#toolbar',
 		responseHandler:function(result){
@@ -97,11 +97,11 @@ function statusFormatter(value, row, index) {
 
 
 //编辑行
-function updateRow(roleId){
+function updateRow(paymentChannelId){
     updateDialog = $.dialog({
         animationSpeed: 300,
-        title: '编辑角色',
-        content: 'url:${basePath}/manage/role/update/' + roleId,
+        title: '编辑渠道',
+        content: 'url:${basePath}/manage/paymentchannel/update/' + paymentChannelId,
         onContentReady: function () {
             initMaterialInput();
         },
@@ -114,7 +114,7 @@ function updateRow(roleId){
     });
 }
 //删除行
-function deleteRow(roleId) {
+function deleteRow(paymentChannelId) {
     deleteDialog = $.confirm({
         type: 'red',
         animationSpeed: 300,
@@ -126,10 +126,10 @@ function deleteRow(roleId) {
                 btnClass: 'waves-effect waves-button',
                 action: function () {
                     var ids = new Array();
-                        ids.push(roleId);
+                        ids.push(paymentChannelId);
                     $.ajax({
                         type: 'get',
-                        url: '${basePath}/manage/role/delete/' + ids.join("-"),
+                        url: '${basePath}/manage/paymentchannel/delete/' + ids.join("-"),
                         success: function(result) {
                             if (result.code != 1) {
                                 if (result.data instanceof Array) {
@@ -202,10 +202,11 @@ var createDialog;
 function createAction() {
 	createDialog = $.dialog({
 		animationSpeed: 300,
-		title: '新增角色',
-		content: 'url:${basePath}/manage/role/create',
+		columnClass: 'col-md-10 col-md-offset-1 col-sm-6 col-sm-offset-3 col-xs-10 col-xs-offset-1',
+		title: '新增渠道',
+		content: 'url:${basePath}/manage/paymentchannel/create',
 		onContentReady: function () {
-			initMaterialInput();
+			//initMaterialInput();
 		},
         contentLoaded: function(data, status, xhr){
             if(data.code == '10110'){
@@ -235,8 +236,9 @@ function updateAction() {
 	} else {
 		updateDialog = $.dialog({
 			animationSpeed: 300,
-			title: '编辑角色',
-			content: 'url:${basePath}/manage/role/update/' + rows[0].roleId,
+			columnClass: 'col-md-10 col-md-offset-1 col-sm-6 col-sm-offset-3 col-xs-10 col-xs-offset-1',
+			title: '编辑渠道',
+			content: 'url:${basePath}/manage/paymentchannel/update/' + rows[0].paymentChannelId,
 			onContentReady: function () {
 				initMaterialInput();
 			},

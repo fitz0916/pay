@@ -19,14 +19,14 @@ public interface PaymentChannelServiceClient {
 		@PostMapping("/page")
 		ModelResult<PageVo> page(@RequestBody PaymentChannelRequest request);
 	
-		@PostMapping("/deleteByPrimaryKey/{payChannelId}")
-		ModelResult<Integer> deleteByPrimaryKey(@PathVariable("paymentTypeId")Integer payChannelId);
+		@PostMapping("/deleteByPrimaryKey/{paymentChannelId}")
+		ModelResult<Integer> deleteByPrimaryKey(@PathVariable("paymentChannelId")Integer paymentChannelId);
 
 		@PostMapping("/insertSelective")
 	    ModelResult<Integer> insertSelective(@RequestBody PaymentChannel record);
 
-		@PostMapping("/selectByPrimaryKey/{payChannelId}")
-	    ModelResult<PaymentChannel> selectByPrimaryKey(@PathVariable("paymentTypeId")Integer payChannelId);
+		@PostMapping("/selectByPrimaryKey/{paymentChannelId}")
+	    ModelResult<PaymentChannel> selectByPrimaryKey(@PathVariable("paymentChannelId")Integer paymentChannelId);
 
 		@PostMapping("/updateByPrimaryKeySelective")
 	    ModelResult<Integer> updateByPrimaryKeySelective(@RequestBody PaymentChannel record);

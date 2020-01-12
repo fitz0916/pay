@@ -47,7 +47,7 @@ public class PaymentChannelAccountController {
     @RequestMapping(value = "/create/{paymentChannelId}",method = RequestMethod.GET)
 	public String create(@PathVariable("paymentChannelId")Integer paymentChannelId,ModelMap modelMap) {
 		modelMap.put("paymentChannelId", paymentChannelId);
-		return "/manage/paymentchannelaccount/create";
+		return "/manager/paymentchannelaccount/create";
 	}
 
 	
@@ -81,7 +81,7 @@ public class PaymentChannelAccountController {
 		}
 		PaymentChannelAccount paymentChannelAccount = modelResult.getModel();
 		modelMap.put("paymentChannelAccount", paymentChannelAccount);
-		return "/manage/paymentchannelaccount/update";
+		return "/manager/paymentchannelaccount/update";
 	}
 	
 	@ApiOperation("编辑支付渠道")

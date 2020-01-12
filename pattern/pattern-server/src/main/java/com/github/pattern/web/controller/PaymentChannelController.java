@@ -26,9 +26,9 @@ public class PaymentChannelController {
 			return paymentChannelServiceImpl.page(request);
 		}
 	
-		@PostMapping("/deleteByPrimaryKey/{payChannelId}")
-		public ModelResult<Integer> deleteByPrimaryKey(@PathVariable("paymentTypeId")Integer payChannelId){
-			return paymentChannelServiceImpl.deleteByPrimaryKey(payChannelId);
+		@PostMapping("/deleteByPrimaryKey/{paymentChannelId}")
+		public ModelResult<Integer> deleteByPrimaryKey(@PathVariable("paymentChannelId")Integer paymentChannelId){
+			return paymentChannelServiceImpl.deleteByPrimaryKey(paymentChannelId);
 		}
 
 		@PostMapping("/insertSelective")
@@ -36,9 +36,9 @@ public class PaymentChannelController {
 			return paymentChannelServiceImpl.insertSelective(record);
 		}
 
-		@PostMapping("/selectByPrimaryKey/{payChannelId}")
-		public ModelResult<PaymentChannel> selectByPrimaryKey(@PathVariable("paymentTypeId")Integer payChannelId){
-			return paymentChannelServiceImpl.selectByPrimaryKey(payChannelId);
+		@PostMapping("/selectByPrimaryKey/{paymentChannelId}")
+		public ModelResult<PaymentChannel> selectByPrimaryKey(@PathVariable("paymentChannelId")Integer paymentChannelId){
+			return paymentChannelServiceImpl.selectByPrimaryKey(paymentChannelId);
 		}
 
 		@PostMapping("/updateByPrimaryKeySelective")

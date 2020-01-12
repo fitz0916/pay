@@ -2,7 +2,7 @@
 <!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd" >
 <mapper namespace="com.github.pattern.server.dao.PaymentChannelDao" >
   <resultMap id="BaseResultMap" type="com.github.pattern.common.domain.PaymentChannel" >
-    <id column="pay_channel_id" property="payChannelId" jdbcType="INTEGER" />
+    <id column="payment_channel_id" property="paymentChannelId" jdbcType="INTEGER" />
     <result column="channel_name" property="channelName" jdbcType="VARCHAR" />
     <result column="third_channel_name" property="thirdChannelName" jdbcType="VARCHAR" />
     <result column="status" property="status" jdbcType="TINYINT" />
@@ -17,26 +17,26 @@
     <result column="remark" property="remark" jdbcType="VARCHAR" />
   </resultMap>
   <sql id="Base_Column_List" >
-    pay_channel_id, channel_name, third_channel_name, status, settlement_type, pay_type, 
+    payment_channel_id, channel_name, third_channel_name, status, settlement_type, pay_type, 
     business_contacts, mobile, qq, wechat, create_time, update_time, remark
   </sql>
   <select id="selectByPrimaryKey" resultMap="BaseResultMap" parameterType="java.lang.Integer" >
     select 
     <include refid="Base_Column_List" />
     from pattern_payment_channel
-    where pay_channel_id = #{payChannelId,jdbcType=INTEGER}
+    where payment_channel_id = #{paymentChannelId,jdbcType=INTEGER}
   </select>
   <delete id="deleteByPrimaryKey" parameterType="java.lang.Integer" >
     delete from pattern_payment_channel
-    where pay_channel_id = #{payChannelId,jdbcType=INTEGER}
+    where payment_channel_id = #{paymentChannelId,jdbcType=INTEGER}
   </delete>
   <insert id="insert" parameterType="com.github.pattern.common.domain.PaymentChannel" >
-    insert into pattern_payment_channel (pay_channel_id, channel_name, third_channel_name, 
+    insert into pattern_payment_channel (payment_channel_id, channel_name, third_channel_name, 
       status, settlement_type, pay_type, 
       business_contacts, mobile, qq, 
       wechat, create_time, update_time, 
       remark)
-    values (#{payChannelId,jdbcType=INTEGER}, #{channelName,jdbcType=VARCHAR}, #{thirdChannelName,jdbcType=VARCHAR}, 
+    values (#{paymentChannelId,jdbcType=INTEGER}, #{channelName,jdbcType=VARCHAR}, #{thirdChannelName,jdbcType=VARCHAR}, 
       #{status,jdbcType=TINYINT}, #{settlementType,jdbcType=TINYINT}, #{payType,jdbcType=TINYINT}, 
       #{businessContacts,jdbcType=VARCHAR}, #{mobile,jdbcType=VARCHAR}, #{qq,jdbcType=VARCHAR}, 
       #{wechat,jdbcType=VARCHAR}, #{createTime,jdbcType=TIMESTAMP}, #{updateTime,jdbcType=TIMESTAMP}, 
@@ -45,8 +45,8 @@
   <insert id="insertSelective" parameterType="com.github.pattern.common.domain.PaymentChannel" >
     insert into pattern_payment_channel
     <trim prefix="(" suffix=")" suffixOverrides="," >
-      <if test="payChannelId != null" >
-        pay_channel_id,
+      <if test="paymentChannelId != null" >
+        payment_channel_id,
       </if>
       <if test="channelName != null" >
         channel_name,
@@ -86,8 +86,8 @@
       </if>
     </trim>
     <trim prefix="values (" suffix=")" suffixOverrides="," >
-      <if test="payChannelId != null" >
-        #{payChannelId,jdbcType=INTEGER},
+      <if test="paymentChannelId != null" >
+        #{paymentChannelId,jdbcType=INTEGER},
       </if>
       <if test="channelName != null" >
         #{channelName,jdbcType=VARCHAR},
@@ -167,7 +167,7 @@
         remark = #{remark,jdbcType=VARCHAR},
       </if>
     </set>
-    where pay_channel_id = #{payChannelId,jdbcType=INTEGER}
+    where payment_channel_id = #{paymentChannelId,jdbcType=INTEGER}
   </update>
   <update id="updateByPrimaryKey" parameterType="com.github.pattern.common.domain.PaymentChannel" >
     update pattern_payment_channel
@@ -183,7 +183,7 @@
       create_time = #{createTime,jdbcType=TIMESTAMP},
       update_time = #{updateTime,jdbcType=TIMESTAMP},
       remark = #{remark,jdbcType=VARCHAR}
-    where pay_channel_id = #{payChannelId,jdbcType=INTEGER}
+    where payment_channel_id = #{paymentChannelId,jdbcType=INTEGER}
   </update>
   
   <select id="pageList" resultMap="BaseResultMap" parameterType="map" >
@@ -197,7 +197,7 @@
   
   <select id="pageCount" resultType="long" parameterType="map" >
     select 
-    <include refid="Base_Column_List" />
+      count(*)
     from pattern_payment_channel
   </select>
   

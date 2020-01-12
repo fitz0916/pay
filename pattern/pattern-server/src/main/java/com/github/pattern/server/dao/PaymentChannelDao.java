@@ -11,13 +11,13 @@ import com.github.pattern.common.domain.PaymentChannel;
 public interface PaymentChannelDao {
 	
 	
-    int deleteByPrimaryKey(@Param("payChannelId")Integer payChannelId);
+    int deleteByPrimaryKey(@Param("paymentChannelId")Integer paymentChannelId);
 
     int insert(PaymentChannel record);
 
     int insertSelective(PaymentChannel record);
 
-    PaymentChannel selectByPrimaryKey(@Param("payChannelId")Integer payChannelId);
+    PaymentChannel selectByPrimaryKey(@Param("paymentChannelId")Integer paymentChannelId);
 
     int updateByPrimaryKeySelective(PaymentChannel record);
 

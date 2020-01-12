@@ -9,6 +9,7 @@ import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.ResponseBody;
+
 import com.baidu.unbiz.fluentvalidator.ComplexResult;
 import com.baidu.unbiz.fluentvalidator.FluentValidator;
 import com.baidu.unbiz.fluentvalidator.ResultCollectors;
@@ -20,6 +21,8 @@ import com.github.pattern.common.request.PaymentChannelRequest;
 import com.github.pattern.common.utils.ResultUtils;
 import com.github.pattern.common.vo.PageVo;
 import com.github.pattern.utils.LengthValidator;
+import com.github.pattern.utils.NotNullValidator;
+
 import io.swagger.annotations.ApiOperation;
 
 
@@ -32,14 +35,12 @@ public class PaymentChannelController {
 	@Autowired
 	private PaymentChannelServiceClient paymentChannelServiceClient;
 	
-	
-	@ApiOperation("添加支付渠道")
+	@ApiOperation("支付渠道首页")
     @RequiresPermissions("pattern:paymentchannel:read")
     @RequestMapping(value = "/index",method = RequestMethod.GET)
-	public String index() {
-		return "/manage/paymentchannel/index";
-	}
-	
+    public String index(){
+       return "/manager/paymentchannel/index";
+    }
 	
 	@ApiOperation("支付渠道首页")
     @RequiresPermissions("pattern:paymentchannel:read")
@@ -54,7 +55,7 @@ public class PaymentChannelController {
     @RequiresPermissions("pattern:paymentchannel:create")
     @RequestMapping(value = "/create",method = RequestMethod.GET)
 	public String create() {
-		return "/manage/paymentchannel/create";
+		return "/manager/paymentchannel/create";
 	}
 
 	
@@ -72,7 +73,14 @@ public class PaymentChannelController {
 	
 	private ComplexResult valid(PaymentChannel paymentChannel) {
 		ComplexResult result = FluentValidator.checkAll()
-	            .on(paymentChannel.getChannelName(), new LengthValidator(5, 50, "渠道名称"))
+	            .on(paymentChannel.getChannelName(), new LengthValidator(2, 50, "渠道名称"))
+	            .on(paymentChannel.getThirdChannelName(), new LengthValidator(2, 50, "三方渠道名称"))
+	            .on(paymentChannel.getPayType() == null ? null : String.valueOf(paymentChannel.getPayType()), new NotNullValidator("支付类型"))
+	            .on(paymentChannel.getBusinessContacts(), new LengthValidator(2, 50, "联系人"))
+	            .on(paymentChannel.getQq(), new LengthValidator(5, 50, "QQ"))
+	            .on(paymentChannel.getWechat(), new LengthValidator(2, 50, "微信"))
+	            .on(paymentChannel.getMobile(), new LengthValidator(2, 50, "手机号码"))
+	            .on(paymentChannel.getRemark(), new LengthValidator(2, 50, "备注"))
 	            .doValidate()
 	            .result(ResultCollectors.toComplex());
 		return result;
@@ -88,7 +96,7 @@ public class PaymentChannelController {
 		}
 		PaymentChannel paymentChannel = modelResult.getModel();
 		modelMap.put("paymentChannel", paymentChannel);
-		return "/manage/paymentchannel/update";
+		return "/manager/paymentchannel/update";
 	}
 	
 	@ApiOperation("编辑支付渠道")

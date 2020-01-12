@@ -54,14 +54,14 @@ public class ExceptionHandle{
 		ModelAndView modelAndView = new ModelAndView();
 		if(SpringWebUtils.isAjax(handlerMethod)) {
 			ModelResult<ErrorMsgVo> modelResult = new ModelResult<ErrorMsgVo>();
-			String msg = "访问出错，无法访问:";
+			String errMsg = "访问出错，无法访问:";
 			if(StringUtils.isNotBlank(exception.getMessage())) {
-				msg = msg + exception.getMessage();
+				errMsg = errMsg + exception.getMessage();
 			}else {
-				msg = msg + "系统异常，请与管理员联系！";
+				errMsg = errMsg + "系统异常，请与管理员联系！";
 			}
 //			modelResult.withError(status,msg);
-			return ResultUtils.buildErrorMsg(Constants.FAIL_MSG_CODE, modelResult);
+			return ResultUtils.buildErrorMsg(Constants.FAIL_MSG_CODE, errMsg);
 		}else {
 			modelAndView.setViewName("/error"); 
 			modelAndView.addObject("error",exception.getMessage());

@@ -27,9 +27,9 @@ public abstract class BaseService {
 	protected ModelResult<Integer> operation(Integer result){
 		ModelResult<Integer> modelResult = new ModelResult<Integer>();
 		if(result > 0) {
-			modelResult.withError("0", "操作失败");
-		}else {
 			modelResult.setModel(result);
+		}else {
+			modelResult.withError("0", "操作失败");
 		}
 		return modelResult;
 	}

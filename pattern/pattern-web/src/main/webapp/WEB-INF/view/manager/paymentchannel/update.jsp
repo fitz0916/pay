@@ -26,13 +26,36 @@
 				<label for="status_0">锁定 </label>
 			</div>
 		</div>
-		<div class="select">
-		     <select name="payType">
-		         <option value="-1">请选择</option>
+		<div class="radio">
+			<div class="radio radio-inline radio-info">
+				<input id="settlementType_0" type="radio" name="settlementType" value="0" <c:if test="${paymentChannel.settlementType == 0}">checked</c:if>>
+				<label for="settlementType_0">D0 </label>
+			</div>
+			<div class="radio radio-inline radio-danger">
+				<input id="settlementType_1" type="radio" name="settlementType" value="1" <c:if test="${paymentChannel.settlementType == 1}">checked</c:if>>
+				<label for="settlementType_1">D1 </label>
+			</div>
+			<div class="radio radio-inline radio-info">
+				<input id="settlementType_2" type="radio" name="settlementType" value="2" <c:if test="${paymentChannel.settlementType == 2}">checked</c:if>>
+				<label for="settlementType_2">T0 </label>
+			</div>
+			<div class="radio radio-inline radio-danger">
+				<input id="settlementType_3" type="radio" name="settlementType" value="3" <c:if test="${paymentChannel.settlementType == 3}">checked</c:if>>
+				<label for="settlementType_3">T1 </label>
+			</div>
+		</div>
+		<div class="form-group">
+		
+		</div>
+		<div class="form-group">
+		  <div>
+		     <select name="payType"  class="form-control">
+		         <option value="-1">请选择渠道</option>
 		         <option value="0" <c:if test="${paymentChannel.payType == 0}">selected="selected"</c:if>>微信-扫码</option>
 		         <option value="1" <c:if test="${paymentChannel.payType == 1}">selected="selected"</c:if>>支付宝-扫码</option>
 		         <option value="2" <c:if test="${paymentChannel.payType == 2}">selected="selected"</c:if>>快捷支付</option>
 		     </select>
+		  </div>
 		</div>
 		
 		<div class="form-group">
@@ -56,8 +79,7 @@
 		</div>
 		
 		<div class="form-group">
-			<label for="remark">备注：</label>
-			<textarea rows="5" cols="5" name="remark"  class="form-control">${paymentChannel.remark}</textarea>
+			<textarea rows="5" cols="5" name="remark"  class="form-control" placeholder="备注">${paymentChannel.remark}</textarea>
 		</div>
 		
 		<div class="form-group text-right dialog-buttons">
