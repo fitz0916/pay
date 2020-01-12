@@ -29,42 +29,41 @@
 	<table id="agentTable"></table>
 </div>
 <jsp:include page="../../common/inc/footer.jsp" flush="true"/>
-<script>
+<script type="text/javascript">
+
 var $agentTable = $('#agentTable');
 
 
 $(function() {
+	var shopId = '${shopId}';
 	initMyTable();
 });
 
-
 function initMyTable(){
-	// bootstrap table初始化
 	$agentTable.bootstrapTable({
-		url: '${basePath}/manage/agent/list',
-		height: getHeight(),
+		url: '${basePath}/manage/agent/list',	//获取表格数据的url
 		method:'post',
 		dataType:'json',
-		striped: true,
-		search: false,
-		showRefresh: true,
-		showColumns: true,
-		minimumCountColumns: 2,
-		clickToSelect: false,
-		detailFormatter: 'detailFormatter',
-		pagination: true,
-		paginationLoop: false,
+		height: 523,	//行高，如果没有设置height属性，表格自动根据记录条数决定表格高度
+		cache: false,	//是否使用缓存，默认为true
+		striped: true,	//是否启用行间隔色
+		search: false,	//是否启用搜索框，此搜索是客户端搜索，意义不大
+		showRefresh: false,	//是否显示刷新按钮
+		showColumns: false,	//是否显示所有的列
+		minimumCountColumns: 2,	//最少允许的列数
+		clickToSelect: false,	//设置true将在点击行时，自动选择rediobox和checkbox
+		pagination: true,	//在表格底部显示分页组件，默认false
+		paginationLoop: false,	//设置为 true 启用分页条无限循环的功能
 		sidePagination: 'server',
 		silentSort: false,
 		smartDisplay: false,
 		escape: true,
-		searchOnEnterKey: true,
-		idField: 'agentId',
+		searchOnEnterKey: false,	//设置为true时，按回车触发搜索方法，否则自动触发搜索方法
+		idField: 'agentId',	//指定主键列
 		maintainSelected: true,
-		toolbar: '#toolbar',
+		detailView: true, //是否开启子table
 		queryParams:queryParams,
-		detailView: true,
-        responseHandler:function(result){
+		responseHandler:function(result){
 			if(result.code == '10110'){
             	layer.msg(result.msg);
                 location:top.location.href = '${basePath}/login';
@@ -121,7 +120,7 @@ function initMyTable(){
                 		 return [
                 			 '<shiro:hasPermission name="pattern:shop:update"><button type="button" class="btn btn-info btn-sm" style="margin-right:10px;padding:0 10px;" onclick="updateShopRow(' + row.shopId + ')">编辑门店</button></shiro:hasPermission>',
                				 '<shiro:hasPermission name="pattern:customer:create"><button type="button" class="btn btn-primary btn-sm" style="margin-right:10px;padding:0 10px;" onclick="createCustomerRow(' + row.shopId +')">新增商户</button></shiro:hasPermission>',
-							 '<shiro:hasPermission name="pattern:customer:red"><button type="button" class="btn btn-info btn-sm" style="margin-right:10px;padding:0 10px;" onclick="viewCustomerRow(' + row.shopId + ')">查看商户</button></shiro:hasPermission>'
+               				 '<shiro:hasPermission name="pattern:customer:red"><button type="button" class="btn btn-info btn-sm" style="margin-right:10px;padding:0 10px;" onclick="viewCustomerRow(' + row.shopId + ')">查看商户</button></shiro:hasPermission>'
              			].join('');
 	                }, events: 'actionEvent'}
 	            ],
@@ -133,61 +132,25 @@ function initMyTable(){
 	    			return{                            //return bootstrap-table能处理的数据格式
 	    		        "rows":result.data
 	    		    }
-	    		},
+	    		}
 	        });
 		}
+		
 	});
 }
 
-// 格式化操作按钮
-function actionFormatter(value, row, index) {
-    return [
-        '<shiro:hasPermission name="pattern:shop:create"><a class="add" href="javascript:;" onclick="createShopRow('+row.agentId+')" data-toggle="tooltip" title="新增门店"><i class="zmdi zmdi-plus"></i>新增商户</a></shiro:hasPermission>　',
-    ].join('');
-}
 
-//格式化状态
-function statusFormatter(value, row, index) {
-	if (value == 1) {
-		return '<span class="label label-success">正常</span>';
-	} else {
-		return '<span class="label label-default">锁定</span>';
-	}
-}
-
-function changeDateFormat(value) {
-	  if(value == '' || value == undefined){
-	      return value;
-      }
-	  var myDate = new Date(value);
-	  //获取当前年
-	  var year=myDate.getFullYear();
-	  //获取当前月
-	  var month = myDate.getMonth()+1;
-	      month = month < 10 ? "0"+month : month;
-	  //获取当前日
-	  var date=myDate.getDate();
-	      date = date < 10 ? "0"+date : date;
-	  var h=myDate.getHours();       //获取当前小时数(0-23)
-	      h = h < 10 ? "0"+h : h;
-	  var m=myDate.getMinutes();     //获取当前分钟数(0-59)
-	      m = m < 10 ? "0"+m : m;
-	  var s= myDate.getSeconds();
-	      s = s < 10 ? "0"+s : s;
-	  var time = year+'-'+month+"-"+date;
-	  return time;
-}
-
-var updateDialog;
-//编辑行
-function updateRow(agentId){
-    updateDialog = $.dialog({
+//新增_对话框
+var createDialog;
+function createAction() {
+    createDialog = $.dialog({
         animationSpeed: 300,
-        title: '编辑代理商',
         columnClass: 'col-md-10 col-md-offset-1 col-sm-6 col-sm-offset-3 col-xs-10 col-xs-offset-1',
-        content: 'url:${basePath}/manage/agent/update/'+agentId,
-        onContentReady:function(){
-        	initMaterialInput();
+        containerFluid: true,
+        title: '新增代理',
+        content: 'url:${basePath}/manage/agent/create',
+        onContentReady: function () {
+           
         },
         contentLoaded: function(data, status, xhr){
             if(data.code == '10110'){
@@ -216,8 +179,6 @@ function viewCustomerRow(shopId){
         }
     });
 }
-  
-
 
 var createShopDialog;
 function createShopRow(agentId){
@@ -258,121 +219,22 @@ function updateShopRow(shopId){
 }
 
 
-//删除行
-function deleteRow(userId) {
-    deleteDialog = $.confirm({
-        type: 'red',
-        animationSpeed: 300,
-        title: false,
-        content: '确认删除该用户吗？',
-        buttons: {
-            confirm: {
-                text: '确认',
-                btnClass: 'waves-effect waves-button',
-                action: function () {
-                    var ids = new Array();
-                    ids.push(userId);
-                    $.ajax({
-                        type: 'get',
-                        url: '${basePath}/manage/agent/delete/' + ids.join("-"),
-                        success: function(result) {
-                            if (result.code != 1) {
-                                if (result.data instanceof Array) {
-                                    $.each(result.data, function(index, value) {
-                                        $.confirm({
-                                            theme: 'dark',
-                                            animation: 'rotateX',
-                                            closeAnimation: 'rotateX',
-                                            title: false,
-                                            content: value.errorMsg,
-                                            buttons: {
-                                                confirm: {
-                                                    text: '确认',
-                                                    btnClass: 'waves-effect waves-button waves-light'
-                                                }
-                                            }
-                                        });
-                                    });
-                                }else if(result.code == '10110'){
-                                	layer.msg(result.msg);
-                                    location:top.location.href = '${basePath}/login';
-                                }else {
-                                    $.confirm({
-                                        theme: 'dark',
-                                        animation: 'rotateX',
-                                        closeAnimation: 'rotateX',
-                                        title: false,
-                                        content: result.msg,
-                                        buttons: {
-                                            confirm: {
-                                                text: '确认',
-                                                btnClass: 'waves-effect waves-button waves-light',
-                                                location:top.location.href = location.href
-                                            }
-                                        }
-                                    });
-                                }
-                            } else {
-                                deleteDialog.close();
-                                $agentTable.bootstrapTable('refresh');
-                            }
-                        },
-                        error: function(XMLHttpRequest, textStatus, errorThrown) {
-                            $.confirm({
-                                theme: 'dark',
-                                animation: 'rotateX',
-                                closeAnimation: 'rotateX',
-                                title: false,
-                                content: textStatus,
-                                buttons: {
-                                    confirm: {
-                                        text: '确认',
-                                        btnClass: 'waves-effect waves-button waves-light'
-                                    }
-                                }
-                            });
-                        }
-                    });
-                }
-            },
-            cancel: {
-                text: '取消',
-                btnClass: 'waves-effect waves-button'
-            }
-        }
-    });
+
+// 格式化操作按钮
+function actionFormatter(value, row, index) {
+    return [
+        '<shiro:hasPermission name="pattern:shop:create"><a class="add" href="javascript:;" onclick="createShopRow('+row.agentId+')" data-toggle="tooltip" title="新增门店"><i class="zmdi zmdi-plus"></i>新增门店</a></shiro:hasPermission>　',
+    ].join('');
 }
+
 //分页查询参数，是以键值对的形式设置的
 function queryParams(params) {
     return {
         limit: params.limit, // 每页显示数量
-        offset: parseInt(params.offset)
+        offset: parseInt(params.offset),
+        shopId:'${shopId}'
     }
 }
-
-
-
-//新增_对话框
-var createDialog;
-function createAction() {
-    createDialog = $.dialog({
-        animationSpeed: 300,
-        columnClass: 'col-md-10 col-md-offset-1 col-sm-6 col-sm-offset-3 col-xs-10 col-xs-offset-1',
-        containerFluid: true,
-        title: '新增代理',
-        content: 'url:${basePath}/manage/agent/create',
-        onContentReady: function () {
-           
-        },
-        contentLoaded: function(data, status, xhr){
-            if(data.code == '10110'){
-            	layer.msg(data.msg);
-                location:top.location.href = '${basePath}/login';
-            }
-        }
-    });
-}
-
 
 //编辑
 var updateDialog;
@@ -409,199 +271,37 @@ function updateAction() {
     }
 }
 
-
-
-
-//删除
-var deleteDialog;
-function deleteAction() {
-	var rows = $agentTable.bootstrapTable('getSelections');
-	if (rows.length == 0) {
-		$.confirm({
-			title: false,
-			content: '请至少选择一条记录！',
-			autoClose: 'cancel|3000',
-			backgroundDismiss: true,
-			buttons: {
-				cancel: {
-					text: '取消',
-					btnClass: 'waves-effect waves-button'
-				}
-			}
-		});
+//格式化状态
+function statusFormatter(value, row, index) {
+	if (value == 1) {
+		return '<span class="label label-success">正常</span>';
 	} else {
-		deleteDialog = $.confirm({
-			type: 'red',
-			animationSpeed: 300,
-			title: false,
-			content: '确认删除该系统吗？',
-			buttons: {
-				confirm: {
-					text: '确认',
-					btnClass: 'waves-effect waves-button',
-					action: function () {
-						var ids = new Array();
-						for (var i in rows) {
-							ids.push(rows[i].systemId);
-						}
-						$.ajax({
-							type: 'get',
-							url: '${basePath}/manage/agent/delete/' + ids.join("-"),
-							success: function(result) {
-								if (result.code != 1) {
-									if (result.data instanceof Array) {
-										$.each(result.data, function(index, value) {
-											$.confirm({
-												theme: 'dark',
-												animation: 'rotateX',
-												closeAnimation: 'rotateX',
-												title: false,
-												content: value.errorMsg,
-												buttons: {
-													confirm: {
-														text: '确认',
-														btnClass: 'waves-effect waves-button waves-light'
-													}
-												}
-											});
-										});
-									} else if(result.code == '10110'){
-	                                	layer.msg(result.msg);
-	                                    location:top.location.href = '${basePath}/login';
-	                                } else {
-										$.confirm({
-											theme: 'dark',
-											animation: 'rotateX',
-											closeAnimation: 'rotateX',
-											title: false,
-											content: result.data,
-											buttons: {
-												confirm: {
-													text: '确认',
-													btnClass: 'waves-effect waves-button waves-light',
-                                                    location:top.location.href = location.href
-												}
-											}
-										});
-									}
-								} else {
-									deleteDialog.close();
-									$agentTable.bootstrapTable('refresh');
-								}
-							},
-							error: function(XMLHttpRequest, textStatus, errorThrown) {
-								$.confirm({
-									theme: 'dark',
-									animation: 'rotateX',
-									closeAnimation: 'rotateX',
-									title: false,
-									content: textStatus,
-									buttons: {
-										confirm: {
-											text: '确认',
-											btnClass: 'waves-effect waves-button waves-light'
-										}
-									}
-								});
-							}
-						});
-					}
-				},
-				cancel: {
-					text: '取消',
-					btnClass: 'waves-effect waves-button'
-				}
-			}
-		});
+		return '<span class="label label-default">锁定</span>';
 	}
 }
 
-//删除行
-function deleteRow(agentId) {
-    deleteDialog = $.confirm({
-        type: 'red',
-        animationSpeed: 300,
-        title: false,
-        content: '确认删除该系统吗？',
-        buttons: {
-            confirm: {
-                text: '确认',
-                btnClass: 'waves-effect waves-button',
-                action: function () {
-                    var ids = new Array();
-                        ids.push(systemId);
-                    $.ajax({
-                        type: 'get',
-                        url: '${basePath}/manage/agent/delete/' + agentId,
-                        success: function(result) {
-                            if (result.code != 1) {
-                                if (result.data instanceof Array) {
-                                    $.each(result.data, function(index, value) {
-                                        $.confirm({
-                                            theme: 'dark',
-                                            animation: 'rotateX',
-                                            closeAnimation: 'rotateX',
-                                            title: false,
-                                            content: value.errorMsg,
-                                            buttons: {
-                                                confirm: {
-                                                    text: '确认',
-                                                    btnClass: 'waves-effect waves-button waves-light'
-                                                }
-                                            }
-                                        });
-                                    });
-                                } else if(result.code == '10110'){
-                                	layer.msg(result.msg);
-                                    location:top.location.href = '${basePath}/login';
-                                } else {
-                                    $.confirm({
-                                        theme: 'dark',
-                                        animation: 'rotateX',
-                                        closeAnimation: 'rotateX',
-                                        title: false,
-                                        content: result.data,
-                                        buttons: {
-                                            confirm: {
-                                                text: '确认',
-                                                btnClass: 'waves-effect waves-button waves-light',
-                                                location:top.location.href = location.href
-                                            }
-                                        }
-                                    });
-                                }
-                            } else {
-                                deleteDialog.close();
-                                $agentTable.bootstrapTable('refresh');
-                            }
-                        },
-                        error: function(XMLHttpRequest, textStatus, errorThrown) {
-                            $.confirm({
-                                theme: 'dark',
-                                animation: 'rotateX',
-                                closeAnimation: 'rotateX',
-                                title: false,
-                                content: textStatus,
-                                buttons: {
-                                    confirm: {
-                                        text: '确认',
-                                        btnClass: 'waves-effect waves-button waves-light'
-                                    }
-                                }
-                            });
-                        }
-                    });
-                }
-            },
-            cancel: {
-                text: '取消',
-                btnClass: 'waves-effect waves-button'
-            }
-        }
-    });
+function changeDateFormat(value) {
+	  if(value == '' || value == undefined){
+	      return value;
+      }
+	  var myDate = new Date(value);
+	  //获取当前年
+	  var year=myDate.getFullYear();
+	  //获取当前月
+	  var month = myDate.getMonth()+1;
+	      month = month < 10 ? "0"+month : month;
+	  //获取当前日
+	  var date=myDate.getDate();
+	      date = date < 10 ? "0"+date : date;
+	  var h=myDate.getHours();       //获取当前小时数(0-23)
+	      h = h < 10 ? "0"+h : h;
+	  var m=myDate.getMinutes();     //获取当前分钟数(0-59)
+	      m = m < 10 ? "0"+m : m;
+	  var s= myDate.getSeconds();
+	      s = s < 10 ? "0"+s : s;
+	  var time = year+'-'+month+"-"+date;
+	  return time;
 }
-
-
 </script>
 </body>
 </html>

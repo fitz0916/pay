@@ -41,7 +41,10 @@ function initMyTable(){
 		searchOnEnterKey: false,	//设置为true时，按回车触发搜索方法，否则自动触发搜索方法
 		idField: 'customerId',	//指定主键列
 		maintainSelected: true,
-		detailView: false, //是否开启子table
+		detailView: true, //是否开启子table
+		detailFormatter:detailFormatter,
+		//detailViewIcon:false,
+		//detailViewByClick:true,
 		queryParams:queryParams,
 		responseHandler:function(result){
 			if(result.code == '10110'){
@@ -69,6 +72,33 @@ function initMyTable(){
 }
 
 
+function detailFormatter(index,row){
+	initMaterialInput();
+	var array = new Array();
+	array.push('<input type="hidden" name="agentId" value="' + row.agentId + '">');
+	array.push('<input type="hidden" name="shopId"  value="' + row.shopId + '">');
+	array.push('<div">');
+	array.push('	商户名称：<input id="customerName" type="text"  value="' + row.customerName + '" name="customerName" maxlength="50">');
+	array.push('</div>');
+	array.push('<div">');
+	array.push('	金额：<input id="customerName" type="text"  value="' + row.customerName + '" name="customerName" maxlength="50">');
+	array.push('</div>');
+	array.push('<div">');
+	array.push('	冻结金额：<input id="customerName" type="text"  value="' + row.customerName + '" name="customerName" maxlength="50">');
+	array.push('</div>');
+	array.push('<div">');
+	array.push('	待结算金额：<input id="customerName" type="text"  value="' + row.customerName + '" name="customerName" maxlength="50">');
+	array.push('</div>');
+	array.push('<div class="radio""><div class="radio radio-inline radio-info">');
+	array.push('	<input id="status" type="radio"  value="1"');
+	array.push('<label for="status_1">启用 </label>');
+	array.push('	<input id="status" type="radio"  value="0"');
+	array.push('<label for="status_0">禁用 </label>');
+	
+	array.push('</div></div>');
+	
+    return array.join('');
+}
 
 //分页查询参数，是以键值对的形式设置的
 function queryParams(params) {
