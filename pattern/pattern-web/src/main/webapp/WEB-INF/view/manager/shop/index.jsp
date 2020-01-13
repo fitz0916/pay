@@ -27,10 +27,10 @@
 <body>
 <div id="main">
 	<div id="toolbar">
-		<shiro:hasPermission name="pattern:agent:create">
+		<%-- <shiro:hasPermission name="pattern:agent:create">
 			<a class="waves-effect waves-button" href="javascript:;" onclick="updateAction()"><i class="zmdi zmdi-plus"></i> 编辑</a>
 			<a class="waves-effect waves-button" href="javascript:;" onclick="deleteAction()"><i class="zmdi zmdi-plus"></i> 删除</a>
-		</shiro:hasPermission>
+		</shiro:hasPermission> --%>
 	</div>
 	<table id="shopTable"></table>
 </div>
@@ -55,8 +55,8 @@ function initMyTable(){
 		cache: false,	//是否使用缓存，默认为true
 		striped: true,	//是否启用行间隔色
 		search: false,	//是否启用搜索框，此搜索是客户端搜索，意义不大
-		showRefresh: false,	//是否显示刷新按钮
-		showColumns: false,	//是否显示所有的列
+		showRefresh: true,	//是否显示刷新按钮
+		showColumns: true,	//是否显示所有的列
 		minimumCountColumns: 2,	//最少允许的列数
 		clickToSelect: false,	//设置true将在点击行时，自动选择rediobox和checkbox
 		pagination: true,	//在表格底部显示分页组件，默认false

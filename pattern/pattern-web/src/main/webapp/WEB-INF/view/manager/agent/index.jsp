@@ -19,8 +19,8 @@
 <div id="agentMain">
 	<div id="toolbar">
 		<shiro:hasPermission name="pattern:agent:create">
-			<a class="waves-effect waves-button" href="javascript:;" onclick="createAction()"><i class="zmdi zmdi-plus"></i> 新增</a>
-			<a class="waves-effect waves-button" href="javascript:;" onclick="updateAction()"><i class="zmdi zmdi-plus"></i> 编辑</a>
+			<a class="waves-effect waves-button" href="javascript:;" onclick="createAction()"><i class="zmdi zmdi-plus"></i> 新增代理商</a>
+			<a class="waves-effect waves-button" href="javascript:;" onclick="updateAction()"><i class="zmdi zmdi-plus"></i> 编辑代理商</a>
 			<!-- 
 			<a class="waves-effect waves-button" href="javascript:;" onclick="deleteAction()"><i class="zmdi zmdi-plus"></i> 删除</a>
 			 -->
@@ -43,13 +43,14 @@ function initMyTable(){
 	$agentTable.bootstrapTable({
 		url: '${basePath}/manage/agent/list',	//获取表格数据的url
 		method:'post',
+		height: 700,
 		dataType:'json',
 		height: 523,	//行高，如果没有设置height属性，表格自动根据记录条数决定表格高度
 		cache: false,	//是否使用缓存，默认为true
 		striped: true,	//是否启用行间隔色
 		search: false,	//是否启用搜索框，此搜索是客户端搜索，意义不大
-		showRefresh: false,	//是否显示刷新按钮
-		showColumns: false,	//是否显示所有的列
+		showRefresh: true,	//是否显示刷新按钮
+		showColumns: true,	//是否显示所有的列
 		minimumCountColumns: 2,	//最少允许的列数
 		clickToSelect: false,	//设置true将在点击行时，自动选择rediobox和checkbox
 		pagination: true,	//在表格底部显示分页组件，默认false
@@ -63,6 +64,7 @@ function initMyTable(){
 		maintainSelected: true,
 		detailView: true, //是否开启子table
 		queryParams:queryParams,
+		rowStyle:rowStyle,//通过自定义函数设置行样式
 		responseHandler:function(result){
 			if(result.code == '10110'){
             	layer.msg(result.msg);
@@ -94,6 +96,37 @@ function initMyTable(){
 	});
 }
 
+/* function rowStyle(row, index) {
+    var classes = ['active', 'success', 'info', 'warning', 'danger'];
+    if (index % 2 === 0 && index / 2 < classes.length) {
+        return {
+            classes: classes[index / 2]
+        };
+    }
+    return {};
+ } */
+ 
+function rowStyle(row, index) {
+    var classes = ['active', 'success', 'info', 'warning', 'danger'];
+    return {
+        classes: classes[1]
+    };
+ }
+
+function rowShopStyle(row, index) {
+    var classes = ['active', 'success', 'info', 'warning', 'danger'];
+    return {
+        classes: classes[4]
+    };
+ }
+ 
+function rowCustomerStyle(row, index) {
+    var classes = ['active', 'success', 'info', 'warning', 'danger'];
+    return {
+        classes: classes[3]
+    };
+ }
+
 function onExpandCustomerRow(index,row,$element){
 	var paraTable = $element.html('<table id="child_customer_table'+row.shopId+'"></table>').find('table');
     $(paraTable).bootstrapTable({
@@ -114,6 +147,7 @@ function onExpandCustomerRow(index,row,$element){
         escape: true,
         idField: 'customerId',	//指定主键列
         maintainSelected: true,
+        rowStyle:rowCustomerStyle,//通过自定义函数设置行样式
         queryParams:function(){
         	 return {
         	        limit: 100000, // 每页显示数量
@@ -133,8 +167,8 @@ function onExpandCustomerRow(index,row,$element){
             {field: 'payoutWay', title: '代付方式', align: 'center',formatter: 'payoutFormatter'},
             {field: 'action', title: '操作', align: 'center',formatter: function(value, row, index){
         		 return [
-        			 '<shiro:hasPermission name="pattern:customer:update"><button type="button" class="btn btn-info btn-sm" style="margin-right:10px;padding:0 10px;" onclick="updateCustomerRow(' + row.customerId + ')">编辑商户</button></shiro:hasPermission>',
-       				 '<shiro:hasPermission name="pattern:customer:red"><button type="button" class="btn btn-info btn-sm" style="margin-right:10px;padding:0 10px;" onclick="viewCustomerChannelRow(' + row.shopId + ')">查看商户渠道</button></shiro:hasPermission>'
+        			 '<shiro:hasPermission name="pattern:customer:update"><button type="button" class="btn btn-info btn-danger" style="margin-right:10px;padding:0 10px;" onclick="updateCustomerRow(' + row.customerId + ')">编辑商户</button></shiro:hasPermission>',
+       				 '<shiro:hasPermission name="pattern:customer:red"><button type="button" class="btn btn-info btn-warning" style="margin-right:10px;padding:0 10px;" onclick="viewCustomerChannelRow(' + row.shopId + ')">查看商户渠道</button></shiro:hasPermission>'
      			].join('');
             }, events: 'actionEvent'}
         ],
@@ -171,6 +205,7 @@ function onExpandShopRow(index,row,$element){
         detailView: true, //是否开启子table
         idField: 'shopId',	//指定主键列
         maintainSelected: true,
+        rowStyle:rowShopStyle,//通过自定义函数设置行样式
         queryParams:function(){
        	 return {
        	        limit: 100000, // 每页显示数量
@@ -189,8 +224,8 @@ function onExpandShopRow(index,row,$element){
             {field:'createTime',title:'创建时间',align:'center', formatter: 'changeDateFormat'},
             {field: 'action', title: '操作', align: 'center',formatter: function(value, row, index){
         		 return [
-        			 '<shiro:hasPermission name="pattern:customer:create"><button type="button" class="btn btn-primary btn-sm" style="margin-right:10px;padding:0 10px;" onclick="createCustomerRow(' + row.shopId +')">新增商户</button></shiro:hasPermission>',
-        			 '<shiro:hasPermission name="pattern:shop:update"><button type="button" class="btn btn-info btn-sm" style="margin-right:10px;padding:0 10px;" onclick="updateShopRow(' + row.shopId + ')">编辑门店</button></shiro:hasPermission>',
+        			 '<shiro:hasPermission name="pattern:customer:create"><button type="button" class="btn btn-success" style="margin-right:10px;padding:0 10px;" onclick="createCustomerRow(' + row.shopId +')">新增商户</button></shiro:hasPermission>',
+        			 '<shiro:hasPermission name="pattern:shop:update"><button type="button" class="btn btn-info" style="margin-right:10px;padding:0 10px;" onclick="updateShopRow(' + row.shopId + ')">编辑门店</button></shiro:hasPermission>',
      			].join('');
             }, events: 'actionEvent'}
         ],
