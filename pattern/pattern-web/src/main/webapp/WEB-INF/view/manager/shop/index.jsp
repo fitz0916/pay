@@ -135,8 +135,8 @@ function onExpandCustomerRow(index,row,$element){
             {field: 'payoutWay', title: '代付方式', align: 'center',formatter: 'payoutFormatter'},
             {field: 'action', title: '操作', align: 'center',formatter: function(value, row, index){
         		 return [
-        			 '<shiro:hasPermission name="pattern:customer:update"><button type="button" class="btn btn-info btn-sm" style="margin-right:10px;padding:0 10px;" onclick="updateCustomerRow(' + row.customerId + ')">编辑商户</button></shiro:hasPermission>',
-       				 '<shiro:hasPermission name="pattern:customer:red"><button type="button" class="btn btn-info btn-sm" style="margin-right:10px;padding:0 10px;" onclick="viewCustomerChannelRow(' + row.shopId + ')">查看商户渠道</button></shiro:hasPermission>'
+        			 '<shiro:hasPermission name="pattern:customer:update"><button type="button" class="btn btn-danger" style="margin-right:10px;padding:0 10px;" onclick="updateCustomerRow(' + row.customerId + ')">编辑商户</button></shiro:hasPermission>',
+       				 '<shiro:hasPermission name="pattern:customer:red"><button type="button" class="btn btn-warning" style="margin-right:10px;padding:0 10px;" onclick="viewCustomerChannelRow(' + row.shopId + ')">查看商户渠道</button></shiro:hasPermission>'
      			].join('');
             }, events: 'actionEvent'}
         ],

@@ -38,7 +38,7 @@ public class ShopController {
 	private AgentServiceClient agentServiceClient;
 	
 	
-	@ApiOperation("代理商首页")
+	@ApiOperation("门店首页")
     @RequiresPermissions("pattern:shop:read")
     @RequestMapping(value = "/index",method = RequestMethod.GET)
     public String index(){
