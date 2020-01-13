@@ -78,55 +78,106 @@ $(function() {
 		]
 		,
 		//子table触发事件
-	    onExpandRow:function(index,row,$element){
-			var paraTable = $element.html('<table id="child_table'+row.paymentChannelId+'"></table>').find('table');
-	        $(paraTable).bootstrapTable({
-	            url: '${basePath}/manage/paymentchannelaccount/list?paymentChannelId='+row.paymentChannelId,	//获取表格数据的url
-	            striped: true,	//是否启用行间隔色
-	            search: false,	//是否启用搜索框，此搜索是客户端搜索，意义不大
-	            searchOnEnterKey: false,	//设置为true时，按回车触发搜索方法，否则自动触发搜索方法
-	            minimumCountColumns: 2,	//最少允许的列数
-	            clickToSelect: false,	//设置true将在点击行时，自动选择rediobox和checkbox
-	            detailFormatter: 'detailFormatter',
-	            pagination: false,	//在表格底部显示分页组件，默认false
-	            paginationLoop: false,	//设置为 true 启用分页条无限循环的功能
-	            sidePagination: 'server',
-	            silentSort: false,
-	            smartDisplay:false,
-	            escape: true,
-	            idField: 'paymentChannelAccountId',	//指定主键列
-	            maintainSelected: true,
-	            columns: [
-	            	{field:'paymentChannelAccountId',title:'账号ID',align:'center'},
-	    			{field:'accountName',title:'账号名称',align:'center'},
-	    			{field:'status',title:'状态',align:'center', formatter:'statusFormatter'},
-                    {field:'createTime',title:'创建时间',align:'center', formatter: 'changeDateFormat'},
-                    {field:'remark',title:'备注',align:'center'},
-	                {field: 'action', title: '操作', align: 'center',formatter: function(value, row, index){
-                		 return [	
-                			 '<shiro:hasPermission name="pattern:paymentchannelaccount:update"><button type="button" class="btn btn-info btn-sm" style="margin-right:10px;padding:0 10px;" onclick="updateAccountRow(' + row.paymentChannelAccountId + ')">编辑账号</button></shiro:hasPermission>',
-               				 '<shiro:hasPermission name="pattern:paymentchannelaccountpara:create"><button type="button" class="btn btn-primary btn-sm" style="margin-right:10px;padding:0 10px;" onclick="createCustomerRow(' + row.shopId +')">新增账号参数</button></shiro:hasPermission>',
-               				 '<shiro:hasPermission name="pattern:paymentchannelaccountpara:read"><button type="button" class="btn btn-info btn-sm" style="margin-right:10px;padding:0 10px;" onclick="viewCustomerRow(' + row.shopId + ')">查看账号参数</button></shiro:hasPermission>'
-             			].join('');
-	                }, events: 'actionEvent'}
-	            ],
-	            responseHandler:function(result){
-	    			if(result.code == '10110'){
-	                	layer.msg(result.msg);
-	                    location:top.location.href = '${basePath}/login';
-	                }
-	    			return{                            //return bootstrap-table能处理的数据格式
-	    		        "rows":result.data
-	    		    }
-	    		}
-	        });
-		}
+	    onExpandRow:onAccountExpandRow
 	});
 });
+
+
+function onAccountExpandRow(index,row,$element){
+	var paraTable = $element.html('<table id="child_account_table'+row.paymentChannelId+'"></table>').find('table');
+    $(paraTable).bootstrapTable({
+        url: '${basePath}/manage/paymentchannelaccount/list?paymentChannelId='+row.paymentChannelId,	//获取表格数据的url
+        striped: true,	//是否启用行间隔色
+        search: false,	//是否启用搜索框，此搜索是客户端搜索，意义不大
+        searchOnEnterKey: false,	//设置为true时，按回车触发搜索方法，否则自动触发搜索方法
+        minimumCountColumns: 2,	//最少允许的列数
+        clickToSelect: false,	//设置true将在点击行时，自动选择rediobox和checkbox
+        detailFormatter: 'detailFormatter',
+        pagination: false,	//在表格底部显示分页组件，默认false
+        paginationLoop: false,	//设置为 true 启用分页条无限循环的功能
+        sidePagination: 'server',
+        silentSort: false,
+        smartDisplay:false,
+        escape: true,
+        detailView: true,
+        idField: 'paymentChannelAccountId',	//指定主键列
+        maintainSelected: true,
+        columns: [
+        	{field:'paymentChannelAccountId',title:'账号ID',align:'center'},
+			{field:'accountName',title:'账号名称',align:'center'},
+			{field:'status',title:'状态',align:'center', formatter:'statusFormatter'},
+            {field:'createTime',title:'创建时间',align:'center', formatter: 'changeDateFormat'},
+            {field:'remark',title:'备注',align:'center'},
+            {field: 'action', title: '操作', align: 'center',formatter: function(value, row, index){
+        		 return [	
+        			 '<shiro:hasPermission name="pattern:paymentchannelaccount:create"><button type="button" class="btn btn-primary btn-sm" style="margin-right:10px;padding:0 10px;" onclick="createAccountParaRow(' + row.paymentChannelAccountId +')">新增渠道账号参数</button></shiro:hasPermission>',
+        			 '<shiro:hasPermission name="pattern:paymentchannelaccount:update"><button type="button" class="btn btn-info btn-sm" style="margin-right:10px;padding:0 10px;" onclick="updateAccountRow(' + row.paymentChannelAccountId + ')">编辑渠道账号</button></shiro:hasPermission>'
+     			].join('');
+            }, events: 'actionEvent'}
+        ],
+        responseHandler:function(result){
+			if(result.code == '10110'){
+            	layer.msg(result.msg);
+                location:top.location.href = '${basePath}/login';
+            }
+			return{                            //return bootstrap-table能处理的数据格式
+		        "rows":result.data
+		    }
+		},
+		//子table触发事件
+	    onExpandRow:onAccountParaExpandRow
+    });
+}
+
+function onAccountParaExpandRow(index,row,$element){
+	var paraTable = $element.html('<table id="child_para_table'+row.paymentChannelAccountId+'"></table>').find('table');
+    $(paraTable).bootstrapTable({
+        url: '${basePath}/manage/paymentchannelaccountpara/list?paymentChannelAccountId='+row.paymentChannelAccountId,	//获取表格数据的url
+        striped: true,	//是否启用行间隔色
+        search: false,	//是否启用搜索框，此搜索是客户端搜索，意义不大
+        searchOnEnterKey: false,	//设置为true时，按回车触发搜索方法，否则自动触发搜索方法
+        minimumCountColumns: 2,	//最少允许的列数
+        clickToSelect: false,	//设置true将在点击行时，自动选择rediobox和checkbox
+        detailFormatter: 'detailFormatter',
+        pagination: false,	//在表格底部显示分页组件，默认false
+        paginationLoop: false,	//设置为 true 启用分页条无限循环的功能
+        sidePagination: 'server',
+        silentSort: false,
+        smartDisplay:false,
+        escape: true,
+        detailView: false,
+        idField: 'paymentChannelAccountParaId',	//指定主键列
+        maintainSelected: true,
+        columns: [
+        	{field:'paymentChannelAccountParaId',title:'参数ID',align:'center'},
+			{field:'name',title:'参数名称',align:'center'},
+			{field:'name',title:'参数值',align:'center'},
+			{field:'status',title:'状态',align:'center', formatter:'statusFormatter'},
+            {field:'createTime',title:'创建时间',align:'center', formatter: 'changeDateFormat'},
+            {field:'remark',title:'备注',align:'center'},
+            {field: 'action', title: '操作', align: 'center',formatter: function(value, row, index){
+        		 return [	
+        			 '<shiro:hasPermission name="pattern:paymentchannelaccount:update"><button type="button" class="btn btn-info btn-sm" style="margin-right:10px;padding:0 10px;" onclick="updateAccountParaRow(' + row.paymentChannelAccountParaId + ')">编辑渠道账号</button></shiro:hasPermission>'
+     			].join('');
+            }, events: 'actionEvent'}
+        ],
+        responseHandler:function(result){
+			if(result.code == '10110'){
+            	layer.msg(result.msg);
+                location:top.location.href = '${basePath}/login';
+            }
+			return{                            //return bootstrap-table能处理的数据格式
+		        "rows":result.data
+		    }
+		}
+    });
+}
+
+
 // 格式化操作按钮
 function actionFormatter(value, row, index) {
     return [
-		'<shiro:hasPermission name="pattern:paymentchannelaccount:create"><a class="update" href="javascript:;" onclick="createAccountRow('+row.paymentChannelId+')" data-toggle="tooltip" title="创建渠道账号"><i class="glyphicon glyphicon-edit"></i></a></shiro:hasPermission>　',
+    	'<shiro:hasPermission name="pattern:paymentchannelaccount:create"><button type="button" class="btn btn-primary btn-sm" style="margin-right:10px;padding:0 10px;" onclick="createAccountRow(' + row.paymentChannelId +')">新增渠道账号</button></shiro:hasPermission>',
     ].join('');
 }
 
@@ -160,6 +211,45 @@ function changeDateFormat(value) {
 	      s = s < 10 ? "0"+s : s;
 	  var time = year+'-'+month+"-"+date;
 	  return time;
+}
+
+//编辑渠道账号参数
+var updateAccountParaRowDialog;
+function updateAccountParaRow(paymentChannelAccountParaId){
+	updateAccountParaRowDialog = $.dialog({
+        animationSpeed: 300,
+        title: '编辑渠道账号参数',
+        columnClass: 'col-md-10 col-md-offset-1 col-sm-6 col-sm-offset-3 col-xs-10 col-xs-offset-1',
+        content: 'url:${basePath}/manage/paymentchannelaccountpara/update/' + paymentChannelAccountParaId,
+        onContentReady: function () {
+            initMaterialInput();
+        },
+        contentLoaded: function(data, status, xhr){
+            if(data.code == '10110'){
+            	layer.msg(data.msg);
+                location:top.location.href = '${basePath}/login';
+            }
+        },
+    });
+}
+//新增渠道账号参数
+var createAccountParaRowDialog;
+function createAccountParaRow(paymentChannelAccountId){
+	createAccountParaRowDialog = $.dialog({
+        animationSpeed: 300,
+        title: '创建渠道账号',
+        columnClass: 'col-md-10 col-md-offset-1 col-sm-6 col-sm-offset-3 col-xs-10 col-xs-offset-1',
+        content: 'url:${basePath}/manage/paymentchannelaccountpara/create/' + paymentChannelAccountId,
+        onContentReady: function () {
+            initMaterialInput();
+        },
+        contentLoaded: function(data, status, xhr){
+            if(data.code == '10110'){
+            	layer.msg(data.msg);
+                location:top.location.href = '${basePath}/login';
+            }
+        },
+    });
 }
 
 var createAccountRowDialog;

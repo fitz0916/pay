@@ -4,7 +4,6 @@
   <resultMap id="BaseResultMap" type="com.github.pattern.common.domain.PaymentChannelAccountPara" >
     <id column="payment_channel_account_para_id" property="paymentChannelAccountParaId" jdbcType="INTEGER" />
     <result column="payment_channel_account_id" property="paymentChannelAccountId" jdbcType="INTEGER" />
-    <result column="payment_channel_para_id" property="paymentChannelParaId" jdbcType="INTEGER" />
     <result column="name" property="name" jdbcType="VARCHAR" />
     <result column="status" property="status" jdbcType="TINYINT" />
     <result column="create_time" property="createTime" jdbcType="TIMESTAMP" />
@@ -15,7 +14,7 @@
     <result column="value" property="value" jdbcType="LONGVARCHAR" />
   </resultMap>
   <sql id="Base_Column_List" >
-    payment_channel_account_para_id, payment_channel_account_id, payment_channel_para_id, 
+    payment_channel_account_para_id, payment_channel_account_id,  
     name, status, create_time, update_time, remark
   </sql>
   <sql id="Blob_Column_List" >
@@ -35,11 +34,11 @@
   </delete>
   <insert id="insert" parameterType="com.github.pattern.common.domain.PaymentChannelAccountPara" >
     insert into pattern_payment_channel_account_para (payment_channel_account_para_id, payment_channel_account_id, 
-      payment_channel_para_id, name, status, 
+      name, status, 
       create_time, update_time, remark, 
       value)
     values (#{paymentChannelAccountParaId,jdbcType=INTEGER}, #{paymentChannelAccountId,jdbcType=INTEGER}, 
-      #{paymentChannelParaId,jdbcType=INTEGER}, #{name,jdbcType=VARCHAR}, #{status,jdbcType=TINYINT}, 
+      #{name,jdbcType=VARCHAR}, #{status,jdbcType=TINYINT}, 
       #{createTime,jdbcType=TIMESTAMP}, #{updateTime,jdbcType=TIMESTAMP}, #{remark,jdbcType=VARCHAR}, 
       #{value,jdbcType=LONGVARCHAR})
   </insert>
@@ -51,9 +50,6 @@
       </if>
       <if test="paymentChannelAccountId != null" >
         payment_channel_account_id,
-      </if>
-      <if test="paymentChannelParaId != null" >
-        payment_channel_para_id,
       </if>
       <if test="name != null" >
         name,
@@ -81,9 +77,6 @@
       <if test="paymentChannelAccountId != null" >
         #{paymentChannelAccountId,jdbcType=INTEGER},
       </if>
-      <if test="paymentChannelParaId != null" >
-        #{paymentChannelParaId,jdbcType=INTEGER},
-      </if>
       <if test="name != null" >
         #{name,jdbcType=VARCHAR},
       </if>
@@ -110,9 +103,6 @@
       <if test="paymentChannelAccountId != null" >
         payment_channel_account_id = #{paymentChannelAccountId,jdbcType=INTEGER},
       </if>
-      <if test="paymentChannelParaId != null" >
-        payment_channel_para_id = #{paymentChannelParaId,jdbcType=INTEGER},
-      </if>
       <if test="name != null" >
         name = #{name,jdbcType=VARCHAR},
       </if>
@@ -137,7 +127,6 @@
   <update id="updateByPrimaryKeyWithBLOBs" parameterType="com.github.pattern.common.domain.PaymentChannelAccountPara" >
     update pattern_payment_channel_account_para
     set payment_channel_account_id = #{paymentChannelAccountId,jdbcType=INTEGER},
-      payment_channel_para_id = #{paymentChannelParaId,jdbcType=INTEGER},
       name = #{name,jdbcType=VARCHAR},
       status = #{status,jdbcType=TINYINT},
       create_time = #{createTime,jdbcType=TIMESTAMP},
@@ -149,7 +138,6 @@
   <update id="updateByPrimaryKey" parameterType="com.github.pattern.common.domain.PaymentChannelAccountPara" >
     update pattern_payment_channel_account_para
     set payment_channel_account_id = #{paymentChannelAccountId,jdbcType=INTEGER},
-      payment_channel_para_id = #{paymentChannelParaId,jdbcType=INTEGER},
       name = #{name,jdbcType=VARCHAR},
       status = #{status,jdbcType=TINYINT},
       create_time = #{createTime,jdbcType=TIMESTAMP},

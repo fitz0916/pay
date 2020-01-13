@@ -7,7 +7,7 @@
 <%@taglib prefix="shiro" uri="http://shiro.apache.org/tags" %>
 <div id="createDialog" class="crudDialog">
 	<form id="createForm" method="post">
-	    <input type="hidden" name="paymentChannelAccountId" value="${paymentChannelAccountId}">
+	    <input type="hidden" id="paymentChannelAccountId" name="paymentChannelAccountId" value="${paymentChannelAccountId}">
 		<div class="form-group">
 			<label for="name">参数名称：</label>
 			<input id="name" type="text" class="form-control" name="name" maxlength="50">
@@ -27,20 +27,22 @@
 			</div>
 		</div>
 		<div class="form-group">
-			<label for="remark">备注：</label>
-			<textarea rows="5" cols="5" name="remark" class="form-control"></textarea>
+		
+		</div>
+		<div class="form-group">
+			<textarea rows="5" cols="5" name="remark" class="form-control" placeholder="备注"></textarea>
 		</div>
 		<div class="form-group text-right dialog-buttons">
-			<a class="waves-effect waves-button" href="javascript:;" onclick="createSubmit();">保存</a>
-			<a class="waves-effect waves-button" href="javascript:;" onclick="createDialog.close();">取消</a>
+			<a class="waves-effect waves-button" href="javascript:;" onclick="createAccountParaSubmit();">保存</a>
+			<a class="waves-effect waves-button" href="javascript:;" onclick="createAccountParaRowDialog.close();">取消</a>
 		</div>
 	</form>
 </div>
 <script type="text/javascript">
-function createSubmit() {
+function createAccountParaSubmit() {
     $.ajax({
         type: 'post',
-        url: '${basePath}/manage/paymentchannel/create',
+        url: '${basePath}/manage/paymentchannelaccountpara/create',
         data: $('#createForm').serialize(),
         beforeSend: function() {
         },
@@ -81,8 +83,10 @@ function createSubmit() {
 						});
 				}
 			} else {
-				createDialog.close();
-				$table.bootstrapTable('refresh');
+				createAccountParaRowDialog.close();
+				var paymentChannelAccountId = $('#paymentChannelAccountId').val();
+				var $childAccountParaTable = $('#child_para_table'+paymentChannelAccountId);
+				$childAccountParaTable.bootstrapTable('refresh');
 			}
         },
         error: function(XMLHttpRequest, textStatus, errorThrown) {

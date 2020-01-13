@@ -81,7 +81,7 @@ function updateAccountSubmit() {
 			} else {
 				updateAccountDialog.close();
 				var paymentChannelId = $('#paymentChannelId').val();
-				var $childAccountTable = $('#child_table'+paymentChannelId);
+				var $childAccountTable = $('#child_account_table'+paymentChannelId);
 				$childAccountTable.bootstrapTable('refresh');
 				//$table.bootstrapTable('refresh');
 			}

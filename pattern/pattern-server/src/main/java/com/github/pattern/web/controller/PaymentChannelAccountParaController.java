@@ -24,9 +24,9 @@ public class PaymentChannelAccountParaController {
 	private PaymentChannelAccountParaService paymentChannelAccountParaServiceImpl;
 	
 	
-	@PostMapping("/deleteByPrimaryKey/{PaymentChannelAccountParaId}")
-	public ModelResult<Integer> deleteByPrimaryKey(@PathVariable("PaymentChannelAccountParaId")Integer PaymentChannelAccountParaId){
-		return paymentChannelAccountParaServiceImpl.deleteByPrimaryKey(PaymentChannelAccountParaId);
+	@PostMapping("/deleteByPrimaryKey/{paymentChannelAccountParaId}")
+	public ModelResult<Integer> deleteByPrimaryKey(@PathVariable("paymentChannelAccountParaId")Integer paymentChannelAccountParaId){
+		return paymentChannelAccountParaServiceImpl.deleteByPrimaryKey(paymentChannelAccountParaId);
 	}
 
 	@PostMapping("/insert")
@@ -39,9 +39,9 @@ public class PaymentChannelAccountParaController {
 		return paymentChannelAccountParaServiceImpl.insertSelective(record);
 	}
 
-	@PostMapping("/selectByPrimaryKey/{PaymentChannelAccountParaId}")
-	public ModelResult<PaymentChannelAccountPara> selectByPrimaryKey(@PathVariable("PaymentChannelAccountParaId")Integer PaymentChannelAccountParaId){
-		return paymentChannelAccountParaServiceImpl.selectByPrimaryKey(PaymentChannelAccountParaId);
+	@PostMapping("/selectByPrimaryKey/{paymentChannelAccountParaId}")
+	public ModelResult<PaymentChannelAccountPara> selectByPrimaryKey(@PathVariable("paymentChannelAccountParaId")Integer paymentChannelAccountParaId){
+		return paymentChannelAccountParaServiceImpl.selectByPrimaryKey(paymentChannelAccountParaId);
 	}
 
 	@PostMapping("/updateByPrimaryKeySelective")

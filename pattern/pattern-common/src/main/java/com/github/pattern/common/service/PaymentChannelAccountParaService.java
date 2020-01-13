@@ -9,13 +9,13 @@ import com.github.pattern.common.vo.ResultVo;
 
 public interface PaymentChannelAccountParaService {
 	
-	ModelResult<Integer> deleteByPrimaryKey(Integer PaymentChannelAccountParaId);
+	ModelResult<Integer> deleteByPrimaryKey(Integer paymentChannelAccountParaId);
 
     ModelResult<Integer> insert(PaymentChannelAccountPara record);
 
     ModelResult<Integer> insertSelective(PaymentChannelAccountPara record);
 
-    ModelResult<PaymentChannelAccountPara> selectByPrimaryKey(Integer PaymentChannelAccountParaId);
+    ModelResult<PaymentChannelAccountPara> selectByPrimaryKey(Integer paymentChannelAccountParaId);
 
     ModelResult<Integer> updateByPrimaryKeySelective(PaymentChannelAccountPara record);
 

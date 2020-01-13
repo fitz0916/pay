@@ -18,8 +18,8 @@ import com.github.pattern.common.domain.PaymentChannelAccountPara;
 public interface PaymentChannelAccountParaServiceClient {
 	
 	
-	@PostMapping("/deleteByPrimaryKey/{PaymentChannelAccountParaId}")
-	ModelResult<Integer> deleteByPrimaryKey(@PathVariable("PaymentChannelAccountParaId")Integer PaymentChannelAccountParaId);
+	@PostMapping("/deleteByPrimaryKey/{paymentChannelAccountParaId}")
+	ModelResult<Integer> deleteByPrimaryKey(@PathVariable("paymentChannelAccountParaId")Integer paymentChannelAccountParaId);
 
 	@PostMapping("/insert")
 	ModelResult<Integer> insert(@RequestBody PaymentChannelAccountPara record);
@@ -27,8 +27,8 @@ public interface PaymentChannelAccountParaServiceClient {
 	@PostMapping("/insertSelective")
 	ModelResult<Integer> insertSelective(@RequestBody PaymentChannelAccountPara record);
 
-	@PostMapping("/selectByPrimaryKey/{PaymentChannelAccountParaId}")
-	ModelResult<PaymentChannelAccountPara> selectByPrimaryKey(@PathVariable("PaymentChannelAccountParaId")Integer PaymentChannelAccountParaId);
+	@PostMapping("/selectByPrimaryKey/{paymentChannelAccountParaId}")
+	ModelResult<PaymentChannelAccountPara> selectByPrimaryKey(@PathVariable("paymentChannelAccountParaId")Integer paymentChannelAccountParaId);
 
 	@PostMapping("/updateByPrimaryKeySelective")
 	ModelResult<Integer> updateByPrimaryKeySelective(@RequestBody PaymentChannelAccountPara record);

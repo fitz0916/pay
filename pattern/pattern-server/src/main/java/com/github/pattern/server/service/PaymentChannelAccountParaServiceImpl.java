@@ -1,5 +1,6 @@
 package com.github.pattern.server.service;
 
+import java.util.Date;
 import java.util.List;
 
 import org.springframework.beans.factory.annotation.Autowired;
@@ -7,9 +8,7 @@ import org.springframework.stereotype.Service;
 
 import com.github.appmodel.domain.result.ModelResult;
 import com.github.pattern.common.domain.PaymentChannelAccountPara;
-import com.github.pattern.common.request.PaymentChannelAccountParaRequest;
 import com.github.pattern.common.service.PaymentChannelAccountParaService;
-import com.github.pattern.common.vo.ResultVo;
 import com.github.pattern.server.dao.PaymentChannelAccountParaDao;
 
 
@@ -37,6 +36,9 @@ public class PaymentChannelAccountParaServiceImpl extends BaseService implements
 			modelResult.withError("0", "非法参数");
 			return modelResult;
 		}
+		Date date = new Date();
+		record.setCreateTime(date);
+		record.setUpdateTime(date);
 		int result = paymentChannelAccountParaDao.insert(record);
 		return this.operation(result);
 	}
@@ -48,6 +50,9 @@ public class PaymentChannelAccountParaServiceImpl extends BaseService implements
 			modelResult.withError("0", "非法参数");
 			return modelResult;
 		}
+		Date date = new Date();
+		record.setCreateTime(date);
+		record.setUpdateTime(date);
 		int result = paymentChannelAccountParaDao.insertSelective(record);
 		return this.operation(result);
 	}
@@ -71,6 +76,7 @@ public class PaymentChannelAccountParaServiceImpl extends BaseService implements
 			modelResult.withError("0", "非法参数");
 			return modelResult;
 		}
+		record.setUpdateTime(new Date());
 		int result = paymentChannelAccountParaDao.updateByPrimaryKeySelective(record);
 		return this.operation(result);
 	}
@@ -82,6 +88,7 @@ public class PaymentChannelAccountParaServiceImpl extends BaseService implements
 			modelResult.withError("0", "非法参数");
 			return modelResult;
 		}
+		record.setUpdateTime(new Date());
 		int result = paymentChannelAccountParaDao.updateByPrimaryKey(record);
 		return this.operation(result);
 	}
