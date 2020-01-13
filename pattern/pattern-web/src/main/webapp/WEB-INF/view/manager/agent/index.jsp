@@ -89,56 +89,123 @@ function initMyTable(){
             {field: 'action', title: '操作', align: 'center',formatter: 'actionFormatter'}
 		],
 		//子table触发事件
-	    onExpandRow:function(index,row,$element){
-			var paraTable = $element.html('<table id="child_table'+row.agentId+'"></table>').find('table');
-	        $(paraTable).bootstrapTable({
-	            url: '${basePath}/manage/shop/list?agentId='+row.agentId,	//获取表格数据的url
-	            striped: true,	//是否启用行间隔色
-	            search: false,	//是否启用搜索框，此搜索是客户端搜索，意义不大
-	            searchOnEnterKey: false,	//设置为true时，按回车触发搜索方法，否则自动触发搜索方法
-	            minimumCountColumns: 2,	//最少允许的列数
-	            clickToSelect: false,	//设置true将在点击行时，自动选择rediobox和checkbox
-	            detailFormatter: 'detailFormatter',
-	            pagination: false,	//在表格底部显示分页组件，默认false
-	            paginationLoop: false,	//设置为 true 启用分页条无限循环的功能
-	            sidePagination: 'server',
-	            silentSort: false,
-	            smartDisplay:false,
-	            escape: true,
-	            idField: 'shopId',	//指定主键列
-	            maintainSelected: true,
-	            columns: [
-	            	{field:'shopId',title:'门店ID',align:'center'},
-	    			{field:'shopName',title:'门店名称',align:'center'},
-	    			{field:'shopNo',title:'门店编号',align:'center'},
-                    {field:'brand',title:'门店品牌',align:'center'},
-                    {field:'phone',title:'手机号码',align:'center'},
-	    			{field:'address',title:'地址',align:'center'},
-	    			{field:'status',title:'状态',align:'center', formatter:'statusFormatter'},
-                    {field:'createTime',title:'创建时间',align:'center', formatter: 'changeDateFormat'},
-	                {field: 'action', title: '操作', align: 'center',formatter: function(value, row, index){
-                		 return [
-                			 '<shiro:hasPermission name="pattern:shop:update"><button type="button" class="btn btn-info btn-sm" style="margin-right:10px;padding:0 10px;" onclick="updateShopRow(' + row.shopId + ')">编辑门店</button></shiro:hasPermission>',
-               				 '<shiro:hasPermission name="pattern:customer:create"><button type="button" class="btn btn-primary btn-sm" style="margin-right:10px;padding:0 10px;" onclick="createCustomerRow(' + row.shopId +')">新增商户</button></shiro:hasPermission>',
-               				 '<shiro:hasPermission name="pattern:customer:red"><button type="button" class="btn btn-info btn-sm" style="margin-right:10px;padding:0 10px;" onclick="viewCustomerRow(' + row.shopId + ')">查看商户</button></shiro:hasPermission>'
-             			].join('');
-	                }, events: 'actionEvent'}
-	            ],
-	            responseHandler:function(result){
-	    			if(result.code == '10110'){
-	                	layer.msg(result.msg);
-	                    location:top.location.href = '${basePath}/login';
-	                }
-	    			return{                            //return bootstrap-table能处理的数据格式
-	    		        "rows":result.data
-	    		    }
-	    		}
-	        });
-		}
+	    onExpandRow:onExpandShopRow
 		
 	});
 }
 
+function onExpandCustomerRow(index,row,$element){
+	var paraTable = $element.html('<table id="child_customer_table'+row.shopId+'"></table>').find('table');
+    $(paraTable).bootstrapTable({
+        url: '${basePath}/manage/customer/list',	//获取表格数据的url
+        method:'post',
+		dataType:'json',
+        striped: true,	//是否启用行间隔色
+        search: false,	//是否启用搜索框，此搜索是客户端搜索，意义不大
+        searchOnEnterKey: false,	//设置为true时，按回车触发搜索方法，否则自动触发搜索方法
+        minimumCountColumns: 2,	//最少允许的列数
+        clickToSelect: false,	//设置true将在点击行时，自动选择rediobox和checkbox
+        detailFormatter: 'detailFormatter',
+        pagination: false,	//在表格底部显示分页组件，默认false
+        paginationLoop: false,	//设置为 true 启用分页条无限循环的功能
+        sidePagination: 'server',
+        silentSort: false,
+        smartDisplay:false,
+        escape: true,
+        idField: 'customerId',	//指定主键列
+        maintainSelected: true,
+        queryParams:function(){
+        	 return {
+        	        limit: 100000, // 每页显示数量
+        	        offset: 0,
+        	        shopId:row.shopId
+        	    }
+        },
+        columns: [
+			{field:'customerId',title:'商户ID',align:'center'},
+			{field:'customerName',title:'商户名称',align:'center'},
+			{field:'customerNo',title:'商户编号',align:'center'},
+			{field:'amount',title:'金额',align:'center'},
+			{field:'frozenAmount',title:'冻结金额',align:'center'},
+			{field:'settlement',title:'待结算金额',align:'center'},
+			{field:'createDate',title:'创建时间',align:'center',formatter: 'changeDateFormat'},
+            {field: 'status', title: '状态', align: 'center',formatter: 'statusFormatter'},
+            {field: 'action', title: '操作', align: 'center',formatter: function(value, row, index){
+        		 return [
+        			 '<shiro:hasPermission name="pattern:shop:update"><button type="button" class="btn btn-info btn-sm" style="margin-right:10px;padding:0 10px;" onclick="updateShopRow(' + row.shopId + ')">编辑商户</button></shiro:hasPermission>',
+       				 '<shiro:hasPermission name="pattern:customer:red"><button type="button" class="btn btn-info btn-sm" style="margin-right:10px;padding:0 10px;" onclick="viewCustomerChannelRow(' + row.shopId + ')">查看商户渠道</button></shiro:hasPermission>'
+     			].join('');
+            }, events: 'actionEvent'}
+        ],
+        responseHandler:function(result){
+			if(result.code == '10110'){
+            	layer.msg(result.msg);
+                location:top.location.href = '${basePath}/login';
+            }
+			return{                            //return bootstrap-table能处理的数据格式
+		        "rows":result.rows
+		    }
+		}
+    });
+}
+
+function onExpandShopRow(index,row,$element){
+	var paraTable = $element.html('<table id="child_shop_table'+row.agentId+'"></table>').find('table');
+    $(paraTable).bootstrapTable({
+        url: '${basePath}/manage/shop/list',	//获取表格数据的url
+        method:'post',
+		dataType:'json',
+        striped: true,	//是否启用行间隔色
+        search: false,	//是否启用搜索框，此搜索是客户端搜索，意义不大
+        searchOnEnterKey: false,	//设置为true时，按回车触发搜索方法，否则自动触发搜索方法
+        minimumCountColumns: 2,	//最少允许的列数
+        clickToSelect: false,	//设置true将在点击行时，自动选择rediobox和checkbox
+        detailFormatter: 'detailFormatter',
+        pagination: false,	//在表格底部显示分页组件，默认false
+        paginationLoop: false,	//设置为 true 启用分页条无限循环的功能
+        sidePagination: 'server',
+        silentSort: false,
+        smartDisplay:false,
+        escape: true,
+        detailView: true, //是否开启子table
+        idField: 'shopId',	//指定主键列
+        maintainSelected: true,
+        queryParams:function(){
+       	 return {
+       	        limit: 100000, // 每页显示数量
+       	        offset: 0,
+       	     	agentId:row.agentId
+       	    }
+       },
+        columns: [
+        	{field:'shopId',title:'门店ID',align:'center'},
+			{field:'shopName',title:'门店名称',align:'center'},
+			{field:'shopNo',title:'门店编号',align:'center'},
+            {field:'brand',title:'门店品牌',align:'center'},
+            {field:'phone',title:'手机号码',align:'center'},
+			{field:'address',title:'地址',align:'center'},
+			{field:'status',title:'状态',align:'center', formatter:'statusFormatter'},
+            {field:'createTime',title:'创建时间',align:'center', formatter: 'changeDateFormat'},
+            {field: 'action', title: '操作', align: 'center',formatter: function(value, row, index){
+        		 return [
+        			 '<shiro:hasPermission name="pattern:customer:create"><button type="button" class="btn btn-primary btn-sm" style="margin-right:10px;padding:0 10px;" onclick="createCustomerRow(' + row.shopId +')">新增商户</button></shiro:hasPermission>',
+        			 '<shiro:hasPermission name="pattern:shop:update"><button type="button" class="btn btn-info btn-sm" style="margin-right:10px;padding:0 10px;" onclick="updateShopRow(' + row.shopId + ')">编辑门店</button></shiro:hasPermission>',
+     			].join('');
+            }, events: 'actionEvent'}
+        ],
+        responseHandler:function(result){
+			if(result.code == '10110'){
+            	layer.msg(result.msg);
+                location:top.location.href = '${basePath}/login';
+            }
+			return{                            //return bootstrap-table能处理的数据格式
+		        "rows":result.rows
+		    }
+		},
+		onExpandRow:onExpandCustomerRow
+		
+    });
+}
 
 //新增_对话框
 var createDialog;
@@ -223,7 +290,7 @@ function updateShopRow(shopId){
 // 格式化操作按钮
 function actionFormatter(value, row, index) {
     return [
-        '<shiro:hasPermission name="pattern:shop:create"><a class="add" href="javascript:;" onclick="createShopRow('+row.agentId+')" data-toggle="tooltip" title="新增门店"><i class="zmdi zmdi-plus"></i>新增门店</a></shiro:hasPermission>　',
+        '<shiro:hasPermission name="pattern:shop:create"><a class="add" href="javascript:;" onclick="createShopRow('+row.agentId+')" data-toggle="tooltip" title="新增门店"><i class="zmdi zmdi-plus"></i>新增门店</a></shiro:hasPermission>'
     ].join('');
 }
 

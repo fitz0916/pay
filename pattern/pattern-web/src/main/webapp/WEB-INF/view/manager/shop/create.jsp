@@ -7,7 +7,7 @@
 <%@taglib prefix="shiro" uri="http://shiro.apache.org/tags" %>
 <div id="createDialog" class="crudDialog">
 	<form id="createForm" method="post">
-	    <input type="hidden" value="${agent.agentId}">
+	    <input type="hidden" id="agentId" name="agentId" value="${agent.agentId}">
 		<div class="form-group">
 			<label for="shopName">门店名称：</label>
 			<input id="shopName" type="text" class="form-control" name="shopName" maxlength="50">
@@ -35,14 +35,14 @@
 			</div>
 		</div>
 		<div class="form-group text-right dialog-buttons">
-			<a class="waves-effect waves-button" href="javascript:;" onclick="createSubmit();">保存</a>
-			<a class="waves-effect waves-button" href="javascript:;" onclick="createDialog.close();">取消</a>
+			<a class="waves-effect waves-button" href="javascript:;" onclick="createShopSubmit();">保存</a>
+			<a class="waves-effect waves-button" href="javascript:;" onclick="createShopDialog.close();">取消</a>
 		</div>
 	</form>
 </div>
 
 <script type="text/javascript">
-function createSubmit() {
+function createShopSubmit() {
     $.ajax({
         type: 'post',
         url: '${basePath}/manage/shop/create',
@@ -86,8 +86,12 @@ function createSubmit() {
 						});
 				}
 			} else {
-				createDialog.close();
-				$shopTable.bootstrapTable('refresh');
+				createShopDialog.close();
+				var agentId = $('#agentId').val();
+				var childTableId = '#child_shop_table' + agentId;
+				alert(childTableId);
+				var $childShopTable = $(childTableId);
+				$childShopTable.bootstrapTable('refresh');
 			}
         },
         error: function(XMLHttpRequest, textStatus, errorThrown) {

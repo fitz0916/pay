@@ -1,15 +1,13 @@
 package com.github.pattern.web.controller;
 
-import java.util.List;
-
 import org.apache.shiro.authz.annotation.RequiresPermissions;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.ModelMap;
 import org.springframework.web.bind.annotation.PathVariable;
+import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
-import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.ResponseBody;
 
 import com.baidu.unbiz.fluentvalidator.ComplexResult;
@@ -20,10 +18,12 @@ import com.github.appmodel.domain.result.ModelResult;
 import com.github.pattern.client.service.AgentServiceClient;
 import com.github.pattern.client.service.ShopServiceClient;
 import com.github.pattern.common.domain.Agent;
-import com.github.pattern.common.domain.Customer;
 import com.github.pattern.common.domain.Shop;
+import com.github.pattern.common.request.ShopRequest;
 import com.github.pattern.common.utils.ResultUtils;
+import com.github.pattern.common.vo.PageVo;
 import com.github.pattern.utils.LengthValidator;
+import com.github.pattern.utils.PhoneValidator;
 
 import io.swagger.annotations.ApiOperation;
 
@@ -39,10 +39,10 @@ public class ShopController {
 	
 	@ApiOperation("门店商首页")
     @RequiresPermissions("pattern:shop:read")
-    @RequestMapping(value = "/list",method = RequestMethod.GET)
-	public @ResponseBody Object list(@RequestParam("agentId") Integer agentId) {
-		ModelResult<List<Shop>> modelResult = shopServiceClient.selectByAgentId(agentId);
-		return ResultUtils.buildResult(modelResult);
+    @RequestMapping(value = "/list",method = RequestMethod.POST)
+	public @ResponseBody Object list(@RequestBody ShopRequest request) {
+		ModelResult<PageVo> modelResult = shopServiceClient.page(request);
+		return ResultUtils.buildPageResult(modelResult);
 	}
 	
 	@ApiOperation("新增门店")
@@ -100,7 +100,7 @@ public class ShopController {
 	            .on(shop.getShopName(), new LengthValidator(1, 50, "门店名称"))
 	            .on(shop.getBrand(), new LengthValidator(1, 50, "门店品牌"))
 	            .on(shop.getAddress(), new LengthValidator(1, 50, "门店地址"))
-	            .on(shop.getPhone(), new LengthValidator(1, 15, "手机号码"))
+	            .on(shop.getPhone(), new PhoneValidator("手机号码"))
 	            .doValidate()
 	            .result(ResultCollectors.toComplex());
 		return result;

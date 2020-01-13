@@ -7,8 +7,8 @@
 <%@taglib prefix="shiro" uri="http://shiro.apache.org/tags" %>
 <div id="updateDialog" class="crudDialog">
 	<form id="updateForm" method="post">
-		<input type="hidden" name="shopId" value="${shop.shopId}">
-		<input type="hidden" name="agentId" value="${shop.agentId}">
+		<input type="hidden" id="shopId" name="shopId" value="${shop.shopId}">
+		<input type="hidden" id="agentId" name="agentId" value="${shop.agentId}">
 		<div class="form-group">
 			<label for="shopName">门店名称：</label>
 			<input id="shopName" type="text" class="form-control" value="${shop.shopName}" name="shopName" maxlength="50">
@@ -45,9 +45,6 @@
 </div>
 
 <script>
-var childTableId = '#child_table' + ${shop.agentId};
-alert(childTableId);
-var $childTable = $(childTableId);
 function updateSubmit() {
     $.ajax({
         type: 'post',
@@ -93,7 +90,9 @@ function updateSubmit() {
 				}
 			} else {
 				updateShopDialog.close();
-				$childTable.bootstrapTable('refresh');
+				var childTableId = '#child_shop_table' + ${shop.agentId};
+				var $childShopTable = $(childTableId);
+				$childShopTable.bootstrapTable('refresh');
 			}
         },
         error: function(XMLHttpRequest, textStatus, errorThrown) {

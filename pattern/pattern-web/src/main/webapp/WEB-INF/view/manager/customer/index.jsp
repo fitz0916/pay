@@ -58,7 +58,7 @@ function initMyTable(){
 		},
 		columns: [
 			{field: 'ck', checkbox: true},
-			{field:'shopId',title:'ID',align:'center'},
+			{field:'customerId',title:'ID',align:'center'},
 			{field:'customerName',title:'商户名称',align:'center'},
 			{field:'customerNo',title:'商户编号',align:'center'},
 			{field:'amount',title:'金额',align:'center'},
