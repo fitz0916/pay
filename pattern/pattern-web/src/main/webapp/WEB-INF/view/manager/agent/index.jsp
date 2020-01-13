@@ -130,9 +130,10 @@ function onExpandCustomerRow(index,row,$element){
 			{field:'settlement',title:'待结算金额',align:'center'},
 			{field:'createDate',title:'创建时间',align:'center',formatter: 'changeDateFormat'},
             {field: 'status', title: '状态', align: 'center',formatter: 'statusFormatter'},
+            {field: 'payoutWay', title: '代付方式', align: 'center',formatter: 'payoutFormatter'},
             {field: 'action', title: '操作', align: 'center',formatter: function(value, row, index){
         		 return [
-        			 '<shiro:hasPermission name="pattern:shop:update"><button type="button" class="btn btn-info btn-sm" style="margin-right:10px;padding:0 10px;" onclick="updateShopRow(' + row.shopId + ')">编辑商户</button></shiro:hasPermission>',
+        			 '<shiro:hasPermission name="pattern:customer:update"><button type="button" class="btn btn-info btn-sm" style="margin-right:10px;padding:0 10px;" onclick="updateCustomerRow(' + row.customerId + ')">编辑商户</button></shiro:hasPermission>',
        				 '<shiro:hasPermission name="pattern:customer:red"><button type="button" class="btn btn-info btn-sm" style="margin-right:10px;padding:0 10px;" onclick="viewCustomerChannelRow(' + row.shopId + ')">查看商户渠道</button></shiro:hasPermission>'
      			].join('');
             }, events: 'actionEvent'}
@@ -285,7 +286,24 @@ function updateShopRow(shopId){
     });
 }
 
-
+var updateCustomerDialog;
+function updateCustomerRow(customerId){
+	updateCustomerDialog = $.dialog({
+        animationSpeed: 300,
+        title: '编辑门店',
+        columnClass: 'col-md-10 col-md-offset-1 col-sm-6 col-sm-offset-3 col-xs-10 col-xs-offset-1',
+        content: 'url:${basePath}/manage/customer/update/'+customerId,
+        onContentReady:function(){
+        	initMaterialInput();
+        },
+        contentLoaded: function(data, status, xhr){
+            if(data.code == '10110'){
+            	layer.msg(data.msg);
+                location:top.location.href = '${basePath}/login';
+            }
+        }
+    });
+}
 
 // 格式化操作按钮
 function actionFormatter(value, row, index) {
@@ -344,6 +362,14 @@ function statusFormatter(value, row, index) {
 		return '<span class="label label-success">正常</span>';
 	} else {
 		return '<span class="label label-default">锁定</span>';
+	}
+}
+
+function payoutFormatter(value, row, index){
+	if (value == 1) {
+		return '<span class="label label-default">自动代付</span>';
+	} else {
+		return '<span class="label label-success">人工代付</span>';
 	}
 }
 

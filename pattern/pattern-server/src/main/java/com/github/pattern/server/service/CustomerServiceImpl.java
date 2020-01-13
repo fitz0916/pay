@@ -85,7 +85,8 @@ public class CustomerServiceImpl extends BaseService implements CustomerService{
 			 modelResult.withError("0", "非法参数");
 			 return modelResult;
 		 }
-		 int result = customerDao.updateByPrimaryKey(record);
+		 record.setUpdateDate(new Date());
+		 int result = customerDao.updateByPrimaryKeySelective(record);
 		 if(result > 0) {
 			 modelResult.setModel(result);
 		 }else {
@@ -101,6 +102,7 @@ public class CustomerServiceImpl extends BaseService implements CustomerService{
 			 modelResult.withError("0", "非法参数");
 			 return modelResult;
 		 }
+		 record.setUpdateDate(new Date());
 		 int result = customerDao.updateByPrimaryKey(record);
 		 if(result > 0) {
 			 modelResult.setModel(result);

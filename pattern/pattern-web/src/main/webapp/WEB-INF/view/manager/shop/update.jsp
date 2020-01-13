@@ -90,7 +90,8 @@ function updateSubmit() {
 				}
 			} else {
 				updateShopDialog.close();
-				var childTableId = '#child_shop_table' + ${shop.agentId};
+				var agentId = $('#agentId').val();
+				var childTableId = '#child_shop_table' + agentId;
 				var $childShopTable = $(childTableId);
 				$childShopTable.bootstrapTable('refresh');
 			}

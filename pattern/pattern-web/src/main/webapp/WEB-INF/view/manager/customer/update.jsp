@@ -7,8 +7,9 @@
 <%@taglib prefix="shiro" uri="http://shiro.apache.org/tags" %>
 <div id="updateDialog" class="crudDialog">
 	<form id="updateForm" method="post">
-		<input type="hidden" name="agentId" value="${customer.agentId}">
-	    <input type="hidden" name="shopId" value="${customer.shopId}">
+		<input type="hidden" id="agentId" name="agentId" value="${customer.agentId}">
+	    <input type="hidden" id="shopId" name="shopId" value="${customer.shopId}">
+	    <input type="hidden" id="customerId" name="customerId" value="${customer.customerId}">
 		<div class="form-group">
 			<label for="customerName">商户名称：</label>
 			<input id="customerName" type="text" class="form-control" value="${customer.customerName}" name="customerName" maxlength="50">
@@ -32,35 +33,35 @@
 		
 		<div class="radio">
 			<div class="radio radio-inline radio-info">
-				<input id="status_1" type="radio" name="status" value="1" <if test="${customer.status == 1}">checked</if>>
+				<input id="status_1" type="radio" name="status" value="1" <c:if test="${customer.status == 1}">checked</c:if>>
 				<label for="status_1">启用 </label>
 			</div>
 			<div class="radio radio-inline radio-danger">
-				<input id="status_0" type="radio" name="status" value="0" <if test="${customer.status == 0}">checked</if>>
+				<input id="status_0" type="radio" name="status" value="0" <c:if test="${customer.status == 0}">checked</c:if>>
 				<label for="status_0">锁定 </label>
 			</div>
 		</div>
 		<div class="radio">
 			<div class="radio radio-inline radio-info">
-				<input id="payoutWay_0" type="radio" name="payoutWay" value="0" <if test="${customer.payoutWay == 0}">checked</if>>
+				<input id="payoutWay_0" type="radio" name="payoutWay" value="0" <c:if test="${customer.payoutWay == 0}">checked</c:if>>
 				<label for="payoutWay_0">自动代付 </label>
 			</div>
 			<div class="radio radio-inline radio-danger">
-				<input id="payoutWay_1" type="radio" name="payoutWay" value="1" <if test="${customer.payoutWay == 1}">checked</if>>
+				<input id="payoutWay_1" type="radio" name="payoutWay" value="1" <c:if test="${customer.payoutWay == 1}">checked</c:if>>
 				<label for="payoutWay_1">人工代付 </label>
 			</div>
 		</div>
 		<div class="form-group text-right dialog-buttons">
-			<a class="waves-effect waves-button" href="javascript:;" onclick="updateSubmit();">保存</a>
-			<a class="waves-effect waves-button" href="javascript:;" onclick="updateDialog.close();">取消</a>
+			<a class="waves-effect waves-button" href="javascript:;" onclick="updateCustomerSubmit();">保存</a>
+			<a class="waves-effect waves-button" href="javascript:;" onclick="updateCustomerDialog.close();">取消</a>
 		</div>
 	</form>
 </div>
 <script>
-function updateSubmit() {
+function updateCustomerSubmit() {
     $.ajax({
         type: 'post',
-        url: '${basePath}/manage/shop/update/${shop.shopId}',
+        url: '${basePath}/manage/customer/update',
         data: $('#updateForm').serialize(),
         beforeSend: function() {
         },
@@ -101,8 +102,11 @@ function updateSubmit() {
 						});
 				}
 			} else {
-				updateDialog.close();
-				$customerTable.bootstrapTable('refresh');
+				updateCustomerDialog.close();
+				var shopId = $('#shopId').val();
+				var childTableId = '#child_customer_table' + shopId
+				var $childShopTable = $(childTableId);
+				$childShopTable.bootstrapTable('refresh');
 			}
         },
         error: function(XMLHttpRequest, textStatus, errorThrown) {
