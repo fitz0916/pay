@@ -37,6 +37,15 @@ public class ShopController {
 	@Autowired
 	private AgentServiceClient agentServiceClient;
 	
+	
+	@ApiOperation("代理商首页")
+    @RequiresPermissions("pattern:shop:read")
+    @RequestMapping(value = "/index",method = RequestMethod.GET)
+    public String index(){
+       return "/manager/shop/index";
+    }
+	
+	
 	@ApiOperation("门店商首页")
     @RequiresPermissions("pattern:shop:read")
     @RequestMapping(value = "/list",method = RequestMethod.POST)

@@ -6,16 +6,36 @@
 <%@ taglib uri="http://www.springframework.org/tags/form" prefix="form"%>
 <%@taglib prefix="shiro" uri="http://shiro.apache.org/tags" %>
 <c:set var="basePath" value="${pageContext.request.contextPath}"/>
-<div id="customerMain">
+<!DOCTYPE HTML>
+<html lang="zh-cn">
+<head>
+	<meta charset="utf-8">
+	<meta http-equiv="X-UA-Compatible" content="IE=edge">
+	<meta name="viewport" content="width=device-width, initial-scale=1">
+	<title>门店管理</title>
+	<jsp:include page="../../common/inc/head.jsp" flush="true"/>
+	<style type="text/css">
+		.agent-main-class{
+			width: 80%;
+			margin-top: 5%;
+		}
+		.frozen-diglog-left{
+			margin-left: 30%;
+		}
+	</style>
+</head>
+<body>
+<div id="main">
+	<div id="toolbar"></div>
 	<table id="customerTable"></table>
 </div>
+<jsp:include page="../../common/inc/footer.jsp" flush="true"/>
 <script type="text/javascript">
 
 var $customerTable = $('#customerTable');
 
 
 $(function() {
-	var shopId = '${shopId}';
 	initMyTable();
 });
 
@@ -41,8 +61,8 @@ function initMyTable(){
 		searchOnEnterKey: false,	//设置为true时，按回车触发搜索方法，否则自动触发搜索方法
 		idField: 'customerId',	//指定主键列
 		maintainSelected: true,
-		detailView: true, //是否开启子table
-		detailFormatter:detailFormatter,
+		detailView: false, //是否开启子table
+		//detailFormatter:detailFormatter,
 		//detailViewIcon:false,
 		//detailViewByClick:true,
 		queryParams:queryParams,
@@ -65,39 +85,20 @@ function initMyTable(){
 			{field:'frozenAmount',title:'冻结金额',align:'center'},
 			{field:'settlement',title:'待结算金额',align:'center'},
 			{field:'createDate',title:'创建时间',align:'center',formatter: 'changeDateFormat'},
-            {field: 'status', title: '状态', align: 'center',formatter: 'statusFormatter'}
+            {field: 'status', title: '状态', align: 'center',formatter: 'statusFormatter'},
+            {field: 'payoutWay', title: '代付方式', align: 'center',formatter: 'payoutFormatter'},
 		]
 		
 	});
 }
 
 
-function detailFormatter(index,row){
-	initMaterialInput();
-	var array = new Array();
-	array.push('<input type="hidden" name="agentId" value="' + row.agentId + '">');
-	array.push('<input type="hidden" name="shopId"  value="' + row.shopId + '">');
-	array.push('<div">');
-	array.push('	商户名称：<input id="customerName" type="text"  value="' + row.customerName + '" name="customerName" maxlength="50">');
-	array.push('</div>');
-	array.push('<div">');
-	array.push('	金额：<input id="customerName" type="text"  value="' + row.customerName + '" name="customerName" maxlength="50">');
-	array.push('</div>');
-	array.push('<div">');
-	array.push('	冻结金额：<input id="customerName" type="text"  value="' + row.customerName + '" name="customerName" maxlength="50">');
-	array.push('</div>');
-	array.push('<div">');
-	array.push('	待结算金额：<input id="customerName" type="text"  value="' + row.customerName + '" name="customerName" maxlength="50">');
-	array.push('</div>');
-	array.push('<div class="radio""><div class="radio radio-inline radio-info">');
-	array.push('	<input id="status" type="radio"  value="1"');
-	array.push('<label for="status_1">启用 </label>');
-	array.push('	<input id="status" type="radio"  value="0"');
-	array.push('<label for="status_0">禁用 </label>');
-	
-	array.push('</div></div>');
-	
-    return array.join('');
+function payoutFormatter(value, row, index){
+	if (value == 1) {
+		return '<span class="label label-default">自动代付</span>';
+	} else {
+		return '<span class="label label-success">人工代付</span>';
+	}
 }
 
 //分页查询参数，是以键值对的形式设置的
@@ -105,7 +106,7 @@ function queryParams(params) {
     return {
         limit: params.limit, // 每页显示数量
         offset: parseInt(params.offset),
-        shopId:'${shopId}'
+        shopId:null
     }
 }
 
@@ -141,3 +142,5 @@ function changeDateFormat(value) {
 	  return time;
 }
 </script>
+</body>
+</html>

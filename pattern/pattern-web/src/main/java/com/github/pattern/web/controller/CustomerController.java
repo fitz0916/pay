@@ -37,11 +37,13 @@ public class CustomerController {
 	@Autowired
 	private ShopServiceClient shopServiceClient;
 	
+	
+	
+	
 	@ApiOperation("商户首页")
     @RequiresPermissions("pattern:customer:read")
-    @RequestMapping(value = "/index/{shopId}",method = RequestMethod.GET)
-	public String index(@PathVariable("shopId")Integer shopId,ModelMap modelMap) {
-		modelMap.put("shopId", shopId);
+    @RequestMapping(value = "/index",method = RequestMethod.GET)
+	public String index(ModelMap modelMap) {
 		return "/manager/customer/index";
 		
 	}
