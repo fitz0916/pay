@@ -286,11 +286,31 @@ function updateShopRow(shopId){
     });
 }
 
+
+var createCustomerDialog;
+function createCustomerRow(shopId){
+	createCustomerDialog = $.dialog({
+        animationSpeed: 300,
+        title: '编辑商户',
+        columnClass: 'col-md-10 col-md-offset-1 col-sm-6 col-sm-offset-3 col-xs-10 col-xs-offset-1',
+        content: 'url:${basePath}/manage/customer/create/'+shopId,
+        onContentReady:function(){
+        	initMaterialInput();
+        },
+        contentLoaded: function(data, status, xhr){
+            if(data.code == '10110'){
+            	layer.msg(data.msg);
+                location:top.location.href = '${basePath}/login';
+            }
+        }
+    });
+}
+
 var updateCustomerDialog;
 function updateCustomerRow(customerId){
 	updateCustomerDialog = $.dialog({
         animationSpeed: 300,
-        title: '编辑门店',
+        title: '编辑商户',
         columnClass: 'col-md-10 col-md-offset-1 col-sm-6 col-sm-offset-3 col-xs-10 col-xs-offset-1',
         content: 'url:${basePath}/manage/customer/update/'+customerId,
         onContentReady:function(){

@@ -7,8 +7,8 @@
 <%@taglib prefix="shiro" uri="http://shiro.apache.org/tags" %>
 <div id="createDialog" class="crudDialog">
 	<form id="createForm" method="post">
-		<input type="hidden" name="agentId" value="${shop.agentId}">
-	    <input type="hidden" name="shopId" value="${shop.shopId}">
+		<input type="hidden" id="agentId" name="agentId" value="${shop.agentId}">
+	    <input type="hidden" id="shopId" name="shopId" value="${shop.shopId}">
 		<div class="form-group">
 			<label for="customerName">商户名称：</label>
 			<input id="customerName" type="text" class="form-control" name="customerName" maxlength="50">
@@ -34,13 +34,13 @@
 			</div>
 		</div>
 		<div class="form-group text-right dialog-buttons">
-			<a class="waves-effect waves-button" href="javascript:;" onclick="createSubmit();">保存</a>
-			<a class="waves-effect waves-button" href="javascript:;" onclick="createDialog.close();">取消</a>
+			<a class="waves-effect waves-button" href="javascript:;" onclick="createCustomerSubmit();">保存</a>
+			<a class="waves-effect waves-button" href="javascript:;" onclick="createCustomerDialog.close();">取消</a>
 		</div>
 	</form>
 </div>
 <script type="text/javascript">
-function createSubmit() {
+function createCustomerSubmit() {
     $.ajax({
         type: 'post',
         url: '${basePath}/manage/customer/create',
@@ -84,8 +84,11 @@ function createSubmit() {
 						});
 				}
 			} else {
-				createDialog.close();
-				$table.bootstrapTable('refresh');
+				createCustomerDialog.close();
+				var shopId = $('#shopId').val();
+				var childTableId = '#child_customer_table' + shopId
+				var $childCustomerTable = $(childTableId);
+				$childCustomerTable.bootstrapTable('refresh');
 			}
         },
         error: function(XMLHttpRequest, textStatus, errorThrown) {

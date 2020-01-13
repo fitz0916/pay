@@ -105,8 +105,8 @@ function updateCustomerSubmit() {
 				updateCustomerDialog.close();
 				var shopId = $('#shopId').val();
 				var childTableId = '#child_customer_table' + shopId
-				var $childShopTable = $(childTableId);
-				$childShopTable.bootstrapTable('refresh');
+				var $childCustomerTable = $(childTableId);
+				$childCustomerTable.bootstrapTable('refresh');
 			}
         },
         error: function(XMLHttpRequest, textStatus, errorThrown) {

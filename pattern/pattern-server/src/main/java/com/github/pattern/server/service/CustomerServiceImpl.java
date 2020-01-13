@@ -53,6 +53,9 @@ public class CustomerServiceImpl extends BaseService implements CustomerService{
 		 }
 		 String customerNo = PatternConstants.CUSTOMER_NO_PREFX + UUIDGenerator.getRandomNumber(6);
 		 String cipher = RandomStringUtils.random(6);
+		 record.setAmount(0L);
+		 record.setFrozenAmount(0L);
+		 record.setFrozenAmountSum(0L);
 		 record.setCustomerNo(customerNo);
 		 record.setCreateDate(new Date());
 		 record.setUpdateDate(new Date());
