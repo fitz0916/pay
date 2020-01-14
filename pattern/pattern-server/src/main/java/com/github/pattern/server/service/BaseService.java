@@ -24,6 +24,7 @@ public abstract class BaseService {
 
 	
 	
+	
 	protected ModelResult<Integer> operation(Integer result){
 		ModelResult<Integer> modelResult = new ModelResult<Integer>();
 		if(result > 0) {

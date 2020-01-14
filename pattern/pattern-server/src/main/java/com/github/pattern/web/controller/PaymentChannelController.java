@@ -1,5 +1,7 @@
 package com.github.pattern.web.controller;
 
+import java.util.List;
+
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.PostMapping;
@@ -49,5 +51,10 @@ public class PaymentChannelController {
 		@PostMapping("/updateByPrimaryKey")
 		public ModelResult<Integer> updateByPrimaryKey(@RequestBody PaymentChannel record){
 			return paymentChannelServiceImpl.updateByPrimaryKey(record);
+		}
+		
+		@PostMapping("/list")
+	    ModelResult<List<PaymentChannel>> list(){
+			return paymentChannelServiceImpl.list();
 		}
 }

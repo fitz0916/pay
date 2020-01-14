@@ -201,4 +201,10 @@
     from pattern_payment_channel
   </select>
   
+  <select id="list" resultMap="BaseResultMap" parameterType="map" >
+    select 
+    <include refid="Base_Column_List" />
+    from pattern_payment_channel
+  </select>
+  
 </mapper>

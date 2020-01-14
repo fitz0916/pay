@@ -5,14 +5,16 @@
     <id column="customer_payment_channel_info_id" property="customerPaymentChannelInfoId" jdbcType="INTEGER" />
     <result column="payment_channel_id" property="paymentChannelId" jdbcType="INTEGER" />
     <result column="customer_id" property="customerId" jdbcType="INTEGER" />
+    <result column="customer_no" property="customerNo" jdbcType="VARCHAR" />
+    <result column="settlement_type" property="settlementType" jdbcType="TINYINT" />
     <result column="remark" property="remark" jdbcType="VARCHAR" />
     <result column="create_time" property="createTime" jdbcType="TIMESTAMP" />
     <result column="update_time" property="updateTime" jdbcType="TIMESTAMP" />
     <result column="status" property="status" jdbcType="TINYINT" />
   </resultMap>
   <sql id="Base_Column_List" >
-    customer_payment_channel_info_id, payment_channel_id, customer_id, remark, create_time, 
-    update_time, status
+    customer_payment_channel_info_id, payment_channel_id, customer_id, customer_no, settlement_type, 
+    remark, create_time, update_time, status
   </sql>
   <select id="selectByPrimaryKey" resultMap="BaseResultMap" parameterType="java.lang.Integer" >
     select 
@@ -26,11 +28,13 @@
   </delete>
   <insert id="insert" parameterType="com.github.pattern.common.domain.CustomerPaymentChannelInfo" >
     insert into pattern_customer_payment_channel_info (customer_payment_channel_info_id, payment_channel_id, 
-      customer_id, remark, create_time, 
-      update_time, status)
+      customer_id, customer_no, settlement_type, 
+      remark, create_time, update_time, 
+      status)
     values (#{customerPaymentChannelInfoId,jdbcType=INTEGER}, #{paymentChannelId,jdbcType=INTEGER}, 
-      #{customerId,jdbcType=INTEGER}, #{remark,jdbcType=VARCHAR}, #{createTime,jdbcType=TIMESTAMP}, 
-      #{updateTime,jdbcType=TIMESTAMP}, #{status,jdbcType=TINYINT})
+      #{customerId,jdbcType=INTEGER}, #{customerNo,jdbcType=VARCHAR}, #{settlementType,jdbcType=TINYINT}, 
+      #{remark,jdbcType=VARCHAR}, #{createTime,jdbcType=TIMESTAMP}, #{updateTime,jdbcType=TIMESTAMP}, 
+      #{status,jdbcType=TINYINT})
   </insert>
   <insert id="insertSelective" parameterType="com.github.pattern.common.domain.CustomerPaymentChannelInfo" >
     insert into pattern_customer_payment_channel_info
@@ -43,6 +47,12 @@
       </if>
       <if test="customerId != null" >
         customer_id,
+      </if>
+      <if test="customerNo != null" >
+        customer_no,
+      </if>
+      <if test="settlementType != null" >
+        settlement_type,
       </if>
       <if test="remark != null" >
         remark,
@@ -67,6 +77,12 @@
       <if test="customerId != null" >
         #{customerId,jdbcType=INTEGER},
       </if>
+      <if test="customerNo != null" >
+        #{customerNo,jdbcType=VARCHAR},
+      </if>
+      <if test="settlementType != null" >
+        #{settlementType,jdbcType=TINYINT},
+      </if>
       <if test="remark != null" >
         #{remark,jdbcType=VARCHAR},
       </if>
@@ -90,6 +106,12 @@
       <if test="customerId != null" >
         customer_id = #{customerId,jdbcType=INTEGER},
       </if>
+      <if test="customerNo != null" >
+        customer_no = #{customerNo,jdbcType=VARCHAR},
+      </if>
+      <if test="settlementType != null" >
+        settlement_type = #{settlementType,jdbcType=TINYINT},
+      </if>
       <if test="remark != null" >
         remark = #{remark,jdbcType=VARCHAR},
       </if>
@@ -109,10 +131,57 @@
     update pattern_customer_payment_channel_info
     set payment_channel_id = #{paymentChannelId,jdbcType=INTEGER},
       customer_id = #{customerId,jdbcType=INTEGER},
+      customer_no = #{customerNo,jdbcType=VARCHAR},
+      settlement_type = #{settlementType,jdbcType=TINYINT},
       remark = #{remark,jdbcType=VARCHAR},
       create_time = #{createTime,jdbcType=TIMESTAMP},
       update_time = #{updateTime,jdbcType=TIMESTAMP},
       status = #{status,jdbcType=TINYINT}
     where customer_payment_channel_info_id = #{customerPaymentChannelInfoId,jdbcType=INTEGER}
   </update>
+  
+  <select id="selectPaymentChannelInfoByCustomerId" resultType="long" parameterType="java.lang.Integer" >
+    select  count(*)
+    	from pattern_customer_payment_channel_info
+    <where>
+    	<if test="customerId != null">
+    		and customer_id = #{customerId,jdbcType=INTEGER}
+    	</if>
+    </where>
+  </select>
+  
+   <select id="pageList" resultMap="BaseResultMap" parameterType="java.lang.Integer" >
+    select 
+    	<include refid="Base_Column_List" />
+    	
+    from pattern_customer_payment_channel_info
+    
+    <where>
+    	<if test="customerId != null">
+    		and customer_id = #{customerId,jdbcType=INTEGER}
+    	</if>
+    </where>
+     
+    <if test="start !=null and offset !=null">
+      limit #{start}, #{offset}
+    </if>
+  
+  </select>
+  
+  
+  <select id="selectByCustomerIdAndPaymentChannelId" resultMap="BaseResultMap" parameterType="java.lang.Integer" >
+    select 
+    	<include refid="Base_Column_List" />
+    from pattern_customer_payment_channel_info
+    <where>
+    	<if test="customerId != null">
+    		and customer_id = #{customerId,jdbcType=INTEGER}
+    	</if>
+    	<if test="paymentChannelId != null">
+    	    and payment_channel_id = #{paymentChannelId,jdbcType=INTEGER}
+    	</if>
+    </where>
+     
+  </select>
+  
 </mapper>

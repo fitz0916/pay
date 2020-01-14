@@ -50,10 +50,13 @@
 		<div class="form-group">
 		  <div>
 		     <select name="payType"  class="form-control">
-		         <option value="-1">请选择渠道</option>
-		         <option value="0" <c:if test="${paymentChannel.payType == 0}">selected="selected"</c:if>>微信-扫码</option>
-		         <option value="1" <c:if test="${paymentChannel.payType == 1}">selected="selected"</c:if>>支付宝-扫码</option>
-		         <option value="2" <c:if test="${paymentChannel.payType == 2}">selected="selected"</c:if>>快捷支付</option>
+		         <option value="-1">请选择支付类型</option>
+		             <option value="0" <c:if test="${paymentChannel.payType == 0}">selected="selected"</c:if>>微信-扫码</option>
+		             <option value="1" <c:if test="${paymentChannel.payType == 1}">selected="selected"</c:if>>支付宝-扫码</option>
+		             <option value="2" <c:if test="${paymentChannel.payType == 2}">selected="selected"</c:if>>银联扫码支付</option>
+		             <option value="3" <c:if test="${paymentChannel.payType == 3}">selected="selected"</c:if>>QQ扫码支付</option>
+		             <option value="4" <c:if test="${paymentChannel.payType == 4}">selected="selected"</c:if>>京东钱包扫码支付</option>
+		             <option value="5" <c:if test="${paymentChannel.payType == 5}">selected="selected"</c:if>>快捷支付</option>
 		     </select>
 		  </div>
 		</div>

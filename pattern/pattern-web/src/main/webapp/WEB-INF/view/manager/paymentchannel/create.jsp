@@ -52,7 +52,10 @@
 		             <option value="">请选择支付类型</option>
 		             <option value="0">微信-扫码</option>
 		             <option value="1">支付宝-扫码</option>
-		             <option value="2">快捷支付</option>
+		             <option value="2">银联扫码支付</option>
+		             <option value="3">QQ扫码支付</option>
+		             <option value="4">京东钱包扫码支付</option>
+		             <option value="5">快捷支付</option>
 		    	 </select>
 			</div>
 		</div>

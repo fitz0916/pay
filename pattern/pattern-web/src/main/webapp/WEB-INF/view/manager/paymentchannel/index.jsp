@@ -69,6 +69,7 @@ $(function() {
 			{field: 'ck', checkbox: true, align: 'center'},
 			{field: 'paymentChannelId', title: '编号', sortable: true, align: 'center'},
 			{field: 'channelName', title: '渠道名称', align: 'center'},
+			{field: 'payType', title: '渠道类型', align: 'center',formatter:'paymentTypeFormatter'},
 			{field: 'thirdChannelName', title: '三方渠道名称', align: 'center'},
             {field: 'status', title: '状态', align: 'center',formatter: 'statusFormatter'},
             {field: 'businessContacts', title: '联系人', align: 'center'},
@@ -82,6 +83,23 @@ $(function() {
 	});
 });
 
+function paymentTypeFormatter(value, row, index){
+	if(value == 0) {
+		return '<span class="label label-primary">微信-扫码</span>';
+	}else if(value == 1){
+		return '<span class="label label-success">支付宝-扫码</span>';
+	}else if(value == 2){
+		return '<span class="label label-info">银联扫码支付</span>';
+	}else if(value == 3){
+		return '<span class="label label-warning">QQ扫码支付</span>';
+	}else if(value == 4){
+		return '<span class="label label-danger">京东钱包扫码支付</span>';
+	}else if(value == 5){
+		return '<span class="label label-warning">快捷支付</span>';
+	}else{
+		return '<span class="label label-default">其他</span>';
+	}
+}
 
 function onAccountExpandRow(index,row,$element){
 	var paraTable = $element.html('<table id="child_account_table'+row.paymentChannelId+'"></table>').find('table');
@@ -186,7 +204,7 @@ function statusFormatter(value, row, index) {
 	if (value == 1) {
 		return '<span class="label label-success">正常</span>';
 	} else {
-		return '<span class="label label-default">锁定</span>';
+		return '<span class="label label-danger">锁定</span>';
 	}
 }
 

@@ -3,7 +3,7 @@ package com.github.pattern.common.service;
 import com.github.appmodel.domain.result.ModelResult;
 import com.github.pattern.common.domain.CustomerPaymentChannelInfo;
 import com.github.pattern.common.request.CustomerPaymentChannelInfoRequest;
-import com.github.pattern.common.vo.ResultVo;
+import com.github.pattern.common.vo.PageVo;
 
 public interface CustomerPaymentChannelInfoService {
 	
@@ -17,6 +17,8 @@ public interface CustomerPaymentChannelInfoService {
 
     ModelResult<Integer> updateByPrimaryKey(CustomerPaymentChannelInfo record);
 
-	ModelResult<ResultVo> page(CustomerPaymentChannelInfoRequest request);
+	ModelResult<PageVo> page(CustomerPaymentChannelInfoRequest request);
+
+	ModelResult<PageVo> paymentChannelInfoPage(CustomerPaymentChannelInfoRequest request);
 
 }

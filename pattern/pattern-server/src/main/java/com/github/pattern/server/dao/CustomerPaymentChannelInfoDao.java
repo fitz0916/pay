@@ -1,5 +1,7 @@
 package com.github.pattern.server.dao;
 
+import java.util.List;
+
 import org.apache.ibatis.annotations.Param;
 import org.springframework.stereotype.Repository;
 
@@ -19,4 +21,11 @@ public interface CustomerPaymentChannelInfoDao {
     int updateByPrimaryKeySelective(CustomerPaymentChannelInfo record);
 
     int updateByPrimaryKey(CustomerPaymentChannelInfo record);
+    
+    long selectPaymentChannelInfoByCustomerId(@Param("customerId")Integer customerId);
+
+	List<CustomerPaymentChannelInfo> pageList(@Param("start")int start, @Param("offset")int offset, @Param("customerId")Integer customerId);
+	
+	
+	CustomerPaymentChannelInfo selectByCustomerIdAndPaymentChannelId(@Param("customerId")Integer customerId,@Param("paymentChannelId")Integer paymentChannelId);
 }

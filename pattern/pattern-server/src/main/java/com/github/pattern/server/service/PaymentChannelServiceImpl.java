@@ -101,5 +101,13 @@ public class PaymentChannelServiceImpl extends BaseService implements PaymentCha
         return modelResult;
 	}
 
+	@Override
+	public ModelResult<List<PaymentChannel>> list() {
+		ModelResult<List<PaymentChannel>> modelResult = new ModelResult<List<PaymentChannel>>();
+		List<PaymentChannel> list = paymentChannelDao.list();
+		modelResult.setModel(list);
+		return modelResult;
+	}
+
 		
 }

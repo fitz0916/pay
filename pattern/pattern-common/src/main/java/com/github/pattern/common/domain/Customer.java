@@ -43,6 +43,10 @@ public class Customer extends BaseObject{
     private Date createDate;
     /**更新日期**/
     private Date updateDate;
+    //是否设置渠道0：没有1：设置
+    private Integer payChannelStatus;
+    //渠道数量
+    private Long payChannelNum;
     
 	public Integer getCustomerId() {
 		return customerId;
@@ -136,8 +140,18 @@ public class Customer extends BaseObject{
 	public void setUpdateDate(Date updateDate) {
 		this.updateDate = updateDate;
 	}
+	public Integer getPayChannelStatus() {
+		return payChannelStatus;
+	}
+	public void setPayChannelStatus(Integer payChannelStatus) {
+		this.payChannelStatus = payChannelStatus;
+	}
+	public Long getPayChannelNum() {
+		return payChannelNum;
+	}
+	public void setPayChannelNum(Long payChannelNum) {
+		this.payChannelNum = payChannelNum;
+	}
     
-    
-	
     
 }

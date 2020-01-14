@@ -9,7 +9,7 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import com.github.appmodel.domain.result.ModelResult;
 import com.github.pattern.common.domain.CustomerPaymentChannelInfo;
 import com.github.pattern.common.request.CustomerPaymentChannelInfoRequest;
-import com.github.pattern.common.vo.ResultVo;
+import com.github.pattern.common.vo.PageVo;
 
 @FeignClient(name="pattern-server")
 @RequestMapping("/pattern/server/customerPaymentChannelInfo")
@@ -17,7 +17,7 @@ public interface CustomerPaymentChannelInfoServiceClient {
 	
 	
 	@PostMapping("/page")
-	ModelResult<ResultVo> page(@RequestBody CustomerPaymentChannelInfoRequest request);
+	ModelResult<PageVo> page(@RequestBody CustomerPaymentChannelInfoRequest request);
 	
 	
 	@PostMapping("/deleteByPrimaryKey/{customerPaymentChannelInfoId}")
@@ -35,5 +35,8 @@ public interface CustomerPaymentChannelInfoServiceClient {
     
     @PostMapping("/updateByPrimaryKey")
     ModelResult<Integer> updateByPrimaryKey(@RequestBody CustomerPaymentChannelInfo record);
+
+    @PostMapping("/paymentChannelInfoPage")
+	ModelResult<PageVo> paymentChannelInfoPage(@RequestBody CustomerPaymentChannelInfoRequest request);
 
 }

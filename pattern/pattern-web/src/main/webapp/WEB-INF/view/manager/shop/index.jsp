@@ -155,7 +155,7 @@ function onExpandCustomerRow(index,row,$element){
 
 function payoutFormatter(value, row, index){
 	if (value == 1) {
-		return '<span class="label label-default">自动代付</span>';
+		return '<span class="label label-danger">自动代付</span>';
 	} else {
 		return '<span class="label label-success">人工代付</span>';
 	}
@@ -221,7 +221,7 @@ function statusFormatter(value, row, index) {
 	if (value == 1) {
 		return '<span class="label label-success">正常</span>';
 	} else {
-		return '<span class="label label-default">锁定</span>';
+		return '<span class="label label-danger">锁定</span>';
 	}
 }
 

@@ -20,7 +20,10 @@ public class CustomerPaymentChannelInfo extends BaseObject {
      * 渠道ID
      */
     private Integer paymentChannelId;
-   
+    
+    private String customerNo;
+    //结算方式：0:D0,1:D1,2:T0,3:T1
+    private Integer settlementType;
     /**
      * 商户ID
      */
@@ -28,7 +31,7 @@ public class CustomerPaymentChannelInfo extends BaseObject {
     
     private Date createTime;
     
-    private Date updateTtime;
+    private Date updateTime;
 
 	/**
 	 * 支付状态（0禁用 1启用 2删除）
@@ -39,6 +42,8 @@ public class CustomerPaymentChannelInfo extends BaseObject {
      * 备注
      */
     private String remark;
+    
+    private PaymentChannel paymentChannel;
 
 	public Integer getCustomerPaymentChannelInfoId() {
 		return customerPaymentChannelInfoId;
@@ -54,6 +59,22 @@ public class CustomerPaymentChannelInfo extends BaseObject {
 
 	public void setPaymentChannelId(Integer paymentChannelId) {
 		this.paymentChannelId = paymentChannelId;
+	}
+	
+	public String getCustomerNo() {
+		return customerNo;
+	}
+
+	public void setCustomerNo(String customerNo) {
+		this.customerNo = customerNo;
+	}
+
+	public Integer getSettlementType() {
+		return settlementType;
+	}
+
+	public void setSettlementType(Integer settlementType) {
+		this.settlementType = settlementType;
 	}
 
 	public Integer getStatus() {
@@ -79,12 +100,12 @@ public class CustomerPaymentChannelInfo extends BaseObject {
 		this.createTime = createTime;
 	}
 
-	public Date getUpdateTtime() {
-		return updateTtime;
+	public Date getUpdateTime() {
+		return updateTime;
 	}
 
-	public void setUpdateTtime(Date updateTtime) {
-		this.updateTtime = updateTtime;
+	public void setUpdateTime(Date updateTime) {
+		this.updateTime = updateTime;
 	}
 
 	public String getRemark() {
@@ -95,7 +116,14 @@ public class CustomerPaymentChannelInfo extends BaseObject {
 		this.remark = remark;
 	}
 
-	
+	public PaymentChannel getPaymentChannel() {
+		return paymentChannel;
+	}
+
+	public void setPaymentChannel(PaymentChannel paymentChannel) {
+		this.paymentChannel = paymentChannel;
+	}
+
     
     
     

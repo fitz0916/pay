@@ -11,7 +11,7 @@ import com.github.appmodel.domain.result.ModelResult;
 import com.github.pattern.common.domain.CustomerPaymentChannelInfo;
 import com.github.pattern.common.request.CustomerPaymentChannelInfoRequest;
 import com.github.pattern.common.service.CustomerPaymentChannelInfoService;
-import com.github.pattern.common.vo.ResultVo;
+import com.github.pattern.common.vo.PageVo;
 
 @RestController
 @RequestMapping("/pattern/server/customerPaymentChannelInfo")
@@ -22,7 +22,7 @@ public class CustomerPaymentChannelInfoController {
 	
 	
 	@PostMapping("/page")
-	public ModelResult<ResultVo> page(@RequestBody CustomerPaymentChannelInfoRequest request){
+	public ModelResult<PageVo> page(@RequestBody CustomerPaymentChannelInfoRequest request){
 		return customerPaymentChannelInfoImpl.page(request);
 	}
 	
@@ -53,4 +53,8 @@ public class CustomerPaymentChannelInfoController {
     	return customerPaymentChannelInfoImpl.updateByPrimaryKey(record);
     }
 
+    @PostMapping("/paymentChannelInfoPage")
+	ModelResult<PageVo> paymentChannelInfoPage(@RequestBody CustomerPaymentChannelInfoRequest request){
+    	return customerPaymentChannelInfoImpl.paymentChannelInfoPage(request);
+    }
 }

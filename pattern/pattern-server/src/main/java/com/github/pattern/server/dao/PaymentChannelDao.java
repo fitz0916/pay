@@ -26,4 +26,6 @@ public interface PaymentChannelDao {
 	long pageCount();
 
 	List<PaymentChannel> pageList(@Param("start")int start, @Param("offset")int offset);
+
+	List<PaymentChannel> list();
 }

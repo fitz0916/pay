@@ -12,7 +12,7 @@
 	<meta charset="utf-8">
 	<meta http-equiv="X-UA-Compatible" content="IE=edge">
 	<meta name="viewport" content="width=device-width, initial-scale=1">
-	<title>门店管理</title>
+	<title>商户管理</title>
 	<jsp:include page="../../common/inc/head.jsp" flush="true"/>
 	<style type="text/css">
 		.agent-main-class{
@@ -95,7 +95,7 @@ function initMyTable(){
 
 function payoutFormatter(value, row, index){
 	if (value == 1) {
-		return '<span class="label label-default">自动代付</span>';
+		return '<span class="label label-danger">自动代付</span>';
 	} else {
 		return '<span class="label label-success">人工代付</span>';
 	}
@@ -115,7 +115,7 @@ function statusFormatter(value, row, index) {
 	if (value == 1) {
 		return '<span class="label label-success">正常</span>';
 	} else {
-		return '<span class="label label-default">锁定</span>';
+		return '<span class="label label-danger">锁定</span>';
 	}
 }
 
