@@ -60,8 +60,14 @@ public class CustomerPaymentChannelInfoServiceImpl extends BaseService implement
 
 	@Override
 	public ModelResult<CustomerPaymentChannelInfo> selectByPrimaryKey(Integer customerPaymentChannelInfoId) {
-		// TODO Auto-generated method stub
-		return null;
+		ModelResult<CustomerPaymentChannelInfo> modelResult = new ModelResult<CustomerPaymentChannelInfo>();
+		if(customerPaymentChannelInfoId == null || customerPaymentChannelInfoId == 0) {
+			modelResult.withError("0", "非法参数");
+			return modelResult;
+		}
+		CustomerPaymentChannelInfo customerPaymentChannelInfo = customerPaymentChannelInfoDao.selectByPrimaryKey(customerPaymentChannelInfoId);
+		modelResult.setModel(customerPaymentChannelInfo);
+		return modelResult;
 	}
 
 	@Override
@@ -75,8 +81,12 @@ public class CustomerPaymentChannelInfoServiceImpl extends BaseService implement
 		Integer paymentChannelId = record.getPaymentChannelId();
 		CustomerPaymentChannelInfo channelInfo = customerPaymentChannelInfoDao.selectByCustomerIdAndPaymentChannelId(customerId, paymentChannelId);
 		if(channelInfo != null && channelInfo.getCustomerPaymentChannelInfoId() != null) {
-			modelResult.withError("0", "当前支付渠道已存在，请选择其他支付渠道");
-			return modelResult;
+			String customerChannelInfoId = String.valueOf(channelInfo.getCustomerPaymentChannelInfoId());
+			String updateChannelInfoId = String.valueOf(record.getCustomerPaymentChannelInfoId());
+			if(!customerChannelInfoId.equals(updateChannelInfoId)) {
+				modelResult.withError("0", "当前支付渠道已存在，请选择其他支付渠道");
+				return modelResult;
+			}
 		}
 		Date date = new Date();
 		record.setUpdateTime(date);
@@ -95,8 +105,12 @@ public class CustomerPaymentChannelInfoServiceImpl extends BaseService implement
 		Integer paymentChannelId = record.getPaymentChannelId();
 		CustomerPaymentChannelInfo channelInfo = customerPaymentChannelInfoDao.selectByCustomerIdAndPaymentChannelId(customerId, paymentChannelId);
 		if(channelInfo != null && channelInfo.getCustomerPaymentChannelInfoId() != null) {
-			modelResult.withError("0", "当前支付渠道已存在，请选择其他支付渠道");
-			return modelResult;
+			String customerChannelInfoId = String.valueOf(channelInfo.getCustomerPaymentChannelInfoId());
+			String updateChannelInfoId = String.valueOf(record.getCustomerPaymentChannelInfoId());
+			if(!customerChannelInfoId.equals(updateChannelInfoId)) {
+				modelResult.withError("0", "当前支付渠道已存在，请选择其他支付渠道");
+				return modelResult;
+			}
 		}
 		Date date = new Date();
 		record.setUpdateTime(date);
@@ -148,6 +162,10 @@ public class CustomerPaymentChannelInfoServiceImpl extends BaseService implement
 		ModelResult<PageVo> modelResult = new ModelResult<PageVo>();
 		PageVo pageVo = new PageVo();
 		Integer customerId = request.getCustomerId();
+		if(customerId == null) {
+			modelResult.withError("0", "非法参数");
+			return modelResult;
+		}
 		DataPage<CustomerPaymentChannelInfo> dataPage = new DataPage<CustomerPaymentChannelInfo>();
 		this.setDataPage(dataPage, request);;
 		int start = dataPage.getStartIndex();

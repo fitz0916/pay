@@ -7,6 +7,7 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.ModelMap;
 import org.springframework.web.bind.annotation.PathVariable;
+import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.ResponseBody;
@@ -54,7 +55,7 @@ public class CustomerPaymentChannelInfoController {
 	@ApiOperation("渠道商户首页")
     @RequiresPermissions("pattern:customerpaymentchannelinfo:read")
     @RequestMapping(value = "/list",method = RequestMethod.POST)
-	public @ResponseBody Object list(CustomerPaymentChannelInfoRequest request) {
+	public @ResponseBody Object list(@RequestBody CustomerPaymentChannelInfoRequest request) {
 		ModelResult<PageVo> modelResult = customerPaymentChannelInfoServiceClient.page(request);
 		return ResultUtils.buildPageResult(modelResult);
 	}
@@ -62,7 +63,7 @@ public class CustomerPaymentChannelInfoController {
 	@ApiOperation("商户对应渠道列表")
     @RequiresPermissions("pattern:customerpaymentchannelinfo:read")
     @RequestMapping(value = "/paymentchannelinfolist",method = RequestMethod.POST)
-	public @ResponseBody Object paymentChannelInfoList(CustomerPaymentChannelInfoRequest request) {
+	public @ResponseBody Object paymentChannelInfoList(@RequestBody CustomerPaymentChannelInfoRequest request) {
 		ModelResult<PageVo> modelResult = customerPaymentChannelInfoServiceClient.paymentChannelInfoPage(request);
 		return ResultUtils.buildPageResult(modelResult);
 	}
@@ -105,5 +106,33 @@ public class CustomerPaymentChannelInfoController {
 		return result;
 	}
 	
+	@ApiOperation("编辑")
+    @RequiresPermissions("pattern:customerpaymentchannelinfo:update")
+    @RequestMapping(value = "/update/{customerId}/{customerPaymentChannelInfoId}",method = RequestMethod.GET)
+	public String update(@PathVariable("customerId")Integer customerId,@PathVariable("customerPaymentChannelInfoId")Integer customerPaymentChannelInfoId,ModelMap modelMap) {
+		ModelResult<Customer> customerCodelResult = customerServiceClient.selectByPrimaryKey(customerId);
+		ModelResult<List<PaymentChannel>> paymentModelResult = paymentChannelServiceClient.list();
+		ModelResult<CustomerPaymentChannelInfo> custmerPaymentChannelModelResult = customerPaymentChannelInfoServiceClient.selectByPrimaryKey(customerPaymentChannelInfoId);
+		if(!customerCodelResult.isSuccess() || !paymentModelResult.isSuccess() || !custmerPaymentChannelModelResult.isSuccess()) {
+			throw new NullPointerException("查询失败");
+		}
+		modelMap.put("customer", customerCodelResult.getModel());
+		modelMap.put("paymentChannelList", paymentModelResult.getModel());
+		modelMap.put("customerPaymentChannelInfo", custmerPaymentChannelModelResult.getModel());
+		return "/manager/paymentchannelinfo/update";
+	}
+	
+	@ApiOperation("编辑")
+    @RequiresPermissions("pattern:customerpaymentchannelinfo:update")
+    @RequestMapping(value = "/update",method = RequestMethod.POST)
+	public @ResponseBody Object update(CustomerPaymentChannelInfo customerPaymentChannelInfo) {
+		ComplexResult result = valid(customerPaymentChannelInfo);
+        if (!result.isSuccess()) {
+            return ResultUtils.buildErrorMsg(Constants.FAIL_MSG_CODE, result.getErrors());
+        }
+        
+        ModelResult<Integer> modelResult = customerPaymentChannelInfoServiceClient.updateByPrimaryKeySelective(customerPaymentChannelInfo);
+        return ResultUtils.buildResult(modelResult);
+	}
 	
 }

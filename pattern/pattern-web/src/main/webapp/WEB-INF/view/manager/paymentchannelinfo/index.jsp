@@ -120,7 +120,7 @@ function onExpandCustomerPaymentChannelInfoRow(index,row,$element){
         	 return {
         	        limit: 100000, // 每页显示数量
         	        offset: 0,
-        	        shopId:row.customerId
+        	        customerId:row.customerId
         	    }
         },
         columns: [
@@ -130,12 +130,13 @@ function onExpandCustomerPaymentChannelInfoRow(index,row,$element){
 			{field:'paymentChannel.status',title:'渠道状态',align:'center',formatter: 'statusFormatter'},
 			{field:'paymentChannel.payType',title:'支付类型',align:'center',formatter: 'paymentTypeFormatter'},
 			{field:'createTime',title:'创建时间',align:'center',formatter: 'changeDateFormat'},
+			{field:'settlementType',title:'结算方式',align:'center',formatter: 'settlementTypeFormat'},
             {field: 'status', title: '商户渠道状态', align: 'center',formatter: 'statusFormatter'},
             {field: 'remark', title: '备注', align: 'center'},
             {field: 'action', title: '操作', align: 'center',formatter: function(value, row, index){
         		 return [
-        			 '<shiro:hasPermission name="pattern:customer:update"><button type="button" class="btn btn-danger" style="margin-right:10px;padding:0 10px;" onclick="updateCustomerRow(' + row.customerId + ')">编辑商户</button></shiro:hasPermission>',
-       				 '<shiro:hasPermission name="pattern:customer:red"><button type="button" class="btn btn-warning" style="margin-right:10px;padding:0 10px;" onclick="viewCustomerChannelRow(' + row.shopId + ')">查看商户渠道</button></shiro:hasPermission>'
+        			 '<shiro:hasPermission name="pattern:customerpaymentchannelinfo:update"><button type="button" class="btn btn-danger" style="margin-right:10px;padding:0 10px;" onclick="updateCustomerChannelInfoRow(' + row.customerId + ',' +  row.customerPaymentChannelInfoId + ')">编辑账号渠道</button></shiro:hasPermission>',
+       				 '<shiro:hasPermission name="pattern:customer:red"><button type="button" class="btn btn-warning" style="margin-right:10px;padding:0 10px;" onclick="viewCustomerChannelRow(' + row.shopId + ')">设置费率</button></shiro:hasPermission>'
      			].join('');
             }, events: 'actionEvent'}
         ],
@@ -153,19 +154,39 @@ function onExpandCustomerPaymentChannelInfoRow(index,row,$element){
 //格式化操作按钮
 function actionFormatter(value, row, index) {
     return [
-        '<shiro:hasPermission name="pattern:customerpaymentchannelinfo:create"><a class="add" href="javascript:;" onclick="createCustomerChannelRow(' + row.customerId + ')" data-toggle="tooltip" title="设置支付渠道"><i class="zmdi zmdi-plus"></i>设置支付渠道</a></shiro:hasPermission>'
+        '<shiro:hasPermission name="pattern:customerpaymentchannelinfo:create"><a class="add" href="javascript:;" onclick="createCustomerChannelInfoRow(' + row.customerId + ')" data-toggle="tooltip" title="设置支付渠道"><i class="zmdi zmdi-plus"></i>设置支付渠道</a></shiro:hasPermission>'
     ].join('');
 }
 
 
 var createCustomerChannelInfoDialog;
-function createCustomerChannelRow(customerId){
+function createCustomerChannelInfoRow(customerId){
 	createCustomerChannelInfoDialog = $.dialog({
 	        animationSpeed: 300,
 	        columnClass: 'col-md-10 col-md-offset-1 col-sm-6 col-sm-offset-3 col-xs-10 col-xs-offset-1',
 	        containerFluid: true,
-	        title: '新增代理',
+	        title: '设置商户渠道',
 	        content: 'url:${basePath}/manage/customerpaymentchannelinfo/create/' + customerId,
+	        onContentReady: function () {
+	        	initMaterialInput();
+	        },
+	        contentLoaded: function(data, status, xhr){
+	            if(data.code == '10110'){
+	            	layer.msg(data.msg);
+	                location:top.location.href = '${basePath}/login';
+	            }
+	        }
+	    });
+}
+
+var updateCustomerChannelInfoDialog;
+function updateCustomerChannelInfoRow(customerId,customerPaymentChannelInfoId){
+	updateCustomerChannelInfoDialog = $.dialog({
+	        animationSpeed: 300,
+	        columnClass: 'col-md-10 col-md-offset-1 col-sm-6 col-sm-offset-3 col-xs-10 col-xs-offset-1',
+	        containerFluid: true,
+	        title: '编辑商户渠道',
+	        content: 'url:${basePath}/manage/customerpaymentchannelinfo/update/' + customerId + "/" + customerPaymentChannelInfoId,
 	        onContentReady: function () {
 	        	initMaterialInput();
 	        },
@@ -183,6 +204,20 @@ function paymentChannelFormatter(value, row, index){
 		return '<span class="label label-success">已设置</span>';
 	} else {
 		return '<span class="label label-warning">未设置</span>';
+	}
+}
+
+function settlementTypeFormat(value, row, index){
+	if(value == 0) {
+		return '<span class="label label-primary">D0</span>';
+	}else if(value == 1){
+		return '<span class="label label-success">D1</span>';
+	}else if(value == 2){
+		return '<span class="label label-info">T0</span>';
+	}else if(value == 3){
+		return '<span class="label label-warning">T1</span>';
+	}else{
+		return '<span class="label label-dange">其他</span>';
 	}
 }
 
