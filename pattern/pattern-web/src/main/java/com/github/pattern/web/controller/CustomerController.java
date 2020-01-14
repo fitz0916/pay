@@ -57,7 +57,7 @@ public class CustomerController {
 		
 	}
 	
-	@ApiOperation("添加")
+	@ApiOperation("添加商户")
     @RequiresPermissions("pattern:customer:create")
     @RequestMapping(value = "/create/{shopId}",method = RequestMethod.GET)
 	public String create(@PathVariable("shopId")Integer shopId,ModelMap modelMap) {
@@ -69,7 +69,7 @@ public class CustomerController {
 		return "/manager/customer/create";
 	}
 	
-	@ApiOperation("添加")
+	@ApiOperation("添加商户")
     @RequiresPermissions("pattern:customer:create")
     @RequestMapping(value = "/create",method = RequestMethod.POST)
 	public @ResponseBody Object create(Customer customer) {
@@ -81,7 +81,7 @@ public class CustomerController {
 		return ResultUtils.buildResult(modelResult);
 	}
 	
-	@ApiOperation("编辑")
+	@ApiOperation("编辑商户")
     @RequiresPermissions("pattern:customer:update")
     @RequestMapping(value = "/update/{customerId}",method = RequestMethod.GET)
 	public String update(@PathVariable("customerId")Integer customerId,ModelMap modelMap) {

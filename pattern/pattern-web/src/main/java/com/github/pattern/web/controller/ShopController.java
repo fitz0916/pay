@@ -66,7 +66,7 @@ public class ShopController {
 		return "/manager/shop/create";
 	}
 	
-	@ApiOperation("添加")
+	@ApiOperation("添加门店")
     @RequiresPermissions("pattern:shop:create")
     @RequestMapping(value = "/create",method = RequestMethod.POST)
 	public @ResponseBody Object create(Shop shop) {
@@ -92,7 +92,7 @@ public class ShopController {
 		return "/manager/shop/update";
 	}
 	
-	@ApiOperation("编辑")
+	@ApiOperation("编辑门店")
     @RequiresPermissions("pattern:shop:update")
     @RequestMapping(value = "/update",method = RequestMethod.POST)
 	public @ResponseBody Object update(Shop shop) {

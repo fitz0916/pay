@@ -68,7 +68,7 @@ public class CustomerPaymentChannelInfoController {
 		return ResultUtils.buildPageResult(modelResult);
 	}
 	
-	@ApiOperation("添加")
+	@ApiOperation("添加商户渠道")
     @RequiresPermissions("pattern:customerpaymentchannelinfo:create")
     @RequestMapping(value = "/create/{customerId}",method = RequestMethod.GET)
 	public String create(@PathVariable("customerId")Integer customerId,ModelMap modelMap) {
@@ -82,7 +82,7 @@ public class CustomerPaymentChannelInfoController {
 		return "/manager/paymentchannelinfo/create";
 	}
 	
-	@ApiOperation("添加")
+	@ApiOperation("添加商户渠道")
     @RequiresPermissions("pattern:customerpaymentchannelinfo:create")
     @RequestMapping(value = "/create",method = RequestMethod.POST)
 	public @ResponseBody Object create(CustomerPaymentChannelInfo customerPaymentChannelInfo) {
@@ -106,7 +106,7 @@ public class CustomerPaymentChannelInfoController {
 		return result;
 	}
 	
-	@ApiOperation("编辑")
+	@ApiOperation("编辑商户渠道")
     @RequiresPermissions("pattern:customerpaymentchannelinfo:update")
     @RequestMapping(value = "/update/{customerId}/{customerPaymentChannelInfoId}",method = RequestMethod.GET)
 	public String update(@PathVariable("customerId")Integer customerId,@PathVariable("customerPaymentChannelInfoId")Integer customerPaymentChannelInfoId,ModelMap modelMap) {
@@ -122,7 +122,7 @@ public class CustomerPaymentChannelInfoController {
 		return "/manager/paymentchannelinfo/update";
 	}
 	
-	@ApiOperation("编辑")
+	@ApiOperation("编辑商户渠道")
     @RequiresPermissions("pattern:customerpaymentchannelinfo:update")
     @RequestMapping(value = "/update",method = RequestMethod.POST)
 	public @ResponseBody Object update(CustomerPaymentChannelInfo customerPaymentChannelInfo) {
