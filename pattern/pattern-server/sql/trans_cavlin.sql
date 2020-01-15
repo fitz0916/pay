@@ -11,7 +11,7 @@
  Target Server Version : 80018
  File Encoding         : 65001
 
- Date: 13/01/2020 17:21:58
+ Date: 15/01/2020 13:55:47
 */
 
 SET NAMES utf8mb4;
@@ -63,7 +63,7 @@ CREATE TABLE `pattern_customer` (
   `unfreeze_amount` bigint(12) NOT NULL DEFAULT '0' COMMENT '已解冻总额',
   `frozen_amount_sum` bigint(12) NOT NULL DEFAULT '0' COMMENT '冻结记录的总额',
   PRIMARY KEY (`customer_id`)
-) ENGINE=InnoDB AUTO_INCREMENT=2 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci;
+) ENGINE=InnoDB AUTO_INCREMENT=6 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci;
 
 -- ----------------------------
 -- Table structure for pattern_customer_payment_channel_fee
@@ -89,13 +89,15 @@ CREATE TABLE `pattern_customer_payment_channel_info` (
   `customer_payment_channel_info_id` int(11) NOT NULL AUTO_INCREMENT COMMENT '商户支付通道ID',
   `payment_channel_id` int(10) NOT NULL COMMENT '所属支付通道ID',
   `customer_id` int(10) NOT NULL COMMENT '商户ID',
+  `customer_no` varchar(15) NOT NULL,
+  `settlement_type` tinyint(4) DEFAULT NULL,
   `remark` varchar(100) CHARACTER SET utf8 COLLATE utf8_general_ci NOT NULL DEFAULT '' COMMENT '备注',
   `create_time` datetime NOT NULL ON UPDATE CURRENT_TIMESTAMP COMMENT '创建时间',
   `update_time` datetime NOT NULL ON UPDATE CURRENT_TIMESTAMP COMMENT '更新时间',
   `status` tinyint(4) NOT NULL DEFAULT '1' COMMENT '0禁用 1启用 2删除',
   PRIMARY KEY (`customer_payment_channel_info_id`) USING BTREE,
   UNIQUE KEY `agent_id` (`customer_id`,`payment_channel_id`)
-) ENGINE=InnoDB AUTO_INCREMENT=1083 DEFAULT CHARSET=utf8 COMMENT='商户支付通道表';
+) ENGINE=InnoDB AUTO_INCREMENT=1090 DEFAULT CHARSET=utf8 COMMENT='商户支付通道表';
 
 -- ----------------------------
 -- Table structure for pattern_payment_black_list
@@ -131,7 +133,7 @@ CREATE TABLE `pattern_payment_channel` (
   `update_time` datetime NOT NULL ON UPDATE CURRENT_TIMESTAMP COMMENT '更新时间',
   `remark` varchar(100) CHARACTER SET utf8 COLLATE utf8_general_ci NOT NULL DEFAULT '' COMMENT '备注',
   PRIMARY KEY (`payment_channel_id`) USING BTREE
-) ENGINE=InnoDB AUTO_INCREMENT=211 DEFAULT CHARSET=utf8 COMMENT='支付渠道表';
+) ENGINE=InnoDB AUTO_INCREMENT=212 DEFAULT CHARSET=utf8 COMMENT='支付渠道表';
 
 -- ----------------------------
 -- Table structure for pattern_payment_channel_account
