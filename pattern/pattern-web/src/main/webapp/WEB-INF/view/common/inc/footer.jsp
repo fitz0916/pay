@@ -18,7 +18,6 @@
 <script src="${basePath}/resources/plugins/zTree_v3/js/jquery.ztree.all.min.js"></script>
 <script src="${basePath}/resources/plugins/webuploader-0.1.5/webuploader.min.js"></script>
 <script src="${basePath}/resources/js/common/common.js"></script>
-<script src="${basePath}/resources/js/common/sessionTimeout.js"></script>
 <script src="${basePath}/resources/plugins/My97DatePicker/WdatePicker.js"></script>
 <script src="${basePath}/resources/plugins/My97DatePicker/lang/zh-cn.js"></script>
 <script src="${basePath}/resources/plugins/layer/layer.js"></script>
@@ -38,3 +37,4 @@
 <script src="${basePath}/resources/plugins/echarts/echarts.common.min.js"></script>
 <script src="${basePath}/resources/plugins/laydate/laydate.js"></script>
 <script src="${basePath}/resources/js/common/inputVerify.js"></script>
+<script src="${basePath}/resources/ajaxfileupload/ajaxfileupload.js"></script>

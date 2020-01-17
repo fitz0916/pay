@@ -10,8 +10,8 @@ import com.baidu.unbiz.fluentvalidator.ValidatorHandler;
 
 public class EmailValidator extends ValidatorHandler<String> implements Validator<String>{
 
-private static final String EMAIL_REGEX = "^[A-Za-z0-9\\u4e00-\\u9fa5]+@[a-zA-Z]+(\\.[a-zA-Z]+)+$";
-	
+private static final String EMAIL_REGEX  = "^\\w+((-\\w+)|(\\.\\w+))*\\@[A-Za-z0-9]+((\\.|-)[A-Za-z0-9]+)*\\.[A-Za-z0-9]+$";
+
 	private String fieldName;
 
     public EmailValidator(String fieldName) {
@@ -32,7 +32,7 @@ private static final String EMAIL_REGEX = "^[A-Za-z0-9\\u4e00-\\u9fa5]+@[a-zA-Z]
         return true;
     }
     public static void main(String args[]) {
-    	String phone = "test@sina.com";
+    	String phone = "xie_xieyu@sina.com";
     	Pattern pattern = Pattern.compile(EMAIL_REGEX);
     	Matcher matcher = pattern.matcher(phone);
     	if(matcher.find()) {
