@@ -14,17 +14,23 @@
 			<label for="agentName">代理商名称：</label>
 			<input id="agentName" type="text" class="form-control" name="agentName" value="${agent.agentName}" maxlength="50">
 		</div>
-		<div class="radio">
+		<div class="col-sm-2">
+		    	<label for="file">性质：</label>
+		</div>
+		<div class="radio" class="col-sm-6">
 			<div class="radio radio-inline radio-info">
 				<input id="type_0" type="radio" name="type" value="0" <c:if test="${agent.type==0}">checked</c:if>>
-				<label for="type_0" >个体工商户 </label>
+				<label for="type_0" >个体户 </label>
 			</div>
 			<div class="radio radio-inline radio-danger">
 				<input id="type_1" type="radio" name="status" value="1" <c:if test="${agent.type==1}">checked</c:if>>
 				<label for="type_1" >公司/企业 </label>
 			</div>
 		</div>
-		<div class="radio" class="col-sm-5">
+		<div class="col-sm-2">
+		    	<label for="file">状态：</label>
+		</div>
+		<div class="radio" class="col-sm-6">	
 			<div class="radio radio-inline radio-info">
 				<input id="status_1" type="radio" name="status" value="1" <c:if test="${agent.status==1}">checked</c:if>>
 				<label for="status_1">启用 </label>
