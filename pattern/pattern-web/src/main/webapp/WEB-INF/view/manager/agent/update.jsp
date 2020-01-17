@@ -63,7 +63,7 @@
 	<div class="col-sm-6">
 		<div class="form-group" class="col-sm-6">
 		    <div class="col-sm-4">
-		    	<label for="file">身份证照片正面：</label>
+		    	<label for="file">身份证正面：</label>
 		    </div>
 			<div class="col-sm-6" style="margin-top:20px;bottom:20px">
 				<input type="hidden" name="idCardFrontPath" id="idCardFrontPath" value="${agent.idCardFrontPath}">
@@ -76,7 +76,7 @@
 		</div>	
 		 <div class="form-group" class="col-sm-6">
 				<div class="col-sm-4">
-			  		 <label for="file">身份证照片反面：</label>
+			  		 <label for="file">身份证反面：</label>
 				</div>
 			<div class="col-sm-6" style="margin-top:20px;bottom:20px">
 			     <input type="hidden" name="idCardBackPath" id="idCardBackPath" value="${agent.idCardBackPath}">
@@ -89,7 +89,7 @@
 		
 		<div class="form-group" class="col-sm-6">
 			 <div class="col-sm-4">
-			  		 <label for="file">公司营业执照：</label>
+			  		 <label for="file">营业执照：</label>
 				</div>
 			<div class="col-sm-6" style="margin-top:20px;bottom:20px">
 				<input type="hidden" name="companyPicPath" id="companyPicPath" value="${agent.companyPicPath}">
