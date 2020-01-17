@@ -123,14 +123,13 @@ public class AgentController {
 	
 	@ApiOperation("修改角色")
     @RequiresPermissions("pattern:agent:update")
-    @RequestMapping(value = "/update/{id}", method = RequestMethod.POST)
+    @RequestMapping(value = "/update", method = RequestMethod.POST)
     @ResponseBody
-    public Object update(@PathVariable("id") int id, Agent agent) {
+    public Object update(Agent agent) {
 		ComplexResult result = valid(agent);
         if (!result.isSuccess()) {
             return ResultUtils.buildErrorMsg(Constants.FAIL_MSG_CODE, result.getErrors());
         }
-        agent.setAgentId(id);
         ModelResult<Integer> modelResult =  agentServiceClient.updateByPrimaryKeySelective(agent);
         return ResultUtils.buildResult(modelResult);
     }
