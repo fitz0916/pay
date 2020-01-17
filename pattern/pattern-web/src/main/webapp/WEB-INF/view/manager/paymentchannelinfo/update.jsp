@@ -45,8 +45,11 @@
 		<div class="form-group">
 		
 		</div>
-		<div class="form-group">
-			<div>
+		<div class="form-group col-sm-10">
+		    <div class="form-group col-sm-2">
+		   		<label for="settlementType">支付渠道：</label>
+		    </div>
+			<div class="col-sm-4">
 				<select name="paymentChannelId" class="form-control">
 		             <option value="">请选择渠道</option>
 		             <c:forEach items="${paymentChannelList}" var="paymentChannel">
