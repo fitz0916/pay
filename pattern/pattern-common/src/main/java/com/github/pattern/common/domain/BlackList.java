@@ -2,19 +2,14 @@ package com.github.pattern.common.domain;
 
 import java.util.Date;
 
-public class PaymentBlackList extends BaseObject{
+public class BlackList extends BaseObject{
 	
 	/**
 	 * 
 	 */
 	private static final long serialVersionUID = -3870567893757187910L;
 
-	private Integer paymentBlackListId;
-	
-	/**
-	 * agent_id 商户ID
-	 */
-	private Integer customerId;
+	private Integer blackListId;
 	/**
 	 * 请求IP
 	 */
@@ -35,17 +30,11 @@ public class PaymentBlackList extends BaseObject{
 	 * remark 备注
 	 */
 	private String remark;
-	public Integer getPaymentBlackListId() {
-		return paymentBlackListId;
+	public Integer getBlackListId() {
+		return blackListId;
 	}
-	public void setPaymentBlackListId(Integer paymentBlackListId) {
-		this.paymentBlackListId = paymentBlackListId;
-	}
-	public Integer getCustomerId() {
-		return customerId;
-	}
-	public void setCustomerId(Integer customerId) {
-		this.customerId = customerId;
+	public void setBlackListId(Integer blackListId) {
+		this.blackListId = blackListId;
 	}
 	public String getIp() {
 		return ip;

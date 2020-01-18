@@ -55,7 +55,7 @@
             <table tableName="pattern_customer_payment_channel_info" domainObjectName="CustomerPaymentChannelInfo" enableSelectByExample="false" enableDeleteByExample="false"
             enableCountByExample="false" enableUpdateByExample="false" />
             
-            <table tableName="pattern_payment_black_list" domainObjectName="PaymentBlackList" enableSelectByExample="false" enableDeleteByExample="false"
+            <table tableName="pattern_black_list" domainObjectName="PaymentBlackList" enableSelectByExample="false" enableDeleteByExample="false"
             enableCountByExample="false" enableUpdateByExample="false" />
             
             
@@ -76,7 +76,7 @@
              <table tableName="pattern_payment_type" domainObjectName="PaymentType" enableSelectByExample="false" enableDeleteByExample="false"
             enableCountByExample="false" enableUpdateByExample="false" />
             
-             <table tableName="pattern_payment_white_list" domainObjectName="PaymentWhiteList" enableSelectByExample="false" enableDeleteByExample="false"
+             <table tableName="pattern_white_list" domainObjectName="PaymentWhiteList" enableSelectByExample="false" enableDeleteByExample="false"
             enableCountByExample="false" enableUpdateByExample="false" />
             
              

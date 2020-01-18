@@ -1,9 +1,8 @@
 <?xml version="1.0" encoding="UTF-8" ?>
 <!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd" >
-<mapper namespace="com.github.pattern.server.dao.PaymentWhiteListDao" >
-  <resultMap id="BaseResultMap" type="com.github.pattern.common.domain.PaymentWhiteList" >
-    <id column="payment_white_list_id" property="paymentWhiteListId" jdbcType="INTEGER" />
-    <result column="customer_id" property="customerId" jdbcType="INTEGER" />
+<mapper namespace="com.github.pattern.server.dao.BlackListDao" >
+  <resultMap id="BaseResultMap" type="com.github.pattern.common.domain.BlackList" >
+    <id column="black_list_id" property="blackListId" jdbcType="INTEGER" />
     <result column="ip" property="ip" jdbcType="VARCHAR" />
     <result column="status" property="status" jdbcType="TINYINT" />
     <result column="create_time" property="createTime" jdbcType="TIMESTAMP" />
@@ -11,34 +10,31 @@
     <result column="remark" property="remark" jdbcType="VARCHAR" />
   </resultMap>
   <sql id="Base_Column_List" >
-    payment_white_list_id, customer_id, ip, status, create_time, update_time, remark
+    black_list_id, ip, status, create_time, update_time, remark
   </sql>
   <select id="selectByPrimaryKey" resultMap="BaseResultMap" parameterType="java.lang.Integer" >
     select 
     <include refid="Base_Column_List" />
-    from pattern_payment_white_list
-    where payment_white_list_id = #{paymentWhiteListId,jdbcType=INTEGER}
+    from pattern_black_list
+    where black_list_id = #{blackListId,jdbcType=INTEGER}
   </select>
   <delete id="deleteByPrimaryKey" parameterType="java.lang.Integer" >
-    delete from pattern_payment_white_list
-    where payment_white_list_id = #{paymentWhiteListId,jdbcType=INTEGER}
+    delete from pattern_black_list
+    where black_list_id = #{blackListId,jdbcType=INTEGER}
   </delete>
-  <insert id="insert" parameterType="com.github.pattern.common.domain.PaymentWhiteList" >
-    insert into pattern_payment_white_list (payment_white_list_id, customer_id, ip, 
-      status, create_time, update_time, 
-      remark)
-    values (#{paymentWhiteListId,jdbcType=INTEGER}, #{customerId,jdbcType=INTEGER}, #{ip,jdbcType=VARCHAR}, 
-      #{status,jdbcType=TINYINT}, #{createTime,jdbcType=TIMESTAMP}, #{updateTime,jdbcType=TIMESTAMP}, 
-      #{remark,jdbcType=VARCHAR})
+  <insert id="insert" parameterType="com.github.pattern.common.domain.BlackList" >
+    insert into pattern_black_list (black_list_id, ip, status, 
+      create_time, update_time, remark
+      )
+    values (#{blackListId,jdbcType=INTEGER}, #{ip,jdbcType=VARCHAR}, #{status,jdbcType=TINYINT}, 
+      #{createTime,jdbcType=TIMESTAMP}, #{updateTime,jdbcType=TIMESTAMP}, #{remark,jdbcType=VARCHAR}
+      )
   </insert>
-  <insert id="insertSelective" parameterType="com.github.pattern.common.domain.PaymentWhiteList" >
-    insert into pattern_payment_white_list
+  <insert id="insertSelective" parameterType="com.github.pattern.common.domain.BlackList" >
+    insert into pattern_black_list
     <trim prefix="(" suffix=")" suffixOverrides="," >
-      <if test="paymentWhiteListId != null" >
-        payment_white_list_id,
-      </if>
-      <if test="customerId != null" >
-        customer_id,
+      <if test="blackListId != null" >
+        black_list_id,
       </if>
       <if test="ip != null" >
         ip,
@@ -57,11 +53,8 @@
       </if>
     </trim>
     <trim prefix="values (" suffix=")" suffixOverrides="," >
-      <if test="paymentWhiteListId != null" >
-        #{paymentWhiteListId,jdbcType=INTEGER},
-      </if>
-      <if test="customerId != null" >
-        #{customerId,jdbcType=INTEGER},
+      <if test="blackListId != null" >
+        #{blackListId,jdbcType=INTEGER},
       </if>
       <if test="ip != null" >
         #{ip,jdbcType=VARCHAR},
@@ -80,12 +73,9 @@
       </if>
     </trim>
   </insert>
-  <update id="updateByPrimaryKeySelective" parameterType="com.github.pattern.common.domain.PaymentWhiteList" >
-    update pattern_payment_white_list
+  <update id="updateByPrimaryKeySelective" parameterType="com.github.pattern.common.domain.BlackList" >
+    update pattern_black_list
     <set >
-      <if test="customerId != null" >
-        customer_id = #{customerId,jdbcType=INTEGER},
-      </if>
       <if test="ip != null" >
         ip = #{ip,jdbcType=VARCHAR},
       </if>
@@ -102,16 +92,32 @@
         remark = #{remark,jdbcType=VARCHAR},
       </if>
     </set>
-    where payment_white_list_id = #{paymentWhiteListId,jdbcType=INTEGER}
+    where black_list_id = #{blackListId,jdbcType=INTEGER}
   </update>
-  <update id="updateByPrimaryKey" parameterType="com.github.pattern.common.domain.PaymentWhiteList" >
-    update pattern_payment_white_list
-    set customer_id = #{customerId,jdbcType=INTEGER},
-      ip = #{ip,jdbcType=VARCHAR},
+  <update id="updateByPrimaryKey" parameterType="com.github.pattern.common.domain.BlackList" >
+    update pattern_black_list
+    set ip = #{ip,jdbcType=VARCHAR},
       status = #{status,jdbcType=TINYINT},
       create_time = #{createTime,jdbcType=TIMESTAMP},
       update_time = #{updateTime,jdbcType=TIMESTAMP},
       remark = #{remark,jdbcType=VARCHAR}
-    where payment_white_list_id = #{paymentWhiteListId,jdbcType=INTEGER}
+    where black_list_id = #{blackListId,jdbcType=INTEGER}
   </update>
+  
+  <select id="pageList" resultMap="BaseResultMap" parameterType="java.lang.Integer" >
+    select 
+    <include refid="Base_Column_List" />
+    from pattern_black_list
+    <if test="start !=null and offset !=null">
+      limit #{start}, #{offset}
+    </if>
+  </select>
+  <select id="pageCount" resultType="long" parameterType="java.lang.Integer" >
+    select 
+     count(*)
+    from pattern_black_list
+    
+  </select>
+  
+  
 </mapper>

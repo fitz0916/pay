@@ -6,18 +6,15 @@ import java.util.Date;
  * 商户支付白名单
  * 
  */
-public class PaymentWhiteList extends BaseObject {
+public class WhiteList extends BaseObject {
 
 	private static final long serialVersionUID = -8459939368321454348L;
 
 	/**
 	 * pay_white_list_id 主键
 	 */
-	private Integer paymentWhiteListId;
-	/**
-	 * agent_id 商户ID
-	 */
-	private Integer customerId;
+	private Integer whiteListId;
+	
 	/**
 	 * 请求IP
 	 */
@@ -41,17 +38,11 @@ public class PaymentWhiteList extends BaseObject {
 	private String remark;
 	
 	
-	public Integer getPaymentWhiteListId() {
-		return paymentWhiteListId;
+	public Integer getWhiteListId() {
+		return whiteListId;
 	}
-	public void setPaymentWhiteListId(Integer paymentWhiteListId) {
-		this.paymentWhiteListId = paymentWhiteListId;
-	}
-	public Integer getCustomerId() {
-		return customerId;
-	}
-	public void setCustomerId(Integer customerId) {
-		this.customerId = customerId;
+	public void setWhiteListId(Integer whiteListId) {
+		this.whiteListId = whiteListId;
 	}
 	public String getIp() {
 		return ip;
@@ -84,7 +75,7 @@ public class PaymentWhiteList extends BaseObject {
 		this.remark = remark;
 	}
 	
-
+	
 	
 
 }
