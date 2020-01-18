@@ -189,7 +189,7 @@ function changeDateFormat(value) {
 	      m = m < 10 ? "0"+m : m;
 	  var s= myDate.getSeconds();
 	      s = s < 10 ? "0"+s : s;
-	  var time = year+'-'+month+"-"+date;
+	  var time = year+'-'+month+"-"+date + ' ' + h +":" + m +":" + s;
 	  return time;
 }
 </script>
