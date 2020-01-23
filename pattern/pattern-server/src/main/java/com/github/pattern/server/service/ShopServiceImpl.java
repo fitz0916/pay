@@ -56,6 +56,12 @@ public class ShopServiceImpl extends BaseService implements ShopService{
 		record.setCreateTime(date);
 		record.setUpdateTime(date);
 		record.setShopNo(shopNo);
+		String shopName = record.getShopName();
+		Shop shop = shopDao.selectByShopName(shopName);
+		if(shop != null) {
+			modelResult.withError("0", "门店名称已存在！");
+			return modelResult;
+		}
 		int result = shopDao.insertSelective(record);
 		if(result > 0) {
 			modelResult.setModel(result);
@@ -86,6 +92,16 @@ public class ShopServiceImpl extends BaseService implements ShopService{
 		}
 		Date date = new Date();
 		record.setUpdateTime(date);
+		String shopName = record.getShopName();
+		Shop shop = shopDao.selectByShopName(shopName);
+		if(shop != null) {
+			String updateShopId = String.valueOf(record.getShopId());
+			String shopId = String.valueOf(shop.getShopId());
+			if(!updateShopId.equals(shopId)) {
+				modelResult.withError("0", "门店名称已存在！");
+				return modelResult;
+			}
+		}
 		int result = shopDao.updateByPrimaryKeySelective(record);
 		if(result > 0) {
 			modelResult.setModel(result);
@@ -101,6 +117,16 @@ public class ShopServiceImpl extends BaseService implements ShopService{
 		if(record == null) {
 			modelResult.withError("0", "非法参数");
 			return modelResult;
+		}
+		String shopName = record.getShopName();
+		Shop shop = shopDao.selectByShopName(shopName);
+		if(shop != null) {
+			String updateShopId = String.valueOf(record.getShopId());
+			String shopId = String.valueOf(shop.getShopId());
+			if(!updateShopId.equals(shopId)) {
+				modelResult.withError("0", "门店名称已存在！");
+				return modelResult;
+			}
 		}
 		int result = shopDao.insertSelective(record);
 		if(result > 0) {

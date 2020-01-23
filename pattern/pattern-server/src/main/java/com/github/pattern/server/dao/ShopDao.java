@@ -19,6 +19,8 @@ public interface ShopDao {
     int insertSelective(Shop record);
 
     Shop selectByPrimaryKey(@Param("shopId")Integer shopId);
+    
+    Shop selectByShopName(@Param("shopName")String shopName);
 
     int updateByPrimaryKeySelective(Shop record);
 

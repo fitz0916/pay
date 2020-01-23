@@ -23,6 +23,12 @@
     from pattern_shop
     where shop_id = #{shopId,jdbcType=INTEGER}
   </select>
+  <select id="selectByShopName" resultMap="BaseResultMap" parameterType="java.lang.String" >
+    select 
+    <include refid="Base_Column_List" />
+    from pattern_shop
+    where shop_name = #{shopName,jdbcType=VARCHAR}
+  </select>
   <delete id="deleteByPrimaryKey" parameterType="java.lang.Integer" >
     delete from pattern_shop
     where shop_id = #{shopId,jdbcType=INTEGER}

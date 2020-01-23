@@ -79,7 +79,7 @@ public class AgentServiceImpl extends BaseService implements AgentService{
 	@Override
 	public ModelResult<Integer> insertSelective(Agent record) {
 		ModelResult<Integer> modelResult = new ModelResult<Integer>();
-		if(record == null || StringUtils.isEmpty(record.getAgentName())) {
+		if(record == null || StringUtils.isBlank(record.getAgentName())) {
 			modelResult.withError("0","添加失败");
 			return modelResult;
 		}
@@ -89,6 +89,12 @@ public class AgentServiceImpl extends BaseService implements AgentService{
 		record.setCreateDate(date);
 		record.setUpdateDate(date);
 		record.setRegistryDate(date);
+		String agentName = record.getAgentName();
+		Agent agent = agentDao.selectByAgentName(agentName);
+		if(agent != null) {
+			modelResult.withError("0","代理商名称已存在！");
+			return modelResult;
+		}
 		int result = agentDao.insertSelective(record);
 		if(result > 0) {
 			modelResult.setModel(result);
@@ -120,6 +126,16 @@ public class AgentServiceImpl extends BaseService implements AgentService{
 			modelResult.withError("0","编辑失败");
 			return modelResult;
 		}
+		String agentName = record.getAgentName();
+		Agent agent = agentDao.selectByAgentName(agentName);
+		if(agent != null ) {
+			String agentId = String.valueOf(agent.getAgentId());
+			String updateAgentId = String.valueOf(record.getAgentId());
+			if(!agentId.equals(updateAgentId)) {
+				modelResult.withError("0","代理商名称已存在！");
+				return modelResult;
+			}
+		}
 		int result = agentDao.updateByPrimaryKeySelective(record);
 		if(result > 0) {
 			modelResult.setModel(result);
@@ -135,6 +151,16 @@ public class AgentServiceImpl extends BaseService implements AgentService{
 		if(record == null || record.getAgentId() == null) {
 			modelResult.withError("0","编辑失败");
 			return modelResult;
+		}
+		String agentName = record.getAgentName();
+		Agent agent = agentDao.selectByAgentName(agentName);
+		if(agent != null ) {
+			String agentId = String.valueOf(agent.getAgentId());
+			String updateAgentId = String.valueOf(record.getAgentId());
+			if(!agentId.equals(updateAgentId)) {
+				modelResult.withError("0","代理商名称已存在！");
+				return modelResult;
+			}
 		}
 		int result = agentDao.updateByPrimaryKey(record);
 		if(result > 0) {

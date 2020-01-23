@@ -60,6 +60,12 @@ public class CustomerServiceImpl extends BaseService implements CustomerService{
 		 record.setCreateDate(new Date());
 		 record.setUpdateDate(new Date());
 		 record.setCipher(cipher);
+		 String customerName = record.getCustomerName();
+		 Customer customer = customerDao.selectByCustomerName(customerName);
+		 if(customer != null) {
+			 modelResult.withError("0", "商户名称已存在！");
+			 return modelResult;
+		 }
 		 int result = customerDao.insertSelective(record);
 		 if(result > 0) {
 			 modelResult.setModel(result);
@@ -89,6 +95,16 @@ public class CustomerServiceImpl extends BaseService implements CustomerService{
 			 return modelResult;
 		 }
 		 record.setUpdateDate(new Date());
+		 String customerName = record.getCustomerName();
+		 Customer customer = customerDao.selectByCustomerName(customerName);
+		 if(customer != null) {
+			 String updateCustomerId = String.valueOf(record.getCustomerId());
+			 String customerId = String.valueOf(customer.getCustomerId());
+			 if(!updateCustomerId.equals(customerId)) {
+				 modelResult.withError("0", "商户名称已存在！");
+				 return modelResult;
+			 }
+		 }
 		 int result = customerDao.updateByPrimaryKeySelective(record);
 		 if(result > 0) {
 			 modelResult.setModel(result);
@@ -106,6 +122,16 @@ public class CustomerServiceImpl extends BaseService implements CustomerService{
 			 return modelResult;
 		 }
 		 record.setUpdateDate(new Date());
+		 String customerName = record.getCustomerName();
+		 Customer customer = customerDao.selectByCustomerName(customerName);
+		 if(customer != null) {
+			 String updateCustomerId = String.valueOf(record.getCustomerId());
+			 String customerId = String.valueOf(customer.getCustomerId());
+			 if(!updateCustomerId.equals(customerId)) {
+				 modelResult.withError("0", "商户名称已存在！");
+				 return modelResult;
+			 }
+		 }
 		 int result = customerDao.updateByPrimaryKey(record);
 		 if(result > 0) {
 			 modelResult.setModel(result);

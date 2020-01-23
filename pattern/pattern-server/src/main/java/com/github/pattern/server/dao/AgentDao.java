@@ -22,6 +22,7 @@ public interface AgentDao {
 
     int updateByPrimaryKey(Agent record);
     
+    Agent selectByAgentName(@Param("agentName")String agentName);
     
     long pageCount(@Param("statusList")List<Integer> status);
     

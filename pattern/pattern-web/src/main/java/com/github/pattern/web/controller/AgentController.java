@@ -37,6 +37,7 @@ import com.github.pattern.common.vo.PageVo;
 import com.github.pattern.common.vo.ResultVo;
 import com.github.pattern.utils.EmailValidator;
 import com.github.pattern.utils.LengthValidator;
+import com.github.pattern.utils.NotBlankValidator;
 import com.github.pattern.utils.NotNullValidator;
 import com.github.pattern.utils.PhoneValidator;
 
@@ -95,6 +96,7 @@ public class AgentController {
 	private ComplexResult valid(Agent agent) {
 		ComplexResult result = FluentValidator.checkAll()
                 .on(agent.getAgentName(), new LengthValidator(2, 50, "代理商名称"))
+                .on(agent.getAgentName(), new NotBlankValidator("代理商名称"))
                 .on(agent.getBusinessLicense(), new LengthValidator(2, 20, "营业执照号"))
                 .on(agent.getAddress(), new LengthValidator(2, 100, "地址"))
                 .on(agent.getIdCardFrontPath(), new NotNullValidator("身份证正面"))

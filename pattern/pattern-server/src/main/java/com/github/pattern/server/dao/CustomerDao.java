@@ -19,6 +19,8 @@ public interface CustomerDao {
 
     Customer selectByPrimaryKey(@Param("customerId")Integer customerId);
 
+    Customer selectByCustomerName(@Param("customerName")String customerName);
+    
     int updateByPrimaryKeySelective(Customer record);
 
     int updateByPrimaryKey(Customer record);
