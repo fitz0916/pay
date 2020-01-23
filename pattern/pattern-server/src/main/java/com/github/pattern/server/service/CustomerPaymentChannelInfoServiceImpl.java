@@ -13,6 +13,7 @@ import com.github.pattern.common.domain.CustomerPaymentChannelInfo;
 import com.github.pattern.common.domain.PaymentChannel;
 import com.github.pattern.common.request.CustomerPaymentChannelInfoRequest;
 import com.github.pattern.common.service.CustomerPaymentChannelInfoService;
+import com.github.pattern.common.utils.AmountUtil;
 import com.github.pattern.common.vo.PageVo;
 import com.github.pattern.server.dao.CustomerDao;
 import com.github.pattern.server.dao.CustomerPaymentChannelInfoDao;
@@ -129,13 +130,25 @@ public class CustomerPaymentChannelInfoServiceImpl extends BaseService implement
 		int start = dataPage.getStartIndex();
 		int offset = dataPage.getPageSize();
 		long totalCount = customerDao.pageCount(statusList,shopId);
-		List<Customer> result = customerDao.pageList(start,offset,statusList,shopId);
+		List<Customer> list = customerDao.pageList(start,offset,statusList,shopId);
+		List<Customer> result = changeF2Y(list);
 		setCustomerChannelInfo(result);
         dataPage.setDataList(result);
         pageVo.setRows(result);
         pageVo.setTotal(totalCount);
         modelResult.setModel(pageVo);
         return modelResult;
+	}
+	
+	private List<Customer> changeF2Y(List<Customer> result) {
+		for(Customer customer:result) {
+			customer.setAmount(AmountUtil.changeF2Y(customer.getAmount().toString()));
+			customer.setFrozenAmount(AmountUtil.changeF2Y(customer.getFrozenAmount().toString()));
+			customer.setUnfreezeAmount(AmountUtil.changeF2Y(customer.getUnfreezeAmount().toString()));
+			customer.setFrozenAmountSum(AmountUtil.changeF2Y(customer.getFrozenAmountSum().toString()));
+			customer.setSettlement(AmountUtil.changeF2Y(customer.getSettlement().toString()));
+		}
+		return result;
 	}
 	
 	private void setCustomerChannelInfo(List<Customer> result) {
