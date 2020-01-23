@@ -17,6 +17,19 @@
 			<label for="channelName">渠道名称：</label>
 			<input id="channelName" type="text" class="form-control" value ="${paymentChannel.channelName}" name="channelName" maxlength="50" readonly="readonly">
 		</div>
+		<div class="radio">
+			<div class="radio radio-inline radio-info">
+				<input id="status_1" type="radio" name="status" value="1" checked>
+				<label for="status_1">启用 </label>
+			</div>
+			<div class="radio radio-inline radio-danger">
+				<input id="status_0" type="radio" name="status" value="0">
+				<label for="status_0">锁定 </label>
+			</div>
+		</div>
+		<div class="form-group">
+		
+		</div>
 		<div class="form-group">
 			<label for="thirdRate">接入费率(‰)：</label>
 			<input id="thirdRate" type="text" class="form-control"  name="thirdRate"  maxlength="50" >

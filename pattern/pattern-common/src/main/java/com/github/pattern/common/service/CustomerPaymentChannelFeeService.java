@@ -5,7 +5,7 @@ import com.github.pattern.common.domain.CustomerPaymentChannelFee;
 import com.github.pattern.common.request.CustomerPaymentChannelFeeRequest;
 import com.github.pattern.common.vo.ResultVo;
 
-public interface CustomerChannelFeeService {
+public interface CustomerPaymentChannelFeeService {
 	
 	ModelResult<Integer> deleteByPrimaryKey(Integer paymentChanneldFeeId);
 

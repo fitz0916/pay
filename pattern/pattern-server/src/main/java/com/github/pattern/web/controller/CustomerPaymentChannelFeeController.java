@@ -10,16 +10,16 @@ import org.springframework.web.bind.annotation.RestController;
 import com.github.appmodel.domain.result.ModelResult;
 import com.github.pattern.common.domain.CustomerPaymentChannelFee;
 import com.github.pattern.common.request.CustomerPaymentChannelFeeRequest;
-import com.github.pattern.common.service.CustomerChannelFeeService;
+import com.github.pattern.common.service.CustomerPaymentChannelFeeService;
 import com.github.pattern.common.vo.ResultVo;
 
 @RestController
 @RequestMapping("/pattern/server/customerChannelFee")
-public class CustomerChannelFeeController {
+public class CustomerPaymentChannelFeeController {
 	
 	
 	@Autowired
-	private CustomerChannelFeeService customerChannelFeeServiceImpl;
+	private CustomerPaymentChannelFeeService customerChannelFeeServiceImpl;
 	
 	@PostMapping("/page")
 	public ModelResult<ResultVo> page(@RequestBody CustomerPaymentChannelFeeRequest request){

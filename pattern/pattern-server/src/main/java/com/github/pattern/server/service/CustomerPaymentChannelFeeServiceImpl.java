@@ -8,13 +8,13 @@ import org.springframework.stereotype.Service;
 import com.github.appmodel.domain.result.ModelResult;
 import com.github.pattern.common.domain.CustomerPaymentChannelFee;
 import com.github.pattern.common.request.CustomerPaymentChannelFeeRequest;
-import com.github.pattern.common.service.CustomerChannelFeeService;
+import com.github.pattern.common.service.CustomerPaymentChannelFeeService;
 import com.github.pattern.common.vo.ResultVo;
 import com.github.pattern.server.dao.CustomerPaymentChannelFeeDao;
 
 
 @Service
-public class CustomerPaymentChannelFeeServiceImpl extends BaseService implements CustomerChannelFeeService{
+public class CustomerPaymentChannelFeeServiceImpl extends BaseService implements CustomerPaymentChannelFeeService{
 
 	@Autowired
 	private CustomerPaymentChannelFeeDao customerPaymentChannelFeeDao;
