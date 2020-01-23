@@ -11,7 +11,7 @@
  Target Server Version : 80018
  File Encoding         : 65001
 
- Date: 15/01/2020 13:55:47
+ Date: 23/01/2020 22:41:17
 */
 
 SET NAMES utf8mb4;
@@ -40,7 +40,21 @@ CREATE TABLE `pattern_agent` (
   `create_date` datetime NOT NULL ON UPDATE CURRENT_TIMESTAMP COMMENT '创建时间',
   `update_date` datetime NOT NULL ON UPDATE CURRENT_TIMESTAMP COMMENT '更新时间',
   PRIMARY KEY (`agent_id`)
-) ENGINE=InnoDB AUTO_INCREMENT=415 DEFAULT CHARSET=utf8 COMMENT='代理商/商户';
+) ENGINE=InnoDB AUTO_INCREMENT=419 DEFAULT CHARSET=utf8 COMMENT='代理商/商户';
+
+-- ----------------------------
+-- Table structure for pattern_black_list
+-- ----------------------------
+DROP TABLE IF EXISTS `pattern_black_list`;
+CREATE TABLE `pattern_black_list` (
+  `black_list_id` int(11) NOT NULL AUTO_INCREMENT,
+  `ip` varchar(255) NOT NULL,
+  `status` tinyint(4) NOT NULL DEFAULT '1',
+  `create_time` datetime NOT NULL ON UPDATE CURRENT_TIMESTAMP,
+  `update_time` datetime NOT NULL ON UPDATE CURRENT_TIMESTAMP,
+  `remark` varchar(100) CHARACTER SET utf8mb4 COLLATE utf8mb4_0900_ai_ci NOT NULL DEFAULT '',
+  PRIMARY KEY (`black_list_id`) USING BTREE
+) ENGINE=InnoDB AUTO_INCREMENT=3 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci;
 
 -- ----------------------------
 -- Table structure for pattern_customer
@@ -63,7 +77,7 @@ CREATE TABLE `pattern_customer` (
   `unfreeze_amount` bigint(12) NOT NULL DEFAULT '0' COMMENT '已解冻总额',
   `frozen_amount_sum` bigint(12) NOT NULL DEFAULT '0' COMMENT '冻结记录的总额',
   PRIMARY KEY (`customer_id`)
-) ENGINE=InnoDB AUTO_INCREMENT=6 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci;
+) ENGINE=InnoDB AUTO_INCREMENT=7 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci;
 
 -- ----------------------------
 -- Table structure for pattern_customer_payment_channel_fee
@@ -72,14 +86,14 @@ DROP TABLE IF EXISTS `pattern_customer_payment_channel_fee`;
 CREATE TABLE `pattern_customer_payment_channel_fee` (
   `payment_channeld_fee_id` int(20) NOT NULL AUTO_INCREMENT COMMENT '主键',
   `payment_channel_id` int(20) NOT NULL COMMENT '渠道ID',
-  `third_rate` decimal(11,0) NOT NULL COMMENT '三方费率',
-  `sales_rate` decimal(11,0) NOT NULL COMMENT '销售费率',
+  `third_rate` decimal(4,4) NOT NULL COMMENT '三方费率',
+  `sales_rate` decimal(11,4) NOT NULL COMMENT '销售费率',
   `create_time` datetime NOT NULL ON UPDATE CURRENT_TIMESTAMP COMMENT '创建时间',
   `update_time` datetime NOT NULL ON UPDATE CURRENT_TIMESTAMP COMMENT '更新时间',
-  `remark` varchar(100) CHARACTER SET utf8 COLLATE utf8_general_ci NOT NULL DEFAULT '0' COMMENT '备注',
   `status` tinyint(4) NOT NULL DEFAULT '1' COMMENT '状态，0未生效，1生效 2删除',
+  `remark` varchar(100) CHARACTER SET utf8 COLLATE utf8_general_ci NOT NULL DEFAULT '0' COMMENT '备注',
   PRIMARY KEY (`payment_channeld_fee_id`) USING BTREE
-) ENGINE=InnoDB AUTO_INCREMENT=25881 DEFAULT CHARSET=utf8 COMMENT='商户金额变动记录';
+) ENGINE=InnoDB AUTO_INCREMENT=25884 DEFAULT CHARSET=utf8 COMMENT='商户金额变动记录';
 
 -- ----------------------------
 -- Table structure for pattern_customer_payment_channel_info
@@ -98,21 +112,6 @@ CREATE TABLE `pattern_customer_payment_channel_info` (
   PRIMARY KEY (`customer_payment_channel_info_id`) USING BTREE,
   UNIQUE KEY `agent_id` (`customer_id`,`payment_channel_id`)
 ) ENGINE=InnoDB AUTO_INCREMENT=1090 DEFAULT CHARSET=utf8 COMMENT='商户支付通道表';
-
--- ----------------------------
--- Table structure for pattern_payment_black_list
--- ----------------------------
-DROP TABLE IF EXISTS `pattern_payment_black_list`;
-CREATE TABLE `pattern_payment_black_list` (
-  `payment_black_list_id` int(11) NOT NULL,
-  `customer_id` int(11) NOT NULL,
-  `ip` varchar(255) NOT NULL,
-  `status` tinyint(4) NOT NULL DEFAULT '1',
-  `create_time` datetime NOT NULL ON UPDATE CURRENT_TIMESTAMP,
-  `update_time` datetime NOT NULL ON UPDATE CURRENT_TIMESTAMP,
-  `remark` varchar(100) CHARACTER SET utf8mb4 COLLATE utf8mb4_0900_ai_ci NOT NULL DEFAULT '',
-  PRIMARY KEY (`payment_black_list_id`) USING BTREE
-) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci;
 
 -- ----------------------------
 -- Table structure for pattern_payment_channel
@@ -206,21 +205,6 @@ CREATE TABLE `pattern_payment_type` (
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8 COMMENT='支付类型表';
 
 -- ----------------------------
--- Table structure for pattern_payment_white_list
--- ----------------------------
-DROP TABLE IF EXISTS `pattern_payment_white_list`;
-CREATE TABLE `pattern_payment_white_list` (
-  `payment_white_list_id` int(11) NOT NULL AUTO_INCREMENT COMMENT '主键',
-  `customer_id` int(11) DEFAULT NULL COMMENT '商户ID',
-  `ip` varchar(50) CHARACTER SET utf8 COLLATE utf8_general_ci DEFAULT NULL COMMENT 'ip地址',
-  `status` tinyint(4) DEFAULT NULL COMMENT '0：禁用 1：启用 2：删除',
-  `create_time` datetime DEFAULT NULL ON UPDATE CURRENT_TIMESTAMP COMMENT '创建时间',
-  `update_time` datetime DEFAULT NULL ON UPDATE CURRENT_TIMESTAMP,
-  `remark` varchar(255) CHARACTER SET utf8 COLLATE utf8_general_ci DEFAULT NULL COMMENT '备注',
-  PRIMARY KEY (`payment_white_list_id`) USING BTREE
-) ENGINE=InnoDB AUTO_INCREMENT=29 DEFAULT CHARSET=utf8 COMMENT='商户支付白名单';
-
--- ----------------------------
 -- Table structure for pattern_shop
 -- ----------------------------
 DROP TABLE IF EXISTS `pattern_shop`;
@@ -237,5 +221,19 @@ CREATE TABLE `pattern_shop` (
   `update_time` datetime NOT NULL ON UPDATE CURRENT_TIMESTAMP COMMENT '更新时间',
   PRIMARY KEY (`shop_id`)
 ) ENGINE=InnoDB AUTO_INCREMENT=2374 DEFAULT CHARSET=utf8 COMMENT='商户门店';
+
+-- ----------------------------
+-- Table structure for pattern_white_list
+-- ----------------------------
+DROP TABLE IF EXISTS `pattern_white_list`;
+CREATE TABLE `pattern_white_list` (
+  `white_list_id` int(11) NOT NULL AUTO_INCREMENT COMMENT '主键',
+  `ip` varchar(50) CHARACTER SET utf8 COLLATE utf8_general_ci DEFAULT NULL COMMENT 'ip地址',
+  `status` tinyint(4) DEFAULT NULL COMMENT '0：禁用 1：启用 2：删除',
+  `create_time` datetime DEFAULT NULL ON UPDATE CURRENT_TIMESTAMP COMMENT '创建时间',
+  `update_time` datetime DEFAULT NULL ON UPDATE CURRENT_TIMESTAMP,
+  `remark` varchar(255) CHARACTER SET utf8 COLLATE utf8_general_ci DEFAULT NULL COMMENT '备注',
+  PRIMARY KEY (`white_list_id`) USING BTREE
+) ENGINE=InnoDB AUTO_INCREMENT=32 DEFAULT CHARSET=utf8 COMMENT='商户支付白名单';
 
 SET FOREIGN_KEY_CHECKS = 1;
