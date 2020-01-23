@@ -135,7 +135,7 @@ function onExpandCustomerPaymentChannelInfoRow(index,row,$element){
             {field: 'remark', title: '备注', align: 'center'},
             {field: 'action', title: '操作', align: 'center',formatter: function(value, row, index){
         		 return [
-        			 '<shiro:hasPermission name="pattern:customerpaymentchannelinfo:update"><button type="button" class="btn btn-danger" style="margin-right:10px;padding:0 10px;" onclick="updateCustomerChannelInfoRow(' + row.customerId + ',' +  row.customerPaymentChannelInfoId + ')">编辑账号渠道</button></shiro:hasPermission>',
+        			 '<shiro:hasPermission name="pattern:customerpaymentchannelinfo:update"><button type="button" class="btn btn-danger" style="margin-right:10px;padding:0 10px;" onclick="updateCustomerChannelInfoRow(' + row.customerId + ',' +  row.customerPaymentChannelInfoId + ')">编辑商户渠道</button></shiro:hasPermission>',
        				 '<shiro:hasPermission name="pattern:customer:red"><button type="button" class="btn btn-warning" style="margin-right:10px;padding:0 10px;" onclick="viewCustomerChannelRow(' + row.shopId + ')">设置费率</button></shiro:hasPermission>'
      			].join('');
             }, events: 'actionEvent'}

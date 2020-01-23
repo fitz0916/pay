@@ -175,7 +175,7 @@ function onAccountParaExpandRow(index,row,$element){
             {field:'remark',title:'备注',align:'center'},
             {field: 'action', title: '操作', align: 'center',formatter: function(value, row, index){
         		 return [	
-        			 '<shiro:hasPermission name="pattern:paymentchannelaccount:update"><button type="button" class="btn btn-info btn-sm" style="margin-right:10px;padding:0 10px;" onclick="updateAccountParaRow(' + row.paymentChannelAccountParaId + ')">编辑渠道账号</button></shiro:hasPermission>'
+        			 '<shiro:hasPermission name="pattern:paymentchannelaccount:update"><button type="button" class="btn btn-info btn-sm" style="margin-right:10px;padding:0 10px;" onclick="updateAccountParaRow(' + row.paymentChannelAccountParaId + ')">编辑渠道账号参数</button></shiro:hasPermission>'
      			].join('');
             }, events: 'actionEvent'}
         ],

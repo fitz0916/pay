@@ -13,6 +13,7 @@ import com.github.pattern.common.constants.PatternConstants;
 import com.github.pattern.common.domain.Customer;
 import com.github.pattern.common.request.CustomerRequest;
 import com.github.pattern.common.service.CustomerService;
+import com.github.pattern.common.utils.AmountUtil;
 import com.github.pattern.common.utils.UUIDGenerator;
 import com.github.pattern.common.vo.PageVo;
 import com.github.pattern.server.dao.CustomerDao;
@@ -53,9 +54,9 @@ public class CustomerServiceImpl extends BaseService implements CustomerService{
 		 }
 		 String customerNo = PatternConstants.CUSTOMER_NO_PREFX + UUIDGenerator.getRandomNumber(6);
 		 String cipher = RandomStringUtils.random(6);
-		 record.setAmount(0L);
-		 record.setFrozenAmount(0L);
-		 record.setFrozenAmountSum(0L);
+		 record.setAmount("0");
+		 record.setFrozenAmount("0");
+		 record.setFrozenAmountSum("0");
 		 record.setCustomerNo(customerNo);
 		 record.setCreateDate(new Date());
 		 record.setUpdateDate(new Date());
@@ -152,7 +153,8 @@ public class CustomerServiceImpl extends BaseService implements CustomerService{
 		int start = dataPage.getStartIndex();
 		int offset = dataPage.getPageSize();
 		long totalCount = customerDao.pageCount(statusList,shopId);
-		List<Customer> result = customerDao.pageList(start,offset,statusList,shopId);
+		List<Customer> list = customerDao.pageList(start,offset,statusList,shopId);
+		List<Customer> result = changeF2Y(list);
         dataPage.setDataList(result);
         pageVo.setRows(result);
         pageVo.setTotal(totalCount);
@@ -161,6 +163,15 @@ public class CustomerServiceImpl extends BaseService implements CustomerService{
 		
 	}
 	
-	
+	private List<Customer> changeF2Y(List<Customer> result){
+		for(Customer customer:result) {
+			customer.setAmount(AmountUtil.changeF2Y(customer.getAmount().toString()));
+			customer.setFrozenAmount(AmountUtil.changeF2Y(customer.getFrozenAmount().toString()));
+			customer.setUnfreezeAmount(AmountUtil.changeF2Y(customer.getUnfreezeAmount().toString()));
+			customer.setFrozenAmountSum(AmountUtil.changeF2Y(customer.getFrozenAmountSum().toString()));
+			customer.setSettlement(AmountUtil.changeF2Y(customer.getSettlement().toString()));
+		}
+		return result;
+	}
 
 }

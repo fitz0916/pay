@@ -20,11 +20,11 @@ public class Customer extends BaseObject{
 	/**商户号**/
 	private String customerNo;
 	/**带结算金额**/
-	private Long settlement;
+	private String settlement;
 	/**冻结总额，待解冻总额**/
-	private Long frozenAmount;
+	private String frozenAmount;
 	/**可用余额（此金额可提现）**/
-	private Long amount;
+	private String amount;
 	/**支付|提现密码（很重要，商户申请提现时需用到此密码）**/
     private String cipher;
     /** 支付状态（0启用 1禁用 2删除）*/
@@ -34,11 +34,11 @@ public class Customer extends BaseObject{
 	/**
 	 * 已解冻总额
 	 */
-	private Long unfreezeAmount;
+	private String unfreezeAmount;
 	/**
 	 * 冻结记录的总额
 	 */
-	private Long frozenAmountSum;
+	private String frozenAmountSum;
 	 /**创建日期**/
     private Date createDate;
     /**更新日期**/
@@ -85,22 +85,22 @@ public class Customer extends BaseObject{
 	public void setCustomerNo(String customerNo) {
 		this.customerNo = customerNo;
 	}
-	public Long getSettlement() {
+	public String getSettlement() {
 		return settlement;
 	}
-	public void setSettlement(Long settlement) {
+	public void setSettlement(String settlement) {
 		this.settlement = settlement;
 	}
-	public Long getFrozenAmount() {
+	public String getFrozenAmount() {
 		return frozenAmount;
 	}
-	public void setFrozenAmount(Long frozenAmount) {
+	public void setFrozenAmount(String frozenAmount) {
 		this.frozenAmount = frozenAmount;
 	}
-	public Long getAmount() {
+	public String getAmount() {
 		return amount;
 	}
-	public void setAmount(Long amount) {
+	public void setAmount(String amount) {
 		this.amount = amount;
 	}
 	public String getCipher() {
@@ -116,16 +116,16 @@ public class Customer extends BaseObject{
 	public void setPayoutWay(Integer payoutWay) {
 		this.payoutWay = payoutWay;
 	}
-	public Long getUnfreezeAmount() {
+	public String getUnfreezeAmount() {
 		return unfreezeAmount;
 	}
-	public void setUnfreezeAmount(Long unfreezeAmount) {
+	public void setUnfreezeAmount(String unfreezeAmount) {
 		this.unfreezeAmount = unfreezeAmount;
 	}
-	public Long getFrozenAmountSum() {
+	public String getFrozenAmountSum() {
 		return frozenAmountSum;
 	}
-	public void setFrozenAmountSum(Long frozenAmountSum) {
+	public void setFrozenAmountSum(String frozenAmountSum) {
 		this.frozenAmountSum = frozenAmountSum;
 	}
 	public Date getCreateDate() {
