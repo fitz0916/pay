@@ -23,7 +23,6 @@ import com.github.pattern.common.request.CustomerRequest;
 import com.github.pattern.common.utils.ResultUtils;
 import com.github.pattern.common.vo.PageVo;
 import com.github.pattern.utils.LengthValidator;
-import com.github.pattern.utils.NotNullValidator;
 
 import io.swagger.annotations.ApiOperation;
 

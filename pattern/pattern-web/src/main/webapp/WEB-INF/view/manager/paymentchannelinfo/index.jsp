@@ -136,7 +136,7 @@ function onExpandCustomerPaymentChannelInfoRow(index,row,$element){
             {field: 'action', title: '操作', align: 'center',formatter: function(value, row, index){
         		 return [
         			 '<shiro:hasPermission name="pattern:customerpaymentchannelinfo:update"><button type="button" class="btn btn-danger" style="margin-right:10px;padding:0 10px;" onclick="updateCustomerChannelInfoRow(' + row.customerId + ',' +  row.customerPaymentChannelInfoId + ')">编辑商户渠道</button></shiro:hasPermission>',
-       				 '<shiro:hasPermission name="pattern:customer:red"><button type="button" class="btn btn-warning" style="margin-right:10px;padding:0 10px;" onclick="viewCustomerChannelRow(' + row.shopId + ')">设置费率</button></shiro:hasPermission>'
+       				 '<shiro:hasPermission name="pattern:customer:red"><button type="button" class="btn btn-warning" style="margin-right:10px;padding:0 10px;" onclick="createCustomerChannelFeeRow(' + row.customerId + ',' +  row.paymentChannel.paymentChannelId + ')">设置费率</button></shiro:hasPermission>'
      			].join('');
             }, events: 'actionEvent'}
         ],
@@ -154,10 +154,29 @@ function onExpandCustomerPaymentChannelInfoRow(index,row,$element){
 //格式化操作按钮
 function actionFormatter(value, row, index) {
     return [
-        '<shiro:hasPermission name="pattern:customerpaymentchannelinfo:create"><a class="add" href="javascript:;" onclick="createCustomerChannelInfoRow(' + row.customerId + ')" data-toggle="tooltip" title="设置支付渠道"><i class="zmdi zmdi-plus"></i>设置支付渠道</a></shiro:hasPermission>'
+        '<shiro:hasPermission name="pattern:customerpaymentchannelinfo:create"><a class="add" href="javascript:;" onclick="createCustomerChannelFeeRow(' + row.customerId + ')" data-toggle="tooltip" title="设置支付渠道"><i class="zmdi zmdi-plus"></i>设置支付渠道</a></shiro:hasPermission>'
     ].join('');
 }
 
+var createCustomerChannelFeeDialog;
+function createCustomerChannelFeeRow(customerId,paymentChannelId){
+	createCustomerChannelFeeDialog = $.dialog({
+	        animationSpeed: 300,
+	        columnClass: 'col-md-10 col-md-offset-1 col-sm-6 col-sm-offset-3 col-xs-10 col-xs-offset-1',
+	        containerFluid: true,
+	        title: '设置商户渠道',
+	        content: 'url:${basePath}/manage/customerpaymentchannelfee/create/' + customerId +'/' + paymentChannelId,
+	        onContentReady: function () {
+	        	initMaterialInput();
+	        },
+	        contentLoaded: function(data, status, xhr){
+	            if(data.code == '10110'){
+	            	layer.msg(data.msg);
+	                location:top.location.href = '${basePath}/login';
+	            }
+	        }
+	    });
+}
 
 var createCustomerChannelInfoDialog;
 function createCustomerChannelInfoRow(customerId){

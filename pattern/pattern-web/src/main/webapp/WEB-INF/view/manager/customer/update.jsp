@@ -19,16 +19,20 @@
 			<input id="customerNo" type="text" class="form-control" value="${customer.customerNo}" name="customerNo" maxlength="50" readonly="readonly">
 		</div>
 		<div class="form-group">
-			<label for="amount">可用金额：</label>
-			<input id="amount" type="text" class="form-control" value="${customer.amount}" name="amount" maxlength="50" readonly="readonly">
+			<label for="amount">可用金额(元)：</label>
+			<input id="amount" type="text" class="form-control" value="${customer.amount}"  maxlength="50" readonly="readonly">
 		</div>
 		<div class="form-group">
-			<label for="settlement">待结算金额：</label>
-			<input id="settlement" type="text" class="form-control" value="${customer.settlement}" name="settlement" maxlength="50" readonly="readonly">
+			<label for="settlement">待结算金额(元)：</label>
+			<input id="settlement" type="text" class="form-control" value="${customer.settlement}"  maxlength="50" readonly="readonly">
 		</div>
 		<div class="form-group">
-			<label for="frozenAmount">冻结金额：</label>
-			<input id="frozenAmount" type="text" class="form-control" value="${customer.frozenAmount}" name="frozenAmount" maxlength="50" readonly="readonly">
+			<label for="frozenAmount">冻结金额(元)：</label>
+			<input id="frozenAmount" type="text" class="form-control" value="${customer.frozenAmount}"  maxlength="50" readonly="readonly">
+		</div>
+		<div class="form-group">
+			<label for="unfreezeAmount">已解冻金额(元)：</label>
+			<input id="unfreezeAmount" type="text" class="form-control" value="${customer.unfreezeAmount}"  maxlength="50" readonly="readonly">
 		</div>
 		
 		<div class="radio">

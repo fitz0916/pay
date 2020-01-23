@@ -1,6 +1,5 @@
 package com.github.pattern.common.domain;
 
-import java.math.BigDecimal;
 import java.util.Date;
 
 public class CustomerPaymentChannelFee extends BaseObject{
@@ -14,9 +13,9 @@ public class CustomerPaymentChannelFee extends BaseObject{
 	//渠道ID
 	private Integer paymentChannelId;
 	//介入三方费率
-	private BigDecimal thirdRate;
+	private String thirdRate;
 	//销售费率
-	private BigDecimal salesRate;
+	private String salesRate;
 	/***
 	 * 创建时间
 	 */
@@ -54,19 +53,19 @@ public class CustomerPaymentChannelFee extends BaseObject{
 		this.paymentChannelId = paymentChannelId;
 	}
 
-	public BigDecimal getThirdRate() {
+	public String getThirdRate() {
 		return thirdRate;
 	}
 
-	public void setThirdRate(BigDecimal thirdRate) {
+	public void setThirdRate(String thirdRate) {
 		this.thirdRate = thirdRate;
 	}
 
-	public BigDecimal getSalesRate() {
+	public String getSalesRate() {
 		return salesRate;
 	}
 
-	public void setSalesRate(BigDecimal salesRate) {
+	public void setSalesRate(String salesRate) {
 		this.salesRate = salesRate;
 	}
 

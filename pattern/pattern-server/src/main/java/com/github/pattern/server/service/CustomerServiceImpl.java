@@ -84,6 +84,13 @@ public class CustomerServiceImpl extends BaseService implements CustomerService{
 			 return modelResult;
 		 }
 		 Customer customer = customerDao.selectByPrimaryKey(customerId);
+		 if(customer != null) {
+		 	customer.setAmount(AmountUtil.changeF2Y(customer.getAmount().toString()));
+			customer.setFrozenAmount(AmountUtil.changeF2Y(customer.getFrozenAmount().toString()));
+			customer.setUnfreezeAmount(AmountUtil.changeF2Y(customer.getUnfreezeAmount().toString()));
+			customer.setFrozenAmountSum(AmountUtil.changeF2Y(customer.getFrozenAmountSum().toString()));
+			customer.setSettlement(AmountUtil.changeF2Y(customer.getSettlement().toString()));
+		 }
 		 modelResult.setModel(customer);
 		 return modelResult;
 	}
@@ -106,6 +113,11 @@ public class CustomerServiceImpl extends BaseService implements CustomerService{
 				 return modelResult;
 			 }
 		 }
+//		 record.setAmount(AmountUtil.changeY2F(record.getAmount())); 
+//		 record.setFrozenAmount(AmountUtil.changeY2F(record.getFrozenAmount()));
+//		 record.setUnfreezeAmount(AmountUtil.changeY2F(customer.getUnfreezeAmount()));
+//		 record.setFrozenAmountSum(AmountUtil.changeY2F(customer.getFrozenAmountSum()));
+//		 record.setSettlement(AmountUtil.changeY2F(customer.getSettlement()));
 		 int result = customerDao.updateByPrimaryKeySelective(record);
 		 if(result > 0) {
 			 modelResult.setModel(result);

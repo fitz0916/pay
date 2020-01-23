@@ -13,7 +13,7 @@ import com.github.pattern.common.vo.ResultVo;
 
 @FeignClient(name="pattern-server")
 @RequestMapping("/pattern/server/customerChannelFee")
-public interface CustomerChannelFeeServiceClient {
+public interface CustomerPaymentChannelFeeServiceClient {
 	
 	@PostMapping("/page")
 	ModelResult<ResultVo> page(@RequestBody CustomerPaymentChannelFeeRequest request);
