@@ -28,4 +28,6 @@ public interface CustomerDao {
 	long pageCount(@Param("statusList")List<Integer> statusList,@Param("shopId") Integer shopId);
 
 	List<Customer> pageList(@Param("start")int start, @Param("offset")int offset, @Param("statusList")List<Integer> statusList,@Param("shopId") Integer shopId);
+
+	Customer selectByCustomerNo(@Param("customerNo")String customerNo);
 }

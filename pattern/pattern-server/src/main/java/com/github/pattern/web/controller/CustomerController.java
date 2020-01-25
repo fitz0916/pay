@@ -41,6 +41,12 @@ public class CustomerController {
 		return customerServiceImpl.selectByPrimaryKey(customerId);
 	}
 
+	@PostMapping("/selectByCustomerNo/{customerNo}")
+	ModelResult<Customer> selectByCustomerNo(@PathVariable("customerNo")String customerNo){
+		return customerServiceImpl.selectByCustomerNo(customerNo);
+	}
+	
+	
 	@PostMapping("/updateByPrimaryKeySelective")
 	public ModelResult<Integer> updateByPrimaryKeySelective(@RequestBody Customer record){
 		return customerServiceImpl.updateByPrimaryKeySelective(record);

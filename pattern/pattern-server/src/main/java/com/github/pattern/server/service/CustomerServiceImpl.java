@@ -4,6 +4,7 @@ import java.util.Date;
 import java.util.List;
 
 import org.apache.commons.lang3.RandomStringUtils;
+import org.apache.commons.lang3.StringUtils;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
@@ -184,6 +185,18 @@ public class CustomerServiceImpl extends BaseService implements CustomerService{
 			customer.setSettlement(AmountUtil.changeF2Y(customer.getSettlement().toString()));
 		}
 		return result;
+	}
+
+	@Override
+	public ModelResult<Customer> selectByCustomerNo(String customerNo) {
+		ModelResult<Customer> modelResult = new ModelResult<Customer>();
+		if(StringUtils.isBlank(customerNo)) {
+			modelResult.withError("0","商户号为空");
+			return modelResult;
+		}
+		Customer customer = customerDao.selectByCustomerNo(customerNo);
+		modelResult.setModel(customer);
+		return customer;
 	}
 
 }

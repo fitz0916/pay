@@ -19,4 +19,6 @@ public interface CustomerService {
 
 	ModelResult<PageVo> page(CustomerRequest request);
 
+	ModelResult<Customer> selectByCustomerNo(String customerNo);
+
 }

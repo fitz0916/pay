@@ -28,6 +28,9 @@ public interface CustomerServiceClient {
 	@PostMapping("/selectByPrimaryKey/{customerId}")
 	ModelResult<Customer> selectByPrimaryKey(@PathVariable("customerId")Integer customerId);
 
+	@PostMapping("/selectByCustomerNo/{customerNo}")
+	ModelResult<Customer> selectByCustomerNo(@PathVariable("customerNo")String customerNo);
+	
 	@PostMapping("/updateByPrimaryKeySelective")
 	ModelResult<Integer> updateByPrimaryKeySelective(@RequestBody Customer record);
 

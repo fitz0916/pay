@@ -29,6 +29,13 @@
     where customer_id = #{customerId,jdbcType=INTEGER}
   </select>
   
+  <select id="selectByPrimaryKey" resultMap="BaseResultMap" parameterType="java.lang.String" >
+    select 
+    <include refid="Base_Column_List" />
+    from pattern_customer
+    where customer_no = #{customerNo,jdbcType=VARCHAR}
+  </select>
+  
   <select id="selectByCustomerName" resultMap="BaseResultMap" parameterType="java.lang.String" >
     select 
     <include refid="Base_Column_List" />
