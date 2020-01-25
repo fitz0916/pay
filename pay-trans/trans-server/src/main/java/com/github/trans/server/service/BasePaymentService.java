@@ -38,7 +38,7 @@ public abstract class BasePaymentService<Q extends TransRequest,P extends TransR
 	 * @param paymentRequest
 	 * @return
 	 */
-	protected ModelResult<PaymentResponse> checkRequestParams(PaymentRequest paymentRequest){
+	protected ModelResult<PaymentResponse> checkRequestParamter(PaymentRequest paymentRequest){
 		ModelResult<PaymentResponse> modelResult = new ModelResult<PaymentResponse>();
 		if(paymentRequest == null) {
 			LOGGER.error("用户请求对象为空！");

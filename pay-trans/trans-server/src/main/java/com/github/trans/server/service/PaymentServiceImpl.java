@@ -1,7 +1,9 @@
 package com.github.trans.server.service;
 
-import java.util.List;
+import javax.annotation.Resource;
 
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
@@ -11,9 +13,12 @@ import com.github.pattern.client.service.CustomerServiceClient;
 import com.github.pattern.client.service.ShopServiceClient;
 import com.github.pattern.common.domain.Customer;
 import com.github.trans.common.request.PaymentRequest;
+import com.github.trans.common.request.TransRequest;
 import com.github.trans.common.response.PaymentResponse;
+import com.github.trans.common.response.TransResponse;
 import com.github.trans.common.service.PaymentService;
-import com.github.trans.common.utils.BeanValidatorUtils;
+import com.github.trans.common.service.ThirdChannelService;
+import com.github.trans.context.ThirdChannelContext;
 
 /***
  * 支付接口 
@@ -24,19 +29,22 @@ import com.github.trans.common.utils.BeanValidatorUtils;
 @Service
 public class PaymentServiceImpl extends BasePaymentService<PaymentRequest,PaymentResponse> implements PaymentService<PaymentRequest,PaymentResponse>{
 
+	private final static Logger LOGGER = LoggerFactory.getLogger(PaymentServiceImpl.class);
+	
 	@Autowired
 	private AgentServiceClient agentServiceClient;
 	@Autowired
 	private ShopServiceClient shopServiceClient;
 	@Autowired
 	private CustomerServiceClient customerServiceClient;
-	
+	@Resource
+	private ThirdChannelContext thirdChannelContext;
 	
 	@Override
 	public ModelResult<PaymentResponse> pay(PaymentRequest paymentRequest) {
 		ModelResult<PaymentResponse> modelResult = new ModelResult<PaymentResponse>();
 		//参数检测
-		modelResult = this.checkRequestParams(paymentRequest);
+		modelResult = this.checkRequestParamter(paymentRequest);
 		if(!modelResult.isSuccess()) {
 			return modelResult;
 		}
@@ -58,8 +66,18 @@ public class PaymentServiceImpl extends BasePaymentService<PaymentRequest,Paymen
 		if(!modelResult.isSuccess()) {
 			return modelResult;
 		}
+		String payType = paymentRequest.getTradeType();
 		//选择渠道，这里使用策略模式，根据支付类型来选择渠道
-		
+		ModelResult<ThirdChannelService> thirdModelResult = thirdChannelContext.strategy(payType, "0");
+		if(!thirdModelResult.isSuccess()) {
+			String errorCode = thirdModelResult.getErrorCode();
+			String errorMsg = thirdModelResult.getErrorMsg();
+			LOGGER.error("获取支付渠道失败,errorCode = 【{}】,errorMsg = 【{}】",errorCode,errorMsg);
+			modelResult.withError(errorCode, errorMsg);
+			return modelResult;
+		}
+		ThirdChannelService thirdChannelService = thirdModelResult.getModel();
+		modelResult = thirdChannelService.process(paymentRequest, customer);
 		return modelResult;
 	}
 
