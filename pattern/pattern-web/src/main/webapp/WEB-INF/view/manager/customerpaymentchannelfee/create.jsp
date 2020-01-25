@@ -31,11 +31,11 @@
 		
 		</div>
 		<div class="form-group">
-			<label for="thirdRate">接入费率(‰)：</label>
-			<input id="thirdRate" type="text" class="form-control"  name="thirdRate"  maxlength="50" >
+			<label for="thirdRate">接入费率(‰),格式如：0.038</label>
+			<input id="thirdRate" type="text" class="form-control"  name="thirdRate"  maxlength="50">
 		</div>
 		<div class="form-group">
-			<label for="salesRate">销售费率(‰)：</label>
+			<label for="salesRate">销售费率(‰),格式如：0.038</label>
 			<input id="salesRate" type="text" class="form-control" name="salesRate" maxlength="50">
 		</div>
 		<div class="form-group text-right dialog-buttons">
