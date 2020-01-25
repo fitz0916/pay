@@ -1,4 +1,4 @@
-package com.github.trans.server.service;
+package com.github.trans.server.service.pay;
 
 import org.springframework.stereotype.Service;
 
