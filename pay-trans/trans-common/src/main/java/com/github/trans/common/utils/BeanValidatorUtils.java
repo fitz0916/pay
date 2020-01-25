@@ -16,6 +16,7 @@ public class BeanValidatorUtils {
 	//校验工厂
     private static ValidatorFactory validatorFactory = Validation.buildDefaultValidatorFactory();
     
+    
     public static List<String> validateParam(Object o) {
 		List<String> messageList=new ArrayList<>();
 		Validator validation = validatorFactory.getValidator();

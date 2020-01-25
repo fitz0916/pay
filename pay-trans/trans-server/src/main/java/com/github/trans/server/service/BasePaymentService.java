@@ -55,11 +55,6 @@ public abstract class BasePaymentService<Q extends TransRequest,P extends TransR
 			modelResult.withError("0", errorMsg);
 			return modelResult;
 		}
-		String clientIP = paymentRequest.getClientIp();
-		if(!BeanValidatorUtils.checkIP(clientIP)) {
-			LOGGER.warn("商户请求IP非法,clientIP = 【{}】",clientIP);
-			modelResult.withError("0", "请求IP地址格式错误");
-		}
 		return modelResult;
 	}
 	

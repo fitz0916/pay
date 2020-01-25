@@ -10,8 +10,11 @@ import javax.validation.constraints.Pattern;
 import org.hibernate.validator.constraints.NotEmpty;
 
 import com.github.trans.common.annotation.Signature;
+import com.github.trans.common.constants.TransConstants;
 
 public class PaymentRequest extends TransRequest{
+	
+	
 	
 	/**签名方式，MD5或者SHA256**/
 	@NotEmpty(message = "signType不能为空")
@@ -42,16 +45,17 @@ public class PaymentRequest extends TransRequest{
 	
 	/**后台回调地址**/
 	@NotEmpty(message = "notifyUrl不能为空")
-	@Pattern(regexp = "(https?)://[-A-Za-z0-9+&@#/%?=~_|!:,.;]+[-A-Za-z0-9+&@#/%=~_|]", message = "非法回调地址")
+	@Pattern(regexp = TransConstants.URL_REGEXP, message = "非法回调地址")
 	private String notifyUrl;
 	
 	/**跳转页面地址**/
 	@NotEmpty(message = "returnUrl不能为空")
-	@Pattern(regexp = "(https?)://[-A-Za-z0-9+&@#/%?=~_|!:,.;]+[-A-Za-z0-9+&@#/%=~_|]", message = "非法页面转发地址")
+	@Pattern(regexp = TransConstants.URL_REGEXP, message = "非法页面转发地址")
 	private String returnUrl;
 	
 	/**请求IP地址**/
-	@NotEmpty(message = "returnUrl不能为空")
+	@NotEmpty(message = "clientIp不能为空")
+	@Pattern(regexp = TransConstants.IP_REGEXP,message = "请求IP格式不正确")
 	private String clientIp;
 	
 	/**支付订单号**/
@@ -67,7 +71,7 @@ public class PaymentRequest extends TransRequest{
 	/** 商户该笔订单的总金额，以元为单位，精确到小数点后两位 **/
 	@NotEmpty(message = "orderTime不能为空")
 	@Signature(required = true, desc = "交易时间")
-	@Pattern(regexp = "^[1-9]*[1-9][0-9]*$", message = "非法金额,请输入正整数,单位【元】,精确到小数点后两位")
+	@Pattern(regexp = TransConstants.DECIMAL_REGEXP, message = "非法金额,请输入正整数,单位【元】,精确到小数点后两位")
 	private String payAmount;
 	
 	/****币种,目前只有人民币-CNY**/
