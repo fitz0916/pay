@@ -15,6 +15,10 @@ public class PaymentChannel extends BaseObject {
 	 * 支付渠道ID
 	 */
 	private Integer paymentChannelId;
+	/***
+	 * 	模板ID
+	 */
+	private Integer paymentTemplateId;
 	/**
 	 * 渠道简称
 	 */
@@ -77,6 +81,14 @@ public class PaymentChannel extends BaseObject {
 
 	public void setPaymentChannelId(Integer paymentChannelId) {
 		this.paymentChannelId = paymentChannelId;
+	}
+
+	public Integer getPaymentTemplateId() {
+		return paymentTemplateId;
+	}
+
+	public void setPaymentTemplateId(Integer paymentTemplateId) {
+		this.paymentTemplateId = paymentTemplateId;
 	}
 
 	public String getChannelName() {

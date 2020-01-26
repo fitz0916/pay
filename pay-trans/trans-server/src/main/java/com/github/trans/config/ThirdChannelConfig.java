@@ -8,6 +8,7 @@ import java.util.Map;
 import javax.annotation.Resource;
 
 import org.springframework.beans.factory.annotation.Configurable;
+import org.springframework.context.annotation.Bean;
 
 import com.github.trans.common.service.ThirdChannelService;
 
@@ -20,28 +21,12 @@ public class ThirdChannelConfig {
 	@Resource
 	private ThirdChannelService wechatPayServiceImpl;
 	
-	
-	public Map<String,List<ThirdChannelService>> thridChannelServiceMap(){
-		Map<String,List<ThirdChannelService>> map = new HashMap<String,List<ThirdChannelService>>();
-		wechatPayChannelMap(map);
-		aliPayChannelMap(map);
+	@Bean
+	public Map<String,ThirdChannelService> thridChannelServiceMap(){
+		Map<String,ThirdChannelService> map = new HashMap<String,ThirdChannelService>();
+		map.put(aliPayServiceImpl.getClass().getSimpleName(), aliPayServiceImpl);
+		map.put(wechatPayServiceImpl.getClass().getSimpleName(), wechatPayServiceImpl);
 		return map;
-	}
-	
-	/***
-	 * 微信扫码，如果后期接入多个渠道支持微信扫码接口，全部放入集合里，然后根据算法：随机、权重等算法来获取渠道
-	 * @param map
-	 */
-	private void wechatPayChannelMap(Map<String,List<ThirdChannelService>> map) {
-		List<ThirdChannelService> list = new ArrayList<ThirdChannelService>();
-		list.add(wechatPayServiceImpl);
-		map.put("1", list);
-	}
-	
-	private void aliPayChannelMap(Map<String,List<ThirdChannelService>> map) {
-		List<ThirdChannelService> list = new ArrayList<ThirdChannelService>();
-		list.add(aliPayServiceImpl);
-		map.put("2", list);
 	}
 	
 }

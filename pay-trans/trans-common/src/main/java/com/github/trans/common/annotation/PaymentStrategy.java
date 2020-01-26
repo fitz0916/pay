@@ -16,8 +16,9 @@ public @interface PaymentStrategy {
 	 //支付类型
 	 String payType() default "";
 	 //渠道描述
-	 String channelDesc() default "";
+	 String templateName() default "";
 	
+	 String desc() default "";
 	
 	
 	

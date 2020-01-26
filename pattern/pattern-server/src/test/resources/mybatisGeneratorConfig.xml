@@ -82,6 +82,9 @@
              
               <table tableName="pattern_shop" domainObjectName="Shop" enableSelectByExample="false" enableDeleteByExample="false"
             enableCountByExample="false" enableUpdateByExample="false" />
+            
+             <table tableName="pattern_payment_template" domainObjectName="PaymentTemplate" enableSelectByExample="false" enableDeleteByExample="false"
+            enableCountByExample="false" enableUpdateByExample="false" />
 
     </context>
 </generatorConfiguration>
