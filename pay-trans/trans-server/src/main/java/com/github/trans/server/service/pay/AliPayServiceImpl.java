@@ -22,8 +22,10 @@ public class AliPayServiceImpl extends BaseThirdChannelService implements ThirdC
 	
 	@Override
 	public ModelResult<PaymentResponse> process(PaymentRequest request, Customer customer) {
+		LOGGER.info("支付宝扫码支付...........");
+		ModelResult<PaymentResponse> modelResult = new ModelResult<PaymentResponse>();
 		
-		return null;
+		return modelResult;
 	}
 
 	
