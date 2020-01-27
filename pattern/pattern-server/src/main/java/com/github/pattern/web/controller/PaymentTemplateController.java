@@ -25,7 +25,7 @@ public class PaymentTemplateController {
 	}
 	
 	@PostMapping("/selectByPrimaryKey/{paymentTemplateId}")
-	public ModelResult<PaymentTemplate> selectByPrimaryKey(Integer paymentTemplateId){
+	public ModelResult<PaymentTemplate> selectByPrimaryKey(@PathVariable("paymentTemplateId")Integer paymentTemplateId){
 		return paymentTemplateServiceImpl.selectByPrimaryKey(paymentTemplateId);
 	}
 }

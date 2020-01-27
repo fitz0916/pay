@@ -18,6 +18,6 @@ public interface PaymentTemplateServiceClient {
 	public ModelResult<List<PaymentTemplate>> selectByPayType(@PathVariable("payType")String payType);
 
 	@PostMapping("/selectByPrimaryKey/{paymentTemplateId}")
-	public ModelResult<PaymentTemplate> selectByPrimaryKey(Integer paymentTemplateId);
+	public ModelResult<PaymentTemplate> selectByPrimaryKey(@PathVariable("paymentTemplateId")Integer paymentTemplateId);
 
 }

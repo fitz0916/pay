@@ -61,7 +61,7 @@ public class CustomerPaymentChannelInfoController {
     }
     
     @PostMapping("/selectByCustomerIdAndPayType/{customerId}/{payType}")
-	ModelResult<List<CustomerPaymentChannelInfo>> selectByCustomerIdAndPayType(Integer customerId, String payType){
+	ModelResult<List<CustomerPaymentChannelInfo>> selectByCustomerIdAndPayType(@PathVariable("customerId")Integer customerId,@PathVariable("payType") String payType){
     	return customerPaymentChannelInfoImpl.selectByCustomerIdAndPayType(customerId,payType);
     }
 }

@@ -186,8 +186,12 @@ public abstract class BasePaymentService {
 			return modelResult;
 		}
 		List<CustomerPaymentChannelInfo> list = channelInfoModelResult.getModel();
-		int listSize = list.size() - 1;
-		int index = new Random().nextInt(listSize);
+		int listSize = list.size();
+		int index = 0;
+		if(listSize > 1) {
+			 index = new Random().nextInt(listSize - 1);
+		}
+		
 		CustomerPaymentChannelInfo customerPaymentChannelInfo = list.get(index);
 		Integer paymentChannelId = customerPaymentChannelInfo.getPaymentChannelId();
 		ModelResult<PaymentChannel> paymentChannelModelResult = paymentChannelServiceClient.selectByPrimaryKey(paymentChannelId);

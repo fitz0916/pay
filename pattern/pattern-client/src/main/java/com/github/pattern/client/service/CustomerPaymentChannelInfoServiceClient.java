@@ -42,7 +42,7 @@ public interface CustomerPaymentChannelInfoServiceClient {
 	ModelResult<PageVo> paymentChannelInfoPage(@RequestBody CustomerPaymentChannelInfoRequest request);
 
     @PostMapping("/selectByCustomerIdAndPayType/{customerId}/{payType}")
-	ModelResult<List<CustomerPaymentChannelInfo>> selectByCustomerIdAndPayType(Integer customerId, String payType);
+	ModelResult<List<CustomerPaymentChannelInfo>> selectByCustomerIdAndPayType(@PathVariable("customerId")Integer customerId,@PathVariable("payType") String payType);
     
     
     
