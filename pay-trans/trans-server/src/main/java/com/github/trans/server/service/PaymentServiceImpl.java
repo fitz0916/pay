@@ -27,7 +27,7 @@ import com.github.trans.context.ThirdChannelContext;
  *
  */
 @Service
-public class PaymentServiceImpl extends BasePaymentService<PaymentRequest,PaymentResponse> implements PaymentService<PaymentRequest,PaymentResponse>{
+public class PaymentServiceImpl extends BasePaymentService implements PaymentService{
 
 	private final static Logger LOGGER = LoggerFactory.getLogger(PaymentServiceImpl.class);
 	
@@ -66,9 +66,10 @@ public class PaymentServiceImpl extends BasePaymentService<PaymentRequest,Paymen
 		if(!modelResult.isSuccess()) {
 			return modelResult;
 		}
-		String payType = paymentRequest.getTradeType();
+		String payType = paymentRequest.getPayType();
+		String templateName = "";
 		//选择渠道，这里使用策略模式，根据支付类型来选择渠道
-		ModelResult<ThirdChannelService> thirdModelResult = thirdChannelContext.strategy(payType, "0");
+		ModelResult<ThirdChannelService> thirdModelResult = thirdChannelContext.strategy(payType);
 		if(!thirdModelResult.isSuccess()) {
 			String errorCode = thirdModelResult.getErrorCode();
 			String errorMsg = thirdModelResult.getErrorMsg();

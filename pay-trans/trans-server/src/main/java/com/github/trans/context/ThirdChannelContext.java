@@ -23,9 +23,9 @@ public class ThirdChannelContext {
 	 * @param strategy
 	 * @return
 	 */
-	public ModelResult<ThirdChannelService> strategy(String payType,String strategy){
+	public ModelResult<ThirdChannelService> strategy(String templateName){
 		ModelResult<ThirdChannelService> modelResult = new ModelResult<ThirdChannelService>();
-		ThirdChannelService thirdChannelService  = thridChannelServiceMap.get(payType);
+		ThirdChannelService thirdChannelService  = thridChannelServiceMap.get(templateName);
 		if(thirdChannelService == null) {
 			modelResult.withError("0", "获取支付渠道接口失败");
 			return modelResult;

@@ -1,17 +1,17 @@
 package com.github.trans.common.service;
 
 import com.github.appmodel.domain.result.ModelResult;
-import com.github.trans.common.request.TransRequest;
-import com.github.trans.common.response.TransResponse;
+import com.github.trans.common.request.PaymentRequest;
+import com.github.trans.common.response.PaymentResponse;
 
-public interface PaymentService<Q extends TransRequest,P extends TransResponse> {
+public interface PaymentService{
 	
 	/****
 	 *  支付接口
 	 * @param paymentRequest
 	 * @return
 	 */
-	public ModelResult<P> pay(Q paymentRequest);
+	public ModelResult<PaymentResponse> pay(PaymentRequest paymentRequest);
 	
 	
 	

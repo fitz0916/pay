@@ -59,7 +59,7 @@ public class PaySignUtil {
 //		paymentRequest.setVersion("1.0.0");
 //		paymentRequest.base64Decoder(); // 签名前需要将参数进行解码,否则验签会失败
 		String sign;
-		if (paymentRequest.getTradeType().equals("52")) {
+		if (paymentRequest.getPayType().equals("52")) {
 			sign = requestMd5Sign(paymentRequest, "SCAfOqBTFpqLzJ4W2gVB");
 		} else {
 			sign = requestMd5Sign(paymentRequest, "SCAfOqBTFpqLzJ4W2gVB", "bankCode"); // 非银行卡支付bankCode不参与签名

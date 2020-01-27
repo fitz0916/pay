@@ -22,7 +22,7 @@ import com.github.trans.common.response.TransResponse;
 import com.github.trans.common.utils.BeanValidatorUtils;
 import com.github.trans.common.utils.PaySignUtil;
 
-public abstract class BasePaymentService<Q extends TransRequest,P extends TransResponse> {
+public abstract class BasePaymentService {
 
 	private final static Logger LOGGER = LoggerFactory.getLogger(BasePaymentService.class);
 	
@@ -46,7 +46,7 @@ public abstract class BasePaymentService<Q extends TransRequest,P extends TransR
 			return modelResult;
 		}
 		LOGGER.info("商户请求参数编码对象数据:paymentRequest = 【{}】",paymentRequest);
-		paymentRequest.base64Decoder();
+		//paymentRequest.base64Decoder();
 		LOGGER.info("商户请求参数解码对象数据:paymentRequest = 【{}】",paymentRequest);
 		List<String> list = BeanValidatorUtils.validateParam(paymentRequest);
 		if(CollectionUtils.isNotEmpty(list)) {
@@ -82,7 +82,7 @@ public abstract class BasePaymentService<Q extends TransRequest,P extends TransR
 			return modelResult;
 		}
 		Integer shopId = customer.getShopId();
-		LOGGER.info("商户号customerNo = 【[]】,门店ID为shopID = 【{}】",customerNo,shopId);
+		LOGGER.info("商户号customerNo = 【{}】,门店ID为shopID = 【{}】",customerNo,shopId);
 		ModelResult<Shop> shopModelResult = shopServiceClient.selectByPrimaryKey(customer.getShopId());
 		if(!shopModelResult.isSuccess()) {
 			String errorMsg = shopModelResult.getErrorMsg();
@@ -153,6 +153,9 @@ public abstract class BasePaymentService<Q extends TransRequest,P extends TransR
 		}
 		return modelResult;
 	}
+	
+	
+	
 	
 	/***
 	 * 检查风控
