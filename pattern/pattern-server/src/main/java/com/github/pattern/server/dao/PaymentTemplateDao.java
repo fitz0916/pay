@@ -10,13 +10,13 @@ import com.github.pattern.common.domain.PaymentTemplate;
 @Repository
 public interface PaymentTemplateDao {
 	
-    int deleteByPrimaryKey(@Param("templateId")Integer templateId);
+    int deleteByPrimaryKey(@Param("paymentTemplateId")Integer paymentTemplateId);
 
     int insert(PaymentTemplate record);
 
     int insertSelective(PaymentTemplate record);
 
-    PaymentTemplate selectByPrimaryKey(@Param("templateId")Integer templateId);
+    PaymentTemplate selectByPrimaryKey(@Param("paymentTemplateId")Integer paymentTemplateId);
 
     int updateByPrimaryKeySelective(PaymentTemplate record);
 

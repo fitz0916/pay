@@ -2,7 +2,7 @@ package com.github.pattern.common.domain;
 
 public class PaymentTemplate extends BaseObject {
 	
-    private Integer templateId;
+    private Integer paymentTemplateId;
 
     private String templateName;
 
@@ -10,15 +10,16 @@ public class PaymentTemplate extends BaseObject {
 
     private String payType;
 
-    public Integer getTemplateId() {
-        return templateId;
-    }
 
-    public void setTemplateId(Integer templateId) {
-        this.templateId = templateId;
-    }
+    public Integer getPaymentTemplateId() {
+		return paymentTemplateId;
+	}
 
-    public String getTemplateName() {
+	public void setPaymentTemplateId(Integer paymentTemplateId) {
+		this.paymentTemplateId = paymentTemplateId;
+	}
+
+	public String getTemplateName() {
         return templateName;
     }
 

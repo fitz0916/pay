@@ -8,7 +8,7 @@
     <result column="third_channel_name" property="thirdChannelName" jdbcType="VARCHAR" />
     <result column="status" property="status" jdbcType="TINYINT" />
     <result column="settlement_type" property="settlementType" jdbcType="TINYINT" />
-    <result column="pay_type" property="payType" jdbcType="TINYINT" />
+    <result column="pay_type" property="payType" jdbcType="VARCHAR" />
     <result column="business_contacts" property="businessContacts" jdbcType="VARCHAR" />
     <result column="mobile" property="mobile" jdbcType="VARCHAR" />
     <result column="qq" property="qq" jdbcType="VARCHAR" />
@@ -27,6 +27,22 @@
     from pattern_payment_channel
     where payment_channel_id = #{paymentChannelId,jdbcType=INTEGER}
   </select>
+  
+  <select id="selectByChannelName" resultMap="BaseResultMap" parameterType="java.lang.String" >
+    select 
+    <include refid="Base_Column_List" />
+    from pattern_payment_channel
+    where channel_name = #{channelName,jdbcType=VARCHAR}
+  </select>
+  
+  <select id="selectByPaymentTemplateIdAndPayType" resultMap="BaseResultMap" parameterType="map" >
+    select 
+    <include refid="Base_Column_List" />
+    from pattern_payment_channel
+    where payment_template_id = #{paymentTemplateId,jdbcType=INTEGER}
+    	  and pay_type = #{payType,jdbcType=VARCHAR}
+  </select>
+  
   <delete id="deleteByPrimaryKey" parameterType="java.lang.Integer" >
     delete from pattern_payment_channel
     where payment_channel_id = #{paymentChannelId,jdbcType=INTEGER}
@@ -40,7 +56,7 @@
       )
     values (#{paymentChannelId,jdbcType=INTEGER}, #{paymentTemplateId,jdbcType=INTEGER}, 
       #{channelName,jdbcType=VARCHAR}, #{thirdChannelName,jdbcType=VARCHAR}, #{status,jdbcType=TINYINT}, 
-      #{payType,jdbcType=TINYINT}, #{businessContacts,jdbcType=VARCHAR}, #{settlementType,jdbcType=TINYINT}, 
+      #{payType,jdbcType=VARCHAR}, #{businessContacts,jdbcType=VARCHAR}, #{settlementType,jdbcType=TINYINT}, 
       #{mobile,jdbcType=VARCHAR}, #{qq,jdbcType=VARCHAR}, #{wechat,jdbcType=VARCHAR}, 
       #{createTime,jdbcType=TIMESTAMP}, #{updateTime,jdbcType=TIMESTAMP}, #{remark,jdbcType=VARCHAR}
       )
@@ -108,7 +124,7 @@
         #{status,jdbcType=TINYINT},
       </if>
       <if test="payType != null" >
-        #{payType,jdbcType=TINYINT},
+        #{payType,jdbcType=VARCHAR},
       </if>
       <if test="businessContacts != null" >
         #{businessContacts,jdbcType=VARCHAR},
@@ -152,7 +168,7 @@
         status = #{status,jdbcType=TINYINT},
       </if>
       <if test="payType != null" >
-        pay_type = #{payType,jdbcType=TINYINT},
+        pay_type = #{payType,jdbcType=VARCHAR},
       </if>
       <if test="businessContacts != null" >
         business_contacts = #{businessContacts,jdbcType=VARCHAR},
@@ -187,7 +203,7 @@
       channel_name = #{channelName,jdbcType=VARCHAR},
       third_channel_name = #{thirdChannelName,jdbcType=VARCHAR},
       status = #{status,jdbcType=TINYINT},
-      pay_type = #{payType,jdbcType=TINYINT},
+      pay_type = #{payType,jdbcType=VARCHAR},
       business_contacts = #{businessContacts,jdbcType=VARCHAR},
       settlement_type = #{settlementType,jdbcType=TINYINT},
       mobile = #{mobile,jdbcType=VARCHAR},

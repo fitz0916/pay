@@ -19,6 +19,9 @@ public class PaymentChannel extends BaseObject {
 	 * 	模板ID
 	 */
 	private Integer paymentTemplateId;
+	
+	/**模板名称**/
+	private String templateName;
 	/**
 	 * 渠道简称
 	 */
@@ -40,7 +43,7 @@ public class PaymentChannel extends BaseObject {
 	/**
 	 * 支付类型
 	 */
-	private Integer payType;
+	private String payType;
 	/**
 	 * 渠道创建时间
 	 */
@@ -91,6 +94,15 @@ public class PaymentChannel extends BaseObject {
 		this.paymentTemplateId = paymentTemplateId;
 	}
 
+	
+	public String getTemplateName() {
+		return templateName;
+	}
+
+	public void setTemplateName(String templateName) {
+		this.templateName = templateName;
+	}
+
 	public String getChannelName() {
 		return channelName;
 	}
@@ -123,11 +135,11 @@ public class PaymentChannel extends BaseObject {
 		this.status = status;
 	}
 
-	public Integer getPayType() {
+	public String getPayType() {
 		return payType;
 	}
 
-	public void setPayType(Integer payType) {
+	public void setPayType(String payType) {
 		this.payType = payType;
 	}
 

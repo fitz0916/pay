@@ -28,4 +28,10 @@ public interface PaymentChannelDao {
 	List<PaymentChannel> pageList(@Param("start")int start, @Param("offset")int offset);
 
 	List<PaymentChannel> list();
+	
+	PaymentChannel selectByChannelName(@Param("channelName")String channelName);
+	
+	
+	PaymentChannel selectByPaymentTemplateIdAndPayType(@Param("paymentTemplateId")Integer paymentTemplateId,@Param("payType")String payType);
+	
 }

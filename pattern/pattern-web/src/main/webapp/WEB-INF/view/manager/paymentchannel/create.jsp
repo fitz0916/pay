@@ -47,7 +47,10 @@
 		
 		</div>
 		<div class="form-group">
-			<div>
+			<div class="col-sm-6">
+			  <label>支付类型:</label>
+			</div>
+			<div class="col-sm-6">
 				<select id="payType" name="payType" class="form-control">
 		             <option value="">请选择支付类型</option>
 		             <option value="0">微信-扫码</option>
@@ -61,13 +64,18 @@
 		</div>
 		
 		<div class="form-group">
-			<div>
+			<div class="col-sm-6">
+			  <label>渠道模板:</label>
+			</div>
+			<div class="col-sm-6">
 			   <select id="paymentTemplateId" name="paymentTemplateId" class="form-control">
-			   			<option value="">请选择模板</option>
+			   			<option value="">请选择渠道模板</option>
 			   </select>
 			</div>
 		</div>
+		<div class="form-group">
 		
+		</div>
 		<div class="form-group">
 			<label for="businessContacts">商务联系人：</label>
 			<input id="businessContacts" type="text" class="form-control" name="businessContacts" maxlength="50">
@@ -106,31 +114,29 @@
 
 $('#payType').bind('change',function(){
 	var payTypeVal = $(this).val();
-	if($trim(payTypeVal) != ''){
-		$.ajax({
+	if($.trim(payTypeVal) == ''){
+		$('#paymentTemplateId').html("<option value=''>请选择渠道模板</option>");
+		return;
+	}
+	$.ajax({
     		type: "post",
             url : "${basePath}/manage/paymenttemplate/list/" + payTypeVal,
             success:function (result) {
-            	var datas = [{paymentTemplateId:'', text: '请选择模板'}];
+            	var array = new Array();
+            	array.push("<option value=''>请选择渠道模板</option>")
                 for (var i = 0; i < result.data.length; i ++) {
-                    var data = {};
-                    data.paymentTemplateId = result.data[i].paymentTemplateId;
-                    data.templateDesc = result.data[i].templateDesc;
-                    datas.push(data);
+                    var paymentTemplateId = result.data[i].paymentTemplateId;
+                    var templateDesc = result.data[i].templateDesc;
+                    array.push("<option value='" +  paymentTemplateId + "'>" + templateDesc + "</option>");
                 }
-                $('#paymentTemplateId').empty();
-                $('#paymentTemplateId').select2({
-                    data : datas
-                });
+                $('#paymentTemplateId').html("");
+                $('#paymentTemplateId').html(array.join(""));
             },
             error:function (message) {
-            	$('#paymentTemplateId').empty();
-                $('#paymentTemplateId').select2({
-                    data : [{paymentTemplateId:'', text: '请选择模板'}]
-                });
+            	$('#paymentTemplateId').html("");
+                $('#paymentTemplateId').html("<option value=''>请选择渠道模板</option>");
             }
-        });
-	}
+     });
 });
 
 

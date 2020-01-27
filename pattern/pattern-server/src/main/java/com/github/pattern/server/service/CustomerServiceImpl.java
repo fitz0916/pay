@@ -196,7 +196,7 @@ public class CustomerServiceImpl extends BaseService implements CustomerService{
 		}
 		Customer customer = customerDao.selectByCustomerNo(customerNo);
 		modelResult.setModel(customer);
-		return customer;
+		return modelResult;
 	}
 
 }

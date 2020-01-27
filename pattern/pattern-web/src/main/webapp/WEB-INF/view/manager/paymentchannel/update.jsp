@@ -48,9 +48,12 @@
 		
 		</div>
 		<div class="form-group">
-		  <div>
-		     <select name="payType"  class="form-control">
-		         <option value="-1">请选择支付类型</option>
+		  <div class="col-sm-6">
+			  <label>支付类型:</label>
+		  </div>
+		  <div class="col-sm-6">
+		     <select id="payType" name="payType"  class="form-control">
+		         <option value="">请选择支付类型</option>
 		             <option value="0" <c:if test="${paymentChannel.payType == 0}">selected="selected"</c:if>>微信-扫码</option>
 		             <option value="1" <c:if test="${paymentChannel.payType == 1}">selected="selected"</c:if>>支付宝-扫码</option>
 		             <option value="2" <c:if test="${paymentChannel.payType == 2}">selected="selected"</c:if>>银联扫码支付</option>
@@ -61,6 +64,22 @@
 		  </div>
 		</div>
 		
+		<div class="form-group">
+			<div class="col-sm-6">
+			  <label>渠道模板:</label>
+			</div>
+			<div class="col-sm-6">
+			   <select id="paymentTemplateId" name="paymentTemplateId" class="form-control">
+			   			<option value="">请选择渠道模板</option>
+			   			<c:forEach items="${paymentTemplateList}" var="paymentTemplate">
+			   			   <option value='${paymentTemplate.paymentTemplateId}' <c:if test='${paymentTemplate.paymentTemplateId == paymentChannel.paymentTemplateId}'>selected="selected"</c:if>>${paymentTemplate.templateDesc}</option>
+			   			</c:forEach>
+			   </select>
+			</div>
+		</div>
+		<div class="form-group">
+		
+		</div>
 		<div class="form-group">
 			<label for="businessContacts">商务联系人：</label>
 			<input id="businessContacts" type="text" class="form-control" value="${paymentChannel.businessContacts}" name="businessContacts" maxlength="50">
@@ -92,6 +111,33 @@
 	</form>
 </div>
 <script type="text/javascript">
+$('#payType').bind('change',function(){
+	var payTypeVal = $(this).val();
+	if($.trim(payTypeVal) == ''){
+		$('#paymentTemplateId').html("<option value=''>请选择渠道模板</option>");
+		return;
+	}
+	$.ajax({
+    		type: "post",
+            url : "${basePath}/manage/paymenttemplate/list/" + payTypeVal,
+            success:function (result) {
+            	var array = new Array();
+            	array.push("<option value=''>请选择渠道模板</option>")
+                for (var i = 0; i < result.data.length; i ++) {
+                    var paymentTemplateId = result.data[i].paymentTemplateId;
+                    var templateDesc = result.data[i].templateDesc;
+                    array.push("<option value='" +  paymentTemplateId + "'>" + templateDesc + "</option>");
+                }
+                $('#paymentTemplateId').html("");
+                $('#paymentTemplateId').html(array.join(""));
+            },
+            error:function (message) {
+            	$('#paymentTemplateId').html("");
+                $('#paymentTemplateId').html("<option value=''>请选择渠道模板</option>");
+            }
+     });
+});
+
 function updateSubmit() {
     $.ajax({
         type: 'post',

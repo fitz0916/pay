@@ -1,5 +1,7 @@
 package com.github.pattern.web.controller;
 
+import java.util.List;
+
 import org.apache.shiro.authz.annotation.RequiresPermissions;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
@@ -16,7 +18,9 @@ import com.baidu.unbiz.fluentvalidator.ResultCollectors;
 import com.github.admin.common.constants.Constants;
 import com.github.appmodel.domain.result.ModelResult;
 import com.github.pattern.client.service.PaymentChannelServiceClient;
+import com.github.pattern.client.service.PaymentTemplateServiceClient;
 import com.github.pattern.common.domain.PaymentChannel;
+import com.github.pattern.common.domain.PaymentTemplate;
 import com.github.pattern.common.request.PaymentChannelRequest;
 import com.github.pattern.common.utils.ResultUtils;
 import com.github.pattern.common.vo.PageVo;
@@ -35,6 +39,9 @@ public class PaymentChannelController {
 	
 	@Autowired
 	private PaymentChannelServiceClient paymentChannelServiceClient;
+	
+	@Autowired
+	private PaymentTemplateServiceClient paymentTemplateServiceClient;
 	
 	@ApiOperation("支付渠道首页")
     @RequiresPermissions("pattern:paymentchannel:read")
@@ -76,7 +83,8 @@ public class PaymentChannelController {
 		ComplexResult result = FluentValidator.checkAll()
 	            .on(paymentChannel.getChannelName(), new LengthValidator(2, 50, "渠道名称"))
 	            .on(paymentChannel.getThirdChannelName(), new LengthValidator(2, 50, "三方渠道名称"))
-	            .on(paymentChannel.getPayType() == null ? null : String.valueOf(paymentChannel.getPayType()), new NotNullValidator("支付类型"))
+	            .on(paymentChannel.getPayType(), new NotNullValidator("支付类型"))
+	            .on(paymentChannel.getPaymentTemplateId() == null ? null :String.valueOf(paymentChannel.getPaymentTemplateId()),new NotNullValidator("渠道模板"))
 	            .on(paymentChannel.getBusinessContacts(), new LengthValidator(2, 50, "联系人"))
 	            .on(paymentChannel.getQq(), new LengthValidator(5, 50, "QQ"))
 	            .on(paymentChannel.getWechat(), new LengthValidator(2, 50, "微信"))
@@ -96,7 +104,13 @@ public class PaymentChannelController {
 			throw new NullPointerException("查询失败");
 		}
 		PaymentChannel paymentChannel = modelResult.getModel();
+		String payType = paymentChannel.getPayType();
+		ModelResult<List<PaymentTemplate>> templateModelResult = paymentTemplateServiceClient.selectByPayType(payType);
+		if(!templateModelResult.isSuccess()) {
+			throw new NullPointerException("查询失败");
+		}
 		modelMap.put("paymentChannel", paymentChannel);
+		modelMap.put("paymentTemplateList", templateModelResult.getModel());
 		return "/manager/paymentchannel/update";
 	}
 	

@@ -2,20 +2,20 @@
 <!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd" >
 <mapper namespace="com.github.pattern.server.dao.PaymentTemplateDao" >
   <resultMap id="BaseResultMap" type="com.github.pattern.common.domain.PaymentTemplate" >
-    <id column="template_id" property="templateId" jdbcType="INTEGER" />
+    <id column="payment_template_id" property="paymentTemplateId" jdbcType="INTEGER" />
     <result column="template_name" property="templateName" jdbcType="VARCHAR" />
     <result column="template_desc" property="templateDesc" jdbcType="VARCHAR" />
     <result column="pay_type" property="payType" jdbcType="VARCHAR" />
   </resultMap>
   <sql id="Base_Column_List" >
-    template_id, template_name, template_desc, pay_type
+    payment_template_id, template_name, template_desc, pay_type
   </sql>
   
   <select id="selectByPrimaryKey" resultMap="BaseResultMap" parameterType="java.lang.Integer" >
     select 
     <include refid="Base_Column_List" />
     from pattern_payment_template
-    where template_id = #{templateId,jdbcType=INTEGER}
+    where payment_template_id = #{paymentTemplateId,jdbcType=INTEGER}
   </select>
   
   <select id="selectByPayType" resultMap="BaseResultMap" parameterType="java.lang.String" >
@@ -27,19 +27,19 @@
   
   <delete id="deleteByPrimaryKey" parameterType="java.lang.Integer" >
     delete from pattern_payment_template
-    where template_id = #{templateId,jdbcType=INTEGER}
+    where payment_template_id = #{paymentTemplateId,jdbcType=INTEGER}
   </delete>
   <insert id="insert" parameterType="com.github.pattern.common.domain.PaymentTemplate" >
-    insert into pattern_payment_template (template_id, template_name, template_desc, 
+    insert into pattern_payment_template (payment_template_id, template_name, template_desc, 
       pay_type)
-    values (#{templateId,jdbcType=INTEGER}, #{templateName,jdbcType=VARCHAR}, #{templateDesc,jdbcType=VARCHAR}, 
+    values (#{paymentTemplateId,jdbcType=INTEGER}, #{templateName,jdbcType=VARCHAR}, #{templateDesc,jdbcType=VARCHAR}, 
       #{payType,jdbcType=VARCHAR})
   </insert>
   <insert id="insertSelective" parameterType="com.github.pattern.common.domain.PaymentTemplate" >
     insert into pattern_payment_template
     <trim prefix="(" suffix=")" suffixOverrides="," >
-      <if test="templateId != null" >
-        template_id,
+      <if test="paymentTemplateId != null" >
+        payment_template_id,
       </if>
       <if test="templateName != null" >
         template_name,
@@ -52,8 +52,8 @@
       </if>
     </trim>
     <trim prefix="values (" suffix=")" suffixOverrides="," >
-      <if test="templateId != null" >
-        #{templateId,jdbcType=INTEGER},
+      <if test="paymentTemplateId != null" >
+        #{paymentTemplateId,jdbcType=INTEGER},
       </if>
       <if test="templateName != null" >
         #{templateName,jdbcType=VARCHAR},
@@ -79,13 +79,13 @@
         pay_type = #{payType,jdbcType=VARCHAR},
       </if>
     </set>
-    where template_id = #{templateId,jdbcType=INTEGER}
+    where payment_template_id = #{paymentTemplateId,jdbcType=INTEGER}
   </update>
   <update id="updateByPrimaryKey" parameterType="com.github.pattern.common.domain.PaymentTemplate" >
     update pattern_payment_template
     set template_name = #{templateName,jdbcType=VARCHAR},
       template_desc = #{templateDesc,jdbcType=VARCHAR},
       pay_type = #{payType,jdbcType=VARCHAR}
-    where template_id = #{templateId,jdbcType=INTEGER}
+    where payment_template_id = #{paymentTemplateId,jdbcType=INTEGER}
   </update>
 </mapper>

@@ -69,6 +69,7 @@ $(function() {
 			{field: 'ck', checkbox: true, align: 'center'},
 			{field: 'paymentChannelId', title: '编号', sortable: true, align: 'center'},
 			{field: 'channelName', title: '渠道名称', align: 'center'},
+			{field: 'templateName', title: '渠道模板名称', align: 'center'},
 			{field: 'payType', title: '渠道类型', align: 'center',formatter:'paymentTypeFormatter'},
 			{field: 'thirdChannelName', title: '三方渠道名称', align: 'center'},
             {field: 'status', title: '状态', align: 'center',formatter: 'statusFormatter'},
