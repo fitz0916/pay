@@ -66,7 +66,6 @@ public class PaymentServiceImpl extends BasePaymentService implements PaymentSer
 			return modelResult;
 		}
 		String payType = paymentRequest.getPayType();
-		String templateName = "";
 		//选择渠道，这里使用策略模式，根据支付类型来选择渠道
 		ModelResult<ThirdChannelService> thirdModelResult = this.selectPaymentChannel(customer,payType);
 		if(!thirdModelResult.isSuccess()) {
