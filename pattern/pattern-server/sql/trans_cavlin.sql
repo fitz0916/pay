@@ -11,7 +11,7 @@
  Target Server Version : 80018
  File Encoding         : 65001
 
- Date: 23/01/2020 22:41:17
+ Date: 27/01/2020 14:54:05
 */
 
 SET NAMES utf8mb4;
@@ -119,10 +119,11 @@ CREATE TABLE `pattern_customer_payment_channel_info` (
 DROP TABLE IF EXISTS `pattern_payment_channel`;
 CREATE TABLE `pattern_payment_channel` (
   `payment_channel_id` int(11) unsigned NOT NULL AUTO_INCREMENT COMMENT '支付渠道ID',
+  `payment_template_id` int(11) NOT NULL COMMENT '模板ID',
   `channel_name` varchar(50) NOT NULL DEFAULT '' COMMENT '简称',
   `third_channel_name` varchar(50) CHARACTER SET utf8 COLLATE utf8_general_ci NOT NULL DEFAULT '' COMMENT '三方渠道名称',
   `status` tinyint(4) NOT NULL DEFAULT '1' COMMENT '0：停用 1：启用 2删除',
-  `pay_type` tinyint(4) NOT NULL COMMENT '支付类型',
+  `pay_type` varchar(10) NOT NULL COMMENT '支付类型',
   `business_contacts` varchar(50) CHARACTER SET utf8 COLLATE utf8_general_ci NOT NULL COMMENT '商务联系人',
   `settlement_type` tinyint(4) NOT NULL COMMENT '对接三方渠道的结算方式',
   `mobile` varchar(15) CHARACTER SET utf8 COLLATE utf8_general_ci NOT NULL COMMENT '手机号码',
@@ -188,6 +189,18 @@ CREATE TABLE `pattern_payment_channelinfo_risk` (
   `remark` varchar(100) NOT NULL COMMENT '备注',
   PRIMARY KEY (`payment_channelinfo_risk_id`) USING BTREE
 ) ENGINE=InnoDB AUTO_INCREMENT=71 DEFAULT CHARSET=utf8 COMMENT='支付通道风控表';
+
+-- ----------------------------
+-- Table structure for pattern_payment_template
+-- ----------------------------
+DROP TABLE IF EXISTS `pattern_payment_template`;
+CREATE TABLE `pattern_payment_template` (
+  `payment_template_id` int(11) NOT NULL,
+  `template_name` varchar(20) CHARACTER SET utf8mb4 COLLATE utf8mb4_0900_ai_ci NOT NULL COMMENT '支付名称',
+  `template_desc` varchar(20) CHARACTER SET utf8mb4 COLLATE utf8mb4_0900_ai_ci NOT NULL COMMENT '支付模板描述',
+  `pay_type` varchar(10) NOT NULL COMMENT '支付类型',
+  PRIMARY KEY (`payment_template_id`)
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci;
 
 -- ----------------------------
 -- Table structure for pattern_payment_type
