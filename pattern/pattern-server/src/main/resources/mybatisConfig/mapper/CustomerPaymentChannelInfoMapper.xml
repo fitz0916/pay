@@ -184,7 +184,7 @@
      
   </select>
   
-  <select id="selectByCustomerIdAndPaymentChannelId" resultMap="BaseResultMap" parameterType="map" >
+  <select id="selectByCustomerIdAndPayType" resultMap="BaseResultMap" parameterType="map" >
     select 
     	<include refid="Base_Column_List" />
        from pattern_customer_payment_channel_info
