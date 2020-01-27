@@ -1,5 +1,7 @@
 package com.github.pattern.common.service;
 
+import java.util.List;
+
 import com.github.appmodel.domain.result.ModelResult;
 import com.github.pattern.common.domain.CustomerPaymentChannelInfo;
 import com.github.pattern.common.request.CustomerPaymentChannelInfoRequest;
@@ -20,5 +22,7 @@ public interface CustomerPaymentChannelInfoService {
 	ModelResult<PageVo> page(CustomerPaymentChannelInfoRequest request);
 
 	ModelResult<PageVo> paymentChannelInfoPage(CustomerPaymentChannelInfoRequest request);
+
+	ModelResult<List<CustomerPaymentChannelInfo>> selectByCustomerIdAndPayType(Integer customerId, String payType);
 
 }

@@ -37,8 +37,7 @@ public class PaymentServiceImpl extends BasePaymentService implements PaymentSer
 	private ShopServiceClient shopServiceClient;
 	@Autowired
 	private CustomerServiceClient customerServiceClient;
-	@Resource
-	private ThirdChannelContext thirdChannelContext;
+	
 	
 	@Override
 	public ModelResult<PaymentResponse> pay(PaymentRequest paymentRequest) {
@@ -69,7 +68,7 @@ public class PaymentServiceImpl extends BasePaymentService implements PaymentSer
 		String payType = paymentRequest.getPayType();
 		String templateName = "";
 		//选择渠道，这里使用策略模式，根据支付类型来选择渠道
-		ModelResult<ThirdChannelService> thirdModelResult = thirdChannelContext.strategy(payType);
+		ModelResult<ThirdChannelService> thirdModelResult = this.selectPaymentChannel(customer,payType);
 		if(!thirdModelResult.isSuccess()) {
 			String errorCode = thirdModelResult.getErrorCode();
 			String errorMsg = thirdModelResult.getErrorMsg();

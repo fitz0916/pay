@@ -26,6 +26,8 @@ public interface CustomerPaymentChannelInfoDao {
 
 	List<CustomerPaymentChannelInfo> pageList(@Param("start")int start, @Param("offset")int offset, @Param("customerId")Integer customerId);
 	
-	
 	CustomerPaymentChannelInfo selectByCustomerIdAndPaymentChannelId(@Param("customerId")Integer customerId,@Param("paymentChannelId")Integer paymentChannelId);
+
+	List<CustomerPaymentChannelInfo> selectByCustomerIdAndPayType(@Param("customerId")Integer customerId,@Param("payType")String payType);
+	
 }

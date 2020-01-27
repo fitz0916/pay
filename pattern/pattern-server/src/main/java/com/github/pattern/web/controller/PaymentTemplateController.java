@@ -24,4 +24,8 @@ public class PaymentTemplateController {
 		return paymentTemplateServiceImpl.selectByPayType(payType);
 	}
 	
+	@PostMapping("/selectByPrimaryKey/{paymentTemplateId}")
+	public ModelResult<PaymentTemplate> selectByPrimaryKey(Integer paymentTemplateId){
+		return paymentTemplateServiceImpl.selectByPrimaryKey(paymentTemplateId);
+	}
 }

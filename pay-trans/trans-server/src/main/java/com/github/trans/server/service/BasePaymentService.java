@@ -1,26 +1,36 @@
 package com.github.trans.server.service;
 
 import java.util.List;
+import java.util.Random;
+
+import javax.annotation.Resource;
 
 import org.apache.commons.collections.CollectionUtils;
+import org.apache.commons.lang3.StringUtils;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.springframework.beans.factory.annotation.Autowired;
 
 import com.github.appmodel.domain.result.ModelResult;
 import com.github.pattern.client.service.AgentServiceClient;
+import com.github.pattern.client.service.CustomerPaymentChannelInfoServiceClient;
 import com.github.pattern.client.service.CustomerServiceClient;
+import com.github.pattern.client.service.PaymentChannelServiceClient;
+import com.github.pattern.client.service.PaymentTemplateServiceClient;
 import com.github.pattern.client.service.ShopServiceClient;
 import com.github.pattern.common.domain.Agent;
 import com.github.pattern.common.domain.Customer;
+import com.github.pattern.common.domain.CustomerPaymentChannelInfo;
+import com.github.pattern.common.domain.PaymentChannel;
+import com.github.pattern.common.domain.PaymentTemplate;
 import com.github.pattern.common.domain.Shop;
 import com.github.trans.common.annotation.PayResponseCodeEnum;
 import com.github.trans.common.request.PaymentRequest;
-import com.github.trans.common.request.TransRequest;
 import com.github.trans.common.response.PaymentResponse;
-import com.github.trans.common.response.TransResponse;
+import com.github.trans.common.service.ThirdChannelService;
 import com.github.trans.common.utils.BeanValidatorUtils;
 import com.github.trans.common.utils.PaySignUtil;
+import com.github.trans.context.ThirdChannelContext;
 
 public abstract class BasePaymentService {
 
@@ -32,6 +42,14 @@ public abstract class BasePaymentService {
 	private ShopServiceClient shopServiceClient;
 	@Autowired
 	private CustomerServiceClient customerServiceClient;
+	@Resource
+	private ThirdChannelContext thirdChannelContext;
+	@Autowired
+	private CustomerPaymentChannelInfoServiceClient customerPaymentChannelInfoServiceClient;
+	@Autowired
+	private PaymentTemplateServiceClient paymentTemplateServiceClient;
+	@Autowired
+	private PaymentChannelServiceClient paymentChannelServiceClient;
 	
 	/***
 	 * 检查请求参数是否为空
@@ -155,7 +173,54 @@ public abstract class BasePaymentService {
 	}
 	
 	
-	
+	protected ModelResult<ThirdChannelService> selectPaymentChannel(Customer customer,String payType){
+		ModelResult<ThirdChannelService> modelResult = new ModelResult<ThirdChannelService>();
+		String customerNo = customer.getCustomerNo();
+		Integer customerId = customer.getCustomerId();
+		ModelResult<List<CustomerPaymentChannelInfo>> channelInfoModelResult = customerPaymentChannelInfoServiceClient.selectByCustomerIdAndPayType(customerId,payType);
+		if(!channelInfoModelResult.isSuccess() || CollectionUtils.isEmpty(channelInfoModelResult.getModel())) {
+			String errorCode = "0";
+			String errorMsg = "获取支付账号渠道失败";
+			LOGGER.warn("商户customeNo = 【{}】获取用户账号渠道失败 errorCode = 【{}】,errorMsg = 【{}】",customerNo,errorCode,errorMsg);
+			modelResult.withError(errorCode, errorMsg);
+			return modelResult;
+		}
+		List<CustomerPaymentChannelInfo> list = channelInfoModelResult.getModel();
+		int listSize = list.size() - 1;
+		int index = new Random().nextInt(listSize);
+		CustomerPaymentChannelInfo customerPaymentChannelInfo = list.get(index);
+		Integer paymentChannelId = customerPaymentChannelInfo.getPaymentChannelId();
+		ModelResult<PaymentChannel> paymentChannelModelResult = paymentChannelServiceClient.selectByPrimaryKey(paymentChannelId);
+		if(!paymentChannelModelResult.isSuccess() || paymentChannelModelResult.getModel() == null) {
+			String errorCode = "0";
+			String errorMsg = "获取支付渠道失败";
+			LOGGER.warn("商户customeNo = 【{}】获取用户渠道失败 errorCode = 【{}】,errorMsg = 【{}】",customerNo,errorCode,errorMsg);
+			modelResult.withError(errorCode, errorMsg);
+			return modelResult;
+		}
+		PaymentChannel paymentChannel = paymentChannelModelResult.getModel();
+		Integer paymentTemplateId = paymentChannel.getPaymentTemplateId();
+		ModelResult<PaymentTemplate> templateModelResult = paymentTemplateServiceClient.selectByPrimaryKey(paymentTemplateId);
+		if(!templateModelResult.isSuccess() || templateModelResult.getModel() == null) {
+			String errorCode = "0";
+			String errorMsg = "商户没有添加对应的支付渠道模板";
+			LOGGER.warn("商户customeNo = 【{}】获取用户渠道模板失败 errorCode = 【{}】,errorMsg = 【{}】",customerNo,errorCode,errorMsg);
+			modelResult.withError(errorCode, errorMsg);
+			return modelResult;
+		}
+		PaymentTemplate paymentTemplate = templateModelResult.getModel();
+		String templateName = paymentTemplate.getTemplateName();
+		LOGGER.info("商户customeNo = 【{}】获取支付渠道模板名称templateName = 【{}】",customerNo,templateName);
+		if(StringUtils.isBlank(templateName)) {
+			String errorCode = "0";
+			String errorMsg = "商户没有添加对应的支付渠道模板名称";
+			LOGGER.warn("商户customeNo = 【{}】获取用户渠道模板失败 errorCode = 【{}】,errorMsg = 【{}】",customerNo,errorCode,errorMsg);
+			modelResult.withError(errorCode, errorMsg);
+			return modelResult;
+		}
+		modelResult = thirdChannelContext.strategy(templateName);
+		return modelResult;
+	}
 	
 	/***
 	 * 检查风控

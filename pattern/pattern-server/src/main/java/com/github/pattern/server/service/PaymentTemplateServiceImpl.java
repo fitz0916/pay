@@ -30,6 +30,18 @@ public class PaymentTemplateServiceImpl extends BaseService implements PaymentTe
 		return modelResult;
 	}
 
+	@Override
+	public ModelResult<PaymentTemplate> selectByPrimaryKey(Integer paymentTemplateId) {
+		ModelResult<PaymentTemplate> modelResult = new ModelResult<PaymentTemplate>();
+		if(paymentTemplateId == null || paymentTemplateId == 0) {
+			modelResult.withError("0", "非法参数");
+			return modelResult;
+		}
+		PaymentTemplate paymentTemplate = paymentTemplateDao.selectByPrimaryKey(paymentTemplateId);
+		modelResult.setModel(paymentTemplate);
+		return modelResult;
+	}
+
 	
 
 }

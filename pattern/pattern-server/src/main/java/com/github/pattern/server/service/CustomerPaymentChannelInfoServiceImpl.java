@@ -3,6 +3,7 @@ package com.github.pattern.server.service;
 import java.util.Date;
 import java.util.List;
 
+import org.apache.commons.lang3.StringUtils;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
@@ -199,5 +200,17 @@ public class CustomerPaymentChannelInfoServiceImpl extends BaseService implement
 			PaymentChannel paymentChannel = paymentChannelDao.selectByPrimaryKey(paymentChannelId);
 			info.setPaymentChannel(paymentChannel);
 		}
+	}
+
+	@Override
+	public ModelResult<List<CustomerPaymentChannelInfo>> selectByCustomerIdAndPayType(Integer customerId, String payType) {
+		ModelResult<List<CustomerPaymentChannelInfo>> modelResult = new ModelResult<List<CustomerPaymentChannelInfo>>();
+		if(customerId == null || StringUtils.isBlank(payType)) {
+			modelResult.withError("0", "非法参数");
+			return modelResult;
+		}
+		List<CustomerPaymentChannelInfo> list = customerPaymentChannelInfoDao.selectByCustomerIdAndPayType(customerId,payType);
+		modelResult.setModel(list);
+		return modelResult;
 	}
 }

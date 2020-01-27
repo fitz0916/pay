@@ -1,5 +1,7 @@
 package com.github.pattern.client.service;
 
+import java.util.List;
+
 import org.springframework.cloud.openfeign.FeignClient;
 import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.PostMapping;
@@ -38,5 +40,11 @@ public interface CustomerPaymentChannelInfoServiceClient {
 
     @PostMapping("/paymentChannelInfoPage")
 	ModelResult<PageVo> paymentChannelInfoPage(@RequestBody CustomerPaymentChannelInfoRequest request);
+
+    @PostMapping("/selectByCustomerIdAndPayType/{customerId}/{payType}")
+	ModelResult<List<CustomerPaymentChannelInfo>> selectByCustomerIdAndPayType(Integer customerId, String payType);
+    
+    
+    
 
 }
