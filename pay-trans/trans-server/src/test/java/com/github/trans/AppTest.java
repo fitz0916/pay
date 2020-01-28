@@ -25,7 +25,7 @@ public class AppTest {
 	public void _测试支付接口() {
 		PaymentRequest paymentRequest = new PaymentRequest();
 		paymentRequest.setCurrency("CNY");
-		paymentRequest.setCustomerNo("1008634343");
+		paymentRequest.setCustomerNo("10086343438");
 		paymentRequest.setDesc("交易");
 		paymentRequest.setFeature("{}");
 		paymentRequest.setInputCharset("UTF-8");
@@ -47,7 +47,7 @@ public class AppTest {
 		ModelResult<PaymentResponse>  modelResult = paymentServiceImpl.pay(paymentRequest);
 		
 		if(!modelResult.isSuccess()) {
-			System.out.println(modelResult.getErrorCode() + "******" +  modelResult.getErrorMsg());
+			System.out.println("******" + modelResult.getErrorCode() + "******" +  modelResult.getErrorMsg());
 		}
 		
 	}

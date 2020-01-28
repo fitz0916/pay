@@ -21,4 +21,6 @@ public interface CustomerPaymentChannelFeeService {
 
 	ModelResult<ResultVo> page(CustomerPaymentChannelFeeRequest request);
 
+	ModelResult<CustomerPaymentChannelFee> selectByCustomerIdAndPaymentChannelId(Integer customerId,Integer paymentChannelId);
+
 }

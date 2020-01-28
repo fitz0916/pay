@@ -173,14 +173,14 @@ public abstract class BasePaymentService {
 	}
 	
 	
-	protected ModelResult<ThirdChannelService> selectPaymentChannel(Customer customer,String payType){
-		ModelResult<ThirdChannelService> modelResult = new ModelResult<ThirdChannelService>();
+	protected ModelResult<CustomerPaymentChannelInfo> selectPaymentChannel(Customer customer,String payType){
+		ModelResult<CustomerPaymentChannelInfo> modelResult = new ModelResult<CustomerPaymentChannelInfo>();
 		String customerNo = customer.getCustomerNo();
 		Integer customerId = customer.getCustomerId();
 		ModelResult<List<CustomerPaymentChannelInfo>> channelInfoModelResult = customerPaymentChannelInfoServiceClient.selectByCustomerIdAndPayType(customerId,payType);
 		if(!channelInfoModelResult.isSuccess() || CollectionUtils.isEmpty(channelInfoModelResult.getModel())) {
 			String errorCode = "0";
-			String errorMsg = "获取支付账号渠道失败";
+			String errorMsg = "获取支付账号渠道失败或没有分配账号渠道";
 			LOGGER.warn("商户customeNo = 【{}】获取用户账号渠道失败 errorCode = 【{}】,errorMsg = 【{}】",customerNo,errorCode,errorMsg);
 			modelResult.withError(errorCode, errorMsg);
 			return modelResult;
@@ -191,9 +191,22 @@ public abstract class BasePaymentService {
 		if(listSize > 1) {
 			 index = new Random().nextInt(listSize - 1);
 		}
-		
 		CustomerPaymentChannelInfo customerPaymentChannelInfo = list.get(index);
+		if(customerPaymentChannelInfo == null) {
+			String errorCode = "0";
+			String errorMsg = "获取支付账号渠道失败或没有分配账号渠道";
+			LOGGER.warn("商户customeNo = 【{}】获取用户账号渠道失败 errorCode = 【{}】,errorMsg = 【{}】",customerNo,errorCode,errorMsg);
+			modelResult.withError(errorCode, errorMsg);
+			return modelResult;
+		}
+		modelResult.setModel(customerPaymentChannelInfo);
+		return modelResult;
+	}
+	
+	protected ModelResult<ThirdChannelService> selectThirdChannel(CustomerPaymentChannelInfo customerPaymentChannelInfo){
+		ModelResult<ThirdChannelService> modelResult = new ModelResult<ThirdChannelService>();
 		Integer paymentChannelId = customerPaymentChannelInfo.getPaymentChannelId();
+		String customerNo = customerPaymentChannelInfo.getCustomerNo();
 		ModelResult<PaymentChannel> paymentChannelModelResult = paymentChannelServiceClient.selectByPrimaryKey(paymentChannelId);
 		if(!paymentChannelModelResult.isSuccess() || paymentChannelModelResult.getModel() == null) {
 			String errorCode = "0";

@@ -20,4 +20,6 @@ public interface CustomerPaymentChannelFeeDao {
     int updateByPrimaryKeySelective(CustomerPaymentChannelFee record);
 
     int updateByPrimaryKey(CustomerPaymentChannelFee record);
+    
+    CustomerPaymentChannelFee selectByCustomerIdAndPaymentChannelId(@Param("customerId")Integer customerId,@Param("paymentChannelId")Integer paymentChannelId);
 }

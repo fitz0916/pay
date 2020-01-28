@@ -1,7 +1,5 @@
 package com.github.trans.server.service;
 
-import javax.annotation.Resource;
-
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -12,13 +10,11 @@ import com.github.pattern.client.service.AgentServiceClient;
 import com.github.pattern.client.service.CustomerServiceClient;
 import com.github.pattern.client.service.ShopServiceClient;
 import com.github.pattern.common.domain.Customer;
+import com.github.pattern.common.domain.CustomerPaymentChannelInfo;
 import com.github.trans.common.request.PaymentRequest;
-import com.github.trans.common.request.TransRequest;
 import com.github.trans.common.response.PaymentResponse;
-import com.github.trans.common.response.TransResponse;
 import com.github.trans.common.service.PaymentService;
 import com.github.trans.common.service.ThirdChannelService;
-import com.github.trans.context.ThirdChannelContext;
 
 /***
  * 支付接口 
@@ -66,17 +62,27 @@ public class PaymentServiceImpl extends BasePaymentService implements PaymentSer
 			return modelResult;
 		}
 		String payType = paymentRequest.getPayType();
+		String customerNo = paymentRequest.getCustomerNo();
 		//选择渠道，这里使用策略模式，根据支付类型来选择渠道
-		ModelResult<ThirdChannelService> thirdModelResult = this.selectPaymentChannel(customer,payType);
-		if(!thirdModelResult.isSuccess()) {
-			String errorCode = thirdModelResult.getErrorCode();
-			String errorMsg = thirdModelResult.getErrorMsg();
-			LOGGER.error("获取支付渠道失败,errorCode = 【{}】,errorMsg = 【{}】",errorCode,errorMsg);
+		ModelResult<CustomerPaymentChannelInfo> channelInfoModelResult = this.selectPaymentChannel(customer,payType);
+		if(!channelInfoModelResult.isSuccess()) {
+			String errorCode = channelInfoModelResult.getErrorCode();
+			String errorMsg = channelInfoModelResult.getErrorMsg();
+			LOGGER.error("商户customerNo = 【{}】获取商户支付渠道失败,errorCode = 【{}】,errorMsg = 【{}】",customerNo,errorCode,errorMsg);
 			modelResult.withError(errorCode, errorMsg);
 			return modelResult;
 		}
-		ThirdChannelService thirdChannelService = thirdModelResult.getModel();
-		modelResult = thirdChannelService.process(paymentRequest, customer);
+		CustomerPaymentChannelInfo customerPaymentChannelInfo = channelInfoModelResult.getModel();
+		ModelResult<ThirdChannelService> thirdChannelModelResult = this.selectThirdChannel(customerPaymentChannelInfo);
+		if(!thirdChannelModelResult.isSuccess()) {
+			String errorCode = channelInfoModelResult.getErrorCode();
+			String errorMsg = channelInfoModelResult.getErrorMsg();
+			LOGGER.error("商户customerNo = 【{}】获取三方支付渠道失败,errorCode = 【{}】,errorMsg = 【{}】",customerNo,errorCode,errorMsg);
+			modelResult.withError(errorCode, errorMsg);
+			return modelResult;
+		}
+		ThirdChannelService thirdChannelService = thirdChannelModelResult.getModel();
+		modelResult = thirdChannelService.process(paymentRequest, customer,customerPaymentChannelInfo);
 		return modelResult;
 	}
 

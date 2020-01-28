@@ -56,4 +56,8 @@ public class CustomerPaymentChannelFeeController {
 		return customerChannelFeeServiceImpl.updateByPrimaryKey(record);
 	}
 
+	@PostMapping("/selectByCustomerIdAndPaymentChannelId/{customerId}/{paymentChannelId}")
+	ModelResult<CustomerPaymentChannelFee> selectByCustomerIdAndPaymentChannelId(@PathVariable("customerId")Integer customerId,@PathVariable("paymentChannelId")Integer paymentChannelId){
+		return customerChannelFeeServiceImpl.selectByCustomerIdAndPaymentChannelId(customerId,paymentChannelId);
+	}
 }

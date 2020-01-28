@@ -2,6 +2,7 @@ package com.github.trans.common.service;
 
 import com.github.appmodel.domain.result.ModelResult;
 import com.github.pattern.common.domain.Customer;
+import com.github.pattern.common.domain.CustomerPaymentChannelInfo;
 import com.github.trans.common.request.PaymentRequest;
 import com.github.trans.common.response.PaymentResponse;
 
@@ -13,7 +14,7 @@ public interface ThirdChannelService {
 	 * @param customer
 	 * @return
 	 */
-	public ModelResult<PaymentResponse> process(PaymentRequest request,Customer customer);
+	public ModelResult<PaymentResponse> process(PaymentRequest request,Customer customer,CustomerPaymentChannelInfo customerPaymentChannelInfo);
 	
 	
 }

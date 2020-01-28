@@ -11,12 +11,14 @@ public class CustomerPaymentChannelFee extends BaseObject{
 	private static final long serialVersionUID = 777976886412887024L;
 	
 	private Integer paymentChanneldFeeId;
+	//商户ID
+	private Integer customerId;
 	//渠道ID
 	private Integer paymentChannelId;
 	//介入三方费率
 	private  BigDecimal thirdRate;
 	//销售费率
-	private BigDecimal salesRate;
+	private BigDecimal customerRate;
 	/***
 	 * 创建时间
 	 */
@@ -39,13 +41,14 @@ public class CustomerPaymentChannelFee extends BaseObject{
 		this.paymentChanneldFeeId = paymentChanneldFeeId;
 	}
 
-	public Integer getStatus() {
-		return status;
+	public Integer getCustomerId() {
+		return customerId;
 	}
-	public void setStatus(Integer status) {
-		this.status = status;
+
+	public void setCustomerId(Integer customerId) {
+		this.customerId = customerId;
 	}
-	
+
 	public Integer getPaymentChannelId() {
 		return paymentChannelId;
 	}
@@ -62,12 +65,12 @@ public class CustomerPaymentChannelFee extends BaseObject{
 		this.thirdRate = thirdRate;
 	}
 
-	public BigDecimal getSalesRate() {
-		return salesRate;
+	public BigDecimal getCustomerRate() {
+		return customerRate;
 	}
 
-	public void setSalesRate(BigDecimal salesRate) {
-		this.salesRate = salesRate;
+	public void setCustomerRate(BigDecimal customerRate) {
+		this.customerRate = customerRate;
 	}
 
 	public Date getCreateTime() {
@@ -86,6 +89,14 @@ public class CustomerPaymentChannelFee extends BaseObject{
 		this.updateTime = updateTime;
 	}
 
+	public Integer getStatus() {
+		return status;
+	}
+
+	public void setStatus(Integer status) {
+		this.status = status;
+	}
+
 	public String getRemark() {
 		return remark;
 	}
@@ -93,7 +104,6 @@ public class CustomerPaymentChannelFee extends BaseObject{
 	public void setRemark(String remark) {
 		this.remark = remark;
 	}
-	
-	
+
 	
 }

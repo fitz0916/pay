@@ -35,5 +35,8 @@ public interface CustomerPaymentChannelFeeServiceClient {
 
 	@PostMapping("/updateByPrimaryKey")
     ModelResult<Integer> updateByPrimaryKey(@RequestBody CustomerPaymentChannelFee record);
+	
+	@PostMapping("/selectByCustomerIdAndPaymentChannelId/{customerId}/{paymentChannelId}")
+	ModelResult<CustomerPaymentChannelFee> selectByCustomerIdAndPaymentChannelId(@PathVariable("customerId")Integer customerId,@PathVariable("paymentChannelId")Integer paymentChannelId);
 
 }
