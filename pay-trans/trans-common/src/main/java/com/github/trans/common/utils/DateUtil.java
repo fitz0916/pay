@@ -20,7 +20,7 @@ public class DateUtil {
 	private static String datePattern = "yyyy-MM-dd";
 			
 
-	private static String timePattern = datePattern + " HH:MM a";
+	private static String timePattern = datePattern + " HH:mm:ss";
 
 	// ~ Methods ================================================================
 

@@ -68,7 +68,7 @@ public class PaymentRequest extends TransRequest{
 	/**订单时间(可选)商户订单时间，格式：yyyyMMdd HH:mm:ss **/
 	@NotBlank(message = "payTime不能为空")
 	@Signature(required = true, desc = "交易时间")
-	@DateTimeFormat(pattern="yyyyMMdd HH:mm:ss")
+	@Pattern(regexp = TransConstants.DATE_FORMAT_REGEXP,message = "时间格式不正确,格式为:yyyy-MM-dd HH:mm:ss")
 	private String payTime;
 	
 	/** 商户该笔订单的总金额，以元为单位，精确到小数点后两位 **/

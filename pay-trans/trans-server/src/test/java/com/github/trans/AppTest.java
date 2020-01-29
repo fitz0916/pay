@@ -25,14 +25,14 @@ public class AppTest {
 	public void _测试支付接口() {
 		PaymentRequest paymentRequest = new PaymentRequest();
 		paymentRequest.setCurrency("CNY");
-		paymentRequest.setCustomerNo("10086343438");
+		paymentRequest.setCustomerNo("1008634343");
 		paymentRequest.setDesc("交易");
 		paymentRequest.setFeature("{}");
 		paymentRequest.setInputCharset("UTF-8");
 		paymentRequest.setNotifyUrl("http://localhost:9001");
 		paymentRequest.setPayOrderNo("2020022718501122");
 		paymentRequest.setSubject("支付宝扫码-支付");
-		paymentRequest.setPayTime("2020-02-27");
+		paymentRequest.setPayTime("22020-02-27 11:22:11");
 		paymentRequest.setPayAmount("11.03");
 		paymentRequest.setReturnUrl("http://localhost:9001");
 		paymentRequest.setClientIp("127.0.0.1");
