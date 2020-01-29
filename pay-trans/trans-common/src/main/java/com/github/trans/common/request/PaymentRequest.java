@@ -61,9 +61,9 @@ public class PaymentRequest extends TransRequest{
 	private String clientIp;
 	
 	/**支付订单号**/
-	@NotBlank(message = "orderNo不能为空")
+	@NotBlank(message = "payOrderNo不能为空")
 	@Signature(required = true, desc = "交易订单号")
-	private String orderNo;
+	private String payOrderNo;
 	
 	/**订单时间(可选)商户订单时间，格式：YYYYMMDDHHMMSS **/
 	@NotBlank(message = "orderTime不能为空")
@@ -154,11 +154,11 @@ public class PaymentRequest extends TransRequest{
 	public void setClientIp(String clientIp) {
 		this.clientIp = clientIp;
 	}
-	public String getOrderNo() {
-		return orderNo;
+	public String getPayOrderNo() {
+		return payOrderNo;
 	}
-	public void setOrderNo(String orderNo) {
-		this.orderNo = orderNo;
+	public void setPayOrderNo(String payOrderNo) {
+		this.payOrderNo = payOrderNo;
 	}
 	public String getOrderTime() {
 		return orderTime;
