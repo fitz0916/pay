@@ -9,7 +9,7 @@ import javax.validation.constraints.Pattern;
 
 import org.apache.commons.lang3.StringUtils;
 import org.hibernate.validator.constraints.NotBlank;
-import org.hibernate.validator.constraints.NotEmpty;
+import org.springframework.format.annotation.DateTimeFormat;
 
 import com.github.trans.common.annotation.Signature;
 import com.github.trans.common.constants.TransConstants;
@@ -65,10 +65,11 @@ public class PaymentRequest extends TransRequest{
 	@Signature(required = true, desc = "交易订单号")
 	private String payOrderNo;
 	
-	/**订单时间(可选)商户订单时间，格式：YYYYMMDDHHMMSS **/
-	@NotBlank(message = "orderTime不能为空")
+	/**订单时间(可选)商户订单时间，格式：yyyyMMdd HH:mm:ss **/
+	@NotBlank(message = "payTime不能为空")
 	@Signature(required = true, desc = "交易时间")
-	private String orderTime;
+	@DateTimeFormat(pattern="yyyyMMdd HH:mm:ss")
+	private String payTime;
 	
 	/** 商户该笔订单的总金额，以元为单位，精确到小数点后两位 **/
 	@NotBlank(message = "orderTime不能为空")
@@ -160,11 +161,11 @@ public class PaymentRequest extends TransRequest{
 	public void setPayOrderNo(String payOrderNo) {
 		this.payOrderNo = payOrderNo;
 	}
-	public String getOrderTime() {
-		return orderTime;
+	public String getPayTime() {
+		return payTime;
 	}
-	public void setOrderTime(String orderTime) {
-		this.orderTime = orderTime;
+	public void setPayTime(String payTime) {
+		this.payTime = payTime;
 	}
 	public String getPayAmount() {
 		return payAmount;

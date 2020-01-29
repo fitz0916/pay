@@ -63,7 +63,7 @@ public abstract class BaseThirdChannelService {
 		String payOrderNo = paymentRequest.getPayOrderNo();
 		String subject = paymentRequest.getSubject();
 		String desc = paymentRequest.getDesc();
-		Date transTime = DateUtil.convertStringToDate(paymentRequest.getOrderTime());
+		Date transTime = DateUtil.convertStringToDate(paymentRequest.getPayTime());
 		int payStatus = 0;
 		BigDecimal amountBigDecimal = new BigDecimal(paymentRequest.getPayAmount()); // 支付金额
 		//商户支付金额

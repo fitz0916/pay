@@ -30,9 +30,9 @@ public class AppTest {
 		paymentRequest.setFeature("{}");
 		paymentRequest.setInputCharset("UTF-8");
 		paymentRequest.setNotifyUrl("http://localhost:9001");
-		paymentRequest.setOrderNo("2020022718501122");
+		paymentRequest.setPayOrderNo("2020022718501122");
 		paymentRequest.setSubject("支付宝扫码-支付");
-		paymentRequest.setOrderTime("2020-02-27");
+		paymentRequest.setPayTime("2020-02-27");
 		paymentRequest.setPayAmount("11.03");
 		paymentRequest.setReturnUrl("http://localhost:9001");
 		paymentRequest.setClientIp("127.0.0.1");
