@@ -18,9 +18,10 @@ public abstract class BaseThirdChannelService {
 	
 	protected ModelResult<CustomerPaymentChannelFee> initFee(Integer customerId,Integer paymentChannelId){
 		ModelResult<CustomerPaymentChannelFee>  modelResult = customerPaymentChannelFeeServiceClient.selectByCustomerIdAndPaymentChannelId(customerId, paymentChannelId);
-		if(!modelResult.isSuccess() || modelResult.getModel() == null) {
+		if(!modelResult.isSuccess() || modelResult.getModel() == null || modelResult.getModel().getStatus() == 0) {
 			String errorCode = modelResult.getErrorCode() == null ? "0" : modelResult.getErrorCode();
-			String errorMsg = modelResult.getErrorMsg() == null ? "商户费率没有设置" : modelResult.getErrorMsg();
+			String errorMsg = modelResult.getErrorMsg() == null ? "商户费率未设置" : modelResult.getErrorMsg();
+			LOGGER.warn("customerId = 【{}】,paymentChannelId = 【{}】商户费率没有设置",customerId,paymentChannelId);
 			modelResult.withError(errorCode, errorMsg);
 			return modelResult;
 		}

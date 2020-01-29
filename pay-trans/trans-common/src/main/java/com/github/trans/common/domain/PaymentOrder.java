@@ -46,6 +46,8 @@ public class PaymentOrder extends BaseObject{
 	private String notifyUrl;
 	//前端回调地址
 	private String returnUrl;
+	//请求IP
+	private String clientIp;
 	//交易金额
 	private Long payAmount; 
 	//三方渠道费率
