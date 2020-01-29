@@ -22,22 +22,7 @@ public abstract class BaseTradeService<R extends ChannelRequest,Q extends Channe
      * @param req 交易请求
      *            
      */
-    protected abstract void check(Q req);
-
-    /**
-     * 打包请求报文字符串或者xml格式格式
-     * @param req   交易请求
-     * @return
-     */
-    protected abstract String packStr(Q req);
-
-    
-    /**
-     * 打包请求报文map格式
-     * @param req   交易请求
-     * @return
-     */
-    protected abstract Map<String,String> packMap(Q req);
+    protected abstract void check(R req);
 
     /**
      * 打包json对象
@@ -51,5 +36,5 @@ public abstract class BaseTradeService<R extends ChannelRequest,Q extends Channe
      * @param respStr  响应报文xml
      * @return
      */
-    protected abstract P parse(Q req,String respStr);
+    protected abstract Q parse(R req,String respStr);
 }
