@@ -8,7 +8,9 @@ import org.springframework.test.context.junit4.SpringRunner;
 
 import com.github.appmodel.domain.result.ModelResult;
 import com.github.channel.common.request.AliPayRequest;
+import com.github.channel.common.request.WechatPayRequest;
 import com.github.channel.common.response.AliPayResponse;
+import com.github.channel.common.response.WechatPayResponse;
 import com.github.channel.common.service.PayJsService;
 
 @RunWith(SpringRunner.class)
@@ -16,24 +18,24 @@ import com.github.channel.common.service.PayJsService;
 public class AppTest {
 
 	@Autowired
-	private PayJsService<AliPayRequest,AliPayResponse> aliPayServiceImpl;
+	private PayJsService<WechatPayRequest,WechatPayResponse> wechatPayServiceImpl;
 	
 	@Test
 	public void _测试支付接口() {
-		AliPayRequest aliPayRequest = new AliPayRequest();
-		aliPayRequest.setAttach("");
-		aliPayRequest.setMchid("农家乐饭店");
-		aliPayRequest.setBody("");
-		aliPayRequest.setNotifyUrl("");
-		aliPayRequest.setOutTradeNo("2020020112283");
-		aliPayRequest.setTotalFee("1");
-		aliPayRequest.setUrl("https://payjs.cn/api/native");
-		aliPayRequest.setSecretKey("ZUa6Kw9Xe5B3B8en");
+		WechatPayRequest wechatPayRequest = new WechatPayRequest();
+		wechatPayRequest.setAttach("");
+		wechatPayRequest.setMchid("农家乐饭店");
+		wechatPayRequest.setBody("");
+		wechatPayRequest.setNotifyUrl("");
+		wechatPayRequest.setOutTradeNo("2020020112283");
+		wechatPayRequest.setTotalFee("1");
+		wechatPayRequest.setUrl("https://payjs.cn/api/native");
+		wechatPayRequest.setSecretKey("ZUa6Kw9Xe5B3B8en");
 		
-		ModelResult<AliPayResponse> modelResult = aliPayServiceImpl.pay(aliPayRequest);
+		ModelResult<WechatPayResponse> modelResult = wechatPayServiceImpl.pay(wechatPayRequest);
 		if(modelResult.isSuccess()) {
-			AliPayResponse aliPayResponse = modelResult.getModel();
-			System.out.println(aliPayResponse);
+			WechatPayResponse wechatPayResponse = modelResult.getModel();
+			System.out.println(wechatPayResponse);
 		}
 		
 	}
