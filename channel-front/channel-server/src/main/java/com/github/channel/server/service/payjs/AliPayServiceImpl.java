@@ -59,7 +59,26 @@ public class AliPayServiceImpl extends BaseTradeService<AliPayRequest, AliPayRes
 			String url = request.getUrl();
 			JSONObject requestJSON = this.requestJSON(request);
 			String result = null;
-			result = OkHttpUtil.getInstance().postWithJson(url, requestJSON);
+//			 	SerializeConfig config = new SerializeConfig();
+//		        config.propertyNamingStrategy = PropertyNamingStrategy.SnakeCase;
+//		        String jsonString = requestJSON.toJSONString();
+//
+//		        OkHttpClient client = new OkHttpClient().newBuilder()
+//		                .connectTimeout(this.connectTimeout, TimeUnit.MILLISECONDS)
+//		                .readTimeout(this.readTimeout, TimeUnit.MILLISECONDS)
+//		                .build();
+//
+//		        RequestBody body = RequestBody.create(MediaTypeJson, jsonString);
+//		        Request okRequest = new Request.Builder()
+//		                .url(url)
+//		                .addHeader("Content-Type", "application/json")
+//		                .post(body)
+//		                .build();
+//		        
+//			
+//		     Response response = client.newCall(okRequest).execute();
+//		     result = response.body().string();
+		    result = OkHttpUtil.getInstance().postWithJson(url, requestJSON);
 			modelResult = parse(request, result);
 		}catch(Exception e) {
 			LOGGER.error("payJS支付请求失败,errorMsg = 【{}】",e.getMessage());
@@ -72,11 +91,11 @@ public class AliPayServiceImpl extends BaseTradeService<AliPayRequest, AliPayRes
 	private JSONObject requestJSON(AliPayRequest request) {
 		JSONObject jsonObject = new JSONObject();
 		jsonObject.put("mchid", request.getMchid());
-		jsonObject.put("totalFee", request.getTotalFee());
-		jsonObject.put("outTradeNo", request.getOutTradeNo());
+		jsonObject.put("total_fee", request.getTotalFee());
+		jsonObject.put("out_trade_no", request.getOutTradeNo());
 		jsonObject.put("body", request.getBody());
 		jsonObject.put("attach", request.getAttach());
-		jsonObject.put("notifyUrl", request.getNotifyUrl());
+		jsonObject.put("notify_url", request.getNotifyUrl());
 		jsonObject.put("sign", request.getSign());
 		return jsonObject;
 	}

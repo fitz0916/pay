@@ -15,10 +15,9 @@ public class PayJsRequest extends ChannelRequest{
 	@Signature(required = true,desc = "[商户号]不能为空")
 	private String mchid;
 	//交易金额（分）
-	@NotBlank(message = "totalFee[交易金额（分）]不能为空")
-	@Pattern(regexp = ChannelConstants.DIGITAL_REGEXP, message = "交易金额")
+	@Pattern(regexp = ChannelConstants.DIGITAL_REGEXP, message = "totalFee[交易金额（分）]格式不正确")
 	@Signature(required = true,desc = "交易金额")
-	private int totalFee;
+	private String totalFee;
 	//用户端自主生成的订单号
 	@NotBlank(message = "outTradeNo[订单号]不能为空")
 	@Signature(required = true,desc = "订单号")
@@ -43,10 +42,10 @@ public class PayJsRequest extends ChannelRequest{
 	public void setMchid(String mchid) {
 		this.mchid = mchid;
 	}
-	public int getTotalFee() {
+	public String getTotalFee() {
 		return totalFee;
 	}
-	public void setTotalFee(int totalFee) {
+	public void setTotalFee(String totalFee) {
 		this.totalFee = totalFee;
 	}
 	public String getOutTradeNo() {

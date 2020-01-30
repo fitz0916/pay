@@ -63,16 +63,6 @@
 			<version>8.0.18</version>
 		</dependency>
 		<dependency>
-			<groupId>com.alibaba</groupId>
-			<artifactId>druid</artifactId>
-			<version>1.1.12</version>
-		</dependency>
-		<dependency>
-			<groupId>com.alibaba</groupId>
-			<artifactId>druid-spring-boot-starter</artifactId>
-			<version>1.1.10</version>
-		</dependency>
-		<dependency>
 		  <groupId>com.baidu.unbiz</groupId>
 		  <artifactId>fluent-validator</artifactId>
 		  <version>1.0.9</version>

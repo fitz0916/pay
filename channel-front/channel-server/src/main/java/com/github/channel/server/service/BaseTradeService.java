@@ -7,10 +7,21 @@ import com.github.appmodel.domain.result.ModelResult;
 import com.github.channel.common.domain.ChannelRequest;
 import com.github.channel.common.domain.ChannelResponse;
 
+import okhttp3.MediaType;
+
 public abstract class BaseTradeService<R extends ChannelRequest,Q extends ChannelResponse> {
 	
 	private final static Logger LOGGER = LoggerFactory.getLogger(BaseTradeService.class);
-	
+	protected final MediaType MediaTypeJson = MediaType.parse("application/json; charset=utf-8");
+	 /**
+     * 连接超时时间
+     */
+	protected long connectTimeout = 3000L;
+
+    /**
+     * 读取超时时间
+     */
+    protected long readTimeout = 5000L;
 	
 	protected ModelResult<Q> process(R request){
 		ModelResult<Q> modelResult = new ModelResult<Q>();

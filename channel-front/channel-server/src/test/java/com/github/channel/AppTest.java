@@ -1,38 +1,40 @@
 package com.github.channel;
 
-import junit.framework.Test;
-import junit.framework.TestCase;
-import junit.framework.TestSuite;
+import org.junit.Test;
+import org.junit.runner.RunWith;
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.boot.test.context.SpringBootTest;
+import org.springframework.test.context.junit4.SpringRunner;
 
-/**
- * Unit test for simple App.
- */
-public class AppTest 
-    extends TestCase
-{
-    /**
-     * Create the test case
-     *
-     * @param testName name of the test case
-     */
-    public AppTest( String testName )
-    {
-        super( testName );
-    }
+import com.github.appmodel.domain.result.ModelResult;
+import com.github.channel.common.request.AliPayRequest;
+import com.github.channel.common.response.AliPayResponse;
+import com.github.channel.common.service.PayJsService;
 
-    /**
-     * @return the suite of tests being tested
-     */
-    public static Test suite()
-    {
-        return new TestSuite( AppTest.class );
-    }
+@RunWith(SpringRunner.class)
+@SpringBootTest(classes = Application.class)
+public class AppTest {
 
-    /**
-     * Rigourous Test :-)
-     */
-    public void testApp()
-    {
-        assertTrue( true );
-    }
+	@Autowired
+	private PayJsService<AliPayRequest,AliPayResponse> aliPayServiceImpl;
+	
+	@Test
+	public void _测试支付接口() {
+		AliPayRequest aliPayRequest = new AliPayRequest();
+		aliPayRequest.setAttach("");
+		aliPayRequest.setMchid("农家乐饭店");
+		aliPayRequest.setBody("");
+		aliPayRequest.setNotifyUrl("");
+		aliPayRequest.setOutTradeNo("2020020112283");
+		aliPayRequest.setTotalFee("1");
+		aliPayRequest.setUrl("https://payjs.cn/api/native");
+		aliPayRequest.setSecretKey("ZUa6Kw9Xe5B3B8en");
+		
+		ModelResult<AliPayResponse> modelResult = aliPayServiceImpl.pay(aliPayRequest);
+		if(modelResult.isSuccess()) {
+			AliPayResponse aliPayResponse = modelResult.getModel();
+			System.out.println(aliPayResponse);
+		}
+		
+	}
 }
