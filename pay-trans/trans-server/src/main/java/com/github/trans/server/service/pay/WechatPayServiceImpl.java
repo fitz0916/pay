@@ -7,6 +7,7 @@ import org.springframework.stereotype.Service;
 
 import com.alibaba.fastjson.JSON;
 import com.github.appmodel.domain.result.ModelResult;
+import com.github.channel.client.service.WechatPayServiceClient;
 import com.github.channel.common.request.WechatPayRequest;
 import com.github.channel.common.response.WechatPayResponse;
 import com.github.channel.common.service.PayJsService;
@@ -26,7 +27,7 @@ public class WechatPayServiceImpl extends BaseThirdChannelService implements Thi
 	private final static Logger LOGGER = LoggerFactory.getLogger(WechatPayServiceImpl.class);
 	
 	@Autowired
-	private PayJsService<WechatPayRequest,WechatPayResponse> wechatPayServiceImpl;
+	private WechatPayServiceClient wechatPayServiceClient;
 	
 	@Override
 	public ModelResult<PaymentResponse> process(PaymentRequest request, Customer customer,CustomerPaymentChannelInfo customerPaymentChannelInfo) {
@@ -58,7 +59,7 @@ public class WechatPayServiceImpl extends BaseThirdChannelService implements Thi
 			return modelResult;
 		}
 		WechatPayRequest wechatPayRequest = wechatResultModelResult.getModel();
-		ModelResult<WechatPayResponse> wechatModelResult = wechatPayServiceImpl.pay(wechatPayRequest);
+		ModelResult<WechatPayResponse> wechatModelResult = wechatPayServiceClient.pay(wechatPayRequest);
 		if(!wechatModelResult.isSuccess() || wechatModelResult.getModel() == null) {
 			String errorMsg = wechatModelResult.getErrorMsg();
 			String errorCode = wechatModelResult.getErrorCode();

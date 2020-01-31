@@ -12,7 +12,7 @@ import org.springframework.cloud.openfeign.EnableFeignClients;
  */
 @SpringBootApplication
 @EnableDiscoveryClient
-@EnableFeignClients(basePackages = {"com.github.admin.client","com.github.pattern.client"})
+@EnableFeignClients(basePackages = {"com.github.admin.client","com.github.pattern.client","com.github.channel.client"})
 @MapperScan("com.github.trans.server.dao")
 public class Application 
 {
