@@ -136,6 +136,8 @@ public abstract class BaseThirdChannelService {
 		paymentOrder.setAgentId(agentId);
 		paymentOrder.setClientIp(clinetIP);
 		paymentOrder.setCustomerOrderNo(payOrderNo);
+		paymentOrder.setAgentFee(agentFee);
+		paymentOrder.setAgentProundage(agentProundage);
 		return paymentOrder;
 		
 	}
