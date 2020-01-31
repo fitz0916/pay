@@ -24,7 +24,6 @@ public class AppTest {
 	public void _测试支付接口() {
 		WechatPayRequest wechatPayRequest = new WechatPayRequest();
 		wechatPayRequest.setAttach("");
-		wechatPayRequest.setMchid("农家乐饭店");
 		wechatPayRequest.setBody("");
 		wechatPayRequest.setNotifyUrl("");
 		wechatPayRequest.setOutTradeNo("2020020112283");
@@ -35,7 +34,7 @@ public class AppTest {
 		ModelResult<WechatPayResponse> modelResult = wechatPayServiceImpl.pay(wechatPayRequest);
 		if(modelResult.isSuccess()) {
 			WechatPayResponse wechatPayResponse = modelResult.getModel();
-			System.out.println(wechatPayResponse);
+			System.out.println(wechatPayResponse.toString());
 		}
 		
 	}
