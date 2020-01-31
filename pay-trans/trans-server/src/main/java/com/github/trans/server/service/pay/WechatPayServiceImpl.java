@@ -85,6 +85,7 @@ public class WechatPayServiceImpl extends BaseThirdChannelService implements Thi
 		paymentOrder.setQrCode(qrCode);
 		paymentOrder.setThirdChannelOrderNo(payjsOrderId);
 		PaymentResponse response = new PaymentResponse();
+		response.setData(wechatPayResponse);
 		modelResult.setModel(response);
 		return modelResult;
 	}

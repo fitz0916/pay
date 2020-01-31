@@ -83,6 +83,7 @@ private final static Logger LOGGER = LoggerFactory.getLogger(AliPayServiceImpl.c
 //		     Response response = client.newCall(okRequest).execute();
 //		     result = response.body().string();
 		    result = OkHttpUtil.getInstance().postWithJson(url, requestJSON);
+		    LOGGER.info("******payJs请求结果************* result = 【{}】",result);
 			modelResult = parse(request, result);
 		}catch(Exception e) {
 			LOGGER.error("payJS支付请求失败,errorMsg = 【{}】",e.getMessage());
@@ -98,6 +99,9 @@ private final static Logger LOGGER = LoggerFactory.getLogger(AliPayServiceImpl.c
 		payJsSignRequest.setMchid(request.getMchid());
 		payJsSignRequest.setOutTradeNo(request.getOutTradeNo());
 		payJsSignRequest.setTotalFee(request.getTotalFee());
+		payJsSignRequest.setAttach(request.getAttach());
+		payJsSignRequest.setBody(request.getBody());
+		payJsSignRequest.setNotifyUrl(request.getNotifyUrl());
 		return payJsSignRequest;
 	}
 	private JSONObject requestJSON(WechatPayRequest request) {

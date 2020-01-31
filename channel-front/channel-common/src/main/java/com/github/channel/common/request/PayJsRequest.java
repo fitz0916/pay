@@ -23,16 +23,19 @@ public class PayJsRequest extends ChannelRequest{
 	@Signature(required = true,desc = "订单号")
 	private String outTradeNo;
 	//订单标题
+	@NotBlank(message = "body[订单标题]不能为空")
 	private String body;
 	//用户自定义数据，在notify的时候会原样返回
+	@NotBlank(message = "attach[用户自定义数据]不能为空")
 	private String attach;
 	//接收微信支付异步通知的回调地址。必须为可直接访问的URL，不能带参数、session验证、csrf验证。留空则不通知
+	@NotBlank(message = "notifyUrl[异步通知的回调地址]不能为空")
 	private String notifyUrl;
 	//数据签名
 	private String sign;
 	//请求地址
-	@NotBlank(message = "url[请求地址]不能为空")
-	@Pattern(regexp = ChannelConstants.URL_REGEXP, message = "非法回调地址")
+	@NotBlank(message = "url[请求渠道]不能为空")
+	@Pattern(regexp = ChannelConstants.URL_REGEXP, message = "请求渠道地址")
 	private String url;
 	//秘钥
 	private String secretKey;

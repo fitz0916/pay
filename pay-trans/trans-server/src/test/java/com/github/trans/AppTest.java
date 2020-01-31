@@ -27,13 +27,13 @@ public class AppTest {
 		paymentRequest.setCurrency("CNY");
 		paymentRequest.setCustomerNo("10086122503");
 		paymentRequest.setDesc("交易");
-		paymentRequest.setFeature("{}");
+		paymentRequest.setFeature("aa");
 		paymentRequest.setInputCharset("UTF-8");
 		paymentRequest.setNotifyUrl("https://www.baidu.com/");
-		paymentRequest.setPayOrderNo("2020022718501122");
+		paymentRequest.setPayOrderNo("202002011228311800");
 		paymentRequest.setSubject("支付宝扫码-支付");
 		paymentRequest.setPayTime("2020-02-27 11:22:11");
-		paymentRequest.setPayAmount("11.03");
+		paymentRequest.setPayAmount("1");
 		paymentRequest.setReturnUrl("http://localhost:9001");
 		paymentRequest.setClientIp("127.0.0.1");
 		
@@ -49,7 +49,7 @@ public class AppTest {
 		if(!modelResult.isSuccess()) {
 			System.out.println("******" + modelResult.getErrorCode() + "******" +  modelResult.getErrorMsg());
 		}else {
-			System.out.println("******+++++++++++++++++" + modelResult.getModel());
+			System.out.println("******+++++++++++++++++" + modelResult.getModel().toString());
 		}
 		
 	}
