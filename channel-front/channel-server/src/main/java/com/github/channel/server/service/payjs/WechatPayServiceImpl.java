@@ -11,6 +11,7 @@ import org.springframework.stereotype.Service;
 import com.alibaba.fastjson.JSON;
 import com.alibaba.fastjson.JSONObject;
 import com.github.appmodel.domain.result.ModelResult;
+import com.github.channel.common.request.PayJsSignRequest;
 import com.github.channel.common.request.WechatPayRequest;
 import com.github.channel.common.response.WechatPayResponse;
 import com.github.channel.common.service.PayJsService;
@@ -53,7 +54,10 @@ private final static Logger LOGGER = LoggerFactory.getLogger(AliPayServiceImpl.c
 	protected ModelResult<WechatPayResponse> processWithJson(WechatPayRequest request) {
 		ModelResult<WechatPayResponse> modelResult = new ModelResult<WechatPayResponse>();
 		try {
-			String sign = PayJsSignUtils.getSign(request, request.getSecretKey());
+//			String sign = PayJsSignUtils.getSign(request, request.getSecretKey());
+			//String sign  = PaySignUtil.requestMd5Sign(request, request.getSecretKey());
+			PayJsSignRequest payJsSignRequest = getSign(request);
+			String sign = PayJsSignUtils.getSign(payJsSignRequest,request.getSecretKey());
 			request.setSign(sign);
 			String url = request.getUrl();
 			JSONObject requestJSON = this.requestJSON(request);
@@ -87,6 +91,14 @@ private final static Logger LOGGER = LoggerFactory.getLogger(AliPayServiceImpl.c
 		return modelResult;
 	}
 	
+	
+	private PayJsSignRequest getSign(WechatPayRequest request) {
+		PayJsSignRequest payJsSignRequest = new PayJsSignRequest();
+		payJsSignRequest.setMchid(request.getMchid());
+		payJsSignRequest.setOutTradeNo(request.getOutTradeNo());
+		payJsSignRequest.setTotalFee(request.getTotalFee());
+		return payJsSignRequest;
+	}
 	private JSONObject requestJSON(WechatPayRequest request) {
 		JSONObject jsonObject = new JSONObject();
 		jsonObject.put("mchid", request.getMchid());
@@ -107,6 +119,12 @@ private final static Logger LOGGER = LoggerFactory.getLogger(AliPayServiceImpl.c
 			return modelResult;
 		}
 		WechatPayResponse response = JSON.parseObject(respStr,WechatPayResponse.class);
+		String returnCode = response.getReturnCode();
+		String returnMsg = response.getReturnMsg();
+		if(returnCode.equals("0")) {
+			modelResult.withError(returnCode, returnMsg);
+			return modelResult;
+		}
 		modelResult.setModel(response);
 		return modelResult;
 	}

@@ -26,15 +26,18 @@ public class AppTest {
 		wechatPayRequest.setAttach("");
 		wechatPayRequest.setBody("");
 		wechatPayRequest.setNotifyUrl("");
-		wechatPayRequest.setOutTradeNo("2020020112283");
+		wechatPayRequest.setOutTradeNo("2020020112283118");
 		wechatPayRequest.setTotalFee("1");
 		wechatPayRequest.setUrl("https://payjs.cn/api/native");
-		wechatPayRequest.setSecretKey("ZUa6Kw9Xe5B3B8en");
 		
 		ModelResult<WechatPayResponse> modelResult = wechatPayServiceImpl.pay(wechatPayRequest);
 		if(modelResult.isSuccess()) {
 			WechatPayResponse wechatPayResponse = modelResult.getModel();
 			System.out.println(wechatPayResponse.toString());
+		}else {
+			String errorCode = modelResult.getErrorCode();
+			String errorMsg = modelResult.getErrorMsg();
+			System.out.println("errorCode = " + errorCode + "********,errorMsg = " + errorMsg );
 		}
 		
 	}
