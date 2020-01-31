@@ -26,8 +26,8 @@ public class AppTest {
 		wechatPayRequest.setAttach("");
 		wechatPayRequest.setBody("");
 		wechatPayRequest.setNotifyUrl("");
-		wechatPayRequest.setOutTradeNo("2020020112283118");
-		wechatPayRequest.setTotalFee("1");
+		wechatPayRequest.setOutTradeNo("202002011228311800");
+		wechatPayRequest.setTotalFee("10");
 		wechatPayRequest.setUrl("https://payjs.cn/api/native");
 		
 		ModelResult<WechatPayResponse> modelResult = wechatPayServiceImpl.pay(wechatPayRequest);

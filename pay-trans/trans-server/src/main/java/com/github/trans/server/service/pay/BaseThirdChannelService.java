@@ -2,8 +2,12 @@ package com.github.trans.server.service.pay;
 
 import java.math.BigDecimal;
 import java.util.Date;
+import java.util.HashMap;
+import java.util.List;
+import java.util.Map;
 import java.util.Random;
 
+import org.apache.commons.collections.CollectionUtils;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -11,15 +15,19 @@ import org.springframework.beans.factory.annotation.Autowired;
 import com.github.appmodel.domain.result.ModelResult;
 import com.github.pattern.client.service.AgentServiceClient;
 import com.github.pattern.client.service.CustomerPaymentChannelFeeServiceClient;
+import com.github.pattern.client.service.PaymentChannelAccountParaServiceClient;
+import com.github.pattern.client.service.PaymentChannelAccountServiceClient;
 import com.github.pattern.client.service.ShopServiceClient;
 import com.github.pattern.common.domain.Customer;
 import com.github.pattern.common.domain.CustomerPaymentChannelFee;
 import com.github.pattern.common.domain.CustomerPaymentChannelInfo;
 import com.github.pattern.common.domain.PaymentChannelAccount;
+import com.github.pattern.common.domain.PaymentChannelAccountPara;
 import com.github.pattern.common.utils.AmountUtil;
 import com.github.trans.common.domain.PaymentOrder;
 import com.github.trans.common.request.PaymentRequest;
 import com.github.trans.common.utils.DateUtil;
+import com.alibaba.fastjson.JSON;
 
 public abstract class BaseThirdChannelService {
 
@@ -34,6 +42,12 @@ public abstract class BaseThirdChannelService {
 	@Autowired
 	private AgentServiceClient agentServiceClient;
 	
+	@Autowired
+	private PaymentChannelAccountServiceClient paymentChannelAccountServiceClient;
+	@Autowired
+	private PaymentChannelAccountParaServiceClient paymentChannelAccountParaServiceClient;
+	
+	
 	protected ModelResult<CustomerPaymentChannelFee> initFee(Integer customerId,Integer paymentChannelId){
 		ModelResult<CustomerPaymentChannelFee>  modelResult = customerPaymentChannelFeeServiceClient.selectByCustomerIdAndPaymentChannelId(customerId, paymentChannelId);
 		if(!modelResult.isSuccess() || modelResult.getModel() == null || modelResult.getModel().getStatus() == 0) {
@@ -46,7 +60,7 @@ public abstract class BaseThirdChannelService {
 		return modelResult;
 	}
 
-	protected void downPaymentOrder(PaymentRequest paymentRequest,String qrCode,Customer customer,CustomerPaymentChannelInfo customerPaymentChannelInfo,PaymentChannelAccount paymentChannelAccount,CustomerPaymentChannelFee customerPaymentChannelFee) {
+	protected PaymentOrder initPaymentOrder(PaymentRequest paymentRequest,Customer customer,CustomerPaymentChannelInfo customerPaymentChannelInfo,PaymentChannelAccount paymentChannelAccount,CustomerPaymentChannelFee customerPaymentChannelFee) {
 		PaymentOrder paymentOrder = new PaymentOrder();
 		Date date = new Date();
 		String orderNo = generateOrderNo(date);
@@ -115,11 +129,14 @@ public abstract class BaseThirdChannelService {
 		paymentOrder.setCustomerProundage(customerProundage);
 		paymentOrder.setAgentFee(agentFee);
 		paymentOrder.setCustomerAmount(customerAmount);
-		paymentOrder.setQrCode(qrCode);
 		paymentOrder.setSettlementType(settlementType);
 		paymentOrder.setSettlementStatus(settlementStatus);
 		paymentOrder.setCurrency(currency);
-		
+		paymentOrder.setShopId(shopId);
+		paymentOrder.setAgentId(agentId);
+		paymentOrder.setClientIp(clinetIP);
+		paymentOrder.setCustomerOrderNo(payOrderNo);
+		return paymentOrder;
 		
 	}
 	
@@ -132,6 +149,55 @@ public abstract class BaseThirdChannelService {
 			}
 		}
 		return orderId + randomNum;
+	}
+	
+	protected ModelResult<PaymentChannelAccount> selectChannelAccount(CustomerPaymentChannelInfo customerPaymentChannelInfo){
+		ModelResult<PaymentChannelAccount> modelResult = new ModelResult<PaymentChannelAccount>();
+		Integer paymentChannelId = customerPaymentChannelInfo.getPaymentChannelId();
+		ModelResult<List<PaymentChannelAccount>> accountModelResult = paymentChannelAccountServiceClient.selectByPaymentChannelId(paymentChannelId);
+		if(!accountModelResult.isSuccess() || CollectionUtils.isEmpty(accountModelResult.getModel())) {
+			modelResult.withError("0", "获取渠道账号失败获取没有配置");
+			return modelResult;
+		}
+		List<PaymentChannelAccount> list = accountModelResult.getModel();
+		int listSize = list.size();
+		int index = 0;
+		if(listSize > 1) {
+			 index = new Random().nextInt(listSize - 1);
+		}
+		PaymentChannelAccount paymentChannelAccount = list.get(index);
+		if(paymentChannelAccount == null) {
+			modelResult.withError("0", "获取渠道账号失败获");
+			return modelResult;
+		}
+		modelResult.setModel(paymentChannelAccount);
+		return modelResult;
+	}
+	
+	
+	protected ModelResult<String> initAccountChannelParams(PaymentChannelAccount paymentChannelAccount){
+		ModelResult<String> modelResult = new ModelResult<String>();
+		Integer paymentChannelAccountId = paymentChannelAccount.getPaymentChannelAccountId();
+		ModelResult<List<PaymentChannelAccountPara>> paramModelResult = paymentChannelAccountParaServiceClient.selectByPaymentChannelAccountId(paymentChannelAccountId);
+		if(!paramModelResult.isSuccess() || CollectionUtils.isEmpty(paramModelResult.getModel())) {
+			modelResult.withError("0", "渠道账号参数未设置");
+			return modelResult;
+		}
+		String getAccountParamJson = getAccountParamJson(paramModelResult.getModel());
+		modelResult.setModel(getAccountParamJson);
+		return modelResult;
+		
+	}
+	
+	private String getAccountParamJson(List<PaymentChannelAccountPara> list) {
+		Map<String,String> map = new HashMap<String,String>();
+		for(PaymentChannelAccountPara para:list) {
+			if(para.getStatus() == 1) {
+				map.put(para.getName(), para.getValue());
+			}
+		}
+		String accountJson = JSON.toJSONString(map);
+		return accountJson;
 	}
 }
 
