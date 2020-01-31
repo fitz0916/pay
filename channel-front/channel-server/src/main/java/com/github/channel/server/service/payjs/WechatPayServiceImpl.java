@@ -26,6 +26,7 @@ private final static Logger LOGGER = LoggerFactory.getLogger(AliPayServiceImpl.c
 	
 	@Override
 	public ModelResult<WechatPayResponse> pay(WechatPayRequest request) {
+		LOGGER.info("用户请求对象数据 WechatPayRequest = 【{}】",request);
 		ModelResult<WechatPayResponse> modelResult = this.process(request);
 		return modelResult;
 	}

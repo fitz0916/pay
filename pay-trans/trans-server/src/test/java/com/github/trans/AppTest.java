@@ -15,7 +15,7 @@ import com.github.trans.common.utils.PaySignUtil;
 
 @RunWith(SpringRunner.class)
 @SpringBootTest(classes = Application.class)
-@EnableFeignClients(basePackages = {"com.github.admin.client","com.github.pattern.client"})
+@EnableFeignClients(basePackages = {"com.github.admin.client","com.github.pattern.client","com.github.channel.client"})
 public class AppTest {
 
 	@Autowired
@@ -25,11 +25,11 @@ public class AppTest {
 	public void _测试支付接口() {
 		PaymentRequest paymentRequest = new PaymentRequest();
 		paymentRequest.setCurrency("CNY");
-		paymentRequest.setCustomerNo("1008634343");
+		paymentRequest.setCustomerNo("10086122503");
 		paymentRequest.setDesc("交易");
 		paymentRequest.setFeature("{}");
 		paymentRequest.setInputCharset("UTF-8");
-		paymentRequest.setNotifyUrl("http://localhost:9001");
+		paymentRequest.setNotifyUrl("https://www.baidu.com/");
 		paymentRequest.setPayOrderNo("2020022718501122");
 		paymentRequest.setSubject("支付宝扫码-支付");
 		paymentRequest.setPayTime("2020-02-27 11:22:11");
@@ -48,6 +48,8 @@ public class AppTest {
 		
 		if(!modelResult.isSuccess()) {
 			System.out.println("******" + modelResult.getErrorCode() + "******" +  modelResult.getErrorMsg());
+		}else {
+			System.out.println("******+++++++++++++++++" + modelResult.getModel());
 		}
 		
 	}

@@ -224,6 +224,10 @@ public class AmountUtil {
 		return new BigDecimal(amount).multiply(new BigDecimal(100)).toString();
 	}
 
+	public static Long changeY2FLong(String amount) {
+		return new BigDecimal(amount).multiply(new BigDecimal(100)).longValue();
+	}
+	
 	/**
 	 * 计算费率(采用4舍6入的方法计算,保留两位小数)
 	 * 

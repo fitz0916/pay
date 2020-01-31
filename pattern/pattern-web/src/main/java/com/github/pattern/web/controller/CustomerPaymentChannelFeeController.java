@@ -22,6 +22,7 @@ import com.github.pattern.common.domain.CustomerPaymentChannelFee;
 import com.github.pattern.common.domain.PaymentChannel;
 import com.github.pattern.common.utils.ResultUtils;
 import com.github.pattern.utils.DecimalPointValidator;
+import com.github.pattern.utils.NotNullValidator;
 
 import io.swagger.annotations.ApiOperation;
 
@@ -79,8 +80,8 @@ public class CustomerPaymentChannelFeeController {
 		ComplexResult result = FluentValidator.checkAll()
 	            .on(customerPaymentChannelFee.getThirdRate() != null ? customerPaymentChannelFee.getThirdRate().toString() : "",new DecimalPointValidator("接入费率"))
 	            .on(customerPaymentChannelFee.getCustomerRate() != null ? customerPaymentChannelFee.getCustomerRate().toString() : "",new DecimalPointValidator("销售费率"))
-	            .on(customerPaymentChannelFee.getCustomerId() != null ? customerPaymentChannelFee.getCustomerId().toString() : "",new DecimalPointValidator("商户ID"))
-	            .on(customerPaymentChannelFee.getPaymentChannelId() != null ? customerPaymentChannelFee.getPaymentChannelId().toString() : "",new DecimalPointValidator("渠道ID"))
+	            .on(customerPaymentChannelFee.getCustomerId() != null ? customerPaymentChannelFee.getCustomerId().toString() : "",new NotNullValidator("商户ID"))
+	            .on(customerPaymentChannelFee.getPaymentChannelId() != null ? customerPaymentChannelFee.getPaymentChannelId().toString() : "",new NotNullValidator("渠道ID"))
 	            .doValidate()
 	            .result(ResultCollectors.toComplex());
 		return result;

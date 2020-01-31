@@ -84,6 +84,8 @@ public class WechatPayServiceImpl extends BaseThirdChannelService implements Thi
 		String payjsOrderId = wechatPayResponse.getPayjsOrderId();
 		paymentOrder.setQrCode(qrCode);
 		paymentOrder.setThirdChannelOrderNo(payjsOrderId);
+		PaymentResponse response = new PaymentResponse();
+		modelResult.setModel(response);
 		return modelResult;
 	}
 
@@ -100,7 +102,9 @@ public class WechatPayServiceImpl extends BaseThirdChannelService implements Thi
 			wechatPayRequest.setBody(request.getSubject());
 			wechatPayRequest.setNotifyUrl(request.getNotifyUrl());
 			wechatPayRequest.setOutTradeNo(request.getPayOrderNo());
-			wechatPayRequest.setTotalFee(AmountUtil.changeF2Y(request.getPayAmount()));
+			String amount = AmountUtil.changeY2FLong(request.getPayAmount()).toString();
+			LOGGER.info("交易金额为amount = 【{}】",amount);
+			wechatPayRequest.setTotalFee(amount);
 			modelResult.setModel(wechatPayRequest);
 		}catch(Exception e) {
 			modelResult.withError("0", "渠道账号参数配置错误");

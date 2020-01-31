@@ -155,7 +155,7 @@ function onExpandCustomerPaymentChannelInfoRow(index,row,$element){
 //格式化操作按钮
 function actionFormatter(value, row, index) {
     return [
-        '<shiro:hasPermission name="pattern:customerpaymentchannelinfo:create"><a class="add" href="javascript:;" onclick="createCustomerChannelFeeRow(' + row.customerId + ')" data-toggle="tooltip" title="设置支付渠道"><i class="zmdi zmdi-plus"></i>设置支付渠道</a></shiro:hasPermission>'
+        '<shiro:hasPermission name="pattern:customerpaymentchannelinfo:create"><a class="add" href="javascript:;" onclick="createCustomerChannelInfoRow(' + row.customerId + ')" data-toggle="tooltip" title="设置支付渠道"><i class="zmdi zmdi-plus"></i>设置支付渠道</a></shiro:hasPermission>'
     ].join('');
 }
 
