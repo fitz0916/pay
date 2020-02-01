@@ -10,10 +10,10 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 
 import com.github.appmodel.domain.result.ModelResult;
+import com.github.appmodel.vo.PageVo;
 import com.github.pattern.common.domain.PaymentChannel;
 import com.github.pattern.common.request.PaymentChannelRequest;
 import com.github.pattern.common.service.PaymentChannelService;
-import com.github.pattern.common.vo.PageVo;
 
 @RestController
 @RequestMapping("/pattern/server/paymentChannel")

@@ -13,10 +13,10 @@ import com.github.admin.common.constants.Constants;
 import com.github.admin.common.domain.System;
 import com.github.admin.common.request.SystemRequest;
 import com.github.admin.common.service.SystemService;
-import com.github.admin.common.vo.PageVo;
 import com.github.admin.server.dao.SystemDao;
 import com.github.appmodel.domain.result.ModelResult;
 import com.github.appmodel.page.DataPage;
+import com.github.appmodel.vo.PageVo;
 
 
 @Service

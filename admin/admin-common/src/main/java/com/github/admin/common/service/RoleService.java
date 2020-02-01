@@ -4,8 +4,8 @@ import java.util.List;
 
 import com.github.admin.common.domain.Role;
 import com.github.admin.common.request.RoleRequest;
-import com.github.admin.common.vo.PageVo;
 import com.github.appmodel.domain.result.ModelResult;
+import com.github.appmodel.vo.PageVo;
 
 public interface RoleService {
 

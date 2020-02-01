@@ -8,10 +8,10 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 
 import com.github.appmodel.domain.result.ModelResult;
+import com.github.appmodel.vo.ResultVo;
 import com.github.pattern.common.domain.PaymentChannelInfoRisk;
 import com.github.pattern.common.request.PaymentChannelInfoRiskRequest;
 import com.github.pattern.common.service.PaymentChannelRiskInfoService;
-import com.github.pattern.common.vo.ResultVo;
 
 @RestController
 @RequestMapping("/pattern/server/paymentChannelRiskInfo")

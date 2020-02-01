@@ -10,13 +10,13 @@ import org.springframework.stereotype.Service;
 
 import com.github.appmodel.domain.result.ModelResult;
 import com.github.appmodel.page.DataPage;
+import com.github.appmodel.vo.PageVo;
 import com.github.pattern.common.constants.PatternConstants;
 import com.github.pattern.common.domain.Customer;
 import com.github.pattern.common.request.CustomerRequest;
 import com.github.pattern.common.service.CustomerService;
 import com.github.pattern.common.utils.AmountUtil;
 import com.github.pattern.common.utils.UUIDGenerator;
-import com.github.pattern.common.vo.PageVo;
 import com.github.pattern.server.dao.CustomerDao;
 
 

@@ -17,6 +17,8 @@ import com.baidu.unbiz.fluentvalidator.FluentValidator;
 import com.baidu.unbiz.fluentvalidator.ResultCollectors;
 import com.github.admin.common.constants.Constants;
 import com.github.appmodel.domain.result.ModelResult;
+import com.github.appmodel.domain.result.ResultUtils;
+import com.github.appmodel.vo.PageVo;
 import com.github.pattern.client.service.CustomerPaymentChannelInfoServiceClient;
 import com.github.pattern.client.service.CustomerServiceClient;
 import com.github.pattern.client.service.PaymentChannelServiceClient;
@@ -24,8 +26,6 @@ import com.github.pattern.common.domain.Customer;
 import com.github.pattern.common.domain.CustomerPaymentChannelInfo;
 import com.github.pattern.common.domain.PaymentChannel;
 import com.github.pattern.common.request.CustomerPaymentChannelInfoRequest;
-import com.github.pattern.common.utils.ResultUtils;
-import com.github.pattern.common.vo.PageVo;
 import com.github.pattern.utils.NotNullValidator;
 
 import io.swagger.annotations.ApiOperation;

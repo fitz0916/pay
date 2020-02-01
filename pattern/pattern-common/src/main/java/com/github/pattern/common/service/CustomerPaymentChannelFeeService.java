@@ -1,9 +1,9 @@
 package com.github.pattern.common.service;
 
 import com.github.appmodel.domain.result.ModelResult;
+import com.github.appmodel.vo.ResultVo;
 import com.github.pattern.common.domain.CustomerPaymentChannelFee;
 import com.github.pattern.common.request.CustomerPaymentChannelFeeRequest;
-import com.github.pattern.common.vo.ResultVo;
 
 public interface CustomerPaymentChannelFeeService {
 	

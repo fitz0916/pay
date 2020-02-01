@@ -5,8 +5,8 @@ import java.util.List;
 import com.alibaba.fastjson.JSONArray;
 import com.github.admin.common.domain.Permission;
 import com.github.admin.common.request.PermissionRequest;
-import com.github.admin.common.vo.PageVo;
 import com.github.appmodel.domain.result.ModelResult;
+import com.github.appmodel.vo.PageVo;
 
 public interface PermissionService {
 	

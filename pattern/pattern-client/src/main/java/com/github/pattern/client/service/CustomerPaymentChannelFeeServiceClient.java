@@ -7,9 +7,9 @@ import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
 
 import com.github.appmodel.domain.result.ModelResult;
+import com.github.appmodel.vo.ResultVo;
 import com.github.pattern.common.domain.CustomerPaymentChannelFee;
 import com.github.pattern.common.request.CustomerPaymentChannelFeeRequest;
-import com.github.pattern.common.vo.ResultVo;
 
 @FeignClient(name="pattern-server")
 @RequestMapping("/pattern/server/customerChannelFee")

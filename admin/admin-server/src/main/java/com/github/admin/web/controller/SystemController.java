@@ -13,8 +13,8 @@ import org.springframework.web.bind.annotation.RestController;
 import com.github.admin.common.domain.System;
 import com.github.admin.common.request.SystemRequest;
 import com.github.admin.common.service.SystemService;
-import com.github.admin.common.vo.PageVo;
 import com.github.appmodel.domain.result.ModelResult;
+import com.github.appmodel.vo.PageVo;
 
 
 @RestController

@@ -7,9 +7,9 @@ import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
 
 import com.github.appmodel.domain.result.ModelResult;
+import com.github.appmodel.vo.PageVo;
 import com.github.pattern.common.domain.Agent;
 import com.github.pattern.common.request.AgentRequest;
-import com.github.pattern.common.vo.PageVo;
 
 
 @FeignClient(name="pattern-server")

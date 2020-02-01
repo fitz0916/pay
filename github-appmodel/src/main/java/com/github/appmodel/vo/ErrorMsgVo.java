@@ -1,14 +1,9 @@
-package com.github.admin.common.vo;
+package com.github.appmodel.vo;
 
-import com.github.admin.common.domain.BaseObject;
+import com.github.appmodel.base.BaseObject;
 
 public class ErrorMsgVo extends BaseObject{
 
-	/**
-	 * 
-	 */
-	private static final long serialVersionUID = 976438210391171734L;
-	
 	private boolean isSuccess;
 	private String code;
 	private String msg;
@@ -57,7 +52,4 @@ public class ErrorMsgVo extends BaseObject{
 	public void setData(Object data) {
 		this.data = data;
 	}
-	
-	
-	
 }

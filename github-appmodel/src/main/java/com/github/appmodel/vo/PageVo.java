@@ -1,34 +1,31 @@
-package com.github.admin.common.vo;
+package com.github.appmodel.vo;
 
-import java.io.Serializable;
+import com.github.appmodel.base.BaseObject;
 
-public class ResultVo implements Serializable{
-	
-	
+public class PageVo extends BaseObject{
+
 	/**
 	 * 
 	 */
-	private static final long serialVersionUID = -8214371334790382733L;
+	private static final long serialVersionUID = -1827641287964208659L;
 	
-	public ResultVo() {
-		
-	}
-	
-	public ResultVo(String code,String msg) {
-		this.code = code;
-		this.msg = msg;
-	}
-	
-	public Object data;
+	private long total;
+	public Object rows;
 	private boolean isSuccess;
 	private String code;
 	private String msg;
 	
-	public Object getData() {
-		return data;
+	public long getTotal() {
+		return total;
 	}
-	public void setData(Object data) {
-		this.data = data;
+	public void setTotal(long total) {
+		this.total = total;
+	}
+	public Object getRows() {
+		return rows;
+	}
+	public void setRows(Object rows) {
+		this.rows = rows;
 	}
 	public boolean isSuccess() {
 		return isSuccess;
@@ -49,7 +46,4 @@ public class ResultVo implements Serializable{
 		this.msg = msg;
 	}
 	
-	
-	
-
 }

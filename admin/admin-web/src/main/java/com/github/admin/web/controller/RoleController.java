@@ -12,8 +12,8 @@ import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
-import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.ResponseBody;
+
 import com.alibaba.fastjson.JSONArray;
 import com.baidu.unbiz.fluentvalidator.ComplexResult;
 import com.baidu.unbiz.fluentvalidator.FluentValidator;
@@ -23,11 +23,10 @@ import com.github.admin.client.service.RoleServiceClient;
 import com.github.admin.common.constants.Constants;
 import com.github.admin.common.domain.Role;
 import com.github.admin.common.request.RoleRequest;
-import com.github.admin.common.utils.ResultUtils;
-import com.github.admin.common.vo.PageVo;
 import com.github.admin.utils.LengthValidator;
 import com.github.appmodel.domain.result.ModelResult;
-import com.github.appmodel.page.DataPage;
+import com.github.appmodel.domain.result.ResultUtils;
+import com.github.appmodel.vo.PageVo;
 
 import io.swagger.annotations.ApiOperation;
 

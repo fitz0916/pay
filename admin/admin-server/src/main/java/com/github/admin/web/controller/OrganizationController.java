@@ -13,9 +13,8 @@ import org.springframework.web.bind.annotation.RestController;
 import com.github.admin.common.domain.Organization;
 import com.github.admin.common.request.OrganizationRequest;
 import com.github.admin.common.service.OrganizationService;
-import com.github.admin.common.vo.PageVo;
 import com.github.appmodel.domain.result.ModelResult;
-import com.github.appmodel.page.DataPage;
+import com.github.appmodel.vo.PageVo;
 
 @RestController
 @RequestMapping("/admin/server/organization")

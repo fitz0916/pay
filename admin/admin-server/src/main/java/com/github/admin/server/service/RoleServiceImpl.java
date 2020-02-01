@@ -13,12 +13,12 @@ import com.github.admin.common.constants.Constants;
 import com.github.admin.common.domain.Role;
 import com.github.admin.common.request.RoleRequest;
 import com.github.admin.common.service.RoleService;
-import com.github.admin.common.vo.PageVo;
 import com.github.admin.server.dao.RoleDao;
 import com.github.admin.server.dao.RolePermissionDao;
 import com.github.admin.server.dao.UserRoleDao;
 import com.github.appmodel.domain.result.ModelResult;
 import com.github.appmodel.page.DataPage;
+import com.github.appmodel.vo.PageVo;
 
 @Service
 public class RoleServiceImpl extends BaseService implements RoleService{

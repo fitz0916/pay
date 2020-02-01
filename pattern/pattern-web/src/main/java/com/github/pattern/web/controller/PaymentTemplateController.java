@@ -11,9 +11,9 @@ import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.ResponseBody;
 
 import com.github.appmodel.domain.result.ModelResult;
+import com.github.appmodel.domain.result.ResultUtils;
 import com.github.pattern.client.service.PaymentTemplateServiceClient;
 import com.github.pattern.common.domain.PaymentTemplate;
-import com.github.pattern.common.utils.ResultUtils;
 
 @Controller
 @RequestMapping("/manage/paymenttemplate")

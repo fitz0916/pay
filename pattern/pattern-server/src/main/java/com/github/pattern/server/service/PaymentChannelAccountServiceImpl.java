@@ -7,10 +7,10 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
 import com.github.appmodel.domain.result.ModelResult;
+import com.github.appmodel.vo.ResultVo;
 import com.github.pattern.common.domain.PaymentChannelAccount;
 import com.github.pattern.common.request.PaymentChannelAccountRequest;
 import com.github.pattern.common.service.PaymentChannelAccountService;
-import com.github.pattern.common.vo.ResultVo;
 import com.github.pattern.server.dao.PaymentChannelAccountDao;
 
 @Service

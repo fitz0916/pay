@@ -1,6 +1,5 @@
 package com.github.pattern.server.service;
 
-import java.util.ArrayList;
 import java.util.Date;
 import java.util.List;
 
@@ -9,9 +8,9 @@ import org.apache.commons.lang3.StringUtils;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
-import com.github.pattern.common.vo.PageVo;
 import com.github.appmodel.domain.result.ModelResult;
 import com.github.appmodel.page.DataPage;
+import com.github.appmodel.vo.PageVo;
 import com.github.pattern.common.constants.PatternConstants;
 import com.github.pattern.common.domain.Agent;
 import com.github.pattern.common.domain.Shop;

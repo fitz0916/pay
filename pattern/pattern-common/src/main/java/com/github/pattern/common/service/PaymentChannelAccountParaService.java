@@ -4,8 +4,6 @@ import java.util.List;
 
 import com.github.appmodel.domain.result.ModelResult;
 import com.github.pattern.common.domain.PaymentChannelAccountPara;
-import com.github.pattern.common.request.PaymentChannelAccountParaRequest;
-import com.github.pattern.common.vo.ResultVo;
 
 public interface PaymentChannelAccountParaService {
 	

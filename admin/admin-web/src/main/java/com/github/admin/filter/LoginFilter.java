@@ -17,7 +17,7 @@ import org.slf4j.LoggerFactory;
 
 import com.alibaba.fastjson.JSON;
 import com.github.admin.common.constants.Constants;
-import com.github.admin.common.vo.ResultVo;
+import com.github.appmodel.vo.ResultVo;
 
 //@Order(1)
 //@WebFilter(filterName = "loginFilter", urlPatterns = "/manage/**")

@@ -8,11 +8,11 @@ import org.springframework.stereotype.Service;
 
 import com.github.appmodel.domain.result.ModelResult;
 import com.github.appmodel.page.DataPage;
+import com.github.appmodel.vo.PageVo;
 import com.github.pattern.common.domain.PaymentChannel;
 import com.github.pattern.common.domain.PaymentTemplate;
 import com.github.pattern.common.request.PaymentChannelRequest;
 import com.github.pattern.common.service.PaymentChannelService;
-import com.github.pattern.common.vo.PageVo;
 import com.github.pattern.server.dao.PaymentChannelDao;
 import com.github.pattern.server.dao.PaymentTemplateDao;
 

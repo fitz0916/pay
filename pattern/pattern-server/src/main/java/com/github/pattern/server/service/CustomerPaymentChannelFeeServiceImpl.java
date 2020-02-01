@@ -6,10 +6,10 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
 import com.github.appmodel.domain.result.ModelResult;
+import com.github.appmodel.vo.ResultVo;
 import com.github.pattern.common.domain.CustomerPaymentChannelFee;
 import com.github.pattern.common.request.CustomerPaymentChannelFeeRequest;
 import com.github.pattern.common.service.CustomerPaymentChannelFeeService;
-import com.github.pattern.common.vo.ResultVo;
 import com.github.pattern.server.dao.CustomerPaymentChannelFeeDao;
 
 

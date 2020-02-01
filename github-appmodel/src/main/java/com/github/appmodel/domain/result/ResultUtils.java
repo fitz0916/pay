@@ -1,11 +1,10 @@
-package com.github.pattern.common.utils;
+package com.github.appmodel.domain.result;
 
 import org.apache.commons.lang3.StringUtils;
 
-import com.github.pattern.common.vo.ErrorMsgVo;
-import com.github.pattern.common.vo.PageVo;
-import com.github.pattern.common.vo.ResultVo;
-import com.github.appmodel.domain.result.ModelResult;
+import com.github.appmodel.vo.ErrorMsgVo;
+import com.github.appmodel.vo.PageVo;
+import com.github.appmodel.vo.ResultVo;
 
 public class ResultUtils {
 	
@@ -13,7 +12,7 @@ public class ResultUtils {
 	private static final String FAIL_MSG = "请求失败!";
 	private static final String SUCCESS_CODE = "1";
 	private static final String FAIL_CODE = "0";
-			
+	
 	public static <T> ResultVo  buildResult(ModelResult<T> modelResult){
 		ResultVo resultVo = new ResultVo();
 		if(modelResult.isSuccess()) {
@@ -32,11 +31,11 @@ public class ResultUtils {
 	
 	public static ErrorMsgVo buildErrorMsg(String code,Object data) {
 		ErrorMsgVo errorMsgVo = new ErrorMsgVo(code,data);
-		errorMsgVo.setMsg(FAIL_MSG);
+		errorMsgVo.setMsg("请求失败");
 		errorMsgVo.setSuccess(false);
 		return errorMsgVo;
 	}
-
+	
 	public static PageVo buildPageResult(ModelResult<PageVo> modelResult){
 		PageVo pageVo = new PageVo();
 		if(modelResult.isSuccess()) {

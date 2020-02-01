@@ -2,7 +2,6 @@ package com.github.admin.web.controller;
 
 import java.util.List;
 
-import org.apache.commons.collections.CollectionUtils;
 import org.apache.shiro.authz.annotation.RequiresPermissions;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
@@ -23,10 +22,10 @@ import com.github.admin.common.constants.Constants;
 import com.github.admin.common.domain.Permission;
 import com.github.admin.common.domain.System;
 import com.github.admin.common.request.PermissionRequest;
-import com.github.admin.common.utils.ResultUtils;
-import com.github.admin.common.vo.PageVo;
 import com.github.admin.utils.LengthValidator;
 import com.github.appmodel.domain.result.ModelResult;
+import com.github.appmodel.domain.result.ResultUtils;
+import com.github.appmodel.vo.PageVo;
 
 import io.swagger.annotations.ApiOperation;
 

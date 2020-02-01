@@ -14,13 +14,13 @@ import com.github.admin.common.domain.User;
 import com.github.admin.common.domain.UserInfo;
 import com.github.admin.common.request.UserRequest;
 import com.github.admin.common.service.UserService;
-import com.github.admin.common.vo.PageVo;
 import com.github.admin.server.dao.UserDao;
 import com.github.admin.server.dao.UserOrganizationDao;
 import com.github.admin.server.dao.UserPermissionDao;
 import com.github.admin.server.dao.UserRoleDao;
 import com.github.appmodel.domain.result.ModelResult;
 import com.github.appmodel.page.DataPage;
+import com.github.appmodel.vo.PageVo;
 
 @Service
 public class UserServiceImpl implements UserService{

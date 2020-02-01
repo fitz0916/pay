@@ -4,8 +4,8 @@ import java.util.List;
 
 import com.github.admin.common.domain.Organization;
 import com.github.admin.common.request.OrganizationRequest;
-import com.github.admin.common.vo.PageVo;
 import com.github.appmodel.domain.result.ModelResult;
+import com.github.appmodel.vo.PageVo;
 
 public interface OrganizationService {
 

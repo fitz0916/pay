@@ -1,9 +1,9 @@
 package com.github.pattern.common.service;
 
 import com.github.appmodel.domain.result.ModelResult;
+import com.github.appmodel.vo.PageVo;
 import com.github.pattern.common.domain.WhiteList;
 import com.github.pattern.common.request.WhiteListRequest;
-import com.github.pattern.common.vo.PageVo;
 
 public interface WhiteListService {
 

@@ -34,11 +34,11 @@ import com.github.admin.common.domain.UserOrganization;
 import com.github.admin.common.domain.UserRole;
 import com.github.admin.common.request.UserRequest;
 import com.github.admin.common.utils.MD5Utils;
-import com.github.admin.common.utils.ResultUtils;
-import com.github.admin.common.vo.PageVo;
 import com.github.admin.utils.LengthValidator;
 import com.github.admin.utils.RedisUtils;
 import com.github.appmodel.domain.result.ModelResult;
+import com.github.appmodel.domain.result.ResultUtils;
+import com.github.appmodel.vo.PageVo;
 
 import io.swagger.annotations.ApiOperation;
 

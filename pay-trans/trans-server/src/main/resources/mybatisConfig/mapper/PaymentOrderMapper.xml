@@ -1,0 +1,421 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd" >
+<mapper namespace="com.github.trans.server.dao.PaymentOrderDao" >
+  <resultMap id="BaseResultMap" type="com.github.trans.common.domain.PaymentOrder" >
+    <id column="order_no" property="orderNo" jdbcType="VARCHAR" />
+    <result column="customer_no" property="customerNo" jdbcType="VARCHAR" />
+    <result column="customer_name" property="customerName" jdbcType="VARCHAR" />
+    <result column="agent_id" property="agentId" jdbcType="INTEGER" />
+    <result column="shop_id" property="shopId" jdbcType="INTEGER" />
+    <result column="third_customer_no" property="thirdCustomerNo" jdbcType="VARCHAR" />
+    <result column="customer_order_no" property="customerOrderNo" jdbcType="VARCHAR" />
+    <result column="third_channel_order_no" property="thirdChannelOrderNo" jdbcType="VARCHAR" />
+    <result column="pay_type" property="payType" jdbcType="TINYINT" />
+    <result column="pay_status" property="payStatus" jdbcType="TINYINT" />
+    <result column="trans_time" property="transTime" jdbcType="TIMESTAMP" />
+    <result column="trans_finish_time" property="transFinishTime" jdbcType="TIMESTAMP" />
+    <result column="subject" property="subject" jdbcType="VARCHAR" />
+    <result column="desc" property="desc" jdbcType="VARCHAR" />
+    <result column="customer_payment_channelinfo_id" property="customerPaymentChannelinfoId" jdbcType="INTEGER" />
+    <result column="payment_channel_id" property="paymentChannelId" jdbcType="INTEGER" />
+    <result column="payment_channel_account_id" property="paymentChannelAccountId" jdbcType="INTEGER" />
+    <result column="notify_url" property="notifyUrl" jdbcType="VARCHAR" />
+    <result column="return_url" property="returnUrl" jdbcType="VARCHAR" />
+    <result column="pay_amount" property="payAmount" jdbcType="BIGINT" />
+    <result column="third_channel_fee" property="thirdChannelFee" jdbcType="DECIMAL" />
+    <result column="third_channel_proundage" property="thirdChannelProundage" jdbcType="BIGINT" />
+    <result column="customer_fee" property="customerFee" jdbcType="DECIMAL" />
+    <result column="customer_proundage" property="customerProundage" jdbcType="BIGINT" />
+    <result column="agent_fee" property="agentFee" jdbcType="DECIMAL" />
+    <result column="agent_proundage" property="agentProundage" jdbcType="BIGINT" />
+    <result column="customer_amount" property="customerAmount" jdbcType="BIGINT" />
+    <result column="qr_code" property="qrCode" jdbcType="VARCHAR" />
+    <result column="settlement_type" property="settlementType" jdbcType="INTEGER" />
+    <result column="settlement_status" property="settlementStatus" jdbcType="TINYINT" />
+    <result column="client_ip" property="clientIp" jdbcType="VARCHAR" />
+    <result column="currency" property="currency" jdbcType="VARCHAR" />
+  </resultMap>
+  <sql id="Base_Column_List" >
+    order_no, customer_no, customer_name, agent_id, shop_id, third_customer_no, customer_order_no, 
+    third_channel_order_no, pay_type, pay_status, trans_time, trans_finish_time, subject, 
+    desc, customer_payment_channelinfo_id, payment_channel_id, payment_channel_account_id, 
+    notify_url, return_url, pay_amount, third_channel_fee, third_channel_proundage, customer_fee, 
+    customer_proundage, agent_fee, agent_proundage, customer_amount, qr_code, settlement_type, 
+    settlement_status, client_ip, currency
+  </sql>
+  <select id="selectByPrimaryKey" resultMap="BaseResultMap" parameterType="java.lang.String" >
+    select 
+    <include refid="Base_Column_List" />
+    from trans_payment_order
+    where order_no = #{orderNo,jdbcType=VARCHAR}
+  </select>
+   <select id="selectByPrimaryKey" resultMap="BaseResultMap" parameterType="java.lang.String" >
+    select 
+    <include refid="Base_Column_List" />
+    from trans_payment_order
+    where order_no = #{orderNo,jdbcType=VARCHAR}
+  </select>
+  <delete id="selectByCstomerOrderNo" parameterType="java.lang.String" >
+    delete from trans_payment_order
+    where customer_order_no = #{customerOrderNo,jdbcType=VARCHAR}
+  </delete>
+  <insert id="insert" parameterType="com.github.trans.common.domain.PaymentOrder" >
+    insert into trans_payment_order (order_no, customer_no, customer_name, 
+      agent_id, shop_id, third_customer_no, 
+      customer_order_no, third_channel_order_no, pay_type, 
+      pay_status, trans_time, trans_finish_time, 
+      subject, desc, customer_payment_channelinfo_id, 
+      payment_channel_id, payment_channel_account_id, 
+      notify_url, return_url, pay_amount, 
+      third_channel_fee, third_channel_proundage, 
+      customer_fee, customer_proundage, agent_fee, 
+      agent_proundage, customer_amount, qr_code, 
+      settlement_type, settlement_status, client_ip, 
+      currency)
+    values (#{orderNo,jdbcType=VARCHAR}, #{customerNo,jdbcType=VARCHAR}, #{customerName,jdbcType=VARCHAR}, 
+      #{agentId,jdbcType=INTEGER}, #{shopId,jdbcType=INTEGER}, #{thirdCustomerNo,jdbcType=VARCHAR}, 
+      #{customerOrderNo,jdbcType=VARCHAR}, #{thirdChannelOrderNo,jdbcType=VARCHAR}, #{payType,jdbcType=TINYINT}, 
+      #{payStatus,jdbcType=TINYINT}, #{transTime,jdbcType=TIMESTAMP}, #{transFinishTime,jdbcType=TIMESTAMP}, 
+      #{subject,jdbcType=VARCHAR}, #{desc,jdbcType=VARCHAR}, #{customerPaymentChannelinfoId,jdbcType=INTEGER}, 
+      #{paymentChannelId,jdbcType=INTEGER}, #{paymentChannelAccountId,jdbcType=INTEGER}, 
+      #{notifyUrl,jdbcType=VARCHAR}, #{returnUrl,jdbcType=VARCHAR}, #{payAmount,jdbcType=BIGINT}, 
+      #{thirdChannelFee,jdbcType=DECIMAL}, #{thirdChannelProundage,jdbcType=BIGINT}, 
+      #{customerFee,jdbcType=DECIMAL}, #{customerProundage,jdbcType=BIGINT}, #{agentFee,jdbcType=DECIMAL}, 
+      #{agentProundage,jdbcType=BIGINT}, #{customerAmount,jdbcType=BIGINT}, #{qrCode,jdbcType=VARCHAR}, 
+      #{settlementType,jdbcType=INTEGER}, #{settlementStatus,jdbcType=TINYINT}, #{clientIp,jdbcType=VARCHAR}, 
+      #{currency,jdbcType=VARCHAR})
+  </insert>
+  <insert id="insertSelective" parameterType="com.github.trans.common.domain.PaymentOrder" >
+    insert into trans_payment_order
+    <trim prefix="(" suffix=")" suffixOverrides="," >
+      <if test="orderNo != null" >
+        order_no,
+      </if>
+      <if test="customerNo != null" >
+        customer_no,
+      </if>
+      <if test="customerName != null" >
+        customer_name,
+      </if>
+      <if test="agentId != null" >
+        agent_id,
+      </if>
+      <if test="shopId != null" >
+        shop_id,
+      </if>
+      <if test="thirdCustomerNo != null" >
+        third_customer_no,
+      </if>
+      <if test="customerOrderNo != null" >
+        customer_order_no,
+      </if>
+      <if test="thirdChannelOrderNo != null" >
+        third_channel_order_no,
+      </if>
+      <if test="payType != null" >
+        pay_type,
+      </if>
+      <if test="payStatus != null" >
+        pay_status,
+      </if>
+      <if test="transTime != null" >
+        trans_time,
+      </if>
+      <if test="transFinishTime != null" >
+        trans_finish_time,
+      </if>
+      <if test="subject != null" >
+        subject,
+      </if>
+      <if test="desc != null" >
+        desc,
+      </if>
+      <if test="customerPaymentChannelinfoId != null" >
+        customer_payment_channelinfo_id,
+      </if>
+      <if test="paymentChannelId != null" >
+        payment_channel_id,
+      </if>
+      <if test="paymentChannelAccountId != null" >
+        payment_channel_account_id,
+      </if>
+      <if test="notifyUrl != null" >
+        notify_url,
+      </if>
+      <if test="returnUrl != null" >
+        return_url,
+      </if>
+      <if test="payAmount != null" >
+        pay_amount,
+      </if>
+      <if test="thirdChannelFee != null" >
+        third_channel_fee,
+      </if>
+      <if test="thirdChannelProundage != null" >
+        third_channel_proundage,
+      </if>
+      <if test="customerFee != null" >
+        customer_fee,
+      </if>
+      <if test="customerProundage != null" >
+        customer_proundage,
+      </if>
+      <if test="agentFee != null" >
+        agent_fee,
+      </if>
+      <if test="agentProundage != null" >
+        agent_proundage,
+      </if>
+      <if test="customerAmount != null" >
+        customer_amount,
+      </if>
+      <if test="qrCode != null" >
+        qr_code,
+      </if>
+      <if test="settlementType != null" >
+        settlement_type,
+      </if>
+      <if test="settlementStatus != null" >
+        settlement_status,
+      </if>
+      <if test="clientIp != null" >
+        client_ip,
+      </if>
+      <if test="currency != null" >
+        currency,
+      </if>
+    </trim>
+    <trim prefix="values (" suffix=")" suffixOverrides="," >
+      <if test="orderNo != null" >
+        #{orderNo,jdbcType=VARCHAR},
+      </if>
+      <if test="customerNo != null" >
+        #{customerNo,jdbcType=VARCHAR},
+      </if>
+      <if test="customerName != null" >
+        #{customerName,jdbcType=VARCHAR},
+      </if>
+      <if test="agentId != null" >
+        #{agentId,jdbcType=INTEGER},
+      </if>
+      <if test="shopId != null" >
+        #{shopId,jdbcType=INTEGER},
+      </if>
+      <if test="thirdCustomerNo != null" >
+        #{thirdCustomerNo,jdbcType=VARCHAR},
+      </if>
+      <if test="customerOrderNo != null" >
+        #{customerOrderNo,jdbcType=VARCHAR},
+      </if>
+      <if test="thirdChannelOrderNo != null" >
+        #{thirdChannelOrderNo,jdbcType=VARCHAR},
+      </if>
+      <if test="payType != null" >
+        #{payType,jdbcType=TINYINT},
+      </if>
+      <if test="payStatus != null" >
+        #{payStatus,jdbcType=TINYINT},
+      </if>
+      <if test="transTime != null" >
+        #{transTime,jdbcType=TIMESTAMP},
+      </if>
+      <if test="transFinishTime != null" >
+        #{transFinishTime,jdbcType=TIMESTAMP},
+      </if>
+      <if test="subject != null" >
+        #{subject,jdbcType=VARCHAR},
+      </if>
+      <if test="desc != null" >
+        #{desc,jdbcType=VARCHAR},
+      </if>
+      <if test="customerPaymentChannelinfoId != null" >
+        #{customerPaymentChannelinfoId,jdbcType=INTEGER},
+      </if>
+      <if test="paymentChannelId != null" >
+        #{paymentChannelId,jdbcType=INTEGER},
+      </if>
+      <if test="paymentChannelAccountId != null" >
+        #{paymentChannelAccountId,jdbcType=INTEGER},
+      </if>
+      <if test="notifyUrl != null" >
+        #{notifyUrl,jdbcType=VARCHAR},
+      </if>
+      <if test="returnUrl != null" >
+        #{returnUrl,jdbcType=VARCHAR},
+      </if>
+      <if test="payAmount != null" >
+        #{payAmount,jdbcType=BIGINT},
+      </if>
+      <if test="thirdChannelFee != null" >
+        #{thirdChannelFee,jdbcType=DECIMAL},
+      </if>
+      <if test="thirdChannelProundage != null" >
+        #{thirdChannelProundage,jdbcType=BIGINT},
+      </if>
+      <if test="customerFee != null" >
+        #{customerFee,jdbcType=DECIMAL},
+      </if>
+      <if test="customerProundage != null" >
+        #{customerProundage,jdbcType=BIGINT},
+      </if>
+      <if test="agentFee != null" >
+        #{agentFee,jdbcType=DECIMAL},
+      </if>
+      <if test="agentProundage != null" >
+        #{agentProundage,jdbcType=BIGINT},
+      </if>
+      <if test="customerAmount != null" >
+        #{customerAmount,jdbcType=BIGINT},
+      </if>
+      <if test="qrCode != null" >
+        #{qrCode,jdbcType=VARCHAR},
+      </if>
+      <if test="settlementType != null" >
+        #{settlementType,jdbcType=INTEGER},
+      </if>
+      <if test="settlementStatus != null" >
+        #{settlementStatus,jdbcType=TINYINT},
+      </if>
+      <if test="clientIp != null" >
+        #{clientIp,jdbcType=VARCHAR},
+      </if>
+      <if test="currency != null" >
+        #{currency,jdbcType=VARCHAR},
+      </if>
+    </trim>
+  </insert>
+  <update id="updateByPrimaryKeySelective" parameterType="com.github.trans.common.domain.PaymentOrder" >
+    update trans_payment_order
+    <set >
+      <if test="customerNo != null" >
+        customer_no = #{customerNo,jdbcType=VARCHAR},
+      </if>
+      <if test="customerName != null" >
+        customer_name = #{customerName,jdbcType=VARCHAR},
+      </if>
+      <if test="agentId != null" >
+        agent_id = #{agentId,jdbcType=INTEGER},
+      </if>
+      <if test="shopId != null" >
+        shop_id = #{shopId,jdbcType=INTEGER},
+      </if>
+      <if test="thirdCustomerNo != null" >
+        third_customer_no = #{thirdCustomerNo,jdbcType=VARCHAR},
+      </if>
+      <if test="customerOrderNo != null" >
+        customer_order_no = #{customerOrderNo,jdbcType=VARCHAR},
+      </if>
+      <if test="thirdChannelOrderNo != null" >
+        third_channel_order_no = #{thirdChannelOrderNo,jdbcType=VARCHAR},
+      </if>
+      <if test="payType != null" >
+        pay_type = #{payType,jdbcType=TINYINT},
+      </if>
+      <if test="payStatus != null" >
+        pay_status = #{payStatus,jdbcType=TINYINT},
+      </if>
+      <if test="transTime != null" >
+        trans_time = #{transTime,jdbcType=TIMESTAMP},
+      </if>
+      <if test="transFinishTime != null" >
+        trans_finish_time = #{transFinishTime,jdbcType=TIMESTAMP},
+      </if>
+      <if test="subject != null" >
+        subject = #{subject,jdbcType=VARCHAR},
+      </if>
+      <if test="desc != null" >
+        desc = #{desc,jdbcType=VARCHAR},
+      </if>
+      <if test="customerPaymentChannelinfoId != null" >
+        customer_payment_channelinfo_id = #{customerPaymentChannelinfoId,jdbcType=INTEGER},
+      </if>
+      <if test="paymentChannelId != null" >
+        payment_channel_id = #{paymentChannelId,jdbcType=INTEGER},
+      </if>
+      <if test="paymentChannelAccountId != null" >
+        payment_channel_account_id = #{paymentChannelAccountId,jdbcType=INTEGER},
+      </if>
+      <if test="notifyUrl != null" >
+        notify_url = #{notifyUrl,jdbcType=VARCHAR},
+      </if>
+      <if test="returnUrl != null" >
+        return_url = #{returnUrl,jdbcType=VARCHAR},
+      </if>
+      <if test="payAmount != null" >
+        pay_amount = #{payAmount,jdbcType=BIGINT},
+      </if>
+      <if test="thirdChannelFee != null" >
+        third_channel_fee = #{thirdChannelFee,jdbcType=DECIMAL},
+      </if>
+      <if test="thirdChannelProundage != null" >
+        third_channel_proundage = #{thirdChannelProundage,jdbcType=BIGINT},
+      </if>
+      <if test="customerFee != null" >
+        customer_fee = #{customerFee,jdbcType=DECIMAL},
+      </if>
+      <if test="customerProundage != null" >
+        customer_proundage = #{customerProundage,jdbcType=BIGINT},
+      </if>
+      <if test="agentFee != null" >
+        agent_fee = #{agentFee,jdbcType=DECIMAL},
+      </if>
+      <if test="agentProundage != null" >
+        agent_proundage = #{agentProundage,jdbcType=BIGINT},
+      </if>
+      <if test="customerAmount != null" >
+        customer_amount = #{customerAmount,jdbcType=BIGINT},
+      </if>
+      <if test="qrCode != null" >
+        qr_code = #{qrCode,jdbcType=VARCHAR},
+      </if>
+      <if test="settlementType != null" >
+        settlement_type = #{settlementType,jdbcType=INTEGER},
+      </if>
+      <if test="settlementStatus != null" >
+        settlement_status = #{settlementStatus,jdbcType=TINYINT},
+      </if>
+      <if test="clientIp != null" >
+        client_ip = #{clientIp,jdbcType=VARCHAR},
+      </if>
+      <if test="currency != null" >
+        currency = #{currency,jdbcType=VARCHAR},
+      </if>
+    </set>
+    where order_no = #{orderNo,jdbcType=VARCHAR}
+  </update>
+  <update id="updateByPrimaryKey" parameterType="com.github.trans.common.domain.PaymentOrder" >
+    update trans_payment_order
+    set customer_no = #{customerNo,jdbcType=VARCHAR},
+      customer_name = #{customerName,jdbcType=VARCHAR},
+      agent_id = #{agentId,jdbcType=INTEGER},
+      shop_id = #{shopId,jdbcType=INTEGER},
+      third_customer_no = #{thirdCustomerNo,jdbcType=VARCHAR},
+      customer_order_no = #{customerOrderNo,jdbcType=VARCHAR},
+      third_channel_order_no = #{thirdChannelOrderNo,jdbcType=VARCHAR},
+      pay_type = #{payType,jdbcType=TINYINT},
+      pay_status = #{payStatus,jdbcType=TINYINT},
+      trans_time = #{transTime,jdbcType=TIMESTAMP},
+      trans_finish_time = #{transFinishTime,jdbcType=TIMESTAMP},
+      subject = #{subject,jdbcType=VARCHAR},
+      desc = #{desc,jdbcType=VARCHAR},
+      customer_payment_channelinfo_id = #{customerPaymentChannelinfoId,jdbcType=INTEGER},
+      payment_channel_id = #{paymentChannelId,jdbcType=INTEGER},
+      payment_channel_account_id = #{paymentChannelAccountId,jdbcType=INTEGER},
+      notify_url = #{notifyUrl,jdbcType=VARCHAR},
+      return_url = #{returnUrl,jdbcType=VARCHAR},
+      pay_amount = #{payAmount,jdbcType=BIGINT},
+      third_channel_fee = #{thirdChannelFee,jdbcType=DECIMAL},
+      third_channel_proundage = #{thirdChannelProundage,jdbcType=BIGINT},
+      customer_fee = #{customerFee,jdbcType=DECIMAL},
+      customer_proundage = #{customerProundage,jdbcType=BIGINT},
+      agent_fee = #{agentFee,jdbcType=DECIMAL},
+      agent_proundage = #{agentProundage,jdbcType=BIGINT},
+      customer_amount = #{customerAmount,jdbcType=BIGINT},
+      qr_code = #{qrCode,jdbcType=VARCHAR},
+      settlement_type = #{settlementType,jdbcType=INTEGER},
+      settlement_status = #{settlementStatus,jdbcType=TINYINT},
+      client_ip = #{clientIp,jdbcType=VARCHAR},
+      currency = #{currency,jdbcType=VARCHAR}
+    where order_no = #{orderNo,jdbcType=VARCHAR}
+  </update>
+</mapper>

@@ -1,30 +1,19 @@
-package com.github.pattern.common.vo;
+package com.github.appmodel.vo;
 
-import java.io.Serializable;
-
-import com.github.pattern.common.domain.BaseObject;
+import com.github.appmodel.base.BaseObject;
 
 public class ResultVo extends BaseObject{
-	
+
 	
 	/**
 	 * 
 	 */
-	private static final long serialVersionUID = -8214371334790382733L;
-	
-	public ResultVo() {
-		
-	}
-	
-	public ResultVo(String code,String msg) {
-		this.code = code;
-		this.msg = msg;
-	}
-	
-	public Object data;
+	private static final long serialVersionUID = -7638634174347794880L;
 	private boolean isSuccess;
 	private String code;
 	private String msg;
+	public Object data;
+	
 	
 	public Object getData() {
 		return data;
@@ -51,7 +40,4 @@ public class ResultVo extends BaseObject{
 		this.msg = msg;
 	}
 	
-	
-	
-
 }

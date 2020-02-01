@@ -17,10 +17,10 @@ import com.github.admin.client.service.OrganizationServiceClient;
 import com.github.admin.common.constants.Constants;
 import com.github.admin.common.domain.Organization;
 import com.github.admin.common.request.OrganizationRequest;
-import com.github.admin.common.utils.ResultUtils;
-import com.github.admin.common.vo.PageVo;
 import com.github.admin.utils.LengthValidator;
 import com.github.appmodel.domain.result.ModelResult;
+import com.github.appmodel.domain.result.ResultUtils;
+import com.github.appmodel.vo.PageVo;
 
 import io.swagger.annotations.ApiOperation;
 

@@ -3,9 +3,9 @@ package com.github.pattern.common.service;
 import java.util.List;
 
 import com.github.appmodel.domain.result.ModelResult;
+import com.github.appmodel.vo.ResultVo;
 import com.github.pattern.common.domain.PaymentChannelAccount;
 import com.github.pattern.common.request.PaymentChannelAccountRequest;
-import com.github.pattern.common.vo.ResultVo;
 
 public interface PaymentChannelAccountService {
 	

@@ -16,17 +16,17 @@ import com.github.admin.common.constants.Constants;
 import com.github.admin.common.domain.Permission;
 import com.github.admin.common.domain.PermissionInfo;
 import com.github.admin.common.domain.RolePermission;
+import com.github.admin.common.domain.System;
 import com.github.admin.common.domain.UserPermission;
 import com.github.admin.common.request.PermissionRequest;
 import com.github.admin.common.service.PermissionService;
-import com.github.admin.common.vo.PageVo;
 import com.github.admin.server.dao.PermissionDao;
 import com.github.admin.server.dao.RolePermissionDao;
 import com.github.admin.server.dao.SystemDao;
 import com.github.admin.server.dao.UserPermissionDao;
 import com.github.appmodel.domain.result.ModelResult;
 import com.github.appmodel.page.DataPage;
-import com.github.admin.common.domain.System;
+import com.github.appmodel.vo.PageVo;
 
 @Service
 public class PermissionServiceImpl extends BaseService implements PermissionService {

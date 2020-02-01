@@ -3,10 +3,10 @@ package com.github.pattern.server.service;
 import org.springframework.stereotype.Service;
 
 import com.github.appmodel.domain.result.ModelResult;
+import com.github.appmodel.vo.ResultVo;
 import com.github.pattern.common.domain.PaymentChannelInfoRisk;
 import com.github.pattern.common.request.PaymentChannelInfoRiskRequest;
 import com.github.pattern.common.service.PaymentChannelRiskInfoService;
-import com.github.pattern.common.vo.ResultVo;
 
 
 @Service

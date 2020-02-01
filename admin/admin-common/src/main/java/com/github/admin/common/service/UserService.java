@@ -2,8 +2,8 @@ package com.github.admin.common.service;
 
 import com.github.admin.common.domain.User;
 import com.github.admin.common.request.UserRequest;
-import com.github.admin.common.vo.PageVo;
 import com.github.appmodel.domain.result.ModelResult;
+import com.github.appmodel.vo.PageVo;
 
 public interface UserService {
 

@@ -14,13 +14,13 @@ import com.baidu.unbiz.fluentvalidator.FluentValidator;
 import com.baidu.unbiz.fluentvalidator.ResultCollectors;
 import com.github.admin.common.constants.Constants;
 import com.github.appmodel.domain.result.ModelResult;
+import com.github.appmodel.domain.result.ResultUtils;
 import com.github.pattern.client.service.CustomerPaymentChannelFeeServiceClient;
 import com.github.pattern.client.service.CustomerServiceClient;
 import com.github.pattern.client.service.PaymentChannelServiceClient;
 import com.github.pattern.common.domain.Customer;
 import com.github.pattern.common.domain.CustomerPaymentChannelFee;
 import com.github.pattern.common.domain.PaymentChannel;
-import com.github.pattern.common.utils.ResultUtils;
 import com.github.pattern.utils.DecimalPointValidator;
 import com.github.pattern.utils.NotNullValidator;
 

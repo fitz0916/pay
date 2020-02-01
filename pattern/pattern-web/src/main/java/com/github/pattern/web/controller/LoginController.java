@@ -31,9 +31,9 @@ import com.github.admin.common.exception.AccountNotFoundException;
 import com.github.admin.common.exception.AccountUnknownException;
 import com.github.admin.common.exception.IncorrectCaptchaException;
 import com.github.admin.common.exception.IncorrectPasswordException;
-import com.github.admin.common.utils.ResultUtils;
-import com.github.admin.common.vo.ResultVo;
 import com.github.appmodel.domain.result.ModelResult;
+import com.github.appmodel.domain.result.ResultUtils;
+import com.github.appmodel.vo.ResultVo;
 import com.github.pattern.service.CustomGenericManageableCaptchaService;
 import com.github.pattern.token.SecurityToken;
 import com.github.pattern.utils.RedisUtils;
@@ -162,7 +162,9 @@ public class LoginController {
         
         logger.info("当前redis缓存用户信息:[{}]",userJSON);
         customGenericManageableCaptchaService.removeCaptcha(request.getSession().getId());
-        resultVo = new ResultVo("1", "登入成功！");
+        resultVo = new ResultVo();
+        resultVo.setCode("1");
+        resultVo.setMsg("登入成功！");
         modelResult.setModel(resultVo);
         return ResultUtils.buildResult(modelResult);
 	}

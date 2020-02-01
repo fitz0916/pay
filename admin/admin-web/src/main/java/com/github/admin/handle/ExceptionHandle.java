@@ -13,11 +13,11 @@ import org.springframework.web.method.HandlerMethod;
 import org.springframework.web.servlet.ModelAndView;
 
 import com.github.admin.common.constants.Constants;
-import com.github.admin.common.utils.ResultUtils;
-import com.github.admin.common.vo.ErrorMsgVo;
-import com.github.admin.common.vo.ResultVo;
 import com.github.admin.utils.SpringWebUtils;
 import com.github.appmodel.domain.result.ModelResult;
+import com.github.appmodel.domain.result.ResultUtils;
+import com.github.appmodel.vo.ErrorMsgVo;
+import com.github.appmodel.vo.ResultVo;
 
 @RestControllerAdvice
 public class ExceptionHandle{

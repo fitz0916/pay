@@ -1,9 +1,9 @@
 package com.github.pattern.common.service;
 
 import com.github.appmodel.domain.result.ModelResult;
+import com.github.appmodel.vo.PageVo;
 import com.github.pattern.common.domain.Customer;
 import com.github.pattern.common.request.CustomerRequest;
-import com.github.pattern.common.vo.PageVo;
 
 public interface CustomerService {
 	

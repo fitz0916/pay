@@ -13,7 +13,7 @@ import com.github.appmodel.domain.result.ModelResult;
 import com.github.pattern.common.domain.PaymentChannelAccountPara;
 import com.github.pattern.common.request.PaymentChannelAccountParaRequest;
 import com.github.pattern.common.service.PaymentChannelAccountParaService;
-import com.github.pattern.common.vo.ResultVo;
+import com.github.appmodel.vo.PageVo;
 
 @RestController
 @RequestMapping("/pattern/server/paymentChannelAccountPara")
