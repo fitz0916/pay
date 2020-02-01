@@ -1,8 +1,6 @@
 package com.github.pattern.common.request;
 
-import java.util.Date;
-
-import com.github.pattern.common.domain.BaseObject;
+import com.github.appmodel.request.PageRequest;
 
 public class AgentRequest extends PageRequest{
 

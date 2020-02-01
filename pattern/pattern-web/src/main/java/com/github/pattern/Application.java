@@ -11,7 +11,7 @@ import org.springframework.cloud.openfeign.EnableFeignClients;
  */
 @SpringBootApplication
 @EnableDiscoveryClient
-@EnableFeignClients(basePackages = {"com.github.admin.client","com.github.pattern.client"})
+@EnableFeignClients(basePackages = {"com.github.admin.client","com.github.pattern.client","com.github.trans.client"})
 public class Application {
     public static void main( String[] args ){
         SpringApplication.run(Application.class, args);

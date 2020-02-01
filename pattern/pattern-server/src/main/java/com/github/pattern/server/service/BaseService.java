@@ -5,7 +5,7 @@ import java.util.List;
 
 import com.github.appmodel.domain.result.ModelResult;
 import com.github.appmodel.page.DataPage;
-import com.github.pattern.common.request.PageRequest;
+import com.github.appmodel.request.PageRequest;
 
 public abstract class BaseService {
 	

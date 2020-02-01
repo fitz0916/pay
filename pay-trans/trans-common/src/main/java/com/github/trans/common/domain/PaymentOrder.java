@@ -22,16 +22,16 @@ public class PaymentOrder extends BaseObject{
 	private String thirdChannelOrderNo;
 	//支付类型
 	private String payType;
-	//支付状态0:初始化1：支付进行中 2：支付成功 3：支付失败
+	//支付状态0:支付进行中1：支付成功 2：支付失败
 	private int payStatus;
 	//订单生成时间
 	private Date transTime;
 	//订单交易完成时间
 	private Date transFinishTime;
 	//主题
-	private String subject;
+	private String topic;
 	//描述
-	private String desc;
+	private String desciption;
 	//商户渠道ID
 	private Integer customerPaymentChannelInfoId;
 	//渠道ID
@@ -43,21 +43,21 @@ public class PaymentOrder extends BaseObject{
 	//前端回调地址
 	private String returnUrl;
 	//交易金额
-	private Long payAmount; 
+	private String payAmount; 
 	//三方渠道费率
 	private BigDecimal thirdChannelFee;
 	//三方渠道收取手续费（分）
-	private Long thirdChannelProundage;
+	private String thirdChannelProundage;
 	//销售费率
 	private BigDecimal customerFee;
 	//收取商户手续费用(分)
-	private Long customerProundage;
+	private String customerProundage;
 	//代理商费率
 	private BigDecimal agentFee;
 	//代理商手续费(实际金额*在开通通道界面配置的费率)
-	private Long agentProundage;
+	private String agentProundage;
 	//商户实际到账金额(交易金额-交易金额*接入费率)
-	private Long customerAmount;
+	private String customerAmount;
 	//二维码地址
 	private String qrCode;
 	//结算类型 700:T0结算 701:T1结算  702:D0  703:D1
@@ -165,20 +165,20 @@ public class PaymentOrder extends BaseObject{
 		this.transFinishTime = transFinishTime;
 	}
 
-	public String getSubject() {
-		return subject;
+	public String getTopic() {
+		return topic;
 	}
 
-	public void setSubject(String subject) {
-		this.subject = subject;
+	public void setTopic(String topic) {
+		this.topic = topic;
 	}
 
-	public String getDesc() {
-		return desc;
+	public String getDesciption() {
+		return desciption;
 	}
 
-	public void setDesc(String desc) {
-		this.desc = desc;
+	public void setDesciption(String desciption) {
+		this.desciption = desciption;
 	}
 
 	public Integer getCustomerPaymentChannelInfoId() {
@@ -221,11 +221,11 @@ public class PaymentOrder extends BaseObject{
 		this.returnUrl = returnUrl;
 	}
 
-	public Long getPayAmount() {
+	public String getPayAmount() {
 		return payAmount;
 	}
 
-	public void setPayAmount(Long payAmount) {
+	public void setPayAmount(String payAmount) {
 		this.payAmount = payAmount;
 	}
 
@@ -237,11 +237,11 @@ public class PaymentOrder extends BaseObject{
 		this.thirdChannelFee = thirdChannelFee;
 	}
 
-	public Long getThirdChannelProundage() {
+	public String getThirdChannelProundage() {
 		return thirdChannelProundage;
 	}
 
-	public void setThirdChannelProundage(Long thirdChannelProundage) {
+	public void setThirdChannelProundage(String thirdChannelProundage) {
 		this.thirdChannelProundage = thirdChannelProundage;
 	}
 
@@ -253,11 +253,11 @@ public class PaymentOrder extends BaseObject{
 		this.customerFee = customerFee;
 	}
 
-	public Long getCustomerProundage() {
+	public String getCustomerProundage() {
 		return customerProundage;
 	}
 
-	public void setCustomerProundage(Long customerProundage) {
+	public void setCustomerProundage(String customerProundage) {
 		this.customerProundage = customerProundage;
 	}
 
@@ -269,19 +269,19 @@ public class PaymentOrder extends BaseObject{
 		this.agentFee = agentFee;
 	}
 
-	public Long getAgentProundage() {
+	public String getAgentProundage() {
 		return agentProundage;
 	}
 
-	public void setAgentProundage(Long agentProundage) {
+	public void setAgentProundage(String agentProundage) {
 		this.agentProundage = agentProundage;
 	}
 
-	public Long getCustomerAmount() {
+	public String getCustomerAmount() {
 		return customerAmount;
 	}
 
-	public void setCustomerAmount(Long customerAmount) {
+	public void setCustomerAmount(String customerAmount) {
 		this.customerAmount = customerAmount;
 	}
 

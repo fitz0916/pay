@@ -1,8 +1,8 @@
 package com.github.trans.common.request;
 
-import com.github.trans.common.domain.BaseObject;
+import com.github.appmodel.request.PageRequest;
 
-public class PaymentOrderRequest extends BaseObject{
+public class PaymentOrderRequest extends PageRequest{
 
 	private String customerNo;
 	

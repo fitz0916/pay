@@ -249,7 +249,7 @@ public class AmountUtil {
 	 */
 	public static Long feeRoundingF(BigDecimal initAmountF, BigDecimal fee) {
 		BigDecimal bigDecimal = new BigDecimal("100");
-		initAmountF = initAmountF.divide(bigDecimal);// 转为元
+//		initAmountF = initAmountF.divide(bigDecimal);// 转为元
 		BigDecimal resultAmountY = initAmountF.multiply(fee); //费率计算
 		BigDecimal resultAmountF = resultAmountY.setScale(2, BigDecimal.ROUND_HALF_EVEN).multiply(bigDecimal); //保留两位小数后转为分
 		return resultAmountF.longValue();
@@ -260,26 +260,9 @@ public class AmountUtil {
 	}
 	
 	public static void main(String[] args) {
-//		System.out.println(feeRoundingF("60.4"));
-		// System.out.println(AmountUtil.changeF2Y("1000000111"));
-		// System.out.println(AmountUtil.get2Double(null,3));
-		// System.out.println(AmountUtil.add(12.2155, null,4));
-		// System.out.println(AmountUtil.subtract(12.2155, 1D,2));
-		// System.out.println(AmountUtil.multiply(12.2155, 2D,2));
-		// System.out.println(AmountUtil.divide(44.13, 2D,2));
-		// System.out.println(AmountUtil.divideAndRemainder(43D, 8D,0));
-		// System.out.println(AmountUtil.formatByNumberFormat(0.123456,
-		// NumberFormat.getPercentInstance(),3));
-		// System.out.println(AmountUtil.formatBy2Scale(12.23457,3));
-
-		// DecimalFormat df = new DecimalFormat("0.00\u2030"); //
-		// "\u2030"表示乘以1000并显示为千分数
-		// System.out.println(df.format(12.1233)); // 8-->1234567.89‰
-		//
-		// df = new DecimalFormat("00000.0#");// 在数字中添加逗号
-		// System.out.println(df.format(123456789.12345)); // 5-->-1,234.57
-		//
-		// df = new DecimalFormat("0");// 不保留小数点 四舍五入
-		// System.out.println(df.format(123456789.9876)); // 5-->-1,234.57
+		BigDecimal amountBigDecimal = new BigDecimal("1.03"); 
+		BigDecimal thirdChannelFee = new BigDecimal("0.038");
+		Long amount = AmountUtil.feeRoundingF(amountBigDecimal, thirdChannelFee);
+		System.out.println(amount);
 	}
 }

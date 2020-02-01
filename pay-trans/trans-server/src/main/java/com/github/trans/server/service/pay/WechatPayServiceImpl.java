@@ -10,7 +10,6 @@ import com.github.appmodel.domain.result.ModelResult;
 import com.github.channel.client.service.WechatPayServiceClient;
 import com.github.channel.common.request.WechatPayRequest;
 import com.github.channel.common.response.WechatPayResponse;
-import com.github.channel.common.service.PayJsService;
 import com.github.pattern.common.domain.Customer;
 import com.github.pattern.common.domain.CustomerPaymentChannelFee;
 import com.github.pattern.common.domain.CustomerPaymentChannelInfo;
@@ -19,6 +18,7 @@ import com.github.pattern.common.utils.AmountUtil;
 import com.github.trans.common.domain.PaymentOrder;
 import com.github.trans.common.request.PaymentRequest;
 import com.github.trans.common.response.PaymentResponse;
+import com.github.trans.common.service.PaymentOrderService;
 import com.github.trans.common.service.ThirdChannelService;
 
 @Service
@@ -28,6 +28,9 @@ public class WechatPayServiceImpl extends BaseThirdChannelService implements Thi
 	
 	@Autowired
 	private WechatPayServiceClient wechatPayServiceClient;
+	
+	@Autowired
+	private PaymentOrderService paymentOrderServiceImpl;
 	
 	@Override
 	public ModelResult<PaymentResponse> process(PaymentRequest request, Customer customer,CustomerPaymentChannelInfo customerPaymentChannelInfo) {
@@ -79,17 +82,29 @@ public class WechatPayServiceImpl extends BaseThirdChannelService implements Thi
 		}
 		CustomerPaymentChannelFee customerPaymentChannelFee = feeModelResult.getModel();
 		WechatPayResponse wechatPayResponse = wechatModelResult.getModel();
+		String customerNo = request.getCustomerNo();
 		PaymentOrder paymentOrder = initPaymentOrder(request,customer,customerPaymentChannelInfo,paymentChannelAccount,customerPaymentChannelFee);
 		String qrCode = wechatPayResponse.getQrcode();
 		String payjsOrderId = wechatPayResponse.getPayjsOrderId();
 		paymentOrder.setQrCode(qrCode);
 		paymentOrder.setThirdChannelOrderNo(payjsOrderId);
+		ModelResult<Integer> orderModelResult = paymentOrderServiceImpl.insertSelective(paymentOrder);
+		if(!orderModelResult.isSuccess()) {
+			String errorCode = "0";
+			String errorMsg = "订单保存失败";
+			LOGGER.error("商户号customerNo = 【{}】支付订单保存失败",customerNo);
+			modelResult.withError(errorCode, errorMsg);
+			return modelResult;
+		}
+		
 		PaymentResponse response = new PaymentResponse();
 		response.setData(wechatPayResponse);
 		modelResult.setModel(response);
 		return modelResult;
 	}
 
+	
+	
 	private ModelResult<WechatPayRequest> initWechatPayRequest(PaymentRequest request,String json){
 		ModelResult<WechatPayRequest> modelResult = new ModelResult<WechatPayRequest>();
 		WechatPayRequest wechatPayRequest = null;

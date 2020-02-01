@@ -1,8 +1,6 @@
 package com.github.admin.common.request;
 
-import com.github.admin.common.domain.BaseObject;
-import com.github.admin.common.domain.UserInfo;
-import com.github.appmodel.page.DataPage;
+import com.github.appmodel.request.PageRequest;
 
 public class UserRequest extends PageRequest{
 	

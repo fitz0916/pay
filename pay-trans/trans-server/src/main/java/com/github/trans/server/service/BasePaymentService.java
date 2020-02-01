@@ -25,8 +25,10 @@ import com.github.pattern.common.domain.PaymentChannel;
 import com.github.pattern.common.domain.PaymentTemplate;
 import com.github.pattern.common.domain.Shop;
 import com.github.trans.common.annotation.PayResponseCodeEnum;
+import com.github.trans.common.domain.PaymentOrder;
 import com.github.trans.common.request.PaymentRequest;
 import com.github.trans.common.response.PaymentResponse;
+import com.github.trans.common.service.PaymentOrderService;
 import com.github.trans.common.service.ThirdChannelService;
 import com.github.trans.common.utils.BeanValidatorUtils;
 import com.github.trans.common.utils.PaySignUtil;
@@ -50,6 +52,32 @@ public abstract class BasePaymentService {
 	private PaymentTemplateServiceClient paymentTemplateServiceClient;
 	@Autowired
 	private PaymentChannelServiceClient paymentChannelServiceClient;
+	@Autowired
+	private PaymentOrderService paymentOrderServiceImpl;
+	
+	
+	protected ModelResult<PaymentResponse> checkPaymentOrder(PaymentRequest paymentRequest){
+		ModelResult<PaymentResponse> modelResult = new ModelResult<PaymentResponse>();
+		String customerOrderNo = paymentRequest.getPayOrderNo();
+		String customerNo = paymentRequest.getCustomerNo();
+		ModelResult<List<PaymentOrder>> orderModelResult = paymentOrderServiceImpl.selectByCstomerOrderNo(customerOrderNo);
+		if(!orderModelResult.isSuccess()) {
+			String errorCode = orderModelResult.getErrorCode();
+			String errorMsg = orderModelResult.getErrorMsg();
+			LOGGER.error("商户号customerNo = 【{}】查询订单错误码errorCode = 【{}】,错误消息描述errorMsg = 【{}】",customerNo,errorCode,errorMsg);
+			modelResult.withError(errorCode, errorMsg);
+			return modelResult;
+		}
+		List<PaymentOrder> list = orderModelResult.getModel();
+		if(CollectionUtils.isNotEmpty(list)) {
+			String errorCode = "0";
+			String errorMsg = "该支付订单已存在,请勿重复提交!";
+			modelResult.withError(errorCode, errorMsg);
+			LOGGER.error("商户号customerNo = 【{}】重复提交订单，订单号customerOrderNo = 【{}】",customerNo,customerOrderNo);
+			return modelResult;
+		}
+		return modelResult;
+	}
 	
 	/***
 	 * 检查请求参数是否为空

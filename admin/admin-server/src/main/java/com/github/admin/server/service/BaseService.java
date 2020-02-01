@@ -1,7 +1,7 @@
 package com.github.admin.server.service;
 
-import com.github.admin.common.request.PageRequest;
 import com.github.appmodel.page.DataPage;
+import com.github.appmodel.request.PageRequest;
 
 public abstract class BaseService {
 

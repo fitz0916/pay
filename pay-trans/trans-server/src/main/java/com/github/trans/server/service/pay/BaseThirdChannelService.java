@@ -81,17 +81,17 @@ public abstract class BaseThirdChannelService {
 		int payStatus = 0;
 		BigDecimal amountBigDecimal = new BigDecimal(paymentRequest.getPayAmount()); // 支付金额
 		//商户支付金额
-		Long payAmount = Long.valueOf(AmountUtil.changeY2F(paymentRequest.getPayAmount()));
+		String payAmount = String.valueOf(AmountUtil.changeY2FLong(paymentRequest.getPayAmount()));
 		//商户费率
 		BigDecimal customerFee = customerPaymentChannelFee.getCustomerRate();
 		//收取商户手续费(支付金额*销售商户费率)
-		Long customerProundage = AmountUtil.feeRoundingF(amountBigDecimal, customerFee);
+		String customerProundage = String.valueOf(AmountUtil.feeRoundingF(amountBigDecimal, customerFee));
 		
 		BigDecimal thirdChannelFee = customerPaymentChannelFee.getThirdRate();
 		//支付给三方渠道费率
-		Long thirdChannelProundage = AmountUtil.feeRoundingF(amountBigDecimal, thirdChannelFee);
+		String thirdChannelProundage = String.valueOf(AmountUtil.feeRoundingF(amountBigDecimal, thirdChannelFee));
 		//商户实际到账
-		Long customerAmount = amountBigDecimal.subtract(new BigDecimal(customerProundage)).longValue(); 
+		String customerAmount = String.valueOf(amountBigDecimal.subtract(new BigDecimal(customerProundage)).longValue()); 
 		//***************
 		Integer paymentChannelId = customerPaymentChannelInfo.getPaymentChannelId();
 		Integer customerPaymentChannelInfoId = customerPaymentChannelInfo.getCustomerPaymentChannelInfoId();
@@ -100,7 +100,7 @@ public abstract class BaseThirdChannelService {
 		
 		//代理商费率暂时不没有设计，more为0
 		BigDecimal agentFee = new BigDecimal(0.00);
-		Long agentProundage = 0L;
+		String agentProundage = "0";
 		//商户实际到账金额(交易金额-交易金额*接入费率)
 		int settlementType = customerPaymentChannelInfo.getSettlementType();
 		int settlementStatus = customerPaymentChannelInfo.getSettlementType();
@@ -115,8 +115,8 @@ public abstract class BaseThirdChannelService {
 		paymentOrder.setPayStatus(payStatus);
 		paymentOrder.setTransTime(transTime);
 		paymentOrder.setTransFinishTime(transTime);
-		paymentOrder.setSubject(subject);
-		paymentOrder.setDesc(desc);
+		paymentOrder.setTopic(subject);
+		paymentOrder.setDesciption(desc);
 		paymentOrder.setCustomerPaymentChannelInfoId(customerPaymentChannelInfoId);
 		paymentOrder.setPaymentChannelId(paymentChannelId);
 		paymentOrder.setPaymentChannelAccountId(paymentChannelAccountId);

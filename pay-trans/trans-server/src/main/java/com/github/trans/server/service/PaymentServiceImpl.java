@@ -56,6 +56,12 @@ public class PaymentServiceImpl extends BasePaymentService implements PaymentSer
 		if(!modelResult.isSuccess()) {
 			return modelResult;
 		}
+		//检测订单号是否存在
+		modelResult = this.checkPaymentOrder(paymentRequest);
+		if(!modelResult.isSuccess()) {
+			return modelResult;
+		}
+		
 		modelResult = this.checkRisk(paymentRequest);
 		//风控检测
 		if(!modelResult.isSuccess()) {
