@@ -86,7 +86,7 @@ function initMyTable(){
             {field: 'payType', title: '支付类型', align: 'center',formatter: 'payTypeFormat'},
             {field: 'payStatus', title: '支付状态', align: 'center',formatter: 'payStatusFormat'},
             {field: 'customerFee', title: '销售费率', align: 'center'},
-            {field: 'customerProundage', title: '手续费', align: 'center'},
+            {field: 'customerProundage', title: '手续费(元)', align: 'center'},
             {field: 'settlementType', title: '结算类型', align: 'center',formatter: 'settlementTypeFormat'},
             {field: 'settlementStatus', title: '结算状态', align: 'center',formatter: 'settlementStatusFormat'}
             

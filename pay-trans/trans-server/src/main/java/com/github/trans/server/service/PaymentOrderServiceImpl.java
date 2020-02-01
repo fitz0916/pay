@@ -122,10 +122,10 @@ public class PaymentOrderServiceImpl extends BaseService implements PaymentOrder
 	private List<PaymentOrder> changeF2Y(List<PaymentOrder> list){
 		for(PaymentOrder paymentOrder:list) {
 			paymentOrder.setPayAmount(AmountUtil.changeF2Y(paymentOrder.getPayAmount()));
-			paymentOrder.setAgentProundage(AmountUtil.changeF2Y(paymentOrder.getAgentProundage()));
 			paymentOrder.setCustomerAmount(AmountUtil.changeF2Y(paymentOrder.getCustomerAmount()));
 			paymentOrder.setAgentProundage(AmountUtil.changeF2Y(paymentOrder.getAgentProundage()));
 			paymentOrder.setThirdChannelProundage(AmountUtil.changeF2Y(paymentOrder.getThirdChannelProundage()));
+			paymentOrder.setCustomerProundage(AmountUtil.changeF2Y(paymentOrder.getCustomerProundage()));
 		}
 		return list;
 	}
