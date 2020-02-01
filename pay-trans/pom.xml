@@ -28,6 +28,7 @@
     <module>trans-common</module>
     <module>trans-server</module>
     <module>trans-web</module>
+    <module>trans-task</module>
   </modules>
   
   <dependencies>

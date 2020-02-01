@@ -81,6 +81,7 @@ function initMyTable(){
 			{field:'customerNo',title:'商户号',align:'center'},
 			{field:'customerName',title:'商户名称',align:'center'},
 			{field:'customerOrderNo',title:'商户订单号',align:'center'},
+			{field:'thirdChannelOrderNo',title:'渠道订单号',align:'center'},
             {field: 'payAmount', title: '交易金额(元)', align: 'center'},
             {field: 'transTime', title: '交易时间', align: 'center',formatter: 'changeDateFormat'},
             {field: 'payType', title: '支付类型', align: 'center',formatter: 'payTypeFormat'},
