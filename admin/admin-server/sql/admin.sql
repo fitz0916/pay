@@ -11,7 +11,7 @@
  Target Server Version : 80018
  File Encoding         : 65001
 
- Date: 12/01/2020 21:23:03
+ Date: 01/02/2020 19:21:52
 */
 
 SET NAMES utf8mb4;
@@ -78,7 +78,7 @@ CREATE TABLE `admin_permission` (
   `create_time` datetime NOT NULL DEFAULT CURRENT_TIMESTAMP COMMENT '创建时间',
   PRIMARY KEY (`permission_id`),
   KEY `FK_Reference_19` (`system_id`)
-) ENGINE=InnoDB AUTO_INCREMENT=270 DEFAULT CHARSET=utf8 COMMENT='权限';
+) ENGINE=InnoDB AUTO_INCREMENT=286 DEFAULT CHARSET=utf8 COMMENT='权限';
 
 -- ----------------------------
 -- Records of admin_permission
@@ -114,7 +114,7 @@ INSERT INTO `admin_permission` VALUES (27, 1, 7, '权限管理', 2, 'admin:permi
 INSERT INTO `admin_permission` VALUES (28, 1, 27, '新增权限', 3, 'admin:permission:create', '/permission/create', 'zmdi zmdi-plus', 1, '2020-01-03 20:10:52');
 INSERT INTO `admin_permission` VALUES (244, 1, 27, '编辑权限', 3, 'admin:permission:update', '/permission/update', 'zmdi zmdi-edit', 1, '2020-01-03 20:13:50');
 INSERT INTO `admin_permission` VALUES (245, 1, 27, '删除权限', 3, 'admin:permission:delete', '/permission/delete', 'zmdi zmdi-close', 1, '2020-01-03 20:18:07');
-INSERT INTO `admin_permission` VALUES (246, 2, 0, '代理商管理', 1, '', '', 'zmdi zmdi-accounts-list', 1, '2020-01-05 14:34:48');
+INSERT INTO `admin_permission` VALUES (246, 2, 0, '商户管理', 1, '', '', 'zmdi zmdi-accounts-list', 1, '2020-01-05 14:34:48');
 INSERT INTO `admin_permission` VALUES (247, 2, 246, '代理商管理', 2, 'pattern:agent:read', '/manage/agent/index', '', 1, '2020-01-05 14:38:18');
 INSERT INTO `admin_permission` VALUES (248, 2, 247, '新增代理商', 3, 'pattern:agent:create', '/manage/agent/create', 'zmdi zmdi-plus', 1, '2020-01-05 14:39:12');
 INSERT INTO `admin_permission` VALUES (249, 2, 247, '编辑代理商', 3, 'pattern:agent:update', '/manage/agent/update', 'zmdi zmdi-edit', 1, '2020-01-05 14:40:12');
@@ -122,10 +122,10 @@ INSERT INTO `admin_permission` VALUES (250, 2, 247, '删除代理商', 3, 'patte
 INSERT INTO `admin_permission` VALUES (251, 2, 0, '渠道管理', 1, '', '', 'zmdi zmdi-paypal', 1, '2020-01-05 14:41:24');
 INSERT INTO `admin_permission` VALUES (252, 2, 247, '编辑门店', 3, 'pattern:shop:update', '/manage/shop/update', 'zmdi zmdi-plus', 1, '2020-01-05 15:38:29');
 INSERT INTO `admin_permission` VALUES (253, 2, 247, '查看商户', 3, 'pattern:customer:red', '/manage/customer/index', 'zmdi zmdi-plus', 1, '2020-01-05 15:40:34');
-INSERT INTO `admin_permission` VALUES (254, 2, 246, '门店管理', 2, 'pattern:shop:read', '/manage/shop/list', 'zmdi zmdi-accounts-list', 1, '2020-01-08 22:21:28');
+INSERT INTO `admin_permission` VALUES (254, 2, 246, '门店管理', 2, 'pattern:shop:read', '/manage/shop/index', 'zmdi zmdi-accounts-list', 1, '2020-01-08 22:21:28');
 INSERT INTO `admin_permission` VALUES (255, 2, 247, '新增门店', 3, 'pattern:shop:create', '/manage/shop/create', ',zmdi zmdi-plus', 1, '2020-01-08 23:12:13');
-INSERT INTO `admin_permission` VALUES (256, 2, 254, '编辑', 3, 'pattern:shop:update', '/manage/shop/update', 'zmdi zmdi-edit', 1, '2020-01-08 23:13:00');
-INSERT INTO `admin_permission` VALUES (257, 2, 254, '删除', 3, 'pattern:shop:delete', '/manage/shop/delete', 'zmdi zmdi-close', 1, '2020-01-08 23:13:39');
+INSERT INTO `admin_permission` VALUES (256, 2, 247, '编辑门店', 3, 'pattern:shop:update', '/manage/shop/update', 'zmdi zmdi-edit', 1, '2020-01-08 23:13:00');
+INSERT INTO `admin_permission` VALUES (257, 2, 247, '删除门店', 3, 'pattern:shop:delete', '/manage/shop/delete', 'zmdi zmdi-close', 1, '2020-01-08 23:13:39');
 INSERT INTO `admin_permission` VALUES (258, 2, 246, '商户管理', 2, 'pattern:customer:read', '/manage/customer/index', 'zmdi zmdi-accounts-list,zmdi zmdi-accounts-list', 1, '2020-01-09 23:05:47');
 INSERT INTO `admin_permission` VALUES (259, 2, 247, '编辑商户', 3, 'pattern:customer:update', '/manage/customer/update', 'zmdi zmdi-widgets', 1, '2020-01-11 20:49:05');
 INSERT INTO `admin_permission` VALUES (260, 2, 247, '新增商户', 3, 'pattern:customer:create', '/manage/customer/create', 'zmdi zmdi-widgets', 1, '2020-01-11 20:55:18');
@@ -133,11 +133,27 @@ INSERT INTO `admin_permission` VALUES (261, 2, 251, '支付渠道', 2, 'pattern:
 INSERT INTO `admin_permission` VALUES (262, 2, 261, '新增渠道', 3, 'pattern:paymentchannel:create', '/manage/paymentchannel/create', 'zmdi zmdi-plus', 1, '2020-01-12 15:27:21');
 INSERT INTO `admin_permission` VALUES (263, 2, 261, '编辑渠道', 3, 'pattern:paymentchannel:update', '/manage/paymentchannel/update', 'zmdi zmdi-edit', 1, '2020-01-12 15:28:22');
 INSERT INTO `admin_permission` VALUES (264, 2, 261, '添加账号', 3, 'pattern:paymentchannelaccount:create', '/manage/paymentchannelaccount/create', 'zmdi zmdi-plus', 1, '2020-01-12 15:29:50');
-INSERT INTO `admin_permission` VALUES (265, 2, 261, '查看账号', 3, 'pattern:paymentchannelaccount:red', '/manage/paymentchannelaccount/list', 'zmdi zmdi-widgets', 1, '2020-01-12 15:31:02');
+INSERT INTO `admin_permission` VALUES (265, 2, 261, '查看账号', 3, 'pattern:paymentchannelaccount:read', '/manage/paymentchannelaccount/list', 'zmdi zmdi-widgets', 1, '2020-01-12 15:31:02');
 INSERT INTO `admin_permission` VALUES (266, 2, 261, '编辑账号', 3, 'pattern:paymentchannelaccount:update', '/manage/paymentchannelaccount/update', 'zmdi zmdi-widgets', 1, '2020-01-12 15:31:45');
-INSERT INTO `admin_permission` VALUES (267, 2, 261, '查看账号参数', 3, 'pattern:paymentchannelaccountpara:red', '/manage/paymentchannelaccountpara/index', 'zmdi zmdi-widgets', 1, '2020-01-12 15:33:24');
+INSERT INTO `admin_permission` VALUES (267, 2, 261, '查看账号参数', 3, 'pattern:paymentchannelaccountpara:read', '/manage/paymentchannelaccountpara/index', 'zmdi zmdi-widgets', 1, '2020-01-12 15:33:24');
 INSERT INTO `admin_permission` VALUES (268, 2, 261, '编辑账号参数', 3, 'pattern:paymentchannelaccountpara:update', '/manage/paymentchannelaccountpara/update', 'zmdi zmdi-widgets', 1, '2020-01-12 15:34:16');
 INSERT INTO `admin_permission` VALUES (269, 2, 261, '新增账号参数', 3, 'pattern:paymentchannelaccountpara:create', '/manage/paymentchannelaccountpara/create', 'zmdi zmdi-widgets', 1, '2020-01-12 15:35:04');
+INSERT INTO `admin_permission` VALUES (270, 2, 251, '商户渠道', 2, 'pattern:customerpaymentchannelinfo:read', '/manage/customerpaymentchannelinfo/index', 'zmdi zmdi-widgets', 1, '2020-01-13 19:45:44');
+INSERT INTO `admin_permission` VALUES (271, 2, 270, '设置渠道', 3, 'pattern:customerpaymentchannelinfo:create', '/manage/customerpaymentchannelinfo/create', 'zmdi zmdi-plus', 1, '2020-01-13 19:48:15');
+INSERT INTO `admin_permission` VALUES (272, 2, 270, '编辑渠道', 3, 'pattern:customerpaymentchannelinfo:update', '/manage/customerpaymentchannelinfo/update', 'zmdi zmdi-edit', 1, '2020-01-14 23:40:45');
+INSERT INTO `admin_permission` VALUES (273, 2, 0, '风控管理', 1, '', '', 'zmdi zmdi-lock-outline', 1, '2020-01-15 16:10:19');
+INSERT INTO `admin_permission` VALUES (274, 2, 273, '白名单管理', 2, 'pattern:whitelist:read', '/manage/whitelist/index', 'zmdi zmdi-widgets', 1, '2020-01-15 16:11:29');
+INSERT INTO `admin_permission` VALUES (275, 2, 273, '黑名单管理', 2, 'pattern:blacklist:read', '/manage/blacklist/index', 'zmdi zmdi-widgets', 1, '2020-01-15 16:12:19');
+INSERT INTO `admin_permission` VALUES (276, 2, 270, '设置费率', 3, 'pattern:customerpaymentchannelfee:create', '/manage/customerpaymentchannel/create', 'zmdi zmdi-widgets', 1, '2020-01-15 16:14:51');
+INSERT INTO `admin_permission` VALUES (277, 2, 270, '编辑费率', 3, 'pattern:customerpaymentchannelfee:update', '/manage/customerpaymentchannelfee/update', 'zmdi zmdi-widgets', 1, '2020-01-15 16:16:13');
+INSERT INTO `admin_permission` VALUES (278, 2, 270, '查看费率', 3, 'pattern:customerpaymentchannelfee:read', '/manage/customerpaymentchannelfee/read', 'zmdi zmdi-widgets', 1, '2020-01-15 16:16:49');
+INSERT INTO `admin_permission` VALUES (279, 2, 247, '图片上传', 3, 'pattern:agent:upload', '/manage/agent/upload', 'zmdi zmdi-widgets', 1, '2020-01-16 21:14:51');
+INSERT INTO `admin_permission` VALUES (280, 2, 274, '新增白名单', 3, 'pattern:whitelist:create', '/manage/whitelist/create', 'zmdi zmdi-plus', 1, '2020-01-18 22:12:21');
+INSERT INTO `admin_permission` VALUES (281, 2, 274, '编辑白名单', 3, 'pattern:whitelist:update', '/manage/whitelist/update', 'zmdi zmdi-edit', 1, '2020-01-18 22:13:11');
+INSERT INTO `admin_permission` VALUES (282, 2, 275, '新增黑名单', 3, 'pattern:blacklist:create', '/manage/blacklist/create', 'zmdi zmdi-plus', 1, '2020-01-18 22:14:00');
+INSERT INTO `admin_permission` VALUES (283, 2, 275, '编辑黑名单', 3, 'pattern:blacklist:update', '/manage/blacklist/update', 'zmdi zmdi-edit', 1, '2020-01-18 22:14:47');
+INSERT INTO `admin_permission` VALUES (284, 2, 0, '订单管理', 1, '', '', 'zmdi zmdi-playstation', 1, '2020-02-01 19:18:52');
+INSERT INTO `admin_permission` VALUES (285, 2, 284, '订单查询', 2, 'pattern:paymentorder:read', '/manage/paymentorder/index', 'zmdi zmdi-widgets', 1, '2020-02-01 19:19:49');
 COMMIT;
 
 -- ----------------------------
@@ -173,7 +189,7 @@ CREATE TABLE `admin_role_permission` (
   PRIMARY KEY (`role_permission_id`),
   KEY `FK_Reference_17` (`role_id`),
   KEY `FK_Reference_18` (`permission_id`)
-) ENGINE=InnoDB AUTO_INCREMENT=493 DEFAULT CHARSET=utf8 COMMENT='角色权限关联表';
+) ENGINE=InnoDB AUTO_INCREMENT=509 DEFAULT CHARSET=utf8 COMMENT='角色权限关联表';
 
 -- ----------------------------
 -- Records of admin_role_permission
@@ -203,7 +219,6 @@ INSERT INTO `admin_role_permission` VALUES (21, 1, 21);
 INSERT INTO `admin_role_permission` VALUES (22, 1, 22);
 INSERT INTO `admin_role_permission` VALUES (23, 1, 23);
 INSERT INTO `admin_role_permission` VALUES (24, 1, 24);
-INSERT INTO `admin_role_permission` VALUES (25, 1, 25);
 INSERT INTO `admin_role_permission` VALUES (26, 1, 26);
 INSERT INTO `admin_role_permission` VALUES (27, 1, 27);
 INSERT INTO `admin_role_permission` VALUES (466, 1, 28);
@@ -233,6 +248,22 @@ INSERT INTO `admin_role_permission` VALUES (489, 1, 266);
 INSERT INTO `admin_role_permission` VALUES (490, 1, 267);
 INSERT INTO `admin_role_permission` VALUES (491, 1, 268);
 INSERT INTO `admin_role_permission` VALUES (492, 1, 269);
+INSERT INTO `admin_role_permission` VALUES (493, 1, 270);
+INSERT INTO `admin_role_permission` VALUES (494, 1, 271);
+INSERT INTO `admin_role_permission` VALUES (495, 1, 272);
+INSERT INTO `admin_role_permission` VALUES (496, 1, 276);
+INSERT INTO `admin_role_permission` VALUES (497, 1, 277);
+INSERT INTO `admin_role_permission` VALUES (498, 1, 278);
+INSERT INTO `admin_role_permission` VALUES (499, 1, 273);
+INSERT INTO `admin_role_permission` VALUES (500, 1, 274);
+INSERT INTO `admin_role_permission` VALUES (501, 1, 275);
+INSERT INTO `admin_role_permission` VALUES (502, 1, 279);
+INSERT INTO `admin_role_permission` VALUES (503, 1, 280);
+INSERT INTO `admin_role_permission` VALUES (504, 1, 281);
+INSERT INTO `admin_role_permission` VALUES (505, 1, 282);
+INSERT INTO `admin_role_permission` VALUES (506, 1, 283);
+INSERT INTO `admin_role_permission` VALUES (507, 1, 284);
+INSERT INTO `admin_role_permission` VALUES (508, 1, 285);
 COMMIT;
 
 -- ----------------------------
