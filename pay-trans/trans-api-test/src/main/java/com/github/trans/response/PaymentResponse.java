@@ -1,21 +1,16 @@
-package com.github.trans.common.response;
+package com.github.trans.response;
 
 import java.io.Serializable;
 
-public class TransResponse implements Serializable{
-
+public class PaymentResponse implements Serializable{
+	
 	private String code;
-	
 	private String msg;
-	
 	private boolean isSuccess;
-	
 	private Object data;
-	
 	public String getCode() {
 		return code;
 	}
-	
 	public void setCode(String code) {
 		this.code = code;
 	}
@@ -28,7 +23,7 @@ public class TransResponse implements Serializable{
 	public boolean isSuccess() {
 		return isSuccess;
 	}
-	public void setIsSuccess(boolean isSuccess) {
+	public void setSuccess(boolean isSuccess) {
 		this.isSuccess = isSuccess;
 	}
 	public Object getData() {
@@ -37,4 +32,6 @@ public class TransResponse implements Serializable{
 	public void setData(Object data) {
 		this.data = data;
 	}
+	
+
 }

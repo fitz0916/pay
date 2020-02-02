@@ -91,7 +91,7 @@ public class LoginFilter extends AdviceFilter{
 		result.setCode("10110");
 		result.setMsg("登录超时!");
 		result.setData("");
-		result.setSuccess(false);
+		result.setIsSuccess(false);
 		String JSONResult = JSON.toJSONString(result);
 		response.getWriter().write(JSONResult);
 	}
