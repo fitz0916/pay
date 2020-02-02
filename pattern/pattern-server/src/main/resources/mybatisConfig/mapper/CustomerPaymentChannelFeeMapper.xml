@@ -6,6 +6,8 @@
     <result column="customer_id" property="customerId" jdbcType="INTEGER" />
     <result column="payment_channel_id" property="paymentChannelId" jdbcType="INTEGER" />
     <result column="third_rate" property="thirdRate" jdbcType="DECIMAL" />
+    <result column="agent_rate" property="agentRate" jdbcType="DECIMAL" />
+    <result column="shop_rate" property="shopRate" jdbcType="DECIMAL" />
     <result column="customer_rate" property="customerRate" jdbcType="DECIMAL" />
     <result column="create_time" property="createTime" jdbcType="TIMESTAMP" />
     <result column="update_time" property="updateTime" jdbcType="TIMESTAMP" />
@@ -13,8 +15,8 @@
     <result column="remark" property="remark" jdbcType="VARCHAR" />
   </resultMap>
   <sql id="Base_Column_List" >
-    payment_channeld_fee_id, customer_id, payment_channel_id, third_rate, customer_rate, 
-    create_time, update_time, status, remark
+    payment_channeld_fee_id, customer_id, payment_channel_id, third_rate, agent_rate, 
+    shop_rate, customer_rate, create_time, update_time, status, remark
   </sql>
   <select id="selectByPrimaryKey" resultMap="BaseResultMap" parameterType="java.lang.Integer" >
     select 
@@ -29,20 +31,21 @@
     	where customer_id = #{customerId,jdbcType=INTEGER}
     	  and payment_channel_id = #{paymentChannelId,jdbcType=INTEGER}
   </select>
-  
   <delete id="deleteByPrimaryKey" parameterType="java.lang.Integer" >
     delete from pattern_customer_payment_channel_fee
     where payment_channeld_fee_id = #{paymentChanneldFeeId,jdbcType=INTEGER}
   </delete>
   <insert id="insert" parameterType="com.github.pattern.common.domain.CustomerPaymentChannelFee" >
     insert into pattern_customer_payment_channel_fee (payment_channeld_fee_id, customer_id, 
-      payment_channel_id, third_rate, customer_rate, 
-      create_time, update_time, status, 
-      remark)
+      payment_channel_id, third_rate, agent_rate, 
+      shop_rate, customer_rate, create_time, 
+      update_time, status, remark
+      )
     values (#{paymentChanneldFeeId,jdbcType=INTEGER}, #{customerId,jdbcType=INTEGER}, 
-      #{paymentChannelId,jdbcType=INTEGER}, #{thirdRate,jdbcType=DECIMAL}, #{customerRate,jdbcType=DECIMAL}, 
-      #{createTime,jdbcType=TIMESTAMP}, #{updateTime,jdbcType=TIMESTAMP}, #{status,jdbcType=TINYINT}, 
-      #{remark,jdbcType=VARCHAR})
+      #{paymentChannelId,jdbcType=INTEGER}, #{thirdRate,jdbcType=DECIMAL}, #{agentRate,jdbcType=DECIMAL}, 
+      #{shopRate,jdbcType=DECIMAL}, #{customerRate,jdbcType=DECIMAL}, #{createTime,jdbcType=TIMESTAMP}, 
+      #{updateTime,jdbcType=TIMESTAMP}, #{status,jdbcType=TINYINT}, #{remark,jdbcType=VARCHAR}
+      )
   </insert>
   <insert id="insertSelective" parameterType="com.github.pattern.common.domain.CustomerPaymentChannelFee" >
     insert into pattern_customer_payment_channel_fee
@@ -58,6 +61,12 @@
       </if>
       <if test="thirdRate != null" >
         third_rate,
+      </if>
+      <if test="agentRate != null" >
+        agent_rate,
+      </if>
+      <if test="shopRate != null" >
+        shop_rate,
       </if>
       <if test="customerRate != null" >
         customer_rate,
@@ -88,6 +97,12 @@
       <if test="thirdRate != null" >
         #{thirdRate,jdbcType=DECIMAL},
       </if>
+      <if test="agentRate != null" >
+        #{agentRate,jdbcType=DECIMAL},
+      </if>
+      <if test="shopRate != null" >
+        #{shopRate,jdbcType=DECIMAL},
+      </if>
       <if test="customerRate != null" >
         #{customerRate,jdbcType=DECIMAL},
       </if>
@@ -117,6 +132,12 @@
       <if test="thirdRate != null" >
         third_rate = #{thirdRate,jdbcType=DECIMAL},
       </if>
+      <if test="agentRate != null" >
+        agent_rate = #{agentRate,jdbcType=DECIMAL},
+      </if>
+      <if test="shopRate != null" >
+        shop_rate = #{shopRate,jdbcType=DECIMAL},
+      </if>
       <if test="customerRate != null" >
         customer_rate = #{customerRate,jdbcType=DECIMAL},
       </if>
@@ -140,6 +161,8 @@
     set customer_id = #{customerId,jdbcType=INTEGER},
       payment_channel_id = #{paymentChannelId,jdbcType=INTEGER},
       third_rate = #{thirdRate,jdbcType=DECIMAL},
+      agent_rate = #{agentRate,jdbcType=DECIMAL},
+      shop_rate = #{shopRate,jdbcType=DECIMAL},
       customer_rate = #{customerRate,jdbcType=DECIMAL},
       create_time = #{createTime,jdbcType=TIMESTAMP},
       update_time = #{updateTime,jdbcType=TIMESTAMP},

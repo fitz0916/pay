@@ -30,10 +30,10 @@ public class AppTest {
 		paymentRequest.setFeature("aa");
 		paymentRequest.setInputCharset("UTF-8");
 		paymentRequest.setNotifyUrl("https://www.baidu.com/");
-		paymentRequest.setPayOrderNo("2020020112283118004");
+		paymentRequest.setPayOrderNo("2020020112283118005");
 		paymentRequest.setSubject("支付宝扫码-支付");
 		paymentRequest.setPayTime("2020-02-27 11:22:11");
-		paymentRequest.setPayAmount("23.06");
+		paymentRequest.setPayAmount("999.06");
 		paymentRequest.setReturnUrl("http://localhost:9001");
 		paymentRequest.setClientIp("127.0.0.1");
 		

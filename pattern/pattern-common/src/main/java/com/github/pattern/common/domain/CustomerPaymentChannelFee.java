@@ -19,6 +19,10 @@ public class CustomerPaymentChannelFee extends BaseObject{
 	private  BigDecimal thirdRate;
 	//销售费率
 	private BigDecimal customerRate;
+	//代理商费率
+	private BigDecimal agentRate;
+	//门店费率
+	private BigDecimal shopRate;
 	/***
 	 * 创建时间
 	 */
@@ -39,6 +43,22 @@ public class CustomerPaymentChannelFee extends BaseObject{
 
 	public void setPaymentChanneldFeeId(Integer paymentChanneldFeeId) {
 		this.paymentChanneldFeeId = paymentChanneldFeeId;
+	}
+	
+	public BigDecimal getAgentRate() {
+		return agentRate;
+	}
+
+	public void setAgentRate(BigDecimal agentRate) {
+		this.agentRate = agentRate;
+	}
+
+	public BigDecimal getShopRate() {
+		return shopRate;
+	}
+
+	public void setShopRate(BigDecimal shopRate) {
+		this.shopRate = shopRate;
 	}
 
 	public Integer getCustomerId() {

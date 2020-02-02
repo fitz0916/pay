@@ -31,11 +31,19 @@
 		
 		</div>
 		<div class="form-group">
-			<label for="thirdRate">接入费率(‰),格式如：0.038</label>
+			<label for="thirdRate">接入费率(‰),格式如：0.028</label>
 			<input id="thirdRate" type="text" class="form-control"  name="thirdRate"  maxlength="50">
 		</div>
 		<div class="form-group">
-			<label for="customerRate">销售费率(‰),格式如：0.038</label>
+			<label for="agentRate">代理商费率(‰),格式如：0.038</label>
+			<input id="agentRate" type="text" class="form-control" name="agentRate" maxlength="50">
+		</div>
+		<div class="form-group">
+			<label for="shopRate">门店费率(‰),格式如：0.048</label>
+			<input id="shopRate" type="text" class="form-control" name="shopRate" maxlength="50">
+		</div>
+		<div class="form-group">
+			<label for="customerRate">商户费率(‰),格式如：0.058</label>
 			<input id="customerRate" type="text" class="form-control" name="customerRate" maxlength="50">
 		</div>
 		<div class="form-group text-right dialog-buttons">

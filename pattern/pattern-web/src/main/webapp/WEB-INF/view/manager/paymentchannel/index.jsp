@@ -170,7 +170,7 @@ function onAccountParaExpandRow(index,row,$element){
         columns: [
         	{field:'paymentChannelAccountParaId',title:'参数ID',align:'center'},
 			{field:'name',title:'参数名称',align:'center'},
-			{field:'name',title:'参数值',align:'center'},
+			{field:'value',title:'参数值',align:'center'},
 			{field:'status',title:'状态',align:'center', formatter:'statusFormatter'},
             {field:'createTime',title:'创建时间',align:'center', formatter: 'changeDateFormat'},
             {field:'remark',title:'备注',align:'center'},

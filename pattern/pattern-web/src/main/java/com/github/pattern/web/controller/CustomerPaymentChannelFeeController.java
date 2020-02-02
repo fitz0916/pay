@@ -79,7 +79,9 @@ public class CustomerPaymentChannelFeeController {
 	private ComplexResult valid(CustomerPaymentChannelFee customerPaymentChannelFee) {
 		ComplexResult result = FluentValidator.checkAll()
 	            .on(customerPaymentChannelFee.getThirdRate() != null ? customerPaymentChannelFee.getThirdRate().toString() : "",new DecimalPointValidator("接入费率"))
-	            .on(customerPaymentChannelFee.getCustomerRate() != null ? customerPaymentChannelFee.getCustomerRate().toString() : "",new DecimalPointValidator("销售费率"))
+	            .on(customerPaymentChannelFee.getAgentRate() != null ? customerPaymentChannelFee.getAgentRate().toString() : "",new DecimalPointValidator("代理商费率"))
+	            .on(customerPaymentChannelFee.getShopRate() != null ? customerPaymentChannelFee.getShopRate().toString() : "",new DecimalPointValidator("门店费率"))
+	            .on(customerPaymentChannelFee.getCustomerRate() != null ? customerPaymentChannelFee.getCustomerRate().toString() : "",new DecimalPointValidator("商户费率"))
 	            .on(customerPaymentChannelFee.getCustomerId() != null ? customerPaymentChannelFee.getCustomerId().toString() : "",new NotNullValidator("商户ID"))
 	            .on(customerPaymentChannelFee.getPaymentChannelId() != null ? customerPaymentChannelFee.getPaymentChannelId().toString() : "",new NotNullValidator("渠道ID"))
 	            .doValidate()
