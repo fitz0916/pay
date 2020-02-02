@@ -11,7 +11,7 @@
  Target Server Version : 80018
  File Encoding         : 65001
 
- Date: 01/02/2020 23:21:34
+ Date: 02/02/2020 17:24:04
 */
 
 SET NAMES utf8mb4;
@@ -88,7 +88,9 @@ CREATE TABLE `pattern_customer_payment_channel_fee` (
   `customer_id` int(12) DEFAULT NULL,
   `payment_channel_id` int(12) NOT NULL COMMENT '渠道ID',
   `third_rate` decimal(4,4) NOT NULL COMMENT '三方费率',
-  `customer_rate` decimal(11,4) NOT NULL COMMENT '销售费率',
+  `agent_rate` decimal(4,4) NOT NULL COMMENT '代理商费率',
+  `shop_rate` decimal(4,4) NOT NULL COMMENT '门店费率',
+  `customer_rate` decimal(11,4) NOT NULL COMMENT '商户费率',
   `create_time` datetime NOT NULL ON UPDATE CURRENT_TIMESTAMP COMMENT '创建时间',
   `update_time` datetime NOT NULL ON UPDATE CURRENT_TIMESTAMP COMMENT '更新时间',
   `status` tinyint(4) NOT NULL DEFAULT '1' COMMENT '状态，0未生效，1生效 2删除',
@@ -165,7 +167,7 @@ CREATE TABLE `pattern_payment_channel_account_para` (
   `update_time` datetime NOT NULL ON UPDATE CURRENT_TIMESTAMP COMMENT '更新时间',
   `remark` varchar(150) NOT NULL DEFAULT '' COMMENT '备注',
   PRIMARY KEY (`payment_channel_account_para_id`) USING BTREE
-) ENGINE=InnoDB AUTO_INCREMENT=264 DEFAULT CHARSET=utf8 COMMENT='渠道账户参数表';
+) ENGINE=InnoDB AUTO_INCREMENT=279 DEFAULT CHARSET=utf8 COMMENT='渠道账户参数表';
 
 -- ----------------------------
 -- Table structure for pattern_payment_channelinfo_risk
