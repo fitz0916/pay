@@ -162,9 +162,16 @@ public abstract class BaseThirdChannelService {
 	protected ModelResult<PaymentChannelAccount> selectChannelAccount(CustomerPaymentChannelInfo customerPaymentChannelInfo){
 		ModelResult<PaymentChannelAccount> modelResult = new ModelResult<PaymentChannelAccount>();
 		Integer paymentChannelId = customerPaymentChannelInfo.getPaymentChannelId();
+		String customerNo = customerPaymentChannelInfo.getCustomerNo();
 		ModelResult<List<PaymentChannelAccount>> accountModelResult = paymentChannelAccountServiceClient.selectByPaymentChannelId(paymentChannelId);
-		if(!accountModelResult.isSuccess() || CollectionUtils.isEmpty(accountModelResult.getModel())) {
+		if(!accountModelResult.isSuccess()) {
 			modelResult.withError("0", "获取渠道账号失败获取没有配置");
+			LOGGER.error("商户号customerNo = 【{}】获取账号渠道失败",customerNo);
+			return modelResult;
+		}
+		if(CollectionUtils.isEmpty(accountModelResult.getModel())){
+			LOGGER.error("商户号customerNo = 【{}】没有配置渠道账号参数",customerNo);
+			modelResult.withError("0", "商户没有设置账号渠道参数");
 			return modelResult;
 		}
 		List<PaymentChannelAccount> list = accountModelResult.getModel();

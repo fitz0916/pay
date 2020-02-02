@@ -69,7 +69,7 @@ CREATE TABLE `pattern_customer` (
   `settlement` bigint(12) NOT NULL DEFAULT '0' COMMENT '待结算金额单位分',
   `frozen_amount` bigint(12) NOT NULL DEFAULT '0' COMMENT '冻结总额，待解冻总额，单位分',
   `amount` bigint(12) NOT NULL COMMENT '可用金额',
-  `cipher` varchar(15) NOT NULL COMMENT '交易/体现密码',
+  `cipher` varchar(20) NOT NULL COMMENT '交易/体现密码',
   `create_date` datetime NOT NULL ON UPDATE CURRENT_TIMESTAMP COMMENT '创建时间',
   `update_date` datetime NOT NULL ON UPDATE CURRENT_TIMESTAMP COMMENT '更新时间',
   `status` tinyint(4) NOT NULL DEFAULT '1' COMMENT '支付状态（0启用 1禁用 2删除）',

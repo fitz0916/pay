@@ -17,9 +17,11 @@ import com.github.pattern.common.domain.PaymentChannelAccount;
 import com.github.pattern.common.utils.AmountUtil;
 import com.github.trans.common.domain.PaymentOrder;
 import com.github.trans.common.request.PaymentRequest;
+import com.github.trans.common.response.PayJsResponse;
 import com.github.trans.common.response.PaymentResponse;
 import com.github.trans.common.service.PaymentOrderService;
 import com.github.trans.common.service.ThirdChannelService;
+import com.github.trans.common.utils.PaySignUtil;
 
 @Service
 public class WechatPayServiceImpl extends BaseThirdChannelService implements ThirdChannelService{
@@ -96,14 +98,29 @@ public class WechatPayServiceImpl extends BaseThirdChannelService implements Thi
 			modelResult.withError(errorCode, errorMsg);
 			return modelResult;
 		}
-		
 		PaymentResponse response = new PaymentResponse();
-		response.setData(wechatPayResponse);
+		PayJsResponse payJsResponse = initResponse(request,customer,wechatPayResponse,paymentOrder);
+		response.setData(payJsResponse);
 		modelResult.setModel(response);
 		return modelResult;
 	}
 
 	
+	private PayJsResponse initResponse(PaymentRequest request,Customer customer,WechatPayResponse wechatPayResponse,PaymentOrder paymentOrder){
+		PayJsResponse payJsResponse = new PayJsResponse();
+		String customerNo = customer.getCustomerNo();
+		String orderNo = paymentOrder.getOrderNo();
+		String cipher = customer.getCipher();
+		payJsResponse.setQrCode(wechatPayResponse.getQrcode());
+		payJsResponse.setCustomerNo(customerNo);
+		payJsResponse.setPayType(request.getPayType());
+		payJsResponse.setPayAmount(request.getPayAmount());
+		payJsResponse.setPayOrderNo(request.getPayOrderNo());
+		payJsResponse.setOrderNo(orderNo);
+		String sign  = PaySignUtil.requestMd5Sign(payJsResponse, cipher);
+		payJsResponse.setSign(sign);
+		return payJsResponse;
+	}
 	
 	private ModelResult<WechatPayRequest> initWechatPayRequest(PaymentRequest request,String json){
 		ModelResult<WechatPayRequest> modelResult = new ModelResult<WechatPayRequest>();

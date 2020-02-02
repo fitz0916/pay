@@ -29,6 +29,7 @@
     <module>trans-server</module>
     <module>trans-web</module>
     <module>trans-task</module>
+    <module>trans-api-test</module>
   </modules>
   
   <dependencies>

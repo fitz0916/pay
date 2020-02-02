@@ -18,11 +18,11 @@ public class ResultUtils {
 		if(modelResult.isSuccess()) {
 			resultVo.setData(modelResult.getModel());
 			resultVo.setCode(SUCCESS_CODE);
-			resultVo.setSuccess(true);
+			resultVo.setIsSuccess(true);
 			resultVo.setMsg(SUCCESS_MSG);
 		} else {
 			resultVo.setData("");
-			resultVo.setSuccess(false);
+			resultVo.setIsSuccess(false);
 			resultVo.setCode(StringUtils.isNotBlank(modelResult.getErrorCode()) ? modelResult.getErrorCode() : FAIL_CODE);
 			resultVo.setMsg(StringUtils.isNotBlank(modelResult.getErrorMsg()) ? modelResult.getErrorMsg() : FAIL_MSG);
 		}
