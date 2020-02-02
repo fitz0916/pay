@@ -88,6 +88,14 @@ public class PaymentChannelAccountParaController {
 		return ResultUtils.buildResult(modelResult);
 	}
 	
+	@ApiOperation("删除渠道账号参数")
+    @RequiresPermissions("pattern:paymentchannelaccountpara:delete")
+    @RequestMapping(value = "/delete/{paymentChannelAccountParaId}",method = RequestMethod.GET)
+	public @ResponseBody Object delete(@PathVariable("paymentChannelAccountParaId")Integer paymentChannelAccountParaId) {
+		ModelResult<Integer> modelResult = paymentChannelAccountParaServiceClinet.deleteByPrimaryKey(paymentChannelAccountParaId);
+		return ResultUtils.buildResult(modelResult);
+	}
+	
 	private ComplexResult valid(PaymentChannelAccountPara PaymentChannelAccountPara) {
 		ComplexResult result = FluentValidator.checkAll()
 	            .on(PaymentChannelAccountPara.getName(), new NotBlankValidator("参数名称"))

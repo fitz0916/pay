@@ -25,6 +25,7 @@
 			<a class="waves-effect waves-button" href="javascript:;" onclick="updateAction()"><i class="zmdi zmdi-edit"></i> 编辑渠道</a>
 		</shiro:hasPermission>
 	</div>
+	<input id="tableAccountParamId" type="hidden">
 	<table id="table"></table>
 </div>
 <jsp:include page="../../common/inc/footer.jsp" flush="true"/>
@@ -176,7 +177,8 @@ function onAccountParaExpandRow(index,row,$element){
             {field:'remark',title:'备注',align:'center'},
             {field: 'action', title: '操作', align: 'center',formatter: function(value, row, index){
         		 return [	
-        			 '<shiro:hasPermission name="pattern:paymentchannelaccount:update"><button type="button" class="btn btn-info btn-sm" style="margin-right:10px;padding:0 10px;" onclick="updateAccountParaRow(' + row.paymentChannelAccountParaId + ')">编辑渠道账号参数</button></shiro:hasPermission>'
+        			 '<shiro:hasPermission name="pattern:paymentchannelaccountpara:update"><button type="button" class="btn btn-info btn-sm" style="margin-right:10px;padding:0 10px;" onclick="updateAccountParaRow(' + row.paymentChannelAccountParaId + ')">编辑渠道账号参数</button></shiro:hasPermission>',
+        			 '<shiro:hasPermission name="pattern:paymentchannelaccountpara:delete"><button type="button" class="btn btn-info btn-sm" style="margin-right:10px;padding:0 10px;" onclick="deleteAccountParaRow(' + row.paymentChannelAccountParaId + ',' + row.paymentChannelAccountId + ')">删除渠道账号参数</button></shiro:hasPermission>'
      			].join('');
             }, events: 'actionEvent'}
         ],
@@ -251,6 +253,94 @@ function updateAccountParaRow(paymentChannelAccountParaId){
         },
     });
 }
+
+//删除行
+var deleteAccountParaDialog;
+function deleteAccountParaRow(paymentChannelAccountParaId,paymentChannelAccountId) {
+	$('#tableAccountParamId').val(paymentChannelAccountId);
+	deleteAccountParaDialog = $.confirm({
+        type: 'red',
+        animationSpeed: 300,
+        title: false,
+        content: '确认删除账号渠道吗？',
+        buttons: {
+            confirm: {
+                text: '确认',
+                btnClass: 'waves-effect waves-button',
+                action: function () {
+                    $.ajax({
+                        type: 'get',
+                        url: '${basePath}/manage/paymentchannelaccountpara/delete/' + paymentChannelAccountParaId,
+                        success: function(result) {
+                            if (result.code != 1) {
+                                if (result.code == 0 && result.data instanceof Array) {
+                                    $.each(result.data, function(index, value) {
+                                        $.confirm({
+                                            theme: 'dark',
+                                            animation: 'rotateX',
+                                            closeAnimation: 'rotateX',
+                                            title: false,
+                                            content: value.errorMsg,
+                                            buttons: {
+                                                confirm: {
+                                                    text: '确认',
+                                                    btnClass: 'waves-effect waves-button waves-light'
+                                                }
+                                            }
+                                        });
+                                    });
+                                }else if(result.code == '10110'){
+                                	layer.msg(result.msg);
+                                    location:top.location.href = '${basePath}/login';
+                                }else{
+                                    $.confirm({
+                                        theme: 'dark',
+                                        animation: 'rotateX',
+                                        closeAnimation: 'rotateX',
+                                        title: false,
+                                        content: result.msg,
+                                        buttons: {
+                                            confirm: {
+                                                text: '确认',
+                                                btnClass: 'waves-effect waves-button waves-light',
+                                                location:top.location.href = location.href
+                                            }
+                                        }
+                                    });
+                                }
+                            } else {
+                            	var paymentChannelAccountId = $('#tableAccountParamId').val();
+                				var $childAccountParaTable = $('#child_para_table' + paymentChannelAccountId);
+                				$childAccountParaTable.bootstrapTable('refresh');
+                            }
+                        },
+                        error: function(XMLHttpRequest, textStatus, errorThrown) {
+                            $.confirm({
+                                theme: 'dark',
+                                animation: 'rotateX',
+                                closeAnimation: 'rotateX',
+                                title: false,
+                                content: textStatus,
+                                buttons: {
+                                    confirm: {
+                                        text: '确认',
+                                        btnClass: 'waves-effect waves-button waves-light'
+                                    }
+                                }
+                            });
+                        }
+                    });
+                }
+            },
+            cancel: {
+                text: '取消',
+                btnClass: 'waves-effect waves-button'
+            }
+        }
+    });
+}
+
+
 //新增渠道账号参数
 var createAccountParaRowDialog;
 function createAccountParaRow(paymentChannelAccountId){
