@@ -54,7 +54,7 @@ public class CustomerServiceImpl extends BaseService implements CustomerService{
 			 return modelResult;
 		 }
 		 String customerNo = PatternConstants.CUSTOMER_NO_PREFX + UUIDGenerator.getRandomNumber(6);
-		 String cipher = RandomStringUtils.random(6);
+		 String cipher = RandomStringUtils.randomAlphabetic(6);
 		 record.setAmount("0");
 		 record.setFrozenAmount("0");
 		 record.setFrozenAmountSum("0");

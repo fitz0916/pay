@@ -34,6 +34,8 @@
     <result column="settlement_status" property="settlementStatus" jdbcType="TINYINT" />
     <result column="client_ip" property="clientIp" jdbcType="VARCHAR" />
     <result column="currency" property="currency" jdbcType="VARCHAR" />
+    <result column="shop_fee" property="shopFee" jdbcType="DECIMAL" />
+    <result column="shop_proundage" property="shopProundage" jdbcType="BIGINT" />
   </resultMap>
   <sql id="Base_Column_List" >
     order_no, customer_no, customer_name, agent_id, shop_id, third_customer_no, customer_order_no, 
@@ -41,7 +43,7 @@
     desciption, customer_payment_channel_info_id, payment_channel_id, payment_channel_account_id, 
     notify_url, return_url, pay_amount, third_channel_fee, third_channel_proundage, customer_fee, 
     customer_proundage, agent_fee, agent_proundage, customer_amount, qr_code, settlement_type, 
-    settlement_status, client_ip, currency
+    settlement_status, client_ip, currency, shop_fee, shop_proundage
   </sql>
   <select id="selectByPrimaryKey" resultMap="BaseResultMap" parameterType="java.lang.String" >
     select 
@@ -49,7 +51,7 @@
     from trans_payment_order
     where order_no = #{orderNo,jdbcType=VARCHAR}
   </select>
-   <select id="selectByCstomerOrderNo" resultMap="BaseResultMap" parameterType="java.lang.String" >
+  <select id="selectByCstomerOrderNo" resultMap="BaseResultMap" parameterType="java.lang.String" >
     select 
     <include refid="Base_Column_List" />
     from trans_payment_order
@@ -71,7 +73,8 @@
       customer_fee, customer_proundage, agent_fee, 
       agent_proundage, customer_amount, qr_code, 
       settlement_type, settlement_status, client_ip, 
-      currency)
+      currency, shop_fee, shop_proundage
+      )
     values (#{orderNo,jdbcType=VARCHAR}, #{customerNo,jdbcType=VARCHAR}, #{customerName,jdbcType=VARCHAR}, 
       #{agentId,jdbcType=INTEGER}, #{shopId,jdbcType=INTEGER}, #{thirdCustomerNo,jdbcType=VARCHAR}, 
       #{customerOrderNo,jdbcType=VARCHAR}, #{thirdChannelOrderNo,jdbcType=VARCHAR}, #{payType,jdbcType=TINYINT}, 
@@ -83,7 +86,8 @@
       #{customerFee,jdbcType=DECIMAL}, #{customerProundage,jdbcType=BIGINT}, #{agentFee,jdbcType=DECIMAL}, 
       #{agentProundage,jdbcType=BIGINT}, #{customerAmount,jdbcType=BIGINT}, #{qrCode,jdbcType=VARCHAR}, 
       #{settlementType,jdbcType=INTEGER}, #{settlementStatus,jdbcType=TINYINT}, #{clientIp,jdbcType=VARCHAR}, 
-      #{currency,jdbcType=VARCHAR})
+      #{currency,jdbcType=VARCHAR}, #{shopFee,jdbcType=DECIMAL}, #{shopProundage,jdbcType=BIGINT}
+      )
   </insert>
   <insert id="insertSelective" parameterType="com.github.trans.common.domain.PaymentOrder" >
     insert into trans_payment_order
@@ -184,6 +188,12 @@
       <if test="currency != null" >
         currency,
       </if>
+      <if test="shopFee != null" >
+        shop_fee,
+      </if>
+      <if test="shopProundage != null" >
+        shop_proundage,
+      </if>
     </trim>
     <trim prefix="values (" suffix=")" suffixOverrides="," >
       <if test="orderNo != null" >
@@ -281,6 +291,12 @@
       </if>
       <if test="currency != null" >
         #{currency,jdbcType=VARCHAR},
+      </if>
+      <if test="shopFee != null" >
+        #{shopFee,jdbcType=DECIMAL},
+      </if>
+      <if test="shopProundage != null" >
+        #{shopProundage,jdbcType=BIGINT},
       </if>
     </trim>
   </insert>
@@ -380,6 +396,12 @@
       <if test="currency != null" >
         currency = #{currency,jdbcType=VARCHAR},
       </if>
+      <if test="shopFee != null" >
+        shop_fee = #{shopFee,jdbcType=DECIMAL},
+      </if>
+      <if test="shopProundage != null" >
+        shop_proundage = #{shopProundage,jdbcType=BIGINT},
+      </if>
     </set>
     where order_no = #{orderNo,jdbcType=VARCHAR}
   </update>
@@ -415,10 +437,11 @@
       settlement_type = #{settlementType,jdbcType=INTEGER},
       settlement_status = #{settlementStatus,jdbcType=TINYINT},
       client_ip = #{clientIp,jdbcType=VARCHAR},
-      currency = #{currency,jdbcType=VARCHAR}
+      currency = #{currency,jdbcType=VARCHAR},
+      shop_fee = #{shopFee,jdbcType=DECIMAL},
+      shop_proundage = #{shopProundage,jdbcType=BIGINT}
     where order_no = #{orderNo,jdbcType=VARCHAR}
   </update>
-  
   <select id="pageCount" resultType="long" parameterType="java.lang.String" >
     select 
       count(*)
@@ -449,7 +472,4 @@
       limit #{start}, #{offset}
     </if>
   </select>
-  
-  
-  
 </mapper>

@@ -99,8 +99,10 @@ public abstract class BaseThirdChannelService {
 		
 		
 		//代理商费率暂时不没有设计，more为0
-		BigDecimal agentFee = new BigDecimal(0.00);
-		String agentProundage = "0";
+		BigDecimal agentFee = customerPaymentChannelFee.getAgentRate();
+		String agentProundage = String.valueOf(AmountUtil.feeRoundingF(amountBigDecimal, agentFee));
+		BigDecimal shopFee = customerPaymentChannelFee.getShopRate();
+		String shopProundage = String.valueOf(AmountUtil.feeRoundingF(amountBigDecimal, shopFee));
 		//商户实际到账金额(交易金额-交易金额*接入费率)
 		int settlementType = customerPaymentChannelInfo.getSettlementType();
 		int settlementStatus = customerPaymentChannelInfo.getSettlementType();
@@ -128,6 +130,10 @@ public abstract class BaseThirdChannelService {
 		paymentOrder.setCustomerFee(customerFee);
 		paymentOrder.setCustomerProundage(customerProundage);
 		paymentOrder.setAgentFee(agentFee);
+		paymentOrder.setAgentProundage(agentProundage);
+		paymentOrder.setShopFee(shopFee);
+		paymentOrder.setShopProundage(shopProundage);
+		
 		paymentOrder.setCustomerAmount(customerAmount);
 		paymentOrder.setSettlementType(settlementType);
 		paymentOrder.setSettlementStatus(settlementStatus);
@@ -136,8 +142,8 @@ public abstract class BaseThirdChannelService {
 		paymentOrder.setAgentId(agentId);
 		paymentOrder.setClientIp(clinetIP);
 		paymentOrder.setCustomerOrderNo(payOrderNo);
-		paymentOrder.setAgentFee(agentFee);
-		paymentOrder.setAgentProundage(agentProundage);
+		
+		
 		return paymentOrder;
 		
 	}

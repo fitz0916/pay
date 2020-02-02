@@ -56,6 +56,10 @@ public class PaymentOrder extends BaseObject{
 	private BigDecimal agentFee;
 	//代理商手续费(实际金额*在开通通道界面配置的费率)
 	private String agentProundage;
+	//门店商费率
+	private BigDecimal shopFee;
+	//门店手续费(实际金额*在开通通道界面配置的费率)
+	private String shopProundage;
 	//商户实际到账金额(交易金额-交易金额*接入费率)
 	private String customerAmount;
 	//二维码地址
@@ -68,262 +72,211 @@ public class PaymentOrder extends BaseObject{
 	private String currency;
 	//客户端请求IP
 	private String clientIp;
-
 	public String getOrderNo() {
 		return orderNo;
 	}
-
 	public void setOrderNo(String orderNo) {
 		this.orderNo = orderNo;
 	}
-
 	public String getCustomerNo() {
 		return customerNo;
 	}
-
 	public void setCustomerNo(String customerNo) {
 		this.customerNo = customerNo;
 	}
-
 	public String getCustomerName() {
 		return customerName;
 	}
-
 	public void setCustomerName(String customerName) {
 		this.customerName = customerName;
 	}
-
 	public Integer getAgentId() {
 		return agentId;
 	}
-
 	public void setAgentId(Integer agentId) {
 		this.agentId = agentId;
 	}
-
 	public Integer getShopId() {
 		return shopId;
 	}
-
 	public void setShopId(Integer shopId) {
 		this.shopId = shopId;
 	}
-
 	public String getThirdCustomerNo() {
 		return thirdCustomerNo;
 	}
-
 	public void setThirdCustomerNo(String thirdCustomerNo) {
 		this.thirdCustomerNo = thirdCustomerNo;
 	}
-
 	public String getCustomerOrderNo() {
 		return customerOrderNo;
 	}
-
 	public void setCustomerOrderNo(String customerOrderNo) {
 		this.customerOrderNo = customerOrderNo;
 	}
-
 	public String getThirdChannelOrderNo() {
 		return thirdChannelOrderNo;
 	}
-
 	public void setThirdChannelOrderNo(String thirdChannelOrderNo) {
 		this.thirdChannelOrderNo = thirdChannelOrderNo;
 	}
-
 	public String getPayType() {
 		return payType;
 	}
-
 	public void setPayType(String payType) {
 		this.payType = payType;
 	}
-
 	public int getPayStatus() {
 		return payStatus;
 	}
-
 	public void setPayStatus(int payStatus) {
 		this.payStatus = payStatus;
 	}
-
 	public Date getTransTime() {
 		return transTime;
 	}
-
 	public void setTransTime(Date transTime) {
 		this.transTime = transTime;
 	}
-
 	public Date getTransFinishTime() {
 		return transFinishTime;
 	}
-
 	public void setTransFinishTime(Date transFinishTime) {
 		this.transFinishTime = transFinishTime;
 	}
-
 	public String getTopic() {
 		return topic;
 	}
-
 	public void setTopic(String topic) {
 		this.topic = topic;
 	}
-
 	public String getDesciption() {
 		return desciption;
 	}
-
 	public void setDesciption(String desciption) {
 		this.desciption = desciption;
 	}
-
 	public Integer getCustomerPaymentChannelInfoId() {
 		return customerPaymentChannelInfoId;
 	}
-
 	public void setCustomerPaymentChannelInfoId(Integer customerPaymentChannelInfoId) {
 		this.customerPaymentChannelInfoId = customerPaymentChannelInfoId;
 	}
-
 	public Integer getPaymentChannelId() {
 		return paymentChannelId;
 	}
-
 	public void setPaymentChannelId(Integer paymentChannelId) {
 		this.paymentChannelId = paymentChannelId;
 	}
-
 	public Integer getPaymentChannelAccountId() {
 		return paymentChannelAccountId;
 	}
-
 	public void setPaymentChannelAccountId(Integer paymentChannelAccountId) {
 		this.paymentChannelAccountId = paymentChannelAccountId;
 	}
-
 	public String getNotifyUrl() {
 		return notifyUrl;
 	}
-
 	public void setNotifyUrl(String notifyUrl) {
 		this.notifyUrl = notifyUrl;
 	}
-
 	public String getReturnUrl() {
 		return returnUrl;
 	}
-
 	public void setReturnUrl(String returnUrl) {
 		this.returnUrl = returnUrl;
 	}
-
 	public String getPayAmount() {
 		return payAmount;
 	}
-
 	public void setPayAmount(String payAmount) {
 		this.payAmount = payAmount;
 	}
-
 	public BigDecimal getThirdChannelFee() {
 		return thirdChannelFee;
 	}
-
 	public void setThirdChannelFee(BigDecimal thirdChannelFee) {
 		this.thirdChannelFee = thirdChannelFee;
 	}
-
 	public String getThirdChannelProundage() {
 		return thirdChannelProundage;
 	}
-
 	public void setThirdChannelProundage(String thirdChannelProundage) {
 		this.thirdChannelProundage = thirdChannelProundage;
 	}
-
 	public BigDecimal getCustomerFee() {
 		return customerFee;
 	}
-
 	public void setCustomerFee(BigDecimal customerFee) {
 		this.customerFee = customerFee;
 	}
-
 	public String getCustomerProundage() {
 		return customerProundage;
 	}
-
 	public void setCustomerProundage(String customerProundage) {
 		this.customerProundage = customerProundage;
 	}
-
 	public BigDecimal getAgentFee() {
 		return agentFee;
 	}
-
 	public void setAgentFee(BigDecimal agentFee) {
 		this.agentFee = agentFee;
 	}
-
 	public String getAgentProundage() {
 		return agentProundage;
 	}
-
 	public void setAgentProundage(String agentProundage) {
 		this.agentProundage = agentProundage;
 	}
-
+	public BigDecimal getShopFee() {
+		return shopFee;
+	}
+	public void setShopFee(BigDecimal shopFee) {
+		this.shopFee = shopFee;
+	}
+	public String getShopProundage() {
+		return shopProundage;
+	}
+	public void setShopProundage(String shopProundage) {
+		this.shopProundage = shopProundage;
+	}
 	public String getCustomerAmount() {
 		return customerAmount;
 	}
-
 	public void setCustomerAmount(String customerAmount) {
 		this.customerAmount = customerAmount;
 	}
-
 	public String getQrCode() {
 		return qrCode;
 	}
-
 	public void setQrCode(String qrCode) {
 		this.qrCode = qrCode;
 	}
-
 	public int getSettlementType() {
 		return settlementType;
 	}
-
 	public void setSettlementType(int settlementType) {
 		this.settlementType = settlementType;
 	}
-
 	public int getSettlementStatus() {
 		return settlementStatus;
 	}
-
 	public void setSettlementStatus(int settlementStatus) {
 		this.settlementStatus = settlementStatus;
 	}
-
 	public String getCurrency() {
 		return currency;
 	}
-
 	public void setCurrency(String currency) {
 		this.currency = currency;
 	}
-
 	public String getClientIp() {
 		return clientIp;
 	}
-
 	public void setClientIp(String clientIp) {
 		this.clientIp = clientIp;
 	}
+
 	
 	
 	
