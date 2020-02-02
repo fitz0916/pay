@@ -7,6 +7,7 @@ import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 
+import com.github.appmodel.domain.result.ResultUtils;
 import com.github.trans.client.PaymentServiceClient;
 import com.github.trans.common.request.PaymentRequest;
 import com.github.trans.utils.RequestUtil;
@@ -22,7 +23,7 @@ public class PaymentController {
 	public Object pay(PaymentRequest paymentRequest,HttpServletRequest request) {
 		String clientRealIp = RequestUtil.getIpAddr(request);
 		paymentRequest.setClientIp(clientRealIp);
-		return paymentServiceClient.pay(paymentRequest);
+		return ResultUtils.buildResult(paymentServiceClient.pay(paymentRequest));
 	}
 	
 }

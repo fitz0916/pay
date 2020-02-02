@@ -13,18 +13,18 @@ public class ResultUtils {
 	private static final String SUCCESS_CODE = "1";
 	private static final String FAIL_CODE = "0";
 	
-	public static <T> ResultVo  buildResult(ModelResult<T> modelResult){
+	public static ResultVo  buildResult(ModelResult<?> modelResult){
 		ResultVo resultVo = new ResultVo();
-		if(modelResult.isSuccess()) {
-			resultVo.setData(modelResult.getModel());
-			resultVo.setCode(SUCCESS_CODE);
-			resultVo.setIsSuccess(true);
-			resultVo.setMsg(SUCCESS_MSG);
-		} else {
+		if(!modelResult.isSuccess()) {
 			resultVo.setData("");
 			resultVo.setIsSuccess(false);
 			resultVo.setCode(StringUtils.isNotBlank(modelResult.getErrorCode()) ? modelResult.getErrorCode() : FAIL_CODE);
 			resultVo.setMsg(StringUtils.isNotBlank(modelResult.getErrorMsg()) ? modelResult.getErrorMsg() : FAIL_MSG);
+		} else {
+			resultVo.setData(modelResult.getModel());
+			resultVo.setCode(SUCCESS_CODE);
+			resultVo.setIsSuccess(true);
+			resultVo.setMsg(SUCCESS_MSG);
 		}
 		return resultVo;
 	}

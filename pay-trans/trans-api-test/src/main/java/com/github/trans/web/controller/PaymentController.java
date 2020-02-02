@@ -1,7 +1,9 @@
 package com.github.trans.web.controller;
 
 import java.io.IOException;
+import java.util.Date;
 import java.util.Map;
+import java.util.Random;
 
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.ModelMap;
@@ -11,6 +13,7 @@ import com.alibaba.fastjson.JSON;
 import com.alibaba.fastjson.JSONObject;
 import com.github.trans.request.PaymentRequest;
 import com.github.trans.response.PaymentResponse;
+import com.github.trans.utils.DateUtil;
 import com.github.trans.utils.ObjectToMapUtils;
 import com.github.trans.utils.OkHttpUtil;
 import com.github.trans.utils.PaySignUtil;
@@ -33,7 +36,7 @@ public class PaymentController {
 		paymentRequest.setFeature("aa");
 		paymentRequest.setInputCharset("UTF-8");
 		paymentRequest.setNotifyUrl(paymentRequest.getNotifyUrl());
-		paymentRequest.setPayOrderNo("2020020112283118008");
+		paymentRequest.setPayOrderNo(generateOrderNo(new Date()));
 		paymentRequest.setSubject("支付宝扫码-支付");
 		paymentRequest.setPayTime("2020-02-27 11:22:11");
 		paymentRequest.setPayAmount(paymentRequest.getPayAmount());
@@ -64,5 +67,16 @@ public class PaymentController {
 		}
 		
 		return "/pay/success.jsp";
+	}
+	
+	private synchronized static String generateOrderNo(Date date) {
+		String orderId = DateUtil.date2Str("yyyyMMddHHmmssSSS", date);
+		String randomNum = new Random().nextInt(100000) + "";
+		if (randomNum.length() < 6) {
+			for (int x = 0; x <= 6 - randomNum.length(); x++) {
+				randomNum += "0";
+			}
+		}
+		return orderId + randomNum;
 	}
 }
