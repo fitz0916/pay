@@ -79,6 +79,31 @@ public abstract class BasePaymentService<R extends TransRequest,Q extends TransR
 		return modelResult;
 	}
 	
+	protected ModelResult<PaymentOrder> checkQueryOrder(R Request){
+		ModelResult<PaymentOrder> modelResult = new ModelResult<PaymentOrder>();
+		String customerOrderNo = Request.getPayOrderNo();
+		String customerNo = Request.getCustomerNo();
+		ModelResult<List<PaymentOrder>> orderModelResult = paymentOrderServiceImpl.selectByCstomerOrderNo(customerOrderNo);
+		if(!orderModelResult.isSuccess()) {
+			String errorCode = orderModelResult.getErrorCode();
+			String errorMsg = orderModelResult.getErrorMsg();
+			LOGGER.error("商户号customerNo = 【{}】查询订单错误码errorCode = 【{}】,错误消息描述errorMsg = 【{}】",customerNo,errorCode,errorMsg);
+			modelResult.withError(errorCode, errorMsg);
+			return modelResult;
+		}
+		List<PaymentOrder> list = orderModelResult.getModel();
+		if(CollectionUtils.isEmpty(list)) {
+			String errorCode = "0";
+			String errorMsg = "该支付订单已不存在!";
+			modelResult.withError(errorCode, errorMsg);
+			LOGGER.error("商户号customerNo = 【{}】查询订单不存在，订单号customerOrderNo = 【{}】",customerNo,customerOrderNo);
+			return modelResult;
+		}
+		PaymentOrder paymentOrder = list.get(0);
+		modelResult.setModel(paymentOrder);;
+		return modelResult;
+	}
+	
 	/***
 	 * 检查请求参数是否为空
 	 * @param paymentRequest

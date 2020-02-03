@@ -78,7 +78,7 @@ public class PaymentServiceImpl extends BasePaymentService<PaymentRequest,Paymen
 			return modelResult;
 		}
 		ThirdChannelService thirdChannelService = thirdChannelModelResult.getModel();
-		modelResult = thirdChannelService.process(paymentRequest, customer,customerPaymentChannelInfo);
+		modelResult = thirdChannelService.pay(paymentRequest, customer,customerPaymentChannelInfo);
 		return modelResult;
 	}
 

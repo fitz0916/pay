@@ -17,7 +17,7 @@ import com.github.pattern.common.domain.PaymentChannelAccount;
 import com.github.pattern.common.utils.AmountUtil;
 import com.github.trans.common.domain.PaymentOrder;
 import com.github.trans.common.request.PaymentRequest;
-import com.github.trans.common.response.PayJsResponse;
+import com.github.trans.common.response.PaymentQueryResponse;
 import com.github.trans.common.response.PaymentResponse;
 import com.github.trans.common.service.PaymentOrderService;
 import com.github.trans.common.service.ThirdChannelService;
@@ -36,7 +36,7 @@ public class WechatPayServiceImpl extends BaseThirdChannelService implements Thi
 	private PaymentOrderService paymentOrderServiceImpl;
 	
 	@Override
-	public ModelResult<PaymentResponse> process(PaymentRequest request, Customer customer,CustomerPaymentChannelInfo customerPaymentChannelInfo) {
+	public ModelResult<PaymentResponse> pay(PaymentRequest request, Customer customer,CustomerPaymentChannelInfo customerPaymentChannelInfo) {
 		LOGGER.info("微信扫码支付.............");
 		ModelResult<PaymentResponse> modelResult = new ModelResult<PaymentResponse>();
 		ModelResult<PaymentChannelAccount> accountModelResult = this.selectChannelAccount(customerPaymentChannelInfo);
@@ -145,6 +145,15 @@ public class WechatPayServiceImpl extends BaseThirdChannelService implements Thi
 			return modelResult;
 		}
 		return modelResult;
+	}
+
+
+	@Override
+	public ModelResult<PaymentQueryResponse> query(PaymentOrder paymentOrder) {
+		String customerNo = paymentOrder.getCustomerNo();
+		String customerOrderNo = paymentOrder.getCustomerOrderNo();
+		String thirdChannelOrderNo = paymentOrder.getThirdChannelOrderNo();
+		return null;
 	}
 	
 

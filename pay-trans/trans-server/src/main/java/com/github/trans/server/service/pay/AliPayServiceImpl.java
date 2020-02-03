@@ -7,7 +7,9 @@ import org.springframework.stereotype.Service;
 import com.github.appmodel.domain.result.ModelResult;
 import com.github.pattern.common.domain.Customer;
 import com.github.pattern.common.domain.CustomerPaymentChannelInfo;
+import com.github.trans.common.domain.PaymentOrder;
 import com.github.trans.common.request.PaymentRequest;
+import com.github.trans.common.response.PaymentQueryResponse;
 import com.github.trans.common.response.PaymentResponse;
 import com.github.trans.common.service.ThirdChannelService;
 import com.github.trans.server.service.base.BaseThirdChannelService;
@@ -19,11 +21,18 @@ public class AliPayServiceImpl extends BaseThirdChannelService implements ThirdC
 	
 	
 	@Override
-	public ModelResult<PaymentResponse> process(PaymentRequest request, Customer customer,CustomerPaymentChannelInfo customerPaymentChannelInfo) {
+	public ModelResult<PaymentResponse> pay(PaymentRequest request, Customer customer,CustomerPaymentChannelInfo customerPaymentChannelInfo) {
 		LOGGER.info("支付宝扫码支付...........");
 		ModelResult<PaymentResponse> modelResult = new ModelResult<PaymentResponse>();
 		
 		return modelResult;
+	}
+
+
+	@Override
+	public ModelResult<PaymentQueryResponse> query(PaymentOrder paymentOrder) {
+		// TODO Auto-generated method stub
+		return null;
 	}
 
 	
