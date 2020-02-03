@@ -468,6 +468,7 @@
        	   and customer_order_no = #{customerOrderNo,jdbcType=VARCHAR}
        </if>
     </where>
+    order by trans_time desc 
     <if test="start !=null and offset !=null">
       limit #{start}, #{offset}
     </if>
