@@ -164,7 +164,7 @@ function queryParams(params) {
 
 //格式化状态
 function payTypeFormat(value, row, index) {
-	if (value == 0) {
+	if (value == 41) {
 		return '<span class="label label-success">微信-扫码</span>';
 	} else {
 		return '<span class="label label-danger">支付宝-扫码</span>';
@@ -184,13 +184,13 @@ function payStatusFormat(value, row, index) {
 
 //格式化状态
 function settlementTypeFormat(value, row, index) {
-	if (value == 0) {
+	if (value == 700) {
 		return '<span class="label label-danger">T0</span>';
-	} else if (value == 1) {
+	} else if (value == 701) {
 		return '<span class="label label-success">T1</span>';
-	}else if( value == 2){
+	}else if( value == 702){
 		return '<span class="label label-danger">D0</span>';
-	}else if( value == 3){
+	}else if( value == 703){
 		return '<span class="label label-success">D1</span>';
 	}else {
 		return '<span class="label label-danger">其他</span>';

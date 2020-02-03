@@ -23,10 +23,12 @@ public class AppTest {
 	public void _测试支付接口() {
 		WechatPayRequest wechatPayRequest = new WechatPayRequest();
 		wechatPayRequest.setAttach("test");
+		wechatPayRequest.setMchid("1575132401");
 		wechatPayRequest.setBody("tedt");
 		wechatPayRequest.setOutTradeNo("202002011228311800");
 		wechatPayRequest.setTotalFee("10");
 		wechatPayRequest.setUrl("https://payjs.cn/api/native");
+		wechatPayRequest.setSecretKey("ZUa6Kw9Xe5B3B8en");
 		wechatPayRequest.setNotifyUrl("https://www.baidu.com/");
 		ModelResult<WechatPayResponse> modelResult = wechatPayServiceImpl.pay(wechatPayRequest);
 		if(modelResult.isSuccess()) {
