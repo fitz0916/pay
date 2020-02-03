@@ -21,7 +21,7 @@ public class ResultVo extends BaseObject{
 	public void setData(Object data) {
 		this.data = data;
 	}
-	public boolean isSuccess() {
+	public boolean getIsSuccess() {
 		return isSuccess;
 	}
 	public void setIsSuccess(boolean isSuccess) {
