@@ -2,13 +2,9 @@ package com.github.trans.server.service;
 
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
-import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
 import com.github.appmodel.domain.result.ModelResult;
-import com.github.pattern.client.service.AgentServiceClient;
-import com.github.pattern.client.service.CustomerServiceClient;
-import com.github.pattern.client.service.ShopServiceClient;
 import com.github.pattern.common.domain.Customer;
 import com.github.pattern.common.domain.CustomerPaymentChannelInfo;
 import com.github.trans.common.request.PaymentRequest;
@@ -24,7 +20,7 @@ import com.github.trans.server.service.base.BasePaymentService;
  *
  */
 @Service
-public class PaymentServiceImpl extends BasePaymentService implements PaymentService{
+public class PaymentServiceImpl extends BasePaymentService<PaymentRequest,PaymentResponse> implements PaymentService{
 
 	private final static Logger LOGGER = LoggerFactory.getLogger(PaymentServiceImpl.class);
 	
