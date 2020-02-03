@@ -55,14 +55,14 @@
 										<span class="select-box">
 											<select class="select" size="1" name="payType" id="payType">
 												<option value="" selected="">选择交易类型</option>
-												<option value="0">微信-扫码</option>
-												<option value="1">支付宝</option>
-												<option value="2">QQ钱包</option>
-												<option value="3">网银银行</option>
-												<option value="4">京东钱包</option>
-												<option value="5">银联二维码</option>
-												<option value="6">微信H5</option>
-												<option value="7">QQH5</option>
+									             <option value="41">微信-扫码</option>
+									             <option value="42">支付宝-扫码</option>
+									             <option value="43">QQ扫码支付</option>
+									             <option value="52">网银银行</option>
+									             <option value="60">京东钱包</option>
+									             <option value="61">银联二维码</option>
+									             <option value="62">微信H5</option>
+									             <option value="63">QQH5</option>
 											</select>
 										</span>
 									</div>
