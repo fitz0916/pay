@@ -5,14 +5,15 @@ import java.util.Date;
 import java.util.Map;
 import java.util.Random;
 
+import org.apache.commons.lang3.StringUtils;
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.ModelMap;
 import org.springframework.web.bind.annotation.RequestMapping;
 
-import com.alibaba.fastjson.JSON;
 import com.alibaba.fastjson.JSONObject;
 import com.github.trans.request.PaymentRequest;
-import com.github.trans.response.PaymentResponse;
 import com.github.trans.utils.DateUtil;
 import com.github.trans.utils.ObjectToMapUtils;
 import com.github.trans.utils.OkHttpUtil;
@@ -21,6 +22,8 @@ import com.github.trans.utils.PaySignUtil;
 @Controller
 public class PaymentController {
 
+	private final static Logger LOGGER = LoggerFactory.getLogger(PaymentController.class);
+	
 	@RequestMapping("/index")
 	public String index() {
 		
@@ -52,13 +55,14 @@ public class PaymentController {
 		try {
 			Map<String,String> map = ObjectToMapUtils.toMap(paymentRequest);
 			result = OkHttpUtil.getInstance().postWithForm("http://localhost:9005/brokenes/pay", map);
-			PaymentResponse paymentResponse = JSONObject.parseObject(result,PaymentResponse.class);
-			String data = "";
-			if(paymentResponse.isSuccess()) {
-				JSONObject json = JSONObject.parseObject(JSON.toJSONString(paymentResponse.getData()));
-				data = json.getString("qrCode");
+			JSONObject jsonObject = JSONObject.parseObject(result);
+			String data = jsonObject.getString("data");
+			JSONObject object = JSONObject.parseObject(data);
+			String qrCode = object.getString("qrCode");
+			if(StringUtils.isNotBlank(qrCode)) {
+				modelMap.put("data", qrCode);
 			}else {
-				modelMap.put("error", paymentResponse.getMsg());	
+				modelMap.put("error", "系统错误");	
 				return "/error";
 			}
 					
@@ -66,7 +70,7 @@ public class PaymentController {
 			return "/error";
 		}
 		
-		return "/pay/success.jsp";
+		return "pay/success";
 	}
 	
 	private synchronized static String generateOrderNo(Date date) {

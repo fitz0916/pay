@@ -6,7 +6,7 @@ import org.springframework.boot.autoconfigure.jdbc.DataSourceAutoConfiguration;
 import org.springframework.cloud.client.discovery.EnableDiscoveryClient;
 
 /**
- * channel-server
+ * channel -server
  *
  */
 @SpringBootApplication(exclude={DataSourceAutoConfiguration.class})

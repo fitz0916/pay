@@ -98,28 +98,27 @@ public class WechatPayServiceImpl extends BaseThirdChannelService implements Thi
 			modelResult.withError(errorCode, errorMsg);
 			return modelResult;
 		}
-		PaymentResponse response = new PaymentResponse();
-		PayJsResponse payJsResponse = initResponse(request,customer,wechatPayResponse,paymentOrder);
-		response.setData(payJsResponse);
+		PaymentResponse response = initResponse(request,customer,wechatPayResponse,paymentOrder);
+		LOGGER.info("pasyJs渠道请求响应结果:payJsResponse = 【{}】",response);
 		modelResult.setModel(response);
 		return modelResult;
 	}
 
 	
-	private PayJsResponse initResponse(PaymentRequest request,Customer customer,WechatPayResponse wechatPayResponse,PaymentOrder paymentOrder){
-		PayJsResponse payJsResponse = new PayJsResponse();
+	private PaymentResponse initResponse(PaymentRequest request,Customer customer,WechatPayResponse wechatPayResponse,PaymentOrder paymentOrder){
+		PaymentResponse response = new PaymentResponse();
 		String customerNo = customer.getCustomerNo();
 		String orderNo = paymentOrder.getOrderNo();
 		String cipher = customer.getCipher();
-		payJsResponse.setQrCode(wechatPayResponse.getQrcode());
-		payJsResponse.setCustomerNo(customerNo);
-		payJsResponse.setPayType(request.getPayType());
-		payJsResponse.setPayAmount(request.getPayAmount());
-		payJsResponse.setPayOrderNo(request.getPayOrderNo());
-		payJsResponse.setOrderNo(orderNo);
-		String sign  = PaySignUtil.requestMd5Sign(payJsResponse, cipher);
-		payJsResponse.setSign(sign);
-		return payJsResponse;
+		response.setQrCode(wechatPayResponse.getQrcode());
+		response.setCustomerNo(customerNo);
+		response.setPayType(request.getPayType());
+		response.setPayAmount(request.getPayAmount());
+		response.setPayOrderNo(request.getPayOrderNo());
+		response.setOrderNo(orderNo);
+		String sign  = PaySignUtil.requestMd5Sign(response, cipher);
+		response.setSign(sign);
+		return response;
 	}
 	
 	private ModelResult<WechatPayRequest> initWechatPayRequest(PaymentRequest request,String json){

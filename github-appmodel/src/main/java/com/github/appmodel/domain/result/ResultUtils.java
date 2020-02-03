@@ -8,10 +8,10 @@ import com.github.appmodel.vo.ResultVo;
 
 public class ResultUtils {
 	
-	private static final String SUCCESS_MSG = "请求成功!";
-	private static final String FAIL_MSG = "请求失败!";
-	private static final String SUCCESS_CODE = "1";
-	private static final String FAIL_CODE = "0";
+	public  static final String SUCCESS_MSG = "请求成功!";
+	public static final String FAIL_MSG = "请求失败!";
+	public static final String SUCCESS_CODE = "1";
+	public static final String FAIL_CODE = "0";
 	
 	public static ResultVo  buildResult(ModelResult<?> modelResult){
 		ResultVo resultVo = new ResultVo();
