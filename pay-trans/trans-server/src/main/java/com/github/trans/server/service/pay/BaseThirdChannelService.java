@@ -12,12 +12,11 @@ import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.springframework.beans.factory.annotation.Autowired;
 
+import com.alibaba.fastjson.JSON;
 import com.github.appmodel.domain.result.ModelResult;
-import com.github.pattern.client.service.AgentServiceClient;
 import com.github.pattern.client.service.CustomerPaymentChannelFeeServiceClient;
 import com.github.pattern.client.service.PaymentChannelAccountParaServiceClient;
 import com.github.pattern.client.service.PaymentChannelAccountServiceClient;
-import com.github.pattern.client.service.ShopServiceClient;
 import com.github.pattern.common.domain.Customer;
 import com.github.pattern.common.domain.CustomerPaymentChannelFee;
 import com.github.pattern.common.domain.CustomerPaymentChannelInfo;
@@ -27,7 +26,6 @@ import com.github.pattern.common.utils.AmountUtil;
 import com.github.trans.common.domain.PaymentOrder;
 import com.github.trans.common.request.PaymentRequest;
 import com.github.trans.common.utils.DateUtil;
-import com.alibaba.fastjson.JSON;
 
 public abstract class BaseThirdChannelService {
 
@@ -35,13 +33,6 @@ public abstract class BaseThirdChannelService {
 	
 	@Autowired
 	private CustomerPaymentChannelFeeServiceClient customerPaymentChannelFeeServiceClient;
-	
-	@Autowired
-	private ShopServiceClient shopServiceClient;
-	
-	@Autowired
-	private AgentServiceClient agentServiceClient;
-	
 	@Autowired
 	private PaymentChannelAccountServiceClient paymentChannelAccountServiceClient;
 	@Autowired
@@ -77,7 +68,7 @@ public abstract class BaseThirdChannelService {
 		String payOrderNo = paymentRequest.getPayOrderNo();
 		String subject = paymentRequest.getSubject();
 		String desc = paymentRequest.getDesc();
-		Date transTime = DateUtil.convertStringToDate(paymentRequest.getPayTime());
+		Date transTime = DateUtil.str2Date("yyyy-MM-dd HH:mm:ss",paymentRequest.getPayTime());
 		int payStatus = 0;
 		BigDecimal amountBigDecimal = new BigDecimal(paymentRequest.getPayAmount()); // 支付金额
 		//商户支付金额
@@ -215,16 +206,4 @@ public abstract class BaseThirdChannelService {
 		return accountJson;
 	}
 }
-
-
-
-
-
-
-
-
-
-
-
-
 
