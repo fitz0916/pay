@@ -10,7 +10,7 @@
     <result column="third_customer_no" property="thirdCustomerNo" jdbcType="VARCHAR" />
     <result column="customer_order_no" property="customerOrderNo" jdbcType="VARCHAR" />
     <result column="third_channel_order_no" property="thirdChannelOrderNo" jdbcType="VARCHAR" />
-    <result column="pay_type" property="payType" jdbcType="TINYINT" />
+    <result column="pay_type" property="payType" jdbcType="VARCHAR" />
     <result column="pay_status" property="payStatus" jdbcType="TINYINT" />
     <result column="trans_time" property="transTime" jdbcType="TIMESTAMP" />
     <result column="trans_finish_time" property="transFinishTime" jdbcType="TIMESTAMP" />
@@ -77,7 +77,7 @@
       )
     values (#{orderNo,jdbcType=VARCHAR}, #{customerNo,jdbcType=VARCHAR}, #{customerName,jdbcType=VARCHAR}, 
       #{agentId,jdbcType=INTEGER}, #{shopId,jdbcType=INTEGER}, #{thirdCustomerNo,jdbcType=VARCHAR}, 
-      #{customerOrderNo,jdbcType=VARCHAR}, #{thirdChannelOrderNo,jdbcType=VARCHAR}, #{payType,jdbcType=TINYINT}, 
+      #{customerOrderNo,jdbcType=VARCHAR}, #{thirdChannelOrderNo,jdbcType=VARCHAR}, #{payType,jdbcType=VARCHAR}, 
       #{payStatus,jdbcType=TINYINT}, #{transTime,jdbcType=TIMESTAMP}, #{transFinishTime,jdbcType=TIMESTAMP}, 
       #{topic,jdbcType=VARCHAR}, #{desciption,jdbcType=VARCHAR}, #{customerPaymentChannelInfoId,jdbcType=INTEGER}, 
       #{paymentChannelId,jdbcType=INTEGER}, #{paymentChannelAccountId,jdbcType=INTEGER}, 
@@ -221,7 +221,7 @@
         #{thirdChannelOrderNo,jdbcType=VARCHAR},
       </if>
       <if test="payType != null" >
-        #{payType,jdbcType=TINYINT},
+        #{payType,jdbcType=VARCHAR},
       </if>
       <if test="payStatus != null" >
         #{payStatus,jdbcType=TINYINT},
@@ -325,7 +325,7 @@
         third_channel_order_no = #{thirdChannelOrderNo,jdbcType=VARCHAR},
       </if>
       <if test="payType != null" >
-        pay_type = #{payType,jdbcType=TINYINT},
+        pay_type = #{payType,jdbcType=VARCHAR},
       </if>
       <if test="payStatus != null" >
         pay_status = #{payStatus,jdbcType=TINYINT},
@@ -414,7 +414,7 @@
       third_customer_no = #{thirdCustomerNo,jdbcType=VARCHAR},
       customer_order_no = #{customerOrderNo,jdbcType=VARCHAR},
       third_channel_order_no = #{thirdChannelOrderNo,jdbcType=VARCHAR},
-      pay_type = #{payType,jdbcType=TINYINT},
+      pay_type = #{payType,jdbcType=VARCHAR},
       pay_status = #{payStatus,jdbcType=TINYINT},
       trans_time = #{transTime,jdbcType=TIMESTAMP},
       trans_finish_time = #{transFinishTime,jdbcType=TIMESTAMP},

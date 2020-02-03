@@ -32,8 +32,8 @@ public class PaymentChannel extends BaseObject {
 	 **/
 	private String thirdChannelName;
 	
-	//结算方式
-	private Integer settlementType;
+	//结算方式700:T0结算 701:T1结算  702:D0  703:D1
+	private String settlementType;
 		
 	/***
 	 * 渠道状态0：停用 1：启用 2删除
@@ -41,7 +41,7 @@ public class PaymentChannel extends BaseObject {
 	private Integer status;
 
 	/**
-	 * 支付类型
+	 * 交易类型,41-微信,42-支付宝,43-QQ钱包,52-网银银行,60-京东钱包,61-银联二维码,62-微信H5,63-QQH5
 	 */
 	private String payType;
 	/**
@@ -119,11 +119,11 @@ public class PaymentChannel extends BaseObject {
 		this.thirdChannelName = thirdChannelName;
 	}
 
-	public Integer getSettlementType() {
+	public String getSettlementType() {
 		return settlementType;
 	}
 
-	public void setSettlementType(Integer settlementType) {
+	public void setSettlementType(String settlementType) {
 		this.settlementType = settlementType;
 	}
 

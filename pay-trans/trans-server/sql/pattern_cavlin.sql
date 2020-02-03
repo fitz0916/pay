@@ -11,7 +11,7 @@
  Target Server Version : 80018
  File Encoding         : 65001
 
- Date: 02/02/2020 17:24:21
+ Date: 03/02/2020 18:05:12
 */
 
 SET NAMES utf8mb4;
@@ -27,10 +27,10 @@ CREATE TABLE `trans_payment_order` (
   `customer_name` varchar(20) NOT NULL COMMENT '商户名称',
   `agent_id` int(12) NOT NULL COMMENT '代理商ID',
   `shop_id` int(12) NOT NULL COMMENT '门店ID',
-  `third_customer_no` varchar(20) NOT NULL COMMENT '三方渠道号',
-  `customer_order_no` varchar(20) NOT NULL COMMENT '商户订单号',
+  `third_customer_no` varchar(50) CHARACTER SET utf8mb4 COLLATE utf8mb4_0900_ai_ci NOT NULL COMMENT '三方渠道号',
+  `customer_order_no` varchar(50) CHARACTER SET utf8mb4 COLLATE utf8mb4_0900_ai_ci NOT NULL COMMENT '商户订单号',
   `third_channel_order_no` varchar(50) CHARACTER SET utf8mb4 COLLATE utf8mb4_0900_ai_ci NOT NULL COMMENT '三方渠道订单号',
-  `pay_type` tinyint(4) NOT NULL COMMENT '支付类型',
+  `pay_type` varchar(4) NOT NULL COMMENT '支付类型',
   `pay_status` tinyint(4) NOT NULL COMMENT '支付状态',
   `trans_time` datetime NOT NULL COMMENT '交易时间',
   `trans_finish_time` datetime NOT NULL COMMENT '交易完成时间',

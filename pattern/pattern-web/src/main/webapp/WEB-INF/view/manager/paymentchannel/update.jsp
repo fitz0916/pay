@@ -28,19 +28,19 @@
 		</div>
 		<div class="radio">
 			<div class="radio radio-inline radio-info">
-				<input id="settlementType_0" type="radio" name="settlementType" value="0" <c:if test="${paymentChannel.settlementType == 0}">checked</c:if>>
+				<input id="settlementType_0" type="radio" name="settlementType" value="702" <c:if test="${paymentChannel.settlementType == 702}">checked</c:if>>
 				<label for="settlementType_0">D0 </label>
 			</div>
 			<div class="radio radio-inline radio-danger">
-				<input id="settlementType_1" type="radio" name="settlementType" value="1" <c:if test="${paymentChannel.settlementType == 1}">checked</c:if>>
+				<input id="settlementType_1" type="radio" name="settlementType" value="703" <c:if test="${paymentChannel.settlementType == 703}">checked</c:if>>
 				<label for="settlementType_1">D1 </label>
 			</div>
 			<div class="radio radio-inline radio-info">
-				<input id="settlementType_2" type="radio" name="settlementType" value="2" <c:if test="${paymentChannel.settlementType == 2}">checked</c:if>>
+				<input id="settlementType_2" type="radio" name="settlementType" value="700" <c:if test="${paymentChannel.settlementType == 700}">checked</c:if>>
 				<label for="settlementType_2">T0 </label>
 			</div>
 			<div class="radio radio-inline radio-danger">
-				<input id="settlementType_3" type="radio" name="settlementType" value="3" <c:if test="${paymentChannel.settlementType == 3}">checked</c:if>>
+				<input id="settlementType_3" type="radio" name="settlementType" value="701" <c:if test="${paymentChannel.settlementType == 701}">checked</c:if>>
 				<label for="settlementType_3">T1 </label>
 			</div>
 		</div>
@@ -53,13 +53,15 @@
 		  </div>
 		  <div class="col-sm-6">
 		     <select id="payType" name="payType"  class="form-control">
-		         <option value="">请选择支付类型</option>
-		             <option value="0" <c:if test="${paymentChannel.payType == 0}">selected="selected"</c:if>>微信-扫码</option>
-		             <option value="1" <c:if test="${paymentChannel.payType == 1}">selected="selected"</c:if>>支付宝-扫码</option>
-		             <option value="2" <c:if test="${paymentChannel.payType == 2}">selected="selected"</c:if>>银联扫码支付</option>
-		             <option value="3" <c:if test="${paymentChannel.payType == 3}">selected="selected"</c:if>>QQ扫码支付</option>
-		             <option value="4" <c:if test="${paymentChannel.payType == 4}">selected="selected"</c:if>>京东钱包扫码支付</option>
-		             <option value="5" <c:if test="${paymentChannel.payType == 5}">selected="selected"</c:if>>快捷支付</option>
+		             <option value="">请选择支付类型</option>
+		             <option value="41" <c:if test="${paymentChannel.payType == 41}">selected="selected"</c:if>>微信-扫码</option>
+		             <option value="42" <c:if test="${paymentChannel.payType == 42}">selected="selected"</c:if>>支付宝-扫码</option>
+		             <option value="43" <c:if test="${paymentChannel.payType == 43}">selected="selected"</c:if>>QQ扫码支付</option>
+		             <option value="52" <c:if test="${paymentChannel.payType == 52}">selected="selected"</c:if>>网银银行</option>
+		             <option value="60" <c:if test="${paymentChannel.payType == 60}">selected="selected"</c:if>>京东钱包</option>
+		             <option value="61" <c:if test="${paymentChannel.payType == 61}">selected="selected"</c:if>>银联二维码</option>
+		             <option value="62" <c:if test="${paymentChannel.payType == 62}">selected="selected"</c:if>>微信H5</option>
+		             <option value="63" <c:if test="${paymentChannel.payType == 63}">selected="selected"</c:if>>QQH5</option>
 		     </select>
 		  </div>
 		</div>

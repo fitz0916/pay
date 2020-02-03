@@ -11,7 +11,7 @@
  Target Server Version : 80018
  File Encoding         : 65001
 
- Date: 02/02/2020 17:24:04
+ Date: 03/02/2020 18:06:08
 */
 
 SET NAMES utf8mb4;
@@ -69,7 +69,7 @@ CREATE TABLE `pattern_customer` (
   `settlement` bigint(12) NOT NULL DEFAULT '0' COMMENT '待结算金额单位分',
   `frozen_amount` bigint(12) NOT NULL DEFAULT '0' COMMENT '冻结总额，待解冻总额，单位分',
   `amount` bigint(12) NOT NULL COMMENT '可用金额',
-  `cipher` varchar(20) NOT NULL COMMENT '交易/体现密码',
+  `cipher` varchar(20) CHARACTER SET utf8mb4 COLLATE utf8mb4_0900_ai_ci NOT NULL COMMENT '交易/体现密码',
   `create_date` datetime NOT NULL ON UPDATE CURRENT_TIMESTAMP COMMENT '创建时间',
   `update_date` datetime NOT NULL ON UPDATE CURRENT_TIMESTAMP COMMENT '更新时间',
   `status` tinyint(4) NOT NULL DEFAULT '1' COMMENT '支付状态（0启用 1禁用 2删除）',
@@ -77,7 +77,7 @@ CREATE TABLE `pattern_customer` (
   `unfreeze_amount` bigint(12) NOT NULL DEFAULT '0' COMMENT '已解冻总额',
   `frozen_amount_sum` bigint(12) NOT NULL DEFAULT '0' COMMENT '冻结记录的总额',
   PRIMARY KEY (`customer_id`)
-) ENGINE=InnoDB AUTO_INCREMENT=8 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci;
+) ENGINE=InnoDB AUTO_INCREMENT=9 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci;
 
 -- ----------------------------
 -- Table structure for pattern_customer_payment_channel_fee
@@ -96,7 +96,7 @@ CREATE TABLE `pattern_customer_payment_channel_fee` (
   `status` tinyint(4) NOT NULL DEFAULT '1' COMMENT '状态，0未生效，1生效 2删除',
   `remark` varchar(100) CHARACTER SET utf8 COLLATE utf8_general_ci NOT NULL DEFAULT '0' COMMENT '备注',
   PRIMARY KEY (`payment_channeld_fee_id`) USING BTREE
-) ENGINE=InnoDB AUTO_INCREMENT=25885 DEFAULT CHARSET=utf8 COMMENT='商户金额变动记录';
+) ENGINE=InnoDB AUTO_INCREMENT=25886 DEFAULT CHARSET=utf8 COMMENT='商户金额变动记录';
 
 -- ----------------------------
 -- Table structure for pattern_customer_payment_channel_info
@@ -114,7 +114,7 @@ CREATE TABLE `pattern_customer_payment_channel_info` (
   `status` tinyint(4) NOT NULL DEFAULT '1' COMMENT '0禁用 1启用 2删除',
   PRIMARY KEY (`customer_payment_channel_info_id`) USING BTREE,
   UNIQUE KEY `agent_id` (`customer_id`,`payment_channel_id`)
-) ENGINE=InnoDB AUTO_INCREMENT=1091 DEFAULT CHARSET=utf8 COMMENT='商户支付通道表';
+) ENGINE=InnoDB AUTO_INCREMENT=1092 DEFAULT CHARSET=utf8 COMMENT='商户支付通道表';
 
 -- ----------------------------
 -- Table structure for pattern_payment_channel
@@ -128,7 +128,7 @@ CREATE TABLE `pattern_payment_channel` (
   `status` tinyint(4) NOT NULL DEFAULT '1' COMMENT '0：停用 1：启用 2删除',
   `pay_type` varchar(10) NOT NULL COMMENT '支付类型',
   `business_contacts` varchar(50) CHARACTER SET utf8 COLLATE utf8_general_ci NOT NULL COMMENT '商务联系人',
-  `settlement_type` tinyint(4) NOT NULL COMMENT '对接三方渠道的结算方式',
+  `settlement_type` varchar(4) NOT NULL COMMENT '对接三方渠道的结算方式',
   `mobile` varchar(15) CHARACTER SET utf8 COLLATE utf8_general_ci NOT NULL COMMENT '手机号码',
   `qq` varchar(15) CHARACTER SET utf8 COLLATE utf8_general_ci NOT NULL COMMENT 'qq',
   `wechat` varchar(20) CHARACTER SET utf8 COLLATE utf8_general_ci NOT NULL COMMENT '微信',

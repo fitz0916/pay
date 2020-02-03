@@ -7,7 +7,7 @@
     <result column="channel_name" property="channelName" jdbcType="VARCHAR" />
     <result column="third_channel_name" property="thirdChannelName" jdbcType="VARCHAR" />
     <result column="status" property="status" jdbcType="TINYINT" />
-    <result column="settlement_type" property="settlementType" jdbcType="TINYINT" />
+    <result column="settlement_type" property="settlementType" jdbcType="VARCHAR" />
     <result column="pay_type" property="payType" jdbcType="VARCHAR" />
     <result column="business_contacts" property="businessContacts" jdbcType="VARCHAR" />
     <result column="mobile" property="mobile" jdbcType="VARCHAR" />
@@ -56,7 +56,7 @@
       )
     values (#{paymentChannelId,jdbcType=INTEGER}, #{paymentTemplateId,jdbcType=INTEGER}, 
       #{channelName,jdbcType=VARCHAR}, #{thirdChannelName,jdbcType=VARCHAR}, #{status,jdbcType=TINYINT}, 
-      #{payType,jdbcType=VARCHAR}, #{businessContacts,jdbcType=VARCHAR}, #{settlementType,jdbcType=TINYINT}, 
+      #{payType,jdbcType=VARCHAR}, #{businessContacts,jdbcType=VARCHAR}, #{settlementType,jdbcType=VARCHAR}, 
       #{mobile,jdbcType=VARCHAR}, #{qq,jdbcType=VARCHAR}, #{wechat,jdbcType=VARCHAR}, 
       #{createTime,jdbcType=TIMESTAMP}, #{updateTime,jdbcType=TIMESTAMP}, #{remark,jdbcType=VARCHAR}
       )
@@ -130,7 +130,7 @@
         #{businessContacts,jdbcType=VARCHAR},
       </if>
       <if test="settlementType != null" >
-        #{settlementType,jdbcType=TINYINT},
+        #{settlementType,jdbcType=VARCHAR},
       </if>
       <if test="mobile != null" >
         #{mobile,jdbcType=VARCHAR},
@@ -174,7 +174,7 @@
         business_contacts = #{businessContacts,jdbcType=VARCHAR},
       </if>
       <if test="settlementType != null" >
-        settlement_type = #{settlementType,jdbcType=TINYINT},
+        settlement_type = #{settlementType,jdbcType=VARCHAR},
       </if>
       <if test="mobile != null" >
         mobile = #{mobile,jdbcType=VARCHAR},
@@ -205,7 +205,7 @@
       status = #{status,jdbcType=TINYINT},
       pay_type = #{payType,jdbcType=VARCHAR},
       business_contacts = #{businessContacts,jdbcType=VARCHAR},
-      settlement_type = #{settlementType,jdbcType=TINYINT},
+      settlement_type = #{settlementType,jdbcType=VARCHAR},
       mobile = #{mobile,jdbcType=VARCHAR},
       qq = #{qq,jdbcType=VARCHAR},
       wechat = #{wechat,jdbcType=VARCHAR},

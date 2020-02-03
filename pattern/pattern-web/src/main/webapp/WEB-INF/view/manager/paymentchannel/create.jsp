@@ -27,19 +27,19 @@
 		</div>
 		<div class="radio">
 			<div class="radio radio-inline radio-info">
-				<input id="settlementType_0" type="radio" name="settlementType" value="0" checked>
+				<input id="settlementType_0" type="radio" name="settlementType" value="702" checked>
 				<label for="settlementType_0">D0 </label>
 			</div>
 			<div class="radio radio-inline radio-danger">
-				<input id="settlementType_1" type="radio" name="settlementType" value="1">
+				<input id="settlementType_1" type="radio" name="settlementType" value="703">
 				<label for="settlementType_1">D1 </label>
 			</div>
 			<div class="radio radio-inline radio-info">
-				<input id="settlementType_2" type="radio" name="settlementType" value="2">
+				<input id="settlementType_2" type="radio" name="settlementType" value="700">
 				<label for="settlementType_2">T0 </label>
 			</div>
 			<div class="radio radio-inline radio-danger">
-				<input id="settlementType_3" type="radio" name="settlementType" value="3">
+				<input id="settlementType_3" type="radio" name="settlementType" value="701">
 				<label for="settlementType_3">T1 </label>
 			</div>
 		</div>
@@ -53,12 +53,14 @@
 			<div class="col-sm-6">
 				<select id="payType" name="payType" class="form-control">
 		             <option value="">请选择支付类型</option>
-		             <option value="0">微信-扫码</option>
-		             <option value="1">支付宝-扫码</option>
-		             <option value="2">银联扫码支付</option>
-		             <option value="3">QQ扫码支付</option>
-		             <option value="4">京东钱包扫码支付</option>
-		             <option value="5">快捷支付</option>
+		             <option value="41">微信-扫码</option>
+		             <option value="42">支付宝-扫码</option>
+		             <option value="43">QQ扫码支付</option>
+		             <option value="52">网银银行</option>
+		             <option value="60">京东钱包</option>
+		             <option value="61">银联二维码</option>
+		             <option value="62">微信H5</option>
+		             <option value="63">QQH5</option>
 		    	 </select>
 			</div>
 		</div>
