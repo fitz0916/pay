@@ -35,17 +35,17 @@ public class PaymentController {
 	public String pay(PaymentRequest paymentRequest,ModelMap modelMap) {
 		paymentRequest.setCurrency("CNY");
 		paymentRequest.setCustomerNo("10086877891");
-		paymentRequest.setDesc("交易");
-		paymentRequest.setFeature("aa");
+		paymentRequest.setDesc("微信扫码-测试");
+		paymentRequest.setFeature("{}");
 		paymentRequest.setInputCharset("UTF-8");
 		paymentRequest.setNotifyUrl(paymentRequest.getNotifyUrl());
 		paymentRequest.setPayOrderNo(generateOrderNo(new Date()));
-		paymentRequest.setSubject("支付宝扫码-支付");
-		paymentRequest.setPayTime("2020-02-27 11:22:11");
+		paymentRequest.setSubject("农家乐-宝安分店");
+		paymentRequest.setPayTime(DateUtil.date2Str("yyyy-MM-dd HH:mm:ss", new Date()));
 		paymentRequest.setPayAmount(paymentRequest.getPayAmount());
 		paymentRequest.setReturnUrl(paymentRequest.getReturnUrl());
 		paymentRequest.setClientIp("127.0.0.1");
-		paymentRequest.setSignature("a");
+		paymentRequest.setSignature("加密数据，此功能暂时未实现");
 		paymentRequest.setVersion("1.0");
 		paymentRequest.setSignType("MD5");
 		paymentRequest.setPayType(paymentRequest.getPayType());
@@ -56,13 +56,14 @@ public class PaymentController {
 			Map<String,String> map = ObjectToMapUtils.toMap(paymentRequest);
 			result = OkHttpUtil.getInstance().postWithForm("http://localhost:9005/brokenes/pay", map);
 			JSONObject jsonObject = JSONObject.parseObject(result);
-			String data = jsonObject.getString("data");
-			JSONObject object = JSONObject.parseObject(data);
-			String qrCode = object.getString("qrCode");
-			if(StringUtils.isNotBlank(qrCode)) {
+			boolean isSuccess = jsonObject.getBooleanValue("isSuccess");
+			if(isSuccess) {
+				String data = jsonObject.getString("data");
+				JSONObject object = JSONObject.parseObject(data);
+				String qrCode = object.getString("qrCode");
 				modelMap.put("data", qrCode);
 			}else {
-				modelMap.put("error", "系统错误");	
+				modelMap.put("error", jsonObject.getString("msg"));	
 				return "/error";
 			}
 					
