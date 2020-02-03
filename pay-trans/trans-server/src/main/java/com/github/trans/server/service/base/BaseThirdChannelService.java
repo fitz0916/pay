@@ -1,4 +1,4 @@
-package com.github.trans.server.service.pay;
+package com.github.trans.server.service.base;
 
 import java.math.BigDecimal;
 import java.util.Date;

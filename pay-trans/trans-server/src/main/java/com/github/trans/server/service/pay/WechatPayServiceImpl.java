@@ -22,6 +22,7 @@ import com.github.trans.common.response.PaymentResponse;
 import com.github.trans.common.service.PaymentOrderService;
 import com.github.trans.common.service.ThirdChannelService;
 import com.github.trans.common.utils.PaySignUtil;
+import com.github.trans.server.service.base.BaseThirdChannelService;
 
 @Service
 public class WechatPayServiceImpl extends BaseThirdChannelService implements ThirdChannelService{

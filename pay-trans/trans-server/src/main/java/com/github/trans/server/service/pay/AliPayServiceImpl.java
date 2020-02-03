@@ -10,6 +10,7 @@ import com.github.pattern.common.domain.CustomerPaymentChannelInfo;
 import com.github.trans.common.request.PaymentRequest;
 import com.github.trans.common.response.PaymentResponse;
 import com.github.trans.common.service.ThirdChannelService;
+import com.github.trans.server.service.base.BaseThirdChannelService;
 
 @Service
 public class AliPayServiceImpl extends BaseThirdChannelService implements ThirdChannelService{
