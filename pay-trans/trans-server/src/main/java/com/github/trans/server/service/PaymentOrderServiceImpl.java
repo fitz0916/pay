@@ -14,6 +14,7 @@ import com.github.trans.common.domain.PaymentOrder;
 import com.github.trans.common.request.PaymentOrderRequest;
 import com.github.trans.common.service.PaymentOrderService;
 import com.github.trans.server.dao.PaymentOrderDao;
+import com.github.trans.server.service.base.BaseService;
 
 @Service
 public class PaymentOrderServiceImpl extends BaseService implements PaymentOrderService{

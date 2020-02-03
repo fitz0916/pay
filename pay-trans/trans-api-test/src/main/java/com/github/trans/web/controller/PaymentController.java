@@ -5,7 +5,6 @@ import java.util.Date;
 import java.util.Map;
 import java.util.Random;
 
-import org.apache.commons.lang3.StringUtils;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.springframework.stereotype.Controller;
@@ -44,10 +43,9 @@ public class PaymentController {
 		paymentRequest.setPayTime(DateUtil.date2Str("yyyy-MM-dd HH:mm:ss", new Date()));
 		paymentRequest.setPayAmount(paymentRequest.getPayAmount());
 		paymentRequest.setReturnUrl(paymentRequest.getReturnUrl());
-		paymentRequest.setClientIp("127.0.0.1");
 		paymentRequest.setSignature("加密数据，此功能暂时未实现");
 		paymentRequest.setVersion("1.0");
-		paymentRequest.setSignType("MD5");
+		paymentRequest.setSignMethod("MD5");
 		paymentRequest.setPayType(paymentRequest.getPayType());
 		String sign = PaySignUtil.requestMd5Sign(paymentRequest, paymentRequest.getMerKey());
 		paymentRequest.setSign(sign);

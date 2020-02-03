@@ -15,6 +15,7 @@ import com.github.trans.common.request.PaymentRequest;
 import com.github.trans.common.response.PaymentResponse;
 import com.github.trans.common.service.PaymentService;
 import com.github.trans.common.service.ThirdChannelService;
+import com.github.trans.server.service.base.BasePaymentService;
 
 /***
  * 支付接口 
@@ -26,13 +27,6 @@ import com.github.trans.common.service.ThirdChannelService;
 public class PaymentServiceImpl extends BasePaymentService implements PaymentService{
 
 	private final static Logger LOGGER = LoggerFactory.getLogger(PaymentServiceImpl.class);
-	
-	@Autowired
-	private AgentServiceClient agentServiceClient;
-	@Autowired
-	private ShopServiceClient shopServiceClient;
-	@Autowired
-	private CustomerServiceClient customerServiceClient;
 	
 	
 	@Override

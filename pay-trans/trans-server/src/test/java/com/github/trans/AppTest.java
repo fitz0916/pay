@@ -39,7 +39,7 @@ public class AppTest {
 		
 		paymentRequest.setSignature("a");
 		paymentRequest.setVersion("1.0");
-		paymentRequest.setSignType("MD5");
+		paymentRequest.setSignMethod("MD5");
 		paymentRequest.setPayType("41");
 		//paymentRequest.base64Encoder();
 		String sign = PaySignUtil.requestMd5Sign(paymentRequest, "YrDpbi");

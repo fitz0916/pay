@@ -1,4 +1,4 @@
-package com.github.trans.server.service;
+package com.github.trans.server.service.base;
 
 import java.util.List;
 import java.util.Random;
@@ -26,15 +26,15 @@ import com.github.pattern.common.domain.PaymentTemplate;
 import com.github.pattern.common.domain.Shop;
 import com.github.trans.common.annotation.PayResponseCodeEnum;
 import com.github.trans.common.domain.PaymentOrder;
-import com.github.trans.common.request.PaymentRequest;
-import com.github.trans.common.response.PaymentResponse;
+import com.github.trans.common.request.TransRequest;
+import com.github.trans.common.response.TransResponse;
 import com.github.trans.common.service.PaymentOrderService;
 import com.github.trans.common.service.ThirdChannelService;
 import com.github.trans.common.utils.BeanValidatorUtils;
 import com.github.trans.common.utils.PaySignUtil;
 import com.github.trans.context.ThirdChannelContext;
 
-public abstract class BasePaymentService {
+public abstract class BasePaymentService<R extends TransRequest,Q extends TransResponse> {
 
 	private final static Logger LOGGER = LoggerFactory.getLogger(BasePaymentService.class);
 	
@@ -56,8 +56,8 @@ public abstract class BasePaymentService {
 	private PaymentOrderService paymentOrderServiceImpl;
 	
 	
-	protected ModelResult<PaymentResponse> checkPaymentOrder(PaymentRequest paymentRequest){
-		ModelResult<PaymentResponse> modelResult = new ModelResult<PaymentResponse>();
+	protected ModelResult<Q> checkPaymentOrder(R paymentRequest){
+		ModelResult<Q> modelResult = new ModelResult<Q>();
 		String customerOrderNo = paymentRequest.getPayOrderNo();
 		String customerNo = paymentRequest.getCustomerNo();
 		ModelResult<List<PaymentOrder>> orderModelResult = paymentOrderServiceImpl.selectByCstomerOrderNo(customerOrderNo);
@@ -84,8 +84,8 @@ public abstract class BasePaymentService {
 	 * @param paymentRequest
 	 * @return
 	 */
-	protected ModelResult<PaymentResponse> checkRequestParamter(PaymentRequest paymentRequest){
-		ModelResult<PaymentResponse> modelResult = new ModelResult<PaymentResponse>();
+	protected ModelResult<Q> checkRequestParamter(R paymentRequest){
+		ModelResult<Q> modelResult = new ModelResult<Q>();
 		if(paymentRequest == null) {
 			LOGGER.error("用户请求对象为空！");
 			modelResult.withError("0", "非法请求数据");
@@ -105,7 +105,7 @@ public abstract class BasePaymentService {
 	}
 	
 	
-	protected ModelResult<Customer> checkPaymentStatus(PaymentRequest paymentRequest){
+	protected ModelResult<Customer> checkPaymentStatus(R paymentRequest){
 		ModelResult<Customer> modelResult = new ModelResult<Customer>();
 		String customerNo = paymentRequest.getCustomerNo();
 		ModelResult<Customer> customerModelResult = customerServiceClient.selectByCustomerNo(customerNo);
@@ -178,8 +178,8 @@ public abstract class BasePaymentService {
 	 * @param paymentRequest
 	 * @return
 	 */
-	protected ModelResult<PaymentResponse> checkRequestSign(PaymentRequest paymentRequest,Customer customer){
-		ModelResult<PaymentResponse> modelResult = new ModelResult<PaymentResponse>();
+	protected ModelResult<Q> checkRequestSign(R paymentRequest,Customer customer){
+		ModelResult<Q> modelResult = new ModelResult<Q>();
 		String customerNo = customer.getCustomerNo();
 		String merKey = customer.getCipher();
 		try {
@@ -272,8 +272,8 @@ public abstract class BasePaymentService {
 	 * @param paymentRequest
 	 * @return
 	 */
-	protected ModelResult<PaymentResponse> checkRisk(PaymentRequest paymentRequest){
-		ModelResult<PaymentResponse> modelResult = new ModelResult<PaymentResponse>();
+	protected ModelResult<Q> checkRisk(R paymentRequest){
+		ModelResult<Q> modelResult = new ModelResult<Q>();
 		return modelResult;
 	}
 }

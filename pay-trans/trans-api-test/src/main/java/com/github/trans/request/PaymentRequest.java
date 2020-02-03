@@ -17,7 +17,7 @@ public class PaymentRequest implements Serializable{
 	@NotBlank(message = "signType不能为空")
 	@Pattern(message = "目前签名只有MD5", regexp = "(MD5{1})")
 	@Signature(required = false, desc = "签名方式")
-	private String signType;
+	private String signMethod;
 	
 	/** 签名(必选)[必选参数经过加密后赋值给这个属性]签名数据 **/
 	@NotBlank(message = "sign不能为空")
@@ -49,11 +49,6 @@ public class PaymentRequest implements Serializable{
 	@NotBlank(message = "returnUrl不能为空")
 	@Pattern(regexp = TransConstants.URL_REGEXP, message = "非法页面转发地址")
 	private String returnUrl;
-	
-	/**请求IP地址**/
-	@NotBlank(message = "clientIp不能为空")
-	@Pattern(regexp = TransConstants.IP_REGEXP,message = "请求IP格式不正确")
-	private String clientIp;
 	
 	/**支付订单号**/
 	@NotBlank(message = "payOrderNo不能为空")
@@ -103,11 +98,11 @@ public class PaymentRequest implements Serializable{
 	
 	private String merKey;
 	
-	public String getSignType() {
-		return signType;
+	public String getSignMethod() {
+		return signMethod;
 	}
-	public void setSignType(String signType) {
-		this.signType = signType;
+	public void setSignMethod(String signMethod) {
+		this.signMethod = signMethod;
 	}
 	public String getSign() {
 		return sign;
@@ -144,12 +139,6 @@ public class PaymentRequest implements Serializable{
 	}
 	public void setReturnUrl(String returnUrl) {
 		this.returnUrl = returnUrl;
-	}
-	public String getClientIp() {
-		return clientIp;
-	}
-	public void setClientIp(String clientIp) {
-		this.clientIp = clientIp;
 	}
 	public String getPayOrderNo() {
 		return payOrderNo;

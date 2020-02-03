@@ -1,4 +1,4 @@
-package com.github.trans.server.service;
+package com.github.trans.server.service.base;
 
 import com.github.appmodel.domain.result.ModelResult;
 import com.github.appmodel.page.DataPage;
