@@ -30,7 +30,7 @@ public class AliPayServiceImpl extends BaseThirdChannelService implements ThirdC
 
 
 	@Override
-	public ModelResult<PaymentQueryResponse> query(PaymentOrder paymentOrder) {
+	public ModelResult<PaymentQueryResponse> query(PaymentOrder paymentOrder,CustomerPaymentChannelInfo customerPaymentChannelInfo) {
 		// TODO Auto-generated method stub
 		return null;
 	}

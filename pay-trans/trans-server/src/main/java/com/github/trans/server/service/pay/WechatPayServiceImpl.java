@@ -8,6 +8,7 @@ import org.springframework.stereotype.Service;
 import com.alibaba.fastjson.JSON;
 import com.github.appmodel.domain.result.ModelResult;
 import com.github.channel.client.service.WechatPayServiceClient;
+import com.github.channel.common.request.WechatPayQueryRequest;
 import com.github.channel.common.request.WechatPayRequest;
 import com.github.channel.common.response.WechatPayResponse;
 import com.github.pattern.common.domain.Customer;
@@ -149,10 +150,32 @@ public class WechatPayServiceImpl extends BaseThirdChannelService implements Thi
 
 
 	@Override
-	public ModelResult<PaymentQueryResponse> query(PaymentOrder paymentOrder) {
+	public ModelResult<PaymentQueryResponse> query(PaymentOrder paymentOrder,CustomerPaymentChannelInfo customerPaymentChannelInfo) {
+		ModelResult<PaymentQueryResponse> modelResult = new ModelResult<PaymentQueryResponse>();
+		ModelResult<PaymentChannelAccount> accountModelResult = this.selectChannelAccount(customerPaymentChannelInfo);
+		if(!accountModelResult.isSuccess()) {
+			String errorCode = accountModelResult.getErrorCode();
+			String errorMsg = accountModelResult.getErrorMsg();
+			LOGGER.error("获取渠道账号失败 errorCode = 【{}】,errorMsg = 【{}】",errorCode,errorMsg);
+			modelResult.withError(errorCode, errorMsg);
+			return modelResult;
+		}
+		PaymentChannelAccount paymentChannelAccount = accountModelResult.getModel();
+		ModelResult<String> paramsModelResult = initAccountChannelParams(paymentChannelAccount);
+		if(!paramsModelResult.isSuccess()) {
+			String errorCode = accountModelResult.getErrorCode();
+			String errorMsg = accountModelResult.getErrorMsg();
+			LOGGER.error("获取渠道账号参数失败 errorCode = 【{}】,errorMsg = 【{}】",errorCode,errorMsg);
+			modelResult.withError(errorCode, errorMsg);
+			return modelResult;
+		}
+		String paramsJson = paramsModelResult.getModel();
 		String customerNo = paymentOrder.getCustomerNo();
 		String customerOrderNo = paymentOrder.getCustomerOrderNo();
 		String thirdChannelOrderNo = paymentOrder.getThirdChannelOrderNo();
+		WechatPayQueryRequest request = new WechatPayQueryRequest();
+		request.setPayjsOrderId(thirdChannelOrderNo);
+		
 		return null;
 	}
 	

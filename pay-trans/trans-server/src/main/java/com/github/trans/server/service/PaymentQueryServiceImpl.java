@@ -72,7 +72,7 @@ public class PaymentQueryServiceImpl extends BasePaymentService<PaymentQueryRequ
 				return modelResult;
 			}
 			ThirdChannelService thirdChannelService = thirdChannelModelResult.getModel();
-			modelResult = thirdChannelService.query(paymentOrder);
+			modelResult = thirdChannelService.query(paymentOrder,customerPaymentChannelInfo);
 			
 		return modelResult;
 	}
