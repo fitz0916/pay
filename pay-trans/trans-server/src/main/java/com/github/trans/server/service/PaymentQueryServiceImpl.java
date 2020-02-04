@@ -18,7 +18,7 @@ public class PaymentQueryServiceImpl extends BasePaymentService<PaymentQueryRequ
 	private final static Logger LOGGER = LoggerFactory.getLogger(PaymentQueryServiceImpl.class);
 	
 	@Override
-	public ModelResult<PaymentQueryResponse> queryOrder(PaymentQueryRequest request) {
+	public ModelResult<PaymentQueryResponse> query(PaymentQueryRequest request) {
 		 ModelResult<PaymentQueryResponse> modelResult = new  ModelResult<PaymentQueryResponse>();
 	 		//参数检测
 			modelResult = this.checkRequestParamter(request);

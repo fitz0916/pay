@@ -6,5 +6,5 @@ import com.github.trans.common.response.PaymentQueryResponse;
 
 public interface PaymentQueryService {
 
-	public ModelResult<PaymentQueryResponse> queryOrder(PaymentQueryRequest request);
+	public ModelResult<PaymentQueryResponse> query(PaymentQueryRequest request);
 }
