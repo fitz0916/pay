@@ -19,5 +19,5 @@ public interface ThirdChannelService {
 	public ModelResult<PaymentResponse> pay(PaymentRequest request,Customer customer,CustomerPaymentChannelInfo customerPaymentChannelInfo);
 	
 	
-	public ModelResult<PaymentQueryResponse> query(PaymentOrder paymentOrder,CustomerPaymentChannelInfo customerPaymentChannelInfo);
+	public ModelResult<PaymentQueryResponse> query(PaymentOrder paymentOrder,Customer customer,CustomerPaymentChannelInfo customerPaymentChannelInfo);
 }

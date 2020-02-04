@@ -7,9 +7,11 @@ import org.springframework.stereotype.Service;
 
 import com.alibaba.fastjson.JSON;
 import com.github.appmodel.domain.result.ModelResult;
-import com.github.channel.client.service.WechatPayServiceClient;
+import com.github.channel.client.service.payjs.WechatPayQueryServiceClient;
+import com.github.channel.client.service.payjs.WechatPayServiceClient;
 import com.github.channel.common.request.payjs.WechatPayQueryRequest;
 import com.github.channel.common.request.payjs.WechatPayRequest;
+import com.github.channel.common.response.payjs.WechatPayQueryResponse;
 import com.github.channel.common.response.payjs.WechatPayResponse;
 import com.github.pattern.common.domain.Customer;
 import com.github.pattern.common.domain.CustomerPaymentChannelFee;
@@ -32,6 +34,9 @@ public class WechatPayServiceImpl extends BaseThirdChannelService implements Thi
 	
 	@Autowired
 	private WechatPayServiceClient wechatPayServiceClient;
+	
+	@Autowired
+	private WechatPayQueryServiceClient wechatPayQueryServiceClient;
 	
 	@Autowired
 	private PaymentOrderService paymentOrderServiceImpl;
@@ -150,7 +155,7 @@ public class WechatPayServiceImpl extends BaseThirdChannelService implements Thi
 
 
 	@Override
-	public ModelResult<PaymentQueryResponse> query(PaymentOrder paymentOrder,CustomerPaymentChannelInfo customerPaymentChannelInfo) {
+	public ModelResult<PaymentQueryResponse> query(PaymentOrder paymentOrder,Customer customer,CustomerPaymentChannelInfo customerPaymentChannelInfo) {
 		ModelResult<PaymentQueryResponse> modelResult = new ModelResult<PaymentQueryResponse>();
 		ModelResult<PaymentChannelAccount> accountModelResult = this.selectChannelAccount(customerPaymentChannelInfo);
 		if(!accountModelResult.isSuccess()) {
@@ -175,8 +180,33 @@ public class WechatPayServiceImpl extends BaseThirdChannelService implements Thi
 		String thirdChannelOrderNo = paymentOrder.getThirdChannelOrderNo();
 		WechatPayQueryRequest request = new WechatPayQueryRequest();
 		request.setPayjsOrderId(thirdChannelOrderNo);
-		
-		return null;
+		ModelResult<WechatPayQueryResponse> queryModelResult = wechatPayQueryServiceClient.query(request);
+		if(!queryModelResult.isSuccess()) {
+			String errorCode = accountModelResult.getErrorCode();
+			String errorMsg = accountModelResult.getErrorMsg();
+			LOGGER.error("payJs查询订单支付失败 errorCode = 【{}】,errorMsg = 【{}】",errorCode,errorMsg);
+			modelResult.withError(errorCode, errorMsg);
+			return modelResult;
+		}
+		WechatPayQueryResponse wechatPayQueryResponse = queryModelResult.getModel();
+		PaymentOrder record = new PaymentOrder();
+		record.setOrderNo(paymentOrder.getOrderNo());
+		int status = wechatPayQueryResponse.getStatus();
+		if(status == 1) {
+			record.setPayStatus(1);
+		}else {
+			record.setPayStatus(2);
+		}
+		paymentOrderServiceImpl.updateByPrimaryKeySelective(record);
+		PaymentQueryResponse paymentQueryResponse = new PaymentQueryResponse();
+		paymentQueryResponse.setCustomerNo(customerNo);
+		paymentQueryResponse.setPayOrderNo(customerOrderNo);
+		paymentQueryResponse.setPayStatus(String.valueOf(record.getPayStatus()));
+		String cipher = customer.getCipher();
+		String sign  = PaySignUtil.requestMd5Sign(paymentQueryResponse, cipher);
+		paymentQueryResponse.setSign(sign);
+		modelResult.setModel(paymentQueryResponse);
+		return modelResult;
 	}
 	
 

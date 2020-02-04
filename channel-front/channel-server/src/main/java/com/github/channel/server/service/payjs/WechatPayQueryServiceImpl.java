@@ -91,16 +91,16 @@ public class WechatPayQueryServiceImpl extends BaseTradeService<WechatPayQueryRe
 			return modelResult;
 		}
 		WechatPayQueryResponse response = JSON.parseObject(respStr,WechatPayQueryResponse.class);
-		String returnCode = response.getReturnCode();
-		if(returnCode.equals("0")) {
+		if(response == null || response.getReturnCode().equals("0")) {
 			modelResult.withError("0", "请求失败");
 			return modelResult;
 		}
-		int status = response.getStatus();
-		if(status == 0) {
-			modelResult.withError("0", "支付失败");
-			return modelResult;
-		}
+		
+//		int status = response.getStatus();
+//		if(status == 0) {
+//			modelResult.withError("0", "支付失败");
+//			return modelResult;
+//		}
 		modelResult.setModel(response);
 		return modelResult;
 	}

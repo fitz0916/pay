@@ -1,4 +1,4 @@
-package com.github.channel.client.service;
+package com.github.channel.client.service.payjs;
 
 import org.springframework.cloud.openfeign.FeignClient;
 import org.springframework.web.bind.annotation.PostMapping;
