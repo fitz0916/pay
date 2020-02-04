@@ -178,8 +178,14 @@ public class WechatPayServiceImpl extends BaseThirdChannelService implements Thi
 		String customerNo = paymentOrder.getCustomerNo();
 		String customerOrderNo = paymentOrder.getCustomerOrderNo();
 		String thirdChannelOrderNo = paymentOrder.getThirdChannelOrderNo();
-		WechatPayQueryRequest request = new WechatPayQueryRequest();
-		request.setPayjsOrderId(thirdChannelOrderNo);
+		ModelResult<WechatPayQueryRequest> wechatResultModelResult = initWechatPayQueryRequest(thirdChannelOrderNo,paramsJson);
+		if(!wechatResultModelResult.isSuccess()) {
+			String errorCode = accountModelResult.getErrorCode();
+			String errorMsg = accountModelResult.getErrorMsg();
+			modelResult.withError(errorCode, errorMsg);
+			return modelResult;
+		}
+		WechatPayQueryRequest request = wechatResultModelResult.getModel();
 		ModelResult<WechatPayQueryResponse> queryModelResult = wechatPayQueryServiceClient.query(request);
 		if(!queryModelResult.isSuccess()) {
 			String errorCode = accountModelResult.getErrorCode();
@@ -206,6 +212,26 @@ public class WechatPayServiceImpl extends BaseThirdChannelService implements Thi
 		String sign  = PaySignUtil.requestMd5Sign(paymentQueryResponse, cipher);
 		paymentQueryResponse.setSign(sign);
 		modelResult.setModel(paymentQueryResponse);
+		return modelResult;
+	}
+
+
+	private ModelResult<WechatPayQueryRequest> initWechatPayQueryRequest(String thirdChannelOrderNo,String paramsJson) {
+		ModelResult<WechatPayQueryRequest> modelResult = new ModelResult<WechatPayQueryRequest>();
+		WechatPayQueryRequest wechatPayRequest = null;
+		try {
+			wechatPayRequest = JSON.parseObject(paramsJson,WechatPayQueryRequest.class);
+			if(wechatPayRequest == null) {
+				modelResult.withError("0", "渠道账号参数解析错误");
+				return modelResult;
+			}
+			wechatPayRequest.setPayjsOrderId(thirdChannelOrderNo);
+			modelResult.setModel(wechatPayRequest);
+		}catch(Exception e) {
+			modelResult.withError("0", "渠道账号参数配置错误");
+			LOGGER.error("渠道账号参数配置错误 exceptionMsg = 【{}】",e.getMessage());
+			return modelResult;
+		}
 		return modelResult;
 	}
 	
