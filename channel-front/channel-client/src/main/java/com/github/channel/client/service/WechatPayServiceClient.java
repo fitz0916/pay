@@ -6,8 +6,8 @@ import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
 
 import com.github.appmodel.domain.result.ModelResult;
-import com.github.channel.common.request.WechatPayRequest;
-import com.github.channel.common.response.WechatPayResponse;
+import com.github.channel.common.request.payjs.WechatPayRequest;
+import com.github.channel.common.response.payjs.WechatPayResponse;
 
 @FeignClient(name="channel-server")
 @RequestMapping("/channel/server/wechatpay")

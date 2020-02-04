@@ -1,8 +1,8 @@
-package com.github.channel.common.request;
+package com.github.channel.common.request.payjs;
 
 import com.github.channel.common.domain.BaseObject;
 
-public class PayJsSignRequest extends BaseObject{
+public class WechatPaySignRequest extends BaseObject{
 	
 	private String outTradeNo;
 	private String mchid;

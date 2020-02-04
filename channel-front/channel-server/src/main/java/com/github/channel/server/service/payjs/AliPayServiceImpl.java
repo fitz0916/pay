@@ -11,16 +11,16 @@ import org.springframework.stereotype.Service;
 import com.alibaba.fastjson.JSON;
 import com.alibaba.fastjson.JSONObject;
 import com.github.appmodel.domain.result.ModelResult;
-import com.github.channel.common.request.AliPayRequest;
-import com.github.channel.common.response.AliPayResponse;
-import com.github.channel.common.service.PayJsService;
+import com.github.channel.common.request.payjs.AliPayRequest;
+import com.github.channel.common.response.payjs.AliPayResponse;
+import com.github.channel.common.service.payjs.WechatPayService;
 import com.github.channel.common.utils.BeanValidatorUtils;
 import com.github.channel.common.utils.OkHttpUtil;
 import com.github.channel.common.utils.PayJsSignUtils;
 import com.github.channel.server.service.BaseTradeService;
 
 @Service
-public class AliPayServiceImpl extends BaseTradeService<AliPayRequest, AliPayResponse> implements PayJsService<AliPayRequest, AliPayResponse>{
+public class AliPayServiceImpl extends BaseTradeService<AliPayRequest, AliPayResponse> implements WechatPayService<AliPayRequest, AliPayResponse>{
 
 	private final static Logger LOGGER = LoggerFactory.getLogger(AliPayServiceImpl.class);
 	

@@ -1,8 +1,6 @@
-package com.github.channel.common.request;
+package com.github.channel.common.request.payjs;
 
-import com.github.channel.common.domain.ChannelRequest;
-
-public class WechatPayQueryRequest extends ChannelRequest{
+public class WechatPayQueryRequest extends PayJsRequest{
 
 	private String payjsOrderId;
 

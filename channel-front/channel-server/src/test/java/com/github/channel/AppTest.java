@@ -8,16 +8,16 @@ import org.springframework.boot.test.context.SpringBootTest;
 import org.springframework.test.context.junit4.SpringRunner;
 
 import com.github.appmodel.domain.result.ModelResult;
-import com.github.channel.common.request.WechatPayRequest;
-import com.github.channel.common.response.WechatPayResponse;
-import com.github.channel.common.service.PayJsService;
+import com.github.channel.common.request.payjs.WechatPayRequest;
+import com.github.channel.common.response.payjs.WechatPayResponse;
+import com.github.channel.common.service.payjs.WechatPayService;
 
 @RunWith(SpringRunner.class)
 @SpringBootTest(classes = Application.class)
 public class AppTest {
 
 	@Autowired
-	private PayJsService<WechatPayRequest,WechatPayResponse> wechatPayServiceImpl;
+	private WechatPayService<WechatPayRequest,WechatPayResponse> wechatPayServiceImpl;
 	
 	@Test
 	public void _测试支付接口() {

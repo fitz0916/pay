@@ -13,7 +13,7 @@ import org.slf4j.LoggerFactory;
 import com.alibaba.fastjson.JSONObject;
 import com.alibaba.fastjson.PropertyNamingStrategy;
 import com.alibaba.fastjson.serializer.SerializeConfig;
-import com.github.channel.common.request.WechatPayRequest;
+import com.github.channel.common.request.payjs.WechatPayRequest;
 
 public class PayJsSignUtils {
 

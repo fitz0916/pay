@@ -11,18 +11,18 @@ import org.springframework.stereotype.Service;
 import com.alibaba.fastjson.JSON;
 import com.alibaba.fastjson.JSONObject;
 import com.github.appmodel.domain.result.ModelResult;
-import com.github.channel.common.request.PayJsSignRequest;
-import com.github.channel.common.request.WechatPayRequest;
-import com.github.channel.common.response.WechatPayResponse;
-import com.github.channel.common.service.PayJsService;
+import com.github.channel.common.request.payjs.WechatPayRequest;
+import com.github.channel.common.request.payjs.WechatPaySignRequest;
+import com.github.channel.common.response.payjs.WechatPayResponse;
+import com.github.channel.common.service.payjs.WechatPayService;
 import com.github.channel.common.utils.BeanValidatorUtils;
 import com.github.channel.common.utils.OkHttpUtil;
 import com.github.channel.common.utils.PayJsSignUtils;
 import com.github.channel.server.service.BaseTradeService;
 @Service
-public class WechatPayServiceImpl extends BaseTradeService<WechatPayRequest, WechatPayResponse> implements PayJsService<WechatPayRequest, WechatPayResponse>{
+public class WechatPayServiceImpl extends BaseTradeService<WechatPayRequest, WechatPayResponse> implements WechatPayService<WechatPayRequest, WechatPayResponse>{
 
-private final static Logger LOGGER = LoggerFactory.getLogger(AliPayServiceImpl.class);
+	private final static Logger LOGGER = LoggerFactory.getLogger(WechatPayServiceImpl.class);
 	
 	@Override
 	public ModelResult<WechatPayResponse> pay(WechatPayRequest request) {
@@ -55,33 +55,12 @@ private final static Logger LOGGER = LoggerFactory.getLogger(AliPayServiceImpl.c
 	protected ModelResult<WechatPayResponse> processWithJson(WechatPayRequest request) {
 		ModelResult<WechatPayResponse> modelResult = new ModelResult<WechatPayResponse>();
 		try {
-//			String sign = PayJsSignUtils.getSign(request, request.getSecretKey());
-			//String sign  = PaySignUtil.requestMd5Sign(request, request.getSecretKey());
-			PayJsSignRequest payJsSignRequest = getSign(request);
+			WechatPaySignRequest payJsSignRequest = getSign(request);
 			String sign = PayJsSignUtils.getSign(payJsSignRequest,request.getSecretKey());
 			request.setSign(sign);
 			String url = request.getUrl();
-			JSONObject requestJSON = this.requestJSON(request);
+			JSONObject requestJSON = this.initJSONObject(request);
 			String result = null;
-//			 	SerializeConfig config = new SerializeConfig();
-//		        config.propertyNamingStrategy = PropertyNamingStrategy.SnakeCase;
-//		        String jsonString = requestJSON.toJSONString();
-//
-//		        OkHttpClient client = new OkHttpClient().newBuilder()
-//		                .connectTimeout(this.connectTimeout, TimeUnit.MILLISECONDS)
-//		                .readTimeout(this.readTimeout, TimeUnit.MILLISECONDS)
-//		                .build();
-//
-//		        RequestBody body = RequestBody.create(MediaTypeJson, jsonString);
-//		        Request okRequest = new Request.Builder()
-//		                .url(url)
-//		                .addHeader("Content-Type", "application/json")
-//		                .post(body)
-//		                .build();
-//		        
-//			
-//		     Response response = client.newCall(okRequest).execute();
-//		     result = response.body().string();
 		    result = OkHttpUtil.getInstance().postWithJson(url, requestJSON);
 		    LOGGER.info("******payJs请求结果************* result = 【{}】",result);
 			modelResult = parse(request, result);
@@ -94,8 +73,8 @@ private final static Logger LOGGER = LoggerFactory.getLogger(AliPayServiceImpl.c
 	}
 	
 	
-	private PayJsSignRequest getSign(WechatPayRequest request) {
-		PayJsSignRequest payJsSignRequest = new PayJsSignRequest();
+	private WechatPaySignRequest getSign(WechatPayRequest request) {
+		WechatPaySignRequest payJsSignRequest = new WechatPaySignRequest();
 		payJsSignRequest.setMchid(request.getMchid());
 		payJsSignRequest.setOutTradeNo(request.getOutTradeNo());
 		payJsSignRequest.setTotalFee(request.getTotalFee());
@@ -104,7 +83,7 @@ private final static Logger LOGGER = LoggerFactory.getLogger(AliPayServiceImpl.c
 		payJsSignRequest.setNotifyUrl(request.getNotifyUrl());
 		return payJsSignRequest;
 	}
-	private JSONObject requestJSON(WechatPayRequest request) {
+	private JSONObject initJSONObject(WechatPayRequest request) {
 		JSONObject jsonObject = new JSONObject();
 		jsonObject.put("mchid", request.getMchid());
 		jsonObject.put("total_fee", request.getTotalFee());
