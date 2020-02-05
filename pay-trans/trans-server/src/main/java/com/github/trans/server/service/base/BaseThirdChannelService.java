@@ -96,7 +96,7 @@ public abstract class BaseThirdChannelService {
 		String shopProundage = String.valueOf(AmountUtil.feeRoundingF(amountBigDecimal, shopFee));
 		//商户实际到账金额(交易金额-交易金额*接入费率)
 		int settlementType = customerPaymentChannelInfo.getSettlementType();
-		int settlementStatus = customerPaymentChannelInfo.getSettlementType();
+		int settlementStatus = 0;
 		paymentOrder.setOrderNo(orderNo);
 		paymentOrder.setCustomerNo(customerNo);
 		paymentOrder.setAgentId(agentId);

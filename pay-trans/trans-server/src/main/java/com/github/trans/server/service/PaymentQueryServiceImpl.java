@@ -2,6 +2,7 @@ package com.github.trans.server.service;
 
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
+import org.springframework.stereotype.Service;
 
 import com.github.appmodel.domain.result.ModelResult;
 import com.github.pattern.common.domain.Customer;
@@ -13,6 +14,7 @@ import com.github.trans.common.service.PaymentQueryService;
 import com.github.trans.common.service.ThirdChannelService;
 import com.github.trans.server.service.base.BasePaymentService;
 
+@Service
 public class PaymentQueryServiceImpl extends BasePaymentService<PaymentQueryRequest, PaymentQueryResponse> implements PaymentQueryService{
 
 	private final static Logger LOGGER = LoggerFactory.getLogger(PaymentQueryServiceImpl.class);

@@ -10,6 +10,7 @@ import org.springframework.stereotype.Service;
 import com.alibaba.fastjson.JSON;
 import com.alibaba.fastjson.JSONObject;
 import com.github.appmodel.domain.result.ModelResult;
+import com.github.channel.common.constants.ChannelConstants;
 import com.github.channel.common.request.payjs.WechatPayQueryRequest;
 import com.github.channel.common.request.payjs.WechatPayQuerySignRequest;
 import com.github.channel.common.response.payjs.WechatPayQueryResponse;
@@ -56,7 +57,7 @@ public class WechatPayQueryServiceImpl extends BaseTradeService<WechatPayQueryRe
 			WechatPayQuerySignRequest payJsSignRequest = getSign(request);
 			String sign = PayJsSignUtils.getSign(payJsSignRequest,request.getSecretKey());
 			request.setSign(sign);
-			String url = request.getUrl();
+			String url = request.getUrl() + ChannelConstants.PAYJS_QUERY_SUFFIX;
 			JSONObject requestJSON = this.initJSONObject(request);
 			String result = null;
 		    result = OkHttpUtil.getInstance().postWithJson(url, requestJSON);
