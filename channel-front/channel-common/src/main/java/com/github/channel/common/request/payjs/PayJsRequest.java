@@ -19,8 +19,8 @@ public class PayJsRequest extends ChannelRequest{
 	@Pattern(regexp = ChannelConstants.URL_REGEXP, message = "请求渠道地址")
 	private String url;
 	//秘钥
+	@NotBlank(message = "secretKey[商户秘钥]不能为空")
 	private String secretKey;
-	
 	//数据签名
 	private String sign;
 	
