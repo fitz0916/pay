@@ -41,9 +41,11 @@ public class AppTest {
 		paymentRequest.setVersion("1.0");
 		paymentRequest.setSignMethod("MD5");
 		paymentRequest.setPayType("41");
-		//paymentRequest.base64Encoder();
+		
 		String sign = PaySignUtil.requestMd5Sign(paymentRequest, "YrDpbi");
 		paymentRequest.setSign(sign);
+//		paymentRequest.base64Encoder();
+//		paymentRequest.base64Decoder(); // 签名前
 		ModelResult<PaymentResponse>  modelResult = paymentServiceImpl.pay(paymentRequest);
 		
 		if(!modelResult.isSuccess()) {

@@ -32,11 +32,6 @@ public class PaymentRequest implements Serializable{
 	@Pattern(message = "编码格式为：UTF-8", regexp = "(UTF-8{1})")
 	@Signature(required = true, desc = "参数编码字符集,编码格式为：UTF-8")
 	private String inputCharset;
-	/**请求IP地址**/
-	@NotBlank(message = "clientIp不能为空")
-	@Pattern(regexp = TransConstants.IP_REGEXP,message = "请求IP格式不正确")
-	@Signature(required = false, desc = "请求IP")
-	private String clientIp;
 	/***版本号**/
 	@NotBlank(message = "version不能为空")
 	@Pattern(message = "版本号格式为:1.0", regexp = "^[1]*(\\.[0]{1})?$")
@@ -97,109 +92,144 @@ public class PaymentRequest implements Serializable{
 	private String feature;
 	
 	private String merKey;
-	
+
 	public String getSignMethod() {
 		return signMethod;
 	}
+
 	public void setSignMethod(String signMethod) {
 		this.signMethod = signMethod;
 	}
-	public String getSign() {
-		return sign;
-	}
-	public void setSign(String sign) {
-		this.sign = sign;
-	}
-	public String getSignature() {
-		return signature;
-	}
-	public void setSignature(String signature) {
-		this.signature = signature;
-	}
-	public String getCustomerNo() {
-		return customerNo;
-	}
-	public void setCustomerNo(String customerNo) {
-		this.customerNo = customerNo;
-	}
-	public String getInputCharset() {
-		return inputCharset;
-	}
-	public void setInputCharset(String inputCharset) {
-		this.inputCharset = inputCharset;
-	}
-	public String getNotifyUrl() {
-		return notifyUrl;
-	}
-	public void setNotifyUrl(String notifyUrl) {
-		this.notifyUrl = notifyUrl;
-	}
-	public String getReturnUrl() {
-		return returnUrl;
-	}
-	public void setReturnUrl(String returnUrl) {
-		this.returnUrl = returnUrl;
-	}
+
 	public String getPayOrderNo() {
 		return payOrderNo;
 	}
+
 	public void setPayOrderNo(String payOrderNo) {
 		this.payOrderNo = payOrderNo;
 	}
-	public String getPayTime() {
-		return payTime;
+
+	public String getCustomerNo() {
+		return customerNo;
 	}
-	public void setPayTime(String payTime) {
-		this.payTime = payTime;
+
+	public void setCustomerNo(String customerNo) {
+		this.customerNo = customerNo;
 	}
-	public String getPayAmount() {
-		return payAmount;
+
+	public String getInputCharset() {
+		return inputCharset;
 	}
-	public void setPayAmount(String payAmount) {
-		this.payAmount = payAmount;
+
+	public void setInputCharset(String inputCharset) {
+		this.inputCharset = inputCharset;
 	}
-	public String getCurrency() {
-		return currency;
-	}
-	public void setCurrency(String currency) {
-		this.currency = currency;
-	}
-	public String getPayType() {
-		return payType;
-	}
-	public void setPayType(String payType) {
-		this.payType = payType;
-	}
+
 	public String getVersion() {
 		return version;
 	}
+
 	public void setVersion(String version) {
 		this.version = version;
 	}
+
+	public String getSign() {
+		return sign;
+	}
+
+	public void setSign(String sign) {
+		this.sign = sign;
+	}
+
+	public String getSignature() {
+		return signature;
+	}
+
+	public void setSignature(String signature) {
+		this.signature = signature;
+	}
+
+	public String getNotifyUrl() {
+		return notifyUrl;
+	}
+
+	public void setNotifyUrl(String notifyUrl) {
+		this.notifyUrl = notifyUrl;
+	}
+
+	public String getReturnUrl() {
+		return returnUrl;
+	}
+
+	public void setReturnUrl(String returnUrl) {
+		this.returnUrl = returnUrl;
+	}
+
+	public String getPayTime() {
+		return payTime;
+	}
+
+	public void setPayTime(String payTime) {
+		this.payTime = payTime;
+	}
+
+	public String getPayAmount() {
+		return payAmount;
+	}
+
+	public void setPayAmount(String payAmount) {
+		this.payAmount = payAmount;
+	}
+
+	public String getCurrency() {
+		return currency;
+	}
+
+	public void setCurrency(String currency) {
+		this.currency = currency;
+	}
+
+	public String getPayType() {
+		return payType;
+	}
+
+	public void setPayType(String payType) {
+		this.payType = payType;
+	}
+
 	public String getSubject() {
 		return subject;
 	}
+
 	public void setSubject(String subject) {
 		this.subject = subject;
 	}
+
 	public String getDesc() {
 		return desc;
 	}
+
 	public void setDesc(String desc) {
 		this.desc = desc;
 	}
+
 	public String getFeature() {
 		return feature;
 	}
+
 	public void setFeature(String feature) {
 		this.feature = feature;
 	}
+
 	public String getMerKey() {
 		return merKey;
 	}
+
 	public void setMerKey(String merKey) {
 		this.merKey = merKey;
 	}
+	
+	
 	
 	
 }

@@ -161,7 +161,8 @@ public class PaymentRequest extends TransRequest{
 				this.desc = new String(base64Decoder.decode(desc), "UTF-8");
 			}
 		} catch (UnsupportedEncodingException e) {
-			e.printStackTrace();
+			throw new IllegalArgumentException("参数解码错误");
+//			e.printStackTrace();
 		}
 	}
 
@@ -178,7 +179,8 @@ public class PaymentRequest extends TransRequest{
 				this.desc = new String(base64Encoder.encode(desc.getBytes("utf-8")), "UTF-8");
 			}
 		} catch (UnsupportedEncodingException e) {
-			e.printStackTrace();
+			throw new IllegalArgumentException("参数编码错误");
+//			e.printStackTrace();
 		}
 	}
 	

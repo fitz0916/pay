@@ -53,19 +53,25 @@ public class PaymentController {
 		try {
 			Map<String,String> map = ObjectToMapUtils.toMap(paymentRequest);
 			result = OkHttpUtil.getInstance().postWithForm("http://localhost:9005/brokenes/pay", map);
-			JSONObject jsonObject = JSONObject.parseObject(result);
-			boolean isSuccess = jsonObject.getBooleanValue("isSuccess");
-			if(isSuccess) {
-				String data = jsonObject.getString("data");
-				JSONObject object = JSONObject.parseObject(data);
-				String qrCode = object.getString("qrCode");
-				modelMap.put("data", qrCode);
+			if(result != null) {
+				JSONObject jsonObject = JSONObject.parseObject(result);
+				boolean isSuccess = jsonObject.getBooleanValue("isSuccess");
+				if(isSuccess) {
+					String data = jsonObject.getString("data");
+					JSONObject object = JSONObject.parseObject(data);
+					String qrCode = object.getString("qrCode");
+					modelMap.put("data", qrCode);
+				}else {
+					modelMap.put("error", jsonObject.getString("msg"));	
+					return "/error";
+				}
 			}else {
-				modelMap.put("error", jsonObject.getString("msg"));	
+				modelMap.put("error", "系统异常");	
 				return "/error";
 			}
 					
-		} catch (IOException e) {
+		} catch (Exception e) {
+			e.printStackTrace();
 			return "/error";
 		}
 		
