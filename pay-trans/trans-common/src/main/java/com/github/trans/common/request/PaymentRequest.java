@@ -1,3 +1,4 @@
+
 package com.github.trans.common.request;
 
 import java.io.UnsupportedEncodingException;
@@ -9,7 +10,6 @@ import javax.validation.constraints.Pattern;
 
 import org.apache.commons.lang3.StringUtils;
 import org.hibernate.validator.constraints.NotBlank;
-import org.springframework.format.annotation.DateTimeFormat;
 
 import com.github.trans.common.annotation.Signature;
 import com.github.trans.common.constants.TransConstants;
@@ -45,6 +45,7 @@ public class PaymentRequest extends TransRequest{
 	
 	/****币种,目前只有人民币-CNY**/
 	@NotBlank(message = "currency不能为空")
+	@Pattern(regexp = "(CNY{1})", message = "交易币种默认为:CNY")
 	private String currency;
 	
 	/**交易类型,41-微信,42-支付宝,43-QQ钱包,52-网银银行,60-京东钱包,61-银联二维码,62-微信H5,63-QQH5**/
@@ -63,7 +64,7 @@ public class PaymentRequest extends TransRequest{
 	
 	/***扩展字段，JSON数据格式***/
 	@NotBlank(message = "feature不能为空")
-	@Signature(required = true, desc = "扩展字段")
+	@Signature(required = false, desc = "扩展字段")
 	private String feature;
 	
 	
@@ -153,8 +154,10 @@ public class PaymentRequest extends TransRequest{
 	public void base64Decoder() {
 		Decoder base64Decoder = Base64.getDecoder();
 		try {
-			if(StringUtils.isNotBlank(subject) && StringUtils.isNotBlank(desc)) {
+			if(StringUtils.isNotBlank(subject)) {
 				this.subject = new String(base64Decoder.decode(subject), "UTF-8");
+			}
+			if(StringUtils.isNotBlank(desc)) {
 				this.desc = new String(base64Decoder.decode(desc), "UTF-8");
 			}
 		} catch (UnsupportedEncodingException e) {
@@ -168,8 +171,10 @@ public class PaymentRequest extends TransRequest{
 	public void base64Encoder() {
 		Encoder base64Encoder = Base64.getEncoder();
 		try {
-			if(StringUtils.isNotBlank(subject) && StringUtils.isNotBlank(desc)) {
+			if(StringUtils.isNotBlank(subject)) {
 				this.subject = new String(base64Encoder.encode(subject.getBytes("utf-8")), "UTF-8");
+			}
+			if(StringUtils.isNotBlank(desc)) {
 				this.desc = new String(base64Encoder.encode(desc.getBytes("utf-8")), "UTF-8");
 			}
 		} catch (UnsupportedEncodingException e) {

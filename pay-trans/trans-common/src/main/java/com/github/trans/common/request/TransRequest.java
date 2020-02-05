@@ -29,6 +29,7 @@ public  class TransRequest implements Serializable{
 	private String customerNo;
 	/**编码格式UTF-8**/
 	@NotBlank(message = "inputCharset不能为空,编码格式为：UTF-8")
+	@Pattern(message = "编码格式为：UTF-8", regexp = "(UTF-8{1})")
 	@Signature(required = true, desc = "参数编码字符集,编码格式为：UTF-8")
 	private String inputCharset;
 	/**请求IP地址**/
@@ -38,6 +39,7 @@ public  class TransRequest implements Serializable{
 	private String clientIp;
 	/***版本号**/
 	@NotBlank(message = "version不能为空")
+	@Pattern(message = "版本号格式为:1.0", regexp = "^[1]*(\\.[0]{1})?$")
 	@Signature(required = true, desc = "接口版本")
 	private String version;
 	
