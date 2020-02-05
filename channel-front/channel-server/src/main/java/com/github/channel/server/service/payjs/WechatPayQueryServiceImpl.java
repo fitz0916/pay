@@ -27,7 +27,7 @@ public class WechatPayQueryServiceImpl extends BaseTradeService<WechatPayQueryRe
 	
 	@Override
 	public ModelResult<WechatPayQueryResponse> query(WechatPayQueryRequest request) {
-		LOGGER.info("用户请求对象数据 WechatPayRequest = 【{}】",request);
+		LOGGER.info("微信支付查询请求对象数据 wechatPayQueryRequest = 【{}】",request);
 		ModelResult<WechatPayQueryResponse> modelResult = this.process(request);
 		return modelResult;
 	}
@@ -43,7 +43,7 @@ public class WechatPayQueryServiceImpl extends BaseTradeService<WechatPayQueryRe
 		List<String> list = BeanValidatorUtils.validateParam(request);
 		if(CollectionUtils.isNotEmpty(list)) {
 			String errorMsg = list.toString();
-			LOGGER.warn("支付请求参数包含以下属性数据为空,errorMsg = 【{}】",errorMsg);
+			LOGGER.warn("payJs微信支付查询参数包含以下属性数据为空,errorMsg = 【{}】",errorMsg);
 			modelResult.withError("0", errorMsg);
 			return modelResult;
 		}
@@ -61,10 +61,10 @@ public class WechatPayQueryServiceImpl extends BaseTradeService<WechatPayQueryRe
 			JSONObject requestJSON = this.initJSONObject(request);
 			String result = null;
 		    result = OkHttpUtil.getInstance().postWithJson(url, requestJSON);
-		    LOGGER.info("******payJs查询请求结果************* result = 【{}】",result);
+		    LOGGER.info("******payJs微信支付查询请求结果************* result = 【{}】",result);
 			modelResult = parse(request, result);
 		}catch(Exception e) {
-			LOGGER.error("payJS支付查询请求失败,errorMsg = 【{}】",e.getMessage());
+			LOGGER.error("payJS微信支付查询请求失败,errorMsg = 【{}】",e.getMessage());
 			modelResult.withError("0", "支付请求失败");
 			return modelResult;
 		}
@@ -88,7 +88,7 @@ public class WechatPayQueryServiceImpl extends BaseTradeService<WechatPayQueryRe
 	protected ModelResult<WechatPayQueryResponse> parse(WechatPayQueryRequest request, String respStr) {
 		ModelResult<WechatPayQueryResponse> modelResult = new ModelResult<WechatPayQueryResponse>();
 		if(StringUtils.isBlank(respStr)) {
-			modelResult.withError("0", "payJs微信扫支付查询解析请求结果失败");
+			modelResult.withError("0", "payJs微信支付查询解析请求结果失败");
 			return modelResult;
 		}
 		WechatPayQueryResponse response = JSON.parseObject(respStr,WechatPayQueryResponse.class);
