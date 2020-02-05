@@ -73,14 +73,14 @@ public class WechatPayQueryServiceImpl extends BaseTradeService<WechatPayQueryRe
 
 	private JSONObject initJSONObject(WechatPayQueryRequest request) {
 		JSONObject jsonObject = new JSONObject();
-		jsonObject.put("payjs_order_id", request.getOutTradeNo());
+		jsonObject.put("payjs_order_id", request.getPayjsOrderId());
 		jsonObject.put("sign", request.getSign());
 		return jsonObject;
 	}
 
 	private WechatPayQuerySignRequest getSign(WechatPayQueryRequest request) {
 		WechatPayQuerySignRequest wechatPayQuerySignRequest = new WechatPayQuerySignRequest();
-		wechatPayQuerySignRequest.setPayjsOrderId(request.getOutTradeNo());
+		wechatPayQuerySignRequest.setPayjsOrderId(request.getPayjsOrderId());
 		return wechatPayQuerySignRequest;
 	}
 

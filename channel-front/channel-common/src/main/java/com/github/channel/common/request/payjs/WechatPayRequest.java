@@ -22,6 +22,11 @@ public class WechatPayRequest extends PayJsRequest{
 		//接收微信支付异步通知的回调地址。必须为可直接访问的URL，不能带参数、session验证、csrf验证。留空则不通知
 		@NotBlank(message = "notifyUrl[异步通知的回调地址]不能为空")
 		private String notifyUrl;
+		//用户端自主生成的订单号
+		@NotBlank(message = "outTradeNo[订单号]不能为空")
+		@Signature(required = true,desc = "订单号")
+		private String outTradeNo;
+		
 		public String getTotalFee() {
 			return totalFee;
 		}
@@ -46,5 +51,10 @@ public class WechatPayRequest extends PayJsRequest{
 		public void setNotifyUrl(String notifyUrl) {
 			this.notifyUrl = notifyUrl;
 		}
-		
+		public String getOutTradeNo() {
+			return outTradeNo;
+		}
+		public void setOutTradeNo(String outTradeNo) {
+			this.outTradeNo = outTradeNo;
+		}
 }

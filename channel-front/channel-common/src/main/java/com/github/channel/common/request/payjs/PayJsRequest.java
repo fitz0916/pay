@@ -20,10 +20,7 @@ public class PayJsRequest extends ChannelRequest{
 	private String url;
 	//秘钥
 	private String secretKey;
-	//用户端自主生成的订单号
-	@NotBlank(message = "outTradeNo[订单号]不能为空")
-	@Signature(required = true,desc = "订单号")
-	private String outTradeNo;
+	
 	//数据签名
 	private String sign;
 	
@@ -45,12 +42,7 @@ public class PayJsRequest extends ChannelRequest{
 	public void setSecretKey(String secretKey) {
 		this.secretKey = secretKey;
 	}
-	public String getOutTradeNo() {
-		return outTradeNo;
-	}
-	public void setOutTradeNo(String outTradeNo) {
-		this.outTradeNo = outTradeNo;
-	}
+	
 	public String getSign() {
 		return sign;
 	}
