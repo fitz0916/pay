@@ -9,7 +9,7 @@
 	<meta charset="utf-8">
 	<meta http-equiv="X-UA-Compatible" content="IE=edge">
 	<meta name="viewport" content="width=device-width, initial-scale=1">
-	<title>会话管理</title>
+	<title>订单查询</title>
 	<meta charset="utf-8">
 	<meta name="renderer" content="webkit|ie-comp|ie-stand">
 	<meta http-equiv="X-UA-Compatible" content="IE=edge">
@@ -26,10 +26,33 @@
 <body>
 	
 	<div class="panel panel-default">
-				<div class="panel-header">brokenes【扫码】支付测试</div>
+				<div class="panel-header">brokenes【扫码】订单查询</div>
 				<div class="panel-body">
-					<a href="${basePath}/pay" target="_blank">微信扫码-支付</a>
-					<a href="${basePath}/orderTracking" target="_blank">微信扫码-订单查询</a>
+					<form action="${basePath}/pay" method="post" class="form form-horizontal responsive" id="payform" novalidate="novalidate">
+						<div class="row cl">
+							<label class="form-label col-xs-3">商户号customerNo：</label>
+							<div class="formControls col-xs-8">
+								<input type="text" class="input-text valid"  name="customerNo" id="customerNo" autocomplete="off" value="10086877891">
+							</div>
+						</div>
+						<div class="row cl">
+							<label class="form-label col-xs-3">商户秘钥：</label>
+							<div class="formControls col-xs-8">
+								<input type="text" class="input-text valid"  name="merKey" id="merKey" autocomplete="off" value="YrDpbi">
+							</div>
+						</div>
+						<div class="row cl">
+							<label class="form-label col-xs-3">订单号：</label>
+							<div class="formControls col-xs-8">
+								<input type="text" class="input-text"  name="payAmount" id="payAmount" value="1">
+							</div>
+						</div>
+						<div class="row cl">
+							<div class="col-xs-8 col-xs-offset-3">
+								<input class="btn btn-primary" type="button" value="&nbsp;&nbsp;提交&nbsp;&nbsp;" id="payBtn">
+							</div>
+						</div>
+					</form>
 				</div>
 			</div>
 

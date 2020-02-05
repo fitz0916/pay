@@ -25,10 +25,19 @@ public class PaymentController {
 	
 	@RequestMapping("/index")
 	public String index() {
-		
 		return "/pay/index";
-		
 	}
+	
+	@RequestMapping("/pay")
+	public String pay() {
+		return "pay/pay";
+	}
+	
+	@RequestMapping("/orderTracking")
+	public String orderTracking() {
+		return "pay/orderTracking";
+	}
+	
 	
 	@RequestMapping("/pay")
 	public String pay(PaymentRequest paymentRequest,ModelMap modelMap) {
