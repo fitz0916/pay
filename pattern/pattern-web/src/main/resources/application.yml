@@ -1,0 +1,57 @@
+eureka:
+    client:
+        serviceUrl:
+            defaultZone: http://localhost:8000/eureka/
+hystrix:
+    command:
+        default:
+            execution:
+                isolation:
+                    thread:
+                        timeoutInMilliseconds: 6000
+log:
+    base:
+        path: /data/app/logs
+    common:
+        level: INFO
+ribbon:
+    ConnectTimeout: 60000
+    ReadTimeout: 60000
+    eureka:
+        enable: true
+server:
+    port: 9002
+    servlet:
+        jsp:
+            init-parameters:
+                development: true
+servlet:
+    multipart:
+        enabled: true
+spring:
+    application:
+        name: pattern-web
+    cloud:
+        loadbalancer:
+            retry:
+                enabled: true
+    http:
+        encoding:
+            charset: UTF-8
+            enabled: true
+            force: true
+    main:
+        allow-bean-definition-overriding: true
+    mvc:
+        view:
+            prefix: /WEB-INF/view/
+            suffix: .jsp
+    redis:
+        database: 0
+        hostName: 127.0.0.1
+        password: ''
+        port: 6379
+        usePool: true
+web:
+    project:
+        name: pattern-web

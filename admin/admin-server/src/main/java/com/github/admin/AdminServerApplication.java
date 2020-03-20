@@ -1,23 +1,20 @@
 package com.github.admin;
 
+import org.mybatis.spring.annotation.MapperScan;
 import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
 import org.springframework.cloud.client.discovery.EnableDiscoveryClient;
-import org.springframework.cloud.openfeign.EnableFeignClients;
 
 /**
- * admin-web
+ * admin-server
  *
  */
+
 @SpringBootApplication
 @EnableDiscoveryClient
-@EnableFeignClients
-//@ServletComponentScan
-public class Application{
-	
+@MapperScan("com.github.admin.server.dao")
+public class AdminServerApplication {
     public static void main( String[] args ){
-       SpringApplication.run(Application.class, args);
+        SpringApplication.run(AdminServerApplication.class, args);
     }
-    
-
 }

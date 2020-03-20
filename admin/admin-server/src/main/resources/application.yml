@@ -1,0 +1,32 @@
+eureka:
+    client:
+        serviceUrl:
+            defaultZone: http://localhost:8000/eureka/
+mybatis:
+    config-location: classpath:mybatisConfig/mybatis-configuration.xml
+    mapper-locations: classpath:mybatisConfig/mapper/*.xml
+server:
+    port: 9000
+spring:
+    application:
+        name: admin-server
+    datasource:
+        url: jdbc:mysql://localhost:3306/admin?serverTimezone=GMT%2b8&useSSL=false&rewriteBatchedStatements=true
+        username: root
+        password: 12345678
+        connectionProperties: druid.stat.mergeSql=true;druid.stat.slowSqlMillis=5000;config.decrypt=false;
+        driver-class-name: com.mysql.cj.jdbc.Driver
+        filters: config,stat,wall,slf4j
+        initialSize: 5
+        maxActive: 20
+        maxPoolPreparedStatementPerConnectionSize: 20.0
+        maxWait: 60000
+        minEvictableIdleTimeMillis: 300000
+        minIdle: 5
+        poolPreparedStatements: true
+        testOnBorrow: false
+        testOnReturn: false
+        testWhileIdle: true
+        timeBetweenEvictionRunsMillis: 60000
+        type: com.alibaba.druid.pool.DruidDataSource
+        validationQuery: SELECT 1 FROM DUAL
