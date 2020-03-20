@@ -1,0 +1,31 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project version="4">
+  <component name="ProjectModuleManager">
+    <modules>
+      <module fileurl="file://$PROJECT_DIR$/admin/admin.iml" filepath="$PROJECT_DIR$/admin/admin.iml" />
+      <module fileurl="file://$PROJECT_DIR$/admin/admin-client/admin-client.iml" filepath="$PROJECT_DIR$/admin/admin-client/admin-client.iml" />
+      <module fileurl="file://$PROJECT_DIR$/admin/admin-common/admin-common.iml" filepath="$PROJECT_DIR$/admin/admin-common/admin-common.iml" />
+      <module fileurl="file://$PROJECT_DIR$/admin/admin-server/admin-server.iml" filepath="$PROJECT_DIR$/admin/admin-server/admin-server.iml" />
+      <module fileurl="file://$PROJECT_DIR$/admin/admin-web/admin-web.iml" filepath="$PROJECT_DIR$/admin/admin-web/admin-web.iml" />
+      <module fileurl="file://$PROJECT_DIR$/channel-front/channel-client/channel-client.iml" filepath="$PROJECT_DIR$/channel-front/channel-client/channel-client.iml" />
+      <module fileurl="file://$PROJECT_DIR$/channel-front/channel-common/channel-common.iml" filepath="$PROJECT_DIR$/channel-front/channel-common/channel-common.iml" />
+      <module fileurl="file://$PROJECT_DIR$/channel-front/channel-front.iml" filepath="$PROJECT_DIR$/channel-front/channel-front.iml" />
+      <module fileurl="file://$PROJECT_DIR$/channel-front/channel-server/channel-server.iml" filepath="$PROJECT_DIR$/channel-front/channel-server/channel-server.iml" />
+      <module fileurl="file://$PROJECT_DIR$/github-appmodel/github-appmodel.iml" filepath="$PROJECT_DIR$/github-appmodel/github-appmodel.iml" />
+      <module fileurl="file://$PROJECT_DIR$/pattern/pattern.iml" filepath="$PROJECT_DIR$/pattern/pattern.iml" />
+      <module fileurl="file://$PROJECT_DIR$/pattern/pattern-client/pattern-client.iml" filepath="$PROJECT_DIR$/pattern/pattern-client/pattern-client.iml" />
+      <module fileurl="file://$PROJECT_DIR$/pattern/pattern-common/pattern-common.iml" filepath="$PROJECT_DIR$/pattern/pattern-common/pattern-common.iml" />
+      <module fileurl="file://$PROJECT_DIR$/pattern/pattern-server/pattern-server.iml" filepath="$PROJECT_DIR$/pattern/pattern-server/pattern-server.iml" />
+      <module fileurl="file://$PROJECT_DIR$/pattern/pattern-web/pattern-web.iml" filepath="$PROJECT_DIR$/pattern/pattern-web/pattern-web.iml" />
+      <module fileurl="file://$PROJECT_DIR$/.idea/pay.iml" filepath="$PROJECT_DIR$/.idea/pay.iml" />
+      <module fileurl="file://$PROJECT_DIR$/pay-eureka/pay-eureka/pay-eureka.iml" filepath="$PROJECT_DIR$/pay-eureka/pay-eureka/pay-eureka.iml" />
+      <module fileurl="file://$PROJECT_DIR$/pay-trans/pay-trans.iml" filepath="$PROJECT_DIR$/pay-trans/pay-trans.iml" />
+      <module fileurl="file://$PROJECT_DIR$/pay-trans/trans-api-test/trans-api-test.iml" filepath="$PROJECT_DIR$/pay-trans/trans-api-test/trans-api-test.iml" />
+      <module fileurl="file://$PROJECT_DIR$/pay-trans/trans-client/trans-client.iml" filepath="$PROJECT_DIR$/pay-trans/trans-client/trans-client.iml" />
+      <module fileurl="file://$PROJECT_DIR$/pay-trans/trans-common/trans-common.iml" filepath="$PROJECT_DIR$/pay-trans/trans-common/trans-common.iml" />
+      <module fileurl="file://$PROJECT_DIR$/pay-trans/trans-server/trans-server.iml" filepath="$PROJECT_DIR$/pay-trans/trans-server/trans-server.iml" />
+      <module fileurl="file://$PROJECT_DIR$/pay-trans/trans-task/trans-task.iml" filepath="$PROJECT_DIR$/pay-trans/trans-task/trans-task.iml" />
+      <module fileurl="file://$PROJECT_DIR$/pay-trans/trans-web/trans-web.iml" filepath="$PROJECT_DIR$/pay-trans/trans-web/trans-web.iml" />
+    </modules>
+  </component>
+</project>

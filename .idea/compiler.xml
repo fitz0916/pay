@@ -1,0 +1,56 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project version="4">
+  <component name="CompilerConfiguration">
+    <annotationProcessing>
+      <profile name="Maven default annotation processors profile" enabled="true">
+        <sourceOutputDir name="target/generated-sources/annotations" />
+        <sourceTestOutputDir name="target/generated-test-sources/test-annotations" />
+        <outputRelativeToContentRoot value="true" />
+        <module name="admin-client" />
+        <module name="admin-common" />
+        <module name="admin-server" />
+        <module name="admin-web" />
+        <module name="channel-client" />
+        <module name="channel-common" />
+        <module name="channel-server" />
+        <module name="github-appmodel" />
+        <module name="pattern-client" />
+        <module name="pattern-common" />
+        <module name="pattern-server" />
+        <module name="pattern-web" />
+        <module name="pay-eureka" />
+        <module name="trans-api-test" />
+        <module name="trans-client" />
+        <module name="trans-common" />
+        <module name="trans-server" />
+        <module name="trans-task" />
+        <module name="trans-web" />
+      </profile>
+    </annotationProcessing>
+    <bytecodeTargetLevel>
+      <module name="admin" target="1.8" />
+      <module name="admin-client" target="1.8" />
+      <module name="admin-common" target="1.8" />
+      <module name="admin-server" target="1.8" />
+      <module name="admin-web" target="1.8" />
+      <module name="channel-client" target="1.8" />
+      <module name="channel-common" target="1.8" />
+      <module name="channel-front" target="1.8" />
+      <module name="channel-server" target="1.8" />
+      <module name="github-appmodel" target="1.5" />
+      <module name="pattern" target="1.8" />
+      <module name="pattern-client" target="1.8" />
+      <module name="pattern-common" target="1.8" />
+      <module name="pattern-server" target="1.8" />
+      <module name="pattern-web" target="1.8" />
+      <module name="pay-eureka" target="1.8" />
+      <module name="pay-trans" target="1.8" />
+      <module name="trans-api-test" target="1.8" />
+      <module name="trans-client" target="1.8" />
+      <module name="trans-common" target="1.8" />
+      <module name="trans-server" target="1.8" />
+      <module name="trans-task" target="1.8" />
+      <module name="trans-web" target="1.8" />
+    </bytecodeTargetLevel>
+  </component>
+</project>
