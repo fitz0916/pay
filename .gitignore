@@ -30,3 +30,9 @@ hs_err_pid*
 target
 .DS_Store
 .metadata
+
+### IntelliJ IDEA ###
+.idea
+*.iws
+*.iml
+*.ipr
