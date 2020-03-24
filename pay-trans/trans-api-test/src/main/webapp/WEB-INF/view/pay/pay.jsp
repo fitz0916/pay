@@ -28,7 +28,7 @@
 	<div class="panel panel-default">
 				<div class="panel-header">brokenes【扫码】支付测试</div>
 				<div class="panel-body">
-					<form action="${basePath}/pay" method="post" class="form form-horizontal responsive" id="payform" novalidate="novalidate">
+					<form action="${basePath}/wechatpay" method="post" class="form form-horizontal responsive" id="payform" novalidate="novalidate">
 						<div class="row cl">
 							<label class="form-label col-xs-3">商户号customerNo：</label>
 							<div class="formControls col-xs-8">

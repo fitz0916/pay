@@ -39,8 +39,8 @@ public class PaymentController {
 	}
 	
 	
-	@RequestMapping("/pay")
-	public String pay(PaymentRequest paymentRequest,ModelMap modelMap) {
+	@RequestMapping("/wechatpay")
+	public String webchatpay(PaymentRequest paymentRequest,ModelMap modelMap) {
 		paymentRequest.setCurrency("CNY");
 		paymentRequest.setCustomerNo("10086877891");
 		paymentRequest.setDesc("微信扫码-测试");

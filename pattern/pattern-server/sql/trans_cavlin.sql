@@ -107,7 +107,7 @@ CREATE TABLE `pattern_customer_payment_channel_info` (
   `payment_channel_id` int(10) NOT NULL COMMENT '所属支付通道ID',
   `customer_id` int(10) NOT NULL COMMENT '商户ID',
   `customer_no` varchar(15) NOT NULL,
-  `settlement_type` tinyint(4) DEFAULT NULL,
+  `settlement_type` int(10) DEFAULT NULL,
   `remark` varchar(100) CHARACTER SET utf8 COLLATE utf8_general_ci NOT NULL DEFAULT '' COMMENT '备注',
   `create_time` datetime NOT NULL ON UPDATE CURRENT_TIMESTAMP COMMENT '创建时间',
   `update_time` datetime NOT NULL ON UPDATE CURRENT_TIMESTAMP COMMENT '更新时间',
