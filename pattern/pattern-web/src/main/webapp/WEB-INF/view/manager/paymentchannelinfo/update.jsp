@@ -26,19 +26,19 @@
 		</div>
 		<div class="radio">
 			<div class="radio radio-inline radio-info">
-				<input id="settlementType_0" type="radio" name="settlementType" value="0" <c:if test="${customerPaymentChannelInfo.settlementType == 0}">checked</c:if>>
+				<input id="settlementType_0" type="radio" name="settlementType" value="702" <c:if test="${customerPaymentChannelInfo.settlementType == 702}">checked</c:if>>
 				<label for="settlementType_0">D0 </label>
 			</div>
 			<div class="radio radio-inline radio-danger">
-				<input id="settlementType_1" type="radio" name="settlementType" value="1" <c:if test="${customerPaymentChannelInfo.settlementType == 1}">checked</c:if>>
+				<input id="settlementType_1" type="radio" name="settlementType" value="703" <c:if test="${customerPaymentChannelInfo.settlementType == 703}">checked</c:if>>
 				<label for="settlementType_1">D1 </label>
 			</div>
 			<div class="radio radio-inline radio-info">
-				<input id="settlementType_2" type="radio" name="settlementType" value="2" <c:if test="${customerPaymentChannelInfo.settlementType == 2}">checked</c:if>>
+				<input id="settlementType_2" type="radio" name="settlementType" value="700" <c:if test="${customerPaymentChannelInfo.settlementType == 700}">checked</c:if>>
 				<label for="settlementType_2">T0 </label>
 			</div>
 			<div class="radio radio-inline radio-danger">
-				<input id="settlementType_3" type="radio" name="settlementType" value="3" <c:if test="${customerPaymentChannelInfo.settlementType == 3}">checked</c:if>>
+				<input id="settlementType_3" type="radio" name="settlementType" value="701" <c:if test="${customerPaymentChannelInfo.settlementType == 701}">checked</c:if>>
 				<label for="settlementType_3">T1 </label>
 			</div>
 		</div>

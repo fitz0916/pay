@@ -25,19 +25,19 @@
 		</div>
 		<div class="radio">
 			<div class="radio radio-inline radio-info">
-				<input id="settlementType_0" type="radio" name="settlementType" value="0" checked>
+				<input id="settlementType_0" type="radio" name="settlementType" value="702" checked>
 				<label for="settlementType_0">D0 </label>
 			</div>
 			<div class="radio radio-inline radio-danger">
-				<input id="settlementType_1" type="radio" name="settlementType" value="1">
+				<input id="settlementType_1" type="radio" name="settlementType" value="703">
 				<label for="settlementType_1">D1 </label>
 			</div>
 			<div class="radio radio-inline radio-info">
-				<input id="settlementType_2" type="radio" name="settlementType" value="2">
+				<input id="settlementType_2" type="radio" name="settlementType" value="700">
 				<label for="settlementType_2">T0 </label>
 			</div>
 			<div class="radio radio-inline radio-danger">
-				<input id="settlementType_3" type="radio" name="settlementType" value="3">
+				<input id="settlementType_3" type="radio" name="settlementType" value="701">
 				<label for="settlementType_3">T1 </label>
 			</div>
 		</div>
